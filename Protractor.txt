@@ -2373,9 +2373,9 @@ How to Delete a repository
 
 How to upload existing repo with updated file
 -------------------------------------------------
-
+1. right click on notes folder in important documents, open with git bash
 1. in GIT Bash, go to the file path location
-2. git add .
+2. git add .			(//this will add all files that are changed)
 or git add filename
 
 3. git commit -m "message"
