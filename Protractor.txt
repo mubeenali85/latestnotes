@@ -1,0 +1,2375 @@
+rahulonlinetutor@gmail.com
+
+Protractor - Udemy
+---------------------
+
+
+Installation.
+
+1. Install node
+2. Install protractor
+
+in cmd,
+
+C:\Users\mubali> npm install -g protractor
+C:\Users\mubali> webdriver-manager update
+
+to start Selenium,
+
+C:\Users\mubali> webdriver-manager start
+
+>> server is up and running on port 4444
+
+
+
+Jasmine:
+Describe - Test Suite  (collections for test cases)
+it -test case
+
+Spec (Jasmine terminology) - test file  like class in Java
+-------------------------------
+every spec should have describe and it block
+
+
+Configuration file - driver file
+---------------------
+include all spec file names that needs to be run
+
+its like testngm xml file
+
+sample:
+exports.config = {
+   seleniumAddress: 'http://localhost:4444/wd/hub',
+    specs: ['spec1.js']
+  };
+
+
+Blog to read on Javascript asynchronous
+-----------------------------------------
+
+https://www.sohamkamani.com/blog/2016/03/14/wrapping-your-head-around-async-programming/
+
+Promise:
+Is a state of a step or line of code
+
+Various State for a line of code in JS
+--------------------------------------
+
+1. Pending
+2. Resolved 
+3. Rejected
+
+Sycnhronous - you will move to next step only when the promise of current step is resovled or rejected Ex: Java/Python
+Asynchronous - JS moves to next step even if promise is pending
+
+Protractor API  - 90% of our protractor api will not move to next step untill promise is resolved
+
+Protractor supports
+Any action on the browser, it supports promise resolving on its own
+but if you want to retrieve any thing from browser, then that particular functionality related methods have
+no support of promise resolving
+
+
+How to handle asynchronous to execute in sequential manner:
+------------------------------------------------------------
+
+use .then() method
+
+suppose there are three steps and need to execute step3 after step1 and 2.
+
+step1
+step2.then(function() {
+step3
+})
+
+>>
+step3 will be exeucted after step2 only
+
+
+Real Example:
+-------------------
+
+describe('angularjs homepage todo list', function() {
+  it('should add a todo', function() {
+  
+	  browser.get('https://angularjs.org');
+	  browser.get('http://juliemr.github.io/protractor-demo/').then(function() {
+		  console.log("Iam the last step to execute");
+		  
+	  })
+	
+	
+  });
+});
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Basics of Javascript:
+---------------------
+
+1. no need to specfically mention the data type
+2. assign variable as var
+
+var a =4;
+var b="mubeen"
+
+
+
+Conditional statement:
+If Else:
+----------
+sample:
+if(a==b)
+	{
+	console.log("Statement is true")
+	}
+else if(a>b)
+	{
+	console.log("statement is false")
+	}
+
+else
+	{
+	console.log("statement is false")
+	}
+
+
+For Loop:
+-----------
+
+for(i=0; i<100;i++)
+{
+
+}
+
+While Loop:
+--------
+
+var j=1;
+while(j<5)
+{
+j++;
+}
+
+Do While Loop:
+-------------
+var k=1
+do
+{
+k++;
+}while(k<10)
+
+
+Java Script Functions:
+-------------------------
+
+function add(a,b){
+	
+	c = a+b;
+	return c;
+}
+
+var l =add(2,3);
+console.log(l);
+
+
+Array in JS:
+-------------
+
+
+var b = ["hello","world","4","dog"]
+
+for(i=0;i<b.lenth;i++)
+{
+console.log(b[i]);
+}
+
+
+or
+
+ var c = new Array();
+c[0]="mubeen";
+c[1] = "ali";
+
+
+
+String Function in JS:
+---------------------
+
+var name ="mubeen"
+
+name.charAt(1)
+>
+u
+
+name.slice(1,3)
+>>
+ub
+note abt slicing: starting index is inclusive, and ending ndex is exclusive
+
+
+
+var newname = name.concat("ali")
+>>
+mubeenali
+
+
+Trim:
+----
+name="mubeen "
+console.log(name.trim());
+>>
+mubeen
+
+
+
+Different way fo declaring string: As object declaration:
+------------------------------------------------------
+
+var name2 = new String("mubeen");
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------Section6------------------------------------------------------------------------------------------
+
+Protractor can identify the dom elements with following locators like css, id, name, model and binding using by
+
+Protractor ssupports all locators which selenium uses, apart from that there aere few additioanl locators like
+addLocator, binding, model etc
+
+
+ex: by.model("first")
+applicable only for angular apps
+
+
+5common locators in Protractor:
+-----------------------------
+
+by.css('.myclass')
+by.id('myid')
+by.name('field_name')
+by.model('name')
+by.binding('bindingname')
+
+
+
+CSS Locator:
+
+tagname[attribute='value']
+
+
+Xpath is not suggested with protractor, it works but little slow
+
+---------------------
+
+In a simple program, to fetch the text. It is not as simple as in selenium to simply grab the text
+We need to resolve the promise first and catch the text like below
+
+  element(by.css("h2[class='ng-binding']")).getText().then(function (text){
+          console.log(text)
+
+        })
+ 
+
+
+Jasmine git Assertion:
+----------------
+   expect(element(by.css("h2[class='ng-binding']")).getText()).toBe("10")
+
+While doing assertion in Jasmine, it take care of the response, so no need to use the .then() method
+
+.toBe() - can be used for Strings
+.toEqual() - can be used for integers
+.toMatch() - to check if the string contains this particular string
+
+jasmine.github.io/2.0/introduction.html has more details on assertions
+
+
+To run the test on different browsers:
+-----------------------------------------
+
+Add below capabilities in config file to run chrome browser
+
+capabilities: {
+    browserName: 'chrome'
+  },
+
+
+
+For running on IE:
+-----------------
+
+Usually when we run the command webdriver-manager update, it will automatically download both geck and chrome driver.
+
+But IE driver is not insatlled
+
+for IE driver to beinstalled and located in below path
+C:\Users\mubali\AppData\Roaming\npm\node_modules\protractor\node_modules\webdriver-manager\selenium
+
+We need to run below command
+
+>> webdriver-manager update --ie
+
+it will install ie driver as well
+
+
+ capabilities: {
+        browserName: 'internet explorer'
+      }
+
+
+How to run scripts with out starting webdriver-manager start:
+----------------------------------------------------------------
+
+from config file, if we remove the line
+seleniumAddress: 'http://localhost:4444/wd/hub',
+
+and stop webdriver-manager, it will still run in chrome and other browser. but looks like there are bugs when we try to do
+the same in chrome or ie. So it si always good to start the webdriver-manager and then the script by providing the local host link
+in config file.
+
+
+ie is not consistent with protractor
+
+
+
+
+How to run non-angular websites:
+---------------------------------
+
+if we try to run non angular site like google.com same like an angular app. it will throw error asking to turn off angular.
+Because when google is loaded, it will check for all angular elements to be loadedd and google has no Angular.
+
+So add below code to turn off Angular
+
+browser.waitForAngularEnabled(false);
+
+
+
+
+using Repeater:
+------------------
+
+its like table tr and td
+to get the td value with in tr, below is the code.
+
+element(by.repeater("result in memory")).element(by.css("td:nth-child(3)")).getText().then(function(text)
+
+
+
+
+All Method:
+---------------
+
+
+All method is used to receive all the rows.
+
+     element.all(by.repeater("result in memory")).count().then(function(textcount) {
+            console.log(textcount)
+        })
+
+
+
+Chain Locator:
+
+Chain locator is nothing but, taking an element with in an element
+
+For ex: 
+ element(by.model("operator")).element(by.css("option:nth-child(5)")).click();
+
+
+Each():
+
+Each method is used with all to iterate thru all the items
+
+Syntax:
+  element.all(by.repeater("result in memory")).each(function(item) {
+
+            item.element(by.css("td:nth-child(3)")).getText().then(function(text)
+        
+        {
+        console.log(text)
+        })
+
+        })
+
+
+
+
+
+Resuable function:
+-----------------
+
+reusable function should be inside "describe" block but outside "it" block
+
+describe('Chain Locators demo', function() {
+
+function sub(a,b)
+{
+
+    element(by.model("first")).sendKeys(a).then(function() {
+
+        element(by.model("operator")).element(by.css("option:nth-child(5)")).click();
+       })
+       element(by.model("second")).sendKeys(b)
+       element(by.id("gobutton")).click();
+
+}
+
+it()
+
+})
+
+})
+
+
+Sample program to iterate thru each calculation operator:
+----------------------------------------------------------
+working sample:
+
+
+describe("calculation",function(){
+
+function calc(a,b,c)
+{
+    element(by.model("first")).sendKeys(a)
+    element(by.model("second")).sendKeys(b)
+    element.all(by.tagName("option")).each(function(item){
+    item.getAttribute("value").then(function(values)
+    {
+        if(values==c)
+        {
+            item.click();
+        }
+    })
+    })
+
+    element(by.id("gobutton")).click();
+}
+
+    it("test1",function() {
+
+        browser.get('http://juliemr.github.io/protractor-demo/')
+        calc(11,12,"ADDITION")
+        calc(11,12,"MULTIPLICATION")
+        calc(11,12,"DIVISION")
+        browser.sleep(9000)
+    })
+})
+
+
+
+Actions:
+---------------
+
+
+Sample not working
+        browser.get('http://posse.com/')
+        element(by.model("userInputQuery")).sendKeys("river");
+       
+       
+     browser.actions().mouseMove(element(by.model("locationQuery")).sendKeys("London")).perform() 
+     browser.actions().sendKeys(protractor.Key.ARROW_DOWN).perform()
+     browser.actions().sendKeys(protractor.Key.ENTER).perform().then(function() {
+
+        browser.sleep(9000)
+     })
+    })
+
+
+How to retreive nth item:
+---------------------------
+
+
+Suppose you have used all() method to retrieve all the count of links, then how to click on the nth link
+
+element.all(by.css("tagname["value"='xx']").count();
+
+element.all(by.css("tagname["value"='xx']").get(n);  --> clicks on nth link
+element.all(by.css("tagname["value"='xx']").first();  --> clicks on first link
+element.all(by.css("tagname["value"='xx']").last();   --> clicks on last link
+
+
+How to handle windows in Protractor:
+-----------------------------------
+
+Suppose when you click on a link and new window opens. then we need to retrieve the required handle id and do further operations
+
+browser.getAllWindowHandles().then(function() {
+
+browser.switchTo().window(handles[1])
+
+})
+
+
+
+How to gettitle:
+----------------
+browser.getTitle().then(function(title) {
+console.log(title)
+})
+
+
+
+How to switch back to parent window:
+----------------------------------------
+browser.switchTo().window(handles[0])
+
+
+
+Rohits website:
+http://qaclickacademy.com/practice.php
+
+
+JavaScript Alert handling:
+----------------------
+
+Accept - browser.switchTo().alert().accept()
+Dismiss - browser.switchTo().alert().dismiss()
+
+
+
+
+  it('Open non angular website alerts', function() {
+    
+      browser.waitForAngularEnabled(false);
+
+
+            browser.get('http://qaclickacademy.com/practice.php')
+            element(by.id("confirmbtn")).click()
+           
+            browser.switchTo().alert().accept().then(function() {
+
+                browser.sleep(8000)
+            })
+
+        })
+
+
+Frames:
+----------
+browser.switchTo().frame(id or name)
+ 
+
+
+How to maximize the browser:
+-----------------------------
+broswer.driver.manage().window().maximize()
+
+
+Handling Synchronization with Protractor:
+-----------------------------------------
+
+We use Expected COndition which is same Explicit Wait in Selenium
+
+
+Syntax:
+
+var EC = protractor.ExpectedConditions;
+
+browser.wait(EC.invisibilityOf(element(by.id("loader"))),8000)
+
+In protractor API website we can see many more Expected COnditions like 
+1. Elemenet is clickable
+2. InvisibilityOf
+3. VisibilityOF etc..
+
+
+
+CSSContainting Text:
+---------------------
+
+if there are multiple values with same tagname and need to select on one, we can use csscontainting text which can filter
+2 levels based on the lcoator
+
+
+element(by.cssContainingText("select[id='exampleFormControlSelect1'] option","Male")).click()
+
+
+note: here, select and option both are tagnames
+
+
+option tagname has 2 values from whihc to select Male we use the above syntax.
+
+
+
+Button Text:
+---------------
+
+Similar to CssContaining Text, there is another option exclusively in prtractor to click on a button by its name rather
+going by the id or name in webelement
+
+suppose a button has name 'Submit', then it canbe clicked like below
+
+element(by.buttonText("Submit")).click();
+
+
+
+Use Regular expression with CSS:
+---------------------------------
+
+Use regular expression with css, so that no need to provide full value. A part of the value is enough
+
+for ex:
+
+element(by.css("a[href*='partiallink']")).click()
+
+here we are providing partial link or text when we provide * with href
+
+
+Partial Linked Text:
+-----------------------
+
+Same as linked Text, but identifies the text associated to the link partially
+
+For ex: Checkout (1)
+number can keep varying here when you add to cart. So we can use partial linked text
+
+
+element(by.partialLinkText("Checkout")).getText().then(function(txt){
+
+console.log(txt)
+
+})
+
+
+How to convert String to Number in JS:
+----------------------------------------
+
+var res  = Number(res[1].trim())
+
+note: here res will be a number
+
+
+
+
+----------------------------------------------------------------------------------Section 12----------------------------------------------------------------------------------------------
+
+
+Type Script Basics:
+--------------------
+
+Typescript = js+additional features
+
+
+Additional features are the OOPS capabilities
+
+
+
+How to install Typescript:
+------------------------
+
+npm install -g typescript
+
+
+
+
+
+What is ES5 or Es6
+-------------------
+
+JS releases updates are ES5,6 etc , that is like Java8,9,10. 
+Until ES5 ,there is no feature like Let and Const in Typescript
+In JS, from ES6 they have features like let and const
+
+Till date browsers cannot understand ES6 it can understant only ES5, so we are writing in type script. But browser cannot understand typescript also
+
+But once you write in TS, it has capability to convert back to JS ES5 based on TS intentions.
+
+Why cant we write directly in ES5 JS instead of writing in Type script
+
+ES5 JS is complicated script, so we write in TS which is comparitevely simple.
+
+
+
+How to compile TS script to JS
+------------------------------
+
+in terminal >> tsc basics.ts
+
+it will convert basics.ts program file to JS
+
+
+>> node basics.js
+
+runs the converted js file now
+
+
+What is Let keyword:
+---------------------
+
+let keyword breaks the asynchronous jail. it will execute in synchronous way	
+
+When you write a normal code like below
+
+for(var i=0;i<5;i++){
+
+setTimeout(function() {console.log(i);},100*i)
+
+}
+
+
+Output
+5
+5
+5
+5
+5
+
+Outpout what we expected 0 1 2 3 4
+
+but since JS is asynchronous and it wont wait for any block of code, meanwhile it will execute the one line that can be executed without any wait
+so using above format is not advisable
+
+
+How to fix above asynchronous issue in JS
+---------------------------------------
+when used let instead of var, it will execute block by block in synchronous way instead of asynchronous
+
+
+
+
+const kyword:
+-------------
+
+const is constant, the value cannot be modified unlike var variable
+
+For ex:
+const b =4;
+b=3;  this is not possible because b is already assigned 4, now cannot chnage because it is constant
+
+
+let b="hello"
+b=3   #this is also not possible, because initially we mentioned b is string. now cannot change to integer unlike var in below case
+
+var c=3;
+c="hello"  this is possible
+
+
+
+
+How to define variables for a specfic data type
+------------------------------------------------------------
+
+let b:string="hello"
+
+let c:number=4
+
+let list:Array<number>=[1,2,3]
+
+let flag:boolean=false;
+
+
+
+What happens when we define all above variables in type script and compile to JS
+---------------------------------------------------------------------------------
+it will get converted to JS and instead of let it will be converted to var
+
+
+
+
+How to store value in a variable if you dont know the return type:
+--------------------------------------------------------------------
+
+let d:any
+
+d = 3
+d = "hello"   here variable d can accept any type, as we defined it as any
+
+
+
+Classes:
+----------
+
+Class in Type script is same as in Java
+
+Class consitutes of properties, methods and constructors
+
+properties is similar variables, but when inside a class it is mentioned as properties. Difference between variables and properties is that inside a class we cannot use let keyword
+
+
+for ex:
+
+class Classdemo
+{
+
+//properties
+username:string;				// we cannot define as let username:string inside class
+password:string;	
+ssn:number;				
+
+
+
+//methods
+getUsername()
+{
+
+return this.username;				need to use this. keyworkd
+
+}
+
+setUsername()
+{
+
+this.username="hello"
+
+}
+
+
+getSSN()
+{
+
+return this.ssn;
+
+}
+
+}
+
+//create object of class, and using object call the methods or properties present inside the class
+
+let cd = new ClassDemo();
+
+cd.setUsername()
+console.log(cd.getUsername());    
+cd.username
+
+
+How to use methods in above class:
+--------------------------------
+
+create objects outside the class and call the methods
+
+
+
+How to define a constructor:
+-------------------------------
+1.
+constructor()
+{
+console.log("i will be th efirst to execute");
+}
+
+
+
+2.
+constructor(ssn:number)
+{
+
+this.ssn = ssn;
+
+}
+
+
+let cd = new ClassDemo(123);
+
+
+Export and IMport in Type script
+---------------------------------
+
+suppose we need to create object of a class, then we need to use following keywords
+
+
+i.) class file name -> ClassDemo1.ts
+ii.) program to import the ClassDemo1.ts properties -> practice1.ts
+
+
+1.
+in ClassDemo1.ts
+export class ClassDemo
+
+{
+
+}
+
+2.
+in practice1.ts,
+
+import {ClassDemo} from './ClassDemo1'
+
+
+need above line of codes to export and import the properties from a class file to a different file
+
+
+
+Functions in Type Script:
+--------------------------
+1. 
+function validate(value:string):void				//void is important if we are not retruning anything
+{
+console.log(value);
+
+}
+
+>>
+validate("hey");
+
+
+
+2. Function with return statement
+
+function validate(value:number):number				//return type is number here
+{
+return value;
+
+}
+
+
+console.log(validate(2));
+
+
+
+Objects:
+------------
+
+We can package multiple properties for an object like below
+
+let obj=
+{
+color:"red",
+engine:100,
+}
+console.log(obj.engine)
+
+Interfaces:
+------------
+
+interface vehicle
+{
+    color:string;
+    engine:number;
+    camera:boolean;
+}
+let Bmw=
+{
+    color:"red",
+    engine:200,
+    camera:true  
+}
+
+let Maruthi=
+{
+    color:"black",
+    engine:100,
+    
+}
+
+function validateCar(car:vehicle)    //vehicle is interface whihc is the return type
+{
+console.log(car.camera)
+console.log(car.color)
+console.log(car.engine)
+}
+
+validateCar(Bmw);        //Bmw object follows the interface vehicle standards
+validateCar(Maruthi);       //this function would not run because it did not declare all the properties in the interface
+
+
+
+
+How to make a property as option in Interface:
+-----------------------------------------------
+
+interface vehicle
+{
+    color:string;
+    engine:number;
+    camera?:boolean;
+}
+
+function validateCar(car:vehicle)    //vehicle is interface whihc is the return type
+{
+console.log(car.camera)
+console.log(car.color)
+console.log(car.engine)
+}
+
+let Maruthi=
+{
+    color:"black",
+    engine:100,
+    
+}
+
+validateCar(Maruthi);
+
+>>
+undefined
+black
+100
+
+Note: it is not mandatory to declare Camera now since we added question mark
+
+
+
+How to import an interface to different program file:
+--------------------------------------------------------
+
+if interface name is vehicle, then
+
+
+import {vehicle} from './basics';
+
+
+
+
+Usage of Pipes for anonymous functions:
+-----------------------------------------
+
+
+nameless functions are anonymous functions
+
+describe and it in protractor where we write function is anonymous functions. we can replace the function with => as well
+
+
+describe('testing', function(){
+it('test1', function(){
+
+})
+
+})
+
+also can be written as,
+
+describe('testing', ()=>{
+it('test1', ()=>{
+
+})
+
+})
+
+Note: fat arrow pipe will work with ES6 or greater. not with ES5
+
+-------------------------------------------------------Section 13 Protractor with Typescript Cucumber framework-----------------------------------------------------------------
+
+info@qaclickacademy.com for resume preparation
+
+Protractor with Typescript Cucumber framework:
+------------------------------------------------
+
+
+
+
+1. Create a folder ProtractorTypeScriptCucumber and open folder in VS Code editor
+
+2. install dependencies needed for protractor ts framework , it is like jars we add in selenium and also in maven we add dependencies in pom.xml
+
+need to create a package.json and provide all dependencies here
+
+then type-- npm install, it will download all the dependencies
+
+
+Why we need a separate package.json file to install all utilities?
+
+Cant we install everything glabally like we do for protractor, npm install -g protractor
+
+No, because in a framework we need many components like cucumber, chai, report generation etc So we cannot install all this glabally like protractor, it is not good approach
+
+
+3. In Vs code, click on bottom left corner  X and ! symbol to open the terminal
+
+4. >> npm init
+
+5. provide meta data details, hit enter for most of them and the package.json file will be generated
+
+6. Go to prtoractor website, reference -> using typescript it will navigate to github location on how to use typescript with protractor and wahta ll dependencies needs to be installed
+
+
+7. in github, go to package.json file to get all the dependencies
+https://github.com/angular/protractor/blob/5.4.1/exampleTypescript/package.json
+
+8. In the above link, under package.json we can see jasminewd2 dependency
+
+Actually, TS cannot understand jasmine directly. So we need jasminewd2 that makes typescript understand jasmine
+
+
+9. Once we have the package.json file in vs code, now we need to install all dependencies
+
+10. There are 2 ways to install dependencies,
+
+Method1: 
+
+For ex:
+
+in terminal, 
+
+>> npm install protractor   //protractor will be installed locally at the same time protractor dependency will be added to json file
+now you can append below dependency to the json file rather npm installing each and every component separately.
+
+ "dependencies": 
+  {
+    "protractor": "^5.4.2",
+    "typescript": "~3.4.3",
+    "jasmine": "~3.4.0",
+    "@types/jasmine": "^3.3.5",
+    "@types/jasminewd2": "2.0.6",
+    "ts-node": "8.3.0",
+    "@types/node": "10.12.18"
+  }
+
+
+ 
+if unable to install dependency by updating in json file, then try below method. Sugegsting to do with above method
+npm install protractor
+npm install -g typescript
+npm install -g jasmine
+npm install --save @types/jasmine
+npm install --save @types/jasminewd2
+npm install -D ts-node
+npm install -D typescript
+npm install --save @types/node
+
+
+11. Build basic structure with spec and config files
+
+1. create spec file  --> testspec.ts
+
+Add following code:
+
+describe('Chain locators Demo',()=> {
+
+it('open angular js website',()=> {
+
+browser.get('http://juliemr.github.io/protractor-demo/')
+
+   element(by.model("first")).sendKeys("3")
+   element(by.model("second")).sendKeys("5")
+   element(by.id("gobutton")).click();
+
+element(by.repeater("result in memory")).element(by.css("td:nth-child(3)")).getText().then(function(text)
+        
+{
+console.log(text)
+})
+
+
+})
+
+})
+
+
+2. it is noted that we get error when we add above JS code in testspec.ts file. Because for TS we need to import element, browser and by from protractor
+For JS it is automatically done
+
+so add below code in first line of testspec.ts
+
+import { browser,element,by } from "protractor";
+
+
+
+12. Create config file  -> configuration.ts
+
+
+
+Copy configuration file code from below link
+https://www.protractortest.org/#/api-overview
+
+
+Code:
+import {Config} from 'protractor';
+
+// An example configuration file
+export let config: Config = {
+
+    // The address of a running selenium server.
+     //  seleniumAddress: 'http://localhost:4444/wd/hub',
+  
+  directConnect: true,
+  
+    // Capabilities to be passed to the webdriver instance.
+
+    capabilities: {
+      browserName: 'chrome'
+    },
+  
+    // Spec patterns are relative to the configuration file location passed
+    // to protractor (in this example conf.js).
+    // They may include glob patterns.
+
+    specs: ['testspec.js'],					//need to give this as js extension, because tsc command wont convert it to js file
+  
+    // Options to be passed to Jasmine-node.
+    jasmineNodeOpts: {
+      showColors: true, // Use colors in the command line report.
+    }
+  };
+
+
+
+13 Remember to add below command on top in configuration.ts file.  
+
+1. import {Config} from 'protractor';
+
+2. export let config: Config = {            //replace line 2 "exports.config = {" with command 
+
+also, provide the spec file details
+
+
+
+14. In config file rrather giving "seleniumAddress: 'http://localhost:4444/wd/hub'
+
+we can provide directConnect command like below
+
+ -->  directConnect: true,
+
+With this command, even without starting selenium server we can run the test
+
+
+15.  Since our code is written in TS, protractor wont directly understand TS. So first it needs to be converted
+to JS and protractor will only understand JS
+
+Prtractor compiler is designed to run JS files only
+
+
+Why Typescript:
+----------------
+TS = JS + OOPS concept
+
+TS has OOPS features it is easy maintainable
+
+
+After converting TS to JS, it is not easy for normal developer to udnerstand. But this JS format is understandable by Prtotactor
+
+
+
+16. Typescript configuration file is mandatory to convert all TS code to JS
+https://github.com/angular/protractor/blob/5.4.1/exampleTypescript/tsconfig.json
+
+Sample Code from github:
+{
+  "compilerOptions": {
+    "target": "es6",					//this mean TS will be converted to ES6 verison of JS
+    "module": "commonjs",				
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "outDir": "tmp"
+  },
+  "exclude": [					//this means, exclude below files from converting from TS to Js, we dont need all files to be converted to JS
+    "node_modules",
+    "asyncAwait",
+    "plugins.ts"
+  ]
+}
+
+
+16.1 install >> npm -g typescript				/// type this in terminal just to be on safer side, though it was already installed above
+
+16.2 >> tsc --init			//this will create tsconfi.json file, it will help converting type script to JS
+
+16.3 Once the tsconfig.json is generated need to edit few lines like below
+
+Updated code:
+{
+  "compilerOptions": {
+
+   "target": "es6",                         
+   "module": "commonjs",
+   "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "outDir": "JSFiles",   					// /* Redirect output structure to the directory. */ IMPORTANT all converted JS files will be stored here
+
+},
+  "exclude": [
+    "node_modules"
+  ]
+
+}
+
+Notes:
+
+comment strict, not required
+
+
+16.4 How to convert all TS files to JS
+>> tsc			//this command will convert all TS to JS
+
+//note : there will be 2 errors in my project, it can eb ignroed
+
+
+
+17. After converting TS to JS file, now run the JS file to run the test file
+
+>>protractor JSFiles/testspec.js    		//this will run the test file and execute the scripts
+
+
+
+points to note here
+
+17.1 we are going to run the converted JS file, and nto the TS file
+17.2 file names wont get converted when we give tsc command
+instead in configuration.ts file itself we assume that testspec.ts file will converted and give extension as testspec.js  in configuration.ts file
+
+
+So that in the converted configuration.js file in JSFiles folder will show as teststep.js itelf
+
+
+18. Importance of Async/Await synchronization
+
+https://www.protractortest.org/#/control-flow
+
+In future control flow will be removed in JS, so there is no gaurantee line of codes will be executed in sequence. Now we know we use promise
+for few of the line of codes with then() to grab a text , but we dont use then() for all codes
+
+So there are 2 options now if they are removing control in JS
+
+1. either use promise chaining in all line of codes or
+2 use upcoming ES7 feature asyn/await    ---this is already in TS though it is coming with ES7 JS
+
+write await keyword to every code in it block that needs to be executed in sequence format
+
+we will see error when we use await
+
+
+18.2 - need to use async if using await, otherwise await will throw error. If you are using promise chaining then no need to use awiat. either of 1 is enough
+Await is used for ES7 JS or typescripts any version
+
+Code:
+
+it('open angular js website',async()=> {
+
+   await browser.get('http://juliemr.github.io/protractor-demo/')
+
+  await element(by.model("first")).sendKeys("3")
+  await  element(by.model("second")).sendKeys("5")
+  await element(by.id("gobutton")).click();
+
+element(by.repeater("result in memory")).element(by.css("td:nth-child(3)")).getText().then(function(text)
+        
+{
+console.log(text)
+})
+
+
+})
+
+
+
+19. Now run tsc command to convert and protractor JSFiles/configuration.js to execute the file
+
+20. Build Page Object Model
+
+It is good practice to have page objects defined in separate folder.
+
+20.1 
+In testspec.js, add 2 test cases like below
+
+Code working:
+
+import { browser,element,by } from "protractor";
+
+
+describe('Chain locators Demo',()=> {
+
+  it('open angular js website',async()=>{
+
+      await browser.get('http://juliemr.github.io/protractor-demo/')
+      await element(by.model("first")).sendKeys("3")
+      await  element(by.model("second")).sendKeys("5")
+      await element(by.id("gobutton")).click();
+
+      await element(by.repeater("result in memory")).element(by.css("td:nth-child(3)")).getText().then(function(text)
+        
+      {
+       console.log(text)
+     })
+
+
+  })
+
+   it('Angular home page title validation', async() =>{
+
+      await browser.get("https://angularjs.org/");
+      await element(by.linkText("angular.io")).click();
+      await element(by.css("input[type='search']")).sendKeys("hello");
+
+   })
+
+
+})
+
+
+
+20.2 - Create folder pageObjects
+inside this folder, create file calculator.ts
+
+in calculator.ts -> bring all the objects of first test case
+
+Define all the elements like below in a constructor
+
+Working Code:
+
+
+import { ElementFinder, element, by } from "protractor";
+
+export class Calculator
+{
+
+    firstEditbox:ElementFinder;
+    secondEditbox:ElementFinder;
+    go:ElementFinder;
+    getResult:ElementFinder;
+
+    constructor()
+    {
+        this.firstEditbox=element(by.model("first"));
+        this.secondEditbox=element(by.model("second"));
+        this.go=element(by.id("gobutton"));
+        this.getResult=element(by.repeater("result in memory")).element(by.css("td:nth-child(3)"));
+        
+
+
+    }
+
+
+}
+
+
+
+20.3
+
+Now update the testspec.ts file as per the objects defined in calculator.ts under pageObject folder
+
+create an object of the class Calculator which defines all the elements in Calculator class 
+
+Code working:
+
+import { browser,element,by } from "protractor";
+import { Calculator } from "./pageObjects/calculator";
+
+
+describe('Chain locators Demo',()=> {
+
+  it('open angular js website',async()=>{
+
+      let calc = new Calculator();
+      await browser.get('http://juliemr.github.io/protractor-demo/')
+
+      await calc.firstEditbox.sendKeys("3")					//see the changes here
+      await calc.secondEditbox.sendKeys("5")					//see the changes here
+      await calc.go.click();							//see the changes here
+      
+     // await element(by.model("first")).sendKeys("3")
+     // await  element(by.model("second")).sendKeys("5")
+    //  await element(by.id("gobutton")).click();
+
+    calc.getResult.getText().then(function(text)				//see the changes here
+        
+      {
+       console.log(text)
+     })
+
+
+  })
+
+   it('Angular home page title validation', async() =>{
+
+      await browser.get("https://angularjs.org/");
+      await element(by.linkText("angular.io")).click();
+      await element(by.css("input[type='search']")).sendKeys("hello");
+
+   })
+
+
+})
+
+
+
+
+21 - Similar to above step 20, we need to create a page object for the second test case as well
+
+In pageObjects fodler, create a a file angularHomepage.ts file and create a class inside it with
+declaring all the objects in the angular web page and create a constructor. So when we create an object of this class in the second
+test case, it will invoke the constructor in angularHomepage.ts file and assigns all the elements to the variable we created
+
+In angularHomepage.ts under PageObject folder,
+
+Workign code:
+import { ElementFinder,element,by } from "protractor";
+
+export class angularHomePage
+{
+
+    angularLink:ElementFinder;
+    search:ElementFinder;
+
+
+    constructor()
+    {
+        this.angularLink = element(by.linkText("angular.io"));
+        this.search = element(by.css("input[type='search']"));
+
+    }
+
+
+}
+
+
+21.1, In the test spec now update the second test case as per above step in 21.
+
+Working code:
+
+import { browser,element,by } from "protractor";
+import { Calculator } from "./pageObjects/calculator";
+import { angularHomePage } from "./pageObjects/angularHomePage";
+
+describe('Chain locators Demo',()=> {
+
+  it('open angular js website',async()=>{
+
+      let calc = new Calculator();
+      await browser.get('http://juliemr.github.io/protractor-demo/')
+
+      await calc.firstEditbox.sendKeys("3")
+      await calc.secondEditbox.sendKeys("5")
+      await calc.go.click();
+      
+     // await element(by.model("first")).sendKeys("3")
+     // await  element(by.model("second")).sendKeys("5")
+    //  await element(by.id("gobutton")).click();
+
+    calc.getResult.getText().then(function(text)
+        
+      {
+       console.log(text)
+     })
+
+
+  })
+
+   it('Angular home page title validation', async() =>{
+
+         let ah = new angularHomePage();
+
+      await browser.get("https://angularjs.org/");
+      await ah.angularLink.click();
+      await ah.search.sendKeys("hello");
+      await browser.sleep(3000)
+   })
+
+
+})
+
+
+Note: remember to use export in the class angularHomePage  and import in the test case to import the class angularHomePage from 
+angularHomePage.ts under pageObject folder
+
+
+
+22. Importance of scripts tag in package.json
+
+Till now, we used to run 2 commands in terminal to run the execution. First is tsc to convert the complete test to JS from TS
+and then second command is protractor JSFiles/configuration.js to execute the scripts. Now we can encapsulate both in package.json
+and just run one command like npm run test
+
+In package.json, add below codes
+
+working code: append to existing code:
+------------------------------------------
+"main": "index.js",
+  "scripts": {
+    "test": "protractor JSFiles/configuration.js",
+    "pretest": "tsc",
+    "protractor": "./node_modules/protractor/built/cli.js",
+    "webdriver-update": "./node_modules/.bin/webdriver-manager update"
+  },
+
+
+22.1 here we have key value pair like test and pretest. So whenever we run npm run test, it will check if there is any
+pretest to run. In this case pretest is tsc.
+
+22.2 One point to note is, we had already installed protractor globally. But above 22.1 will not working if protractor is
+installed globally. So we give the following path cli.js and webdriver-server path. So that protractor is taken locally
+
+run below commands:
+>> npm run webdriver-update       ///run it rarely
+>> npm run test				//this will run the test and pretest
+
+
+----------------------------------------------------------Section 13 - Protractor with TS Cucumebr framework Phase2------------------------
+
+
+Cucumber:
+Behaviour drivern development framework
+
+https://docs.cucumber.io/
+
+
+Gherkin syntax - Given, when, then
+
+Cucumber is used to udnerstand the business logic behind each code, stepDefinition file is linked to featrure file. So they
+can see what the intention of each code is
+
+
+Feature file:
+-------------
+Feature: Test Suite name
+
+Scenario: Verify user logged in successfully (Test case name)
+
+Given User landed on home page   -> Current state
+When User enter username and password to login  -> Action what you are doing
+Then User logged succesffully and dashboard is diplayed   -> Outcome
+
+
+
+StepDefinition file:
+//provide the mapping here to feature file
+Action will be provided here for eaach gherkin in feature file
+like browser.get()
+element(by.id()).sendkeys();
+
+
+23.For reference on cucumber - https://github.com/protractor-cucumber-framework/protractor-cucumber-framework
+
+
+24. Install Cucumber
+in package.json file add the following cucumber components and type the command in terminal
+
+>>npm install 			//this will install below cucumber related fiels
+
+Code to add in package.json
+-------------------------------
+  "protractor-cucumber-framework": "^6.1.3",
+    "cucumber": "^5.1.0",
+    "@types/cucumber": "^4.0.4"
+
+
+
+25. To run the scripts in cucumber way, 
+create cucumberconfig.ts file similar to configuration.ts file. But we will remove jasmine related stuff and add cucumber components here
+
+Code:
+import {Config} from 'protractor';
+
+// An example configuration file
+export let config: Config = {
+    // The address of a running selenium server.
+  //  seleniumAddress: 'http://localhost:4444/wd/hub',
+  
+  directConnect: true,
+  framework:'custom',
+  frameworkPath: require.resolve('protractor-cucumber-framework'),
+  
+    // Capabilities to be passed to the webdriver instance.
+    capabilities: {
+      browserName: 'chrome'
+    },
+  
+    // Spec patterns are relative to the configuration file location passed
+    // to protractor (in this example conf.js).
+    // They may include glob patterns.
+    specs: ['testspec.js'],
+  
+  };
+
+
+
+26. Create feature file,
+
+Create a folder features, and create feature file with .feature extension
+
+features >> demo.feature
+
+
+In demo.feature add below items
+
+
+Code: 
+
+Feature: I am going to validate my calculator Apps
+
+
+Scenario: Calculator add functionlaity testing
+
+Given I will navigate to calculator site
+When i add 2 numbers called "3" and "5"
+Then the output displays should be "8"
+
+
+
+Scenario: Calculator add functionlaity testing
+
+Given I will navigate to angular js page
+When i clicked on header link
+And you will navigate to angular page
+Then you will enter "hello" in search box
+
+
+
+27. Step definition file
+
+How to geneerate step definition
+
+27.1 In Step definition, all the features in feature file should be mapped to Step definition file
+27.2 if there is parameter in feature file, it should be replaced with regular expression in Step definitiion file
+27.3 In cucumberconfi.ts file, mention where the step definition file is located. 
+27.4 this step definition file will find the matching implementation in feature file
+
+cucumberconfig.ts (will have step definition file path) ----> step definition file   ----> feature file
+
+Add below code to cucumberconfig.ts,
+-------------------------------------
+
+ specs: ['../features/demo.feature'],							//see 27.6 why we added two dots
+  cucumberOpts: {
+      // require step definitions
+      require: [
+        'path/to/step/definitions/**/*.steps.js' // accepts a glob
+      ]
+    }
+
+
+27.5, Though we dont have the step defintiion file added yet, we have given incorrect path of step definition file above
+but with this incorrect path we will  geenrate the outline structure for step definition
+
+27.6 in terminal run below command
+>> tsc						
+
+Note: when we convert all TS to JS, it is ntoed that .feature file cannot be converted. When you go inside
+JSFile/ccucumberconfig.js   -- it is seen that path for demo.feature is not at parent level   [./features/demo.feature']
+so we give two dots like -- ../features/demo.feature' 
+so that it recogonizes the .feature file correctly in cucumberconfig.js
+
+
+27.7 go to package.json and update below line of code, so that we can run the command --> npm run cucumberconfig
+
+"cucumbertest": "protractor JSFiles/cucumberconfig.js",
+
+
+27.8
+
+go to terminal
+
+>> npm run cucumbertest
+
+this will throw error, but it will generate the outline strucutre of step definition file
+
+
+28. Create a folder stepDefinitions
+
+29. Create a steps.ts --> step definition file inside it
+
+
+
+Code:
+-----
+
+import { Given, When, Then } from "cucumber";
+import { async } from "q";
+import { Calculator } from "../pageObjects/calculator";
+import { browser } from "protractor";
+
+let calc = new Calculator();
+
+Given('Given I will navigate to calculator site',async ()=> {
+
+    await browser.get('http://juliemr.github.io/protractor-demo/')
+
+});
+
+When('i add 2 numbers called {string} and {string}',async (string, string2)=> {
+    
+    await calc.firstEditbox.sendKeys(string)
+    await calc.secondEditbox.sendKeys(string2)
+});
+
+
+Then('Then the output displays should be {string}',async (string) => {
+
+    await calc.go.click();
+    calc.getResult.getText().then(function (text) {
+       console.log(text)
+    })
+});
+
+
+
+30. Update cucumberconfig.ts file with steps.ts file path
+
+Code:
+ cucumberOpts: {
+      // require step definitions
+      require: [
+        './stepDefinitions/*.js' // star represents all files in this folder, including timeout.ts
+      ]
+
+
+31. Add timeouts.ts file in stepDefinitions folder
+
+Code:
+-----
+var {setDefaultTimeout} = require('cucumber');
+
+setDefaultTimeout(60 * 1000);
+
+
+Note: this will act as implicit wait in selenium
+
+
+32. Need to add timeout.ts path in cucumberconfig.ts
+
+ cucumberOpts: {
+      // require step definitions
+      require: [
+        './stepDefinitions/*.js' // star represents all files in this folder, including timeout.ts
+      ]
+
+
+33. Note that, in feature file if there are 2 scenarios and the language is same. then no need to implement 2 times in step
+definition. once implement in step defintion and if parameters are different in feature file though scenarios are same. One step
+definition implementation is enough like below for ex:
+
+demo.feature:sample
+-----------------
+Scenario: Calculator add functionlaity testing
+
+Given I will navigate to calculator site
+When i add 2 numbers called "3" and "5"
+Then the output displays should be "8"
+
+
+ Scenario: Calculator add functionlaity testing
+
+ Given I will navigate to calculator site
+ When i add 2 numbers called "2" and "3"
+ Then the output displays should be "5" 
+
+
+Code: Sample step implementation in step definition
+---------------------------------------------------------
+When('i add 2 numbers called {string} and {string}',async (string, string2)=> {
+    
+    await calc.firstEditbox.sendKeys(string)
+    await calc.secondEditbox.sendKeys(string2)
+});
+
+
+34. Note that, if protractor code is using chain locators, better to use await even if we are using promise with then().
+some times it may not work. So it is good practice to always use await feature
+
+
+35. How to comment and uncomment in vs code
+cntrl+?  --acts both ways
+
+36. Common Step defintion scenario, Now how to reuse the same step definition implementation for 2 different scenarios
+
+For ex: in our case, we have 2 scenarios one is for calculator and other for angularjs app.
+
+
+Feature file now:
+-------------------
+Scenario: Calculator add functionlaity testing
+Given I will navigate to calculator site
+
+Scenario: Calculator add functionlaity testing
+Given I will navigate to angular js page
+
+
+Feature file after updating and making it look alike
+----------------------------------------------------
+Scenario: Calculator add functionlaity testing
+Given I will navigate to "calc" page
+
+Scenario: Calculator add functionlaity testing
+Given I will navigate to "AngularJs" page
+
+
+Here now, we rephrase Given to look alike for 2 different scenarios. Now we can use Step definition like below
+
+
+36.2 In stepsDefinitions folder -> steps.ts 
+
+
+Given('I will navigate to {string} page', async (string) => {
+    if(string=="calc")
+    {
+        await browser.get('http://juliemr.github.io/protractor-demo/')
+    }
+    else if(string=="AngularJs")
+    {
+    await browser.get("https://angularjs.org/");
+    }
+  });
+
+
+36.3 now run following commands to see if it works
+>> tsc
+>> npm run cucumbertest
+
+Note: ideally since we configured belwo code in cucumberconfig.ts, we should be able to directly run npm run cucumbertest, rather running both tsc along with it
+
+but point to note is pretest will work only with test. Since we are using cucumbertest.then we need to write tsc each time to convert TS to JS
+
+ "scripts": {
+    "test": "protractor JSFiles/configuration.js",
+    "pretest": "tsc",
+    "cucumbertest": "protractor JSFiles/cucumberconfig.js",
+    "protractor": "./node_modules/protractor/built/cli.js",
+    "webdriver-update": "./node_modules/.bin/webdriver-manager update"
+  },
+
+
+
+36.4 Updated steps.ts file in stepDefinitons folder
+
+import { Given, When, Then } from "cucumber";
+import { async } from "q";
+import { Calculator } from "../pageObjects/calculator";
+import { browser } from "protractor";
+import { angularHomePage } from "../pageObjects/angularHomePage";
+
+let calc = new Calculator();
+let ah = new angularHomePage();
+
+Given('I will navigate to calculator site',async ()=> {
+    await browser.get('http://juliemr.github.io/protractor-demo/')
+});
+
+
+Given('I will navigate to {string} page', async (string) => {
+    if(string=="calc")
+    {
+        await browser.get('http://juliemr.github.io/protractor-demo/')
+    }
+    else if(string=="AngularJs")
+    {
+    await browser.get("https://angularjs.org/");
+    }
+  });
+
+
+  When('i clicked on header link', async () => {
+    await ah.angularLink.click();
+  });
+
+
+  When('you will navigate to angular page', async () => {
+    console.log("Navigating to new angular page")
+  });
+
+
+  Then('you will enter {string} in search box', async (string) => {
+    await ah.search.sendKeys(string);
+    await browser.sleep(3000)
+  });
+
+
+When('i add 2 numbers called {string} and {string}',async (string, string2)=> {
+    await calc.firstEditbox.sendKeys(string)
+    await calc.secondEditbox.sendKeys(string2)
+});
+
+
+Then('the output displays should be {string}',async (string) => {
+    await calc.go.click();
+    await calc.getResult.getText().then(function (text) {
+       console.log(text)
+    })
+});
+
+
+
+
+37. How to paramterize a scenario in feature file with multiple inputs. 
+
+In demo.feature, update as below. In this case, this scenario will run as many times iteration how many examples we have in key. in this case 2
+
+
+Scenario Outline: Calculator add functionlaity testing
+
+Given I will navigate to "AngularJs" page
+When i clicked on header link
+And you will navigate to angular page
+Then you will enter "<key>" in search box
+
+Examples:
+| key | 
+| hello  |
+| hey    |
+
+
+
+38. Implement Assertions using Chai for Cucumber.
+We cannot use Cucumber with Jasmin for assertions. Instead use Chai assertions
+
+
+Website: https://www.chaijs.com/
+
+
+38.1 Syntax:
+
+expect(actual).to.be.a(expected);
+expect(actual).to.equal(expected);
+expect(actual).to.have.lengthOf(expected);
+
+
+
+
+In package.json, add following dependencies for Chai assertions
+
+ "chai": "^4.2.0",
+ "chai-as-promised": "^7.1.1"
+
+
+>> npm install
+
+will add all required packages
+
+39. Update steps.ts file to implement chai like below
+
+
+import { angularHomePage } from "../pageObjects/angularHomePage";
+import chai from "chai";
+
+Then('the output displays should be {string}',async (string) => {
+    await calc.go.click();
+    await calc.getResult.getText().then(function (text) {
+        expect(text).to.equal(string)
+    })
+
+----------------------------------------------------------------------------Section 16-----------------------------------------------------------
+
+Sectiion 16: Part4 Protractor with Typescript Cucumber framework
+
+
+40. Tagging Mechanism
+
+Update like below in demo.feature
+
+@Calculatortesting
+Scenario: Calculator add functionlaity testing
+
+@Calculatortesting
+ Scenario: Calculator add functionlaity testing
+
+
+@AngularJStesting
+Scenario Outline: Calculator add functionlaity testing
+
+
+
+40.1. Now goto cucumberconfig.ts, and update tags which needs to be run like below . in my case iam running only @AngularJStesting
+
+
+  cucumberOpts: {
+      // require step definitions
+      tags: "@AngularJStesting",
+      require: [
+        './stepDefinitions/*.js', // accepts a glob
+      ]
+
+
+41. run the commands to execute
+
+>>tsc
+>> npm run cucumbertest
+
+it should run only @AngularJStesting related tagged scenaruios
+
+
+
+42. Cucumber hooks
+
+link: https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/hooks.md
+
+Hooks are like @beforetest and @aftertest in TestNg
+
+
+Hooks are like prerequisite to do before execution of testing
+
+
+
+42.1 Create file hooks.ts inside stepDefintiions folder. Remember in cucumberconfig.ts we have given a require statement like below. This path is a folder level
+So it will automatically pick the hooks.ts file from this path
+
+ require: [
+        './stepDefinitions/*.js', // accepts a glob
+      ]
+
+
+
+42.2 In hooks.ts,
+
+
+import {After,Before} from "cucumber";
+import { browser } from "protractor";
+
+
+Before({tags: "@Calculatortesting"}, function () {
+  browser.driver.manage().window().maximize();
+
+});
+
+Before({tags: "@AngularTest"}, function () {
+  console.log("I need to execute first")
+});
+
+
+After({tags: "@AngularTest"}, function () {
+    console.log("Test is blocked")
+  });
+
+
+
+43. Cucumber HTML Report generation
+
+Reference link: https://www.npmjs.com/package/cucumber-html-reporter
+
+
+To get a beautifull report, we need to add cucumber option format. Format can generate reports in html, json, pretty etc
+
+In cucumberconfig.ts,
+
+   cucumberOpts: {
+      // require step definitions
+      tags: "@AngularTest",
+      format:'json:./cucumberreport.json',
+      require: [
+        './stepDefinitions/*.js', // accepts a glob
+      ]
+
+
+note: here a report will created in mainfolder with file name cucumberreport.json. This JSOn will given as input for HTML Report Gneration
+
+
+43.2 With step, it will create a report in json format with file name cucumeberreport.json
+
+
+43.3 to generate cucumber html report from json file. add the plugin to package.json file like beloe
+
+ "cucumber-html-reporter": "^5.0.0" and type npm install
+
+
+
+43.4 To generate cucumber html report. First cucumber execution has to be completed
+
+So how to run the report after the cucumber execution is complete
+
+Go to protractor website, see configuration file -> search for onComplete()
+
+https://github.com/angular/protractor/blob/master/lib/config.ts
+
+
+43.5 In cucumberconfig.ts append below lines obtained from the link given below
+
+Reference link: https://www.npmjs.com/package/cucumber-html-reporter
+
+
+import * as reporter from 'cucumber-html-reporter';
+
+ require: [
+        './stepDefinitions/*.js', // accepts a glob
+      ]
+    },
+     
+      onComplete: () => {
+        var options = {
+          theme: 'bootstrap',
+          jsonFile: './cucumberreport.json',
+          output: './cucumber_report.html',
+          reportSuiteAsScenarios: true,
+          scenarioTimestamp: true,
+          launchReport: true,
+          metadata: {
+              "App Version":"0.3.2",
+              "Test Environment": "STAGING",
+              "Browser": "Chrome  54.0.2840.98",
+              "Platform": "Windows 10",
+              "Parallel": "Scenarios",
+              "Executed": "Remote"
+          }
+      };
+   
+      reporter.generate(options);
+
+      }
+
+
+43.6 this will generate report in html. copy path and open in broser to see the report
+
+
+44. Screenshot on Failure of scenarios:
+
+Add after hook, in hooks.ts. It will take screenshot for all failed test cases only
+
+
+  After(async function(scenario) {
+    // This hook will be executed before scenarios tagged with @foo
+    console.log("Test is completed");
+    if (scenario.result.status=== Status.FAILED)
+    {
+      //code to take screesnhot
+     const screenshot= await browser.takeScreenshot();
+   
+          this.attach(screenshot,"image/png");
+    }
+  
+  
+  });
+  
+
+
+45. In the generated, cucumber html report we can view the screenshot at step level for failed tc
+
+
+----------------------------------------------------------------------Type Script Framework Complete----------------------------------------------------
+
+
+-----------------------------------------------------------------------------Jenkins----------------------------------------------------------------------
+
+
+1. Download Jenkins - https://jenkins.io/download/
+2. click Generic java package (.war)
+3. Go to terminal
+4. go to where "Generic java package (.war)" downloaded 
+5. cd C:\Users\mubali\Downloads
+6. java -jar jenkins.war -httpPort=8080
+7. http://localhost:8080/
+8. Username and password is admin
+9. Copy the project to C:\Users\mubali\.jenkins
+10. Remember Jenkins can recogonize projects only in .Jenkins folder
+11. 2 ways to run the projects. Either from local or through git
+
+12 Through local
+Click advanced in description, custom directory
+give directory path
+{JENKINS_HOME}/TypeScriptCucumber
+
+
+13. Build 
+
+Select windows command
+
+in first blcok
+>> npm install
+
+in second blockl
+>>npm run cucumber test
+
+14. Build now will runthe scripts
+
+
+
+---------------------------------------------------------------------------------GIT--------------------------------------------------------------------
+GITHUB:
+-------
+
+Username: mubeenali85	
+
+Password: Hightime@0
+
+1. Download GIT
+2. GITHUB is central repo and GIT is like command prompt to talk to GITHUB
+3. Create new repository, give a name this will create repo
+4. 
+
+Basic Git commands URL - https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
+
+Open CMD Terminal
+------------------
+
+>> git config --global user.name "Mubeen Ali"
+>> git config --global user.email "mubeen85@gmail.com"
+>> cd C:\Users\mubali\Desktop\git stuff
+>> git init   (it will create .git folder)
+>> 
+
+staging and commit
+
+first level of adding to git is staging.
+final level before pushing to git is commit
+
+
+>> git add .			(Add files to staging )
+>> git status   (which files added)
+>> git commit -m "this is trial only"
+>> git remote add origin https://github.com/mubeenali85/GitDemo.git			(origin is the repo link)
+>> git push origin master   (it will ask for github credentials for first time)
+
+OR
+
+>> git push origin master -f		(-f is force, if above syntax doesnot work)
+
+How to Clone:
+---------------
+For first time pulling use clone..then onwards use pull. Pull will pull only new things not all.
+>> git clone https://github.com/mubeenali85/GitDemo.git
+this will clone entire link from above given link
+
+How to push only updates
+>> git add .
+>> git commit -m "updates"
+>> git push origin master			(no need to give git remote add origin <server> for the second time. it is needed only once0)
+
+goto github to see the udpatyes
+
+
+
+How to Pull - take the latest code:
+-------------------------------------
+below command will download only latest code
+>> git pull origin master
+
+Importance of Branching in GIT:
+-------------------------------
+Suppose we need to take a copy of a project and work on it. We create a branch of the project. then once the branch 
+is complete, we merge it to the main branch which is the master
+
+
+>> git checkout -b develop				(-b is to create new branch) develop is the branch name
+>> git branch
+* develop
+  master
+
+make some changes to files
+
+>> git add .
+>> git commit -m "develop branch"
+>> git push origin develop
+it will push the code to develop branch in github
+
+
+if second person wanted to pull the updates from branch
+------------------------------------------------------
+>> git pull origin develop
+
+
+how to switch branches
+-------------------------
+>> git checkout develop
+
+
+How to merge develop branch to master
+---------------------------------------
+>> git checkout master
+>> git merge develop   (in this develop merge will merge with active branch).. as per above command we are in active branch master
+>> git push origin master  (it will bring all files in branch develop to master branch)
+
+
+How to add only one file:
+--------------------------
+>> git add c:/user/mubeen/note.txt
+
+
+
+It is important to do commit for Push,pull and merge operations
+
+
+If there is a merge conflict, update it manually and then merge again
+
+
+
+How to Delete a repository
+-----------------------------
+1. Login to GIT HUB
+2. Click on the repo
+3. Go to settings tab
+4. go down - enter repo name and hit delete
+
+--------------------------------------------------------------------------END--------------------------------------------------------------------
+

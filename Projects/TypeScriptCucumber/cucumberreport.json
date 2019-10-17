@@ -1,0 +1,397 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "I am going to validate my calculator Apps",
+    "line": 1,
+    "id": "i-am-going-to-validate-my-calculator-apps",
+    "tags": [],
+    "uri": "features\\demo.feature",
+    "elements": [
+      {
+        "id": "i-am-going-to-validate-my-calculator-apps;calculator-add-functionlaity-testing",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Calculator add functionlaity testing",
+        "tags": [
+          {
+            "name": "@Calculatortesting",
+            "line": 4
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I will navigate to calculator site",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 990000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "i add 2 numbers called \"3\" and \"5\"",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the output displays should be \"8\"",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2178000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:22"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "i-am-going-to-validate-my-calculator-apps;calculator-add-functionlaity-testing",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Calculator add functionlaity testing",
+        "tags": [
+          {
+            "name": "@Calculatortesting",
+            "line": 11
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:6"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 14,
+            "name": "I will navigate to \"calc\" page",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 292000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "i add 2 numbers called \"2\" and \"3\"",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 109000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the output displays should be \"5\"",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1942000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "i-am-going-to-validate-my-calculator-apps;calculator-add-functionlaity-testing",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Calculator add functionlaity testing",
+        "tags": [
+          {
+            "name": "@AngularTest",
+            "line": 18
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:11"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "I will navigate to \"AngularJs\" page",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1443000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "i clicked on header link",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1091000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "you will navigate to angular page",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "you will enter \"hello\" in search box",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4682000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:22"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "i-am-going-to-validate-my-calculator-apps;calculator-add-functionlaity-testing",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Calculator add functionlaity testing",
+        "tags": [
+          {
+            "name": "@AngularTest",
+            "line": 18
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:11"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "I will navigate to \"AngularJs\" page",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1264000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "i clicked on header link",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 826000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "you will navigate to angular page",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "you will enter \"hey\" in search box",
+            "match": {
+              "location": "stepDefinitions\\steps.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4757000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:22"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "stepDefinitions\\hooks.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

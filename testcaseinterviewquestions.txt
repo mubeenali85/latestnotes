@@ -1,0 +1,58 @@
+Question1: 
+How to test login page:
+
+Generally they are looking for scenarios from a broader business
+perspective, and not just testing username and password
+
+
+Functional test cases:
+1. verify the username field is a text field
+2. verify the password field is a text field
+3. verify if username field is accepting alphanumeric characters
+4. verify if password field is accepting alphanumeric characters
+5. verify the length of username, should be min 8 characters
+6. verify if login button is clickable
+7. verify the boundary value condition for username or password
+8. Verify the login fail message is displayed in red color
+
+Above is the usual scenarios we give as answer, but there few additional functionalities by which interviewer
+gets impressed
+
+9. Negative scenario, verify if incorrect password entered 3 times, validate the popup message should display
+"Account will get locked in 4th incorrect attempt"
+
+10. Verify when correct username and incorrect password is entered login fails 
+11.Verify when incorrect username and correct password is entered login fails 
+12.Verify if entering correct username, password and click on login button and it navigates to home page.(E2E testcase)
+13. verify the home page title after successfull login
+14. give any other points you think around security testing
+
+Non Functional test cases:
+1. verify the server is up and running
+2. verify the title of the login page
+3. verify the login functionality works in different browsers
+
+
+
+
+Question2:
+A user with bofa debit card goes to chase atm and tries to witdraw money
+
+Answer:
+Similar to above question, we generally gives answer around entering username, password and withdrawing cash
+
+few additional answers:
+1. Validate if additional fees is debited from the user since he went to different bank
+2. Verify if Over draft amount is debited from the user if balance less than 0, provided he does not have OD feature setup
+3. Verify if Over draft amount is not debited from the user if balance less than 0, provided user has OD feature setup
+4. Verify if once transaction is complete, message displays "need to continue or quit?"
+5. Verify if other features are displayed in atm, like check balance, apply loan, deposit cash etc
+
+
+Question3:
+Can expect wierd questions like,
+i) write scenario to test the functionality of an elevator
+ii) setofbox connected to tv, test the functionality (amazon question)
+So think from different business functionality while answering
+
+

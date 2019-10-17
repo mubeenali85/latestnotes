@@ -1,0 +1,2076 @@
+
+Devops - Module1
+
+devops is integration of developers and operations by automating the builds,infrastructure and monitoring application performance
+
+
+devops architecture:
+Developers -- VCS -- Jenkins   -- continous testing -- Jenkins -- continious deployment   --continous monitoring----feedback to developer
+
+								containerization   configuration managment		
+
+
+
+Module1 Interview questions:
+
+
+1. What is the one most important thing DevOps helps do? 
+ans:
+1. get the changes into production by minimizing the issue and assuring quality
+2. better communication
+3. good cordination between team
+4. lowers release failure
+
+
+2. Which scripting languages do you think are most important for a DevOps engineer? 
+ans:
+1. simpler the better, language is not important as the design pattern
+
+
+3. How do you expect you would be required to multitask as a DevOps professional?
+ans:
+1. bridge communication between operations and developers
+2. understand system design like an architect, 
+   understand the software development from developers perpective, 
+   understand operations and infrastructure from system admin perpective.
+3. Able to execute productively
+
+
+4. Tell us about the CI tools that you are familiar with?
+ans:
+CI tools are helpful in getting feedback at early stage, lesser the issues lesser the cost to fix
+CI tools:
+1. Jenkins
+2. Hudson
+3. Cruisecontrol
+4. Microsoft teams foundationserver
+
+
+8. What special training or education did it require for you to become a DevOps engineer?
+ans:
+1. Linux system administrator
+2. scripting
+3. CI tool, CM tool
+4. quickly learn new tools
+
+
+9. What is DevOps life cycle? 
+
+ans:
+1. commit code in VCS
+2. pull the code to build
+3. test integration and user acceptance test
+4. store artifacts
+5. deploy 
+6. config environment
+7. push to user
+8. repeat
+
+
+develop - test - package and deploy - monitor - feedback - develop
+
+
+10. What is the difference between continuous integration, continuous delivery and continuous deployment? 
+
+CI - 
+Continuous Integration - developer integrates code to a working code base sever times a day, this integration of code is tested and reported using CI tool
+
+
+Continuous Deployment - It is automated process to package software to an environment,the tested product can be continously released to user as per the changes
+
+Continuous Delivery - a product is delivered to production by fully automated process which undergoes the entire lifecycle
+
+11. What is DevOps, what is the advantage of DevOps? 
+
+Devops is integration between developers, operations and other IT person to automate application build,insfrastructure and deployment
+
+advantage of devops.
+1. continous softwware delivery
+2. idenitfy issues early stage
+3. faster releases.
+4. more stable environment
+5. good communication between dev and ops
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+GIT
+
+Version Control System - Is a system that allows multiple users to access the same information and manage multiple revision of it.
+
+Benefits of VSC
+1. Centralized repository
+2. Revision history
+3. Branching and tagging
+4. Automatic backups
+
+
+GIT Workflow -
+
+
+working directory		staging area 		local repo	        	remote repo
+
+4--------------git add---------------->
+				
+				5---------git commit---------->
+
+							      6-------------git push---------->
+
+							      <------------git pull-----------1   (1 and 2 is same)
+
+ <-------------git checkout any branch----------------------2
+
+ ------------------------git merge------------------------->3	
+
+
+Points to note
+clone = init + fetch + checkout (older version all 3 steps had to be performed separately. Now we can do in 1 step by clone)
+pull = fetch and merges from remote repo to working directory
+fetch = fetch latest changes from remote repo since last cloned/fetced
+Tag is label for a branch
+Master is also branch
+Check out - checkout a branch is the reference pointing to a branch.(if double click on developer branch from master branch. then developer branch
+is checkedout)
+Head - files after commit
+Origin in your this case refers to that repository which you have created in your github account. 
+
+
+Advantage of Git over other VCS:
+
+1. Distributed nature - can access repository data locally and can work on it when disconnected from network
+2. Branching - working directory act as a branch and revision history can be maintained
+3. better branching - 2 users can merge the code and then push to central repo.
+4. plugins available - gitflow for managing branching and egit to connect to eclipse.
+5. secure
+6. reliable or automatic backups - lost data can be recoverd.
+
+Git commands:
+
+1. git init - initialize local git repo. (.git file hidden file is created)
+2. git add <filename> - any file created will be staged with this command
+3. git add .  - all files here will be staged
+4. git commit -a -. "commit message" - one step to add and commit with commit message
+5. git status - status of repo
+6. git log - history of commits
+7. git branch <branchname> - creates new branch
+8. git checkout master - checksout master branch
+9. git checkout <branchname> -  checkouts any branchname
+10 git merge <sourcebranch> <destination branch> - merges from any branch to master or vice versa
+11. git clone <ssh path> - clones complete project from remote repo to local
+12. git fetch origin - fetches latest data from remote repo since last cloned
+13. git pull origin - fetches latest data from remote and merges with working branch
+14. git push origin master - pushes back to remote
+15. git revert #commit- to revert a commit
+
+note: origin is repository in github act
+
+
+Steps in source tree:
+
+1. Clone a project by copying ssh from github account and clicking on clone in source tree and provide ssh key
+2. create a branch out of master branch by clicking on branch
+3. double click on a branch to checkout
+4. click on terminal icon and create sample file
+5. stage and commit it
+6. merge branch with master
+7. click on push
+8. refresh github.com. we will be able to see the change
+
+In real world we donot directly merge a  developer branch with master. Instead we create a new release by clicking on gitflow,
+test it thouroughly then click on Finish release.When clicked on finish release the new release merges with developer branch.
+then we can merge with master branch and then push it to github.
+Finish release
+
+In Real world how git is used:
+master branch -  developer branch(all updates performed here) - parallely new feature branch is created - finishes and merges with developer branch
+new release created and tested thoroughly - merges master branch
+
+develop - create new release - release branch(testing) - finish release. 
+
+Git interview questions:
+
+
+1. Why should you use Jenkins? 
+
+ans:
+1. It is open source and easy to install
+2. Faster release cycle 
+3. Extensive plugin support - ANT, MAVEN etc
+4. Reporting in graphical and tabular form
+5. Integrates with VCS
+6. Recongizes windows and shell script commands
+7. Identify bug at early stage
+
+
+2. You are asked to backup Jenkins. How would you approach this task?
+ans:
+1. use backup plugin or shell script to backup jenkins folder
+
+
+5. How will you revert a commit already made?
+
+ans:
+1. git revert can be used to revert a commit
+2. Alternatively, checkout previous commit and commit it again.
+
+6. I do not want to change repository history with git revert? What do I do? ID 507549
+Answer: Running the following command will revert the last two commits: 
+git revert HEAD~2..HEAD
+
+Head is last commit
+Head1 is second last commit
+Head2 is third last commit
+
+
+7. What is squashing? Where is it used? How do you use it? 507555
+Answer: Squashing is the process of combining multiple commits into one. It is usually done
+in feature branches.
+E.g. The following command will squash last N commits into one:
+git rebase -I HEAD~{N}
+The editor will open. Each of the commits will begin with pick. Replace pick with squash (s) for
+all lines except the first one, save and exit. 
+
+
+8. Every time someone commits a change, I want some program to run. How do you do this?
+
+Write pre-commit, update or post-commit hooks.
+ Scripts can either be created within the hooks directory inside the “.git” directory,
+.git directory will have many types of sample hook files. hook can be triggered before a commit, after a commit or before a pull
+
+
+10. What are the different ways you can refer to a commit?
+
+ans:
+
+1. git checkout commit#
+2. git tags can be used instead of commit#
+3. relative commit - commit Head~1 is parent to Head and Head~2 is grandparent to Head
+
+
+11. What is git rebase and how can it be used to resolve conflicts in a feature branch before merge?
+
+git rebase - if new feature is created from master and then master gets 2 commits, same changes can be replayed in the feature branch
+to point to tip of master by git rebase command.
+
+12. What is a staging area or Index in GIT?
+before git commit, the changes can be review intermideiate stage
+
+
+16. What is the function of git clone?
+clone will get a copy of git repository in local
+clone =init+fetch+checkout
+
+
+19. How can you create a repository in GIT?
+git init will create a repository and .git directory whcih contains all the required configs and files
+
+20. What is ‘head’ in GIT and how many heads can be created in a repository?
+
+any commit will be referenced as head. Master is default head. A repo can have multiple heads
+
+
+21. What is the purpose of branching in GIT?
+branches helps in working on mutiple task and can switch branches whenever required
+
+
+22. What is the function of git diff/status in GIT?
+
+git diff shows the difference between commits
+git status shows the status of working directly. what is commited, and what is pending a commit etc
+
+
+23. What is the function of git checkout in GIT?
+git checkouts a new branch with latest updates from other branch without a merge
+
+24. What is the function of git rm?
+to remove files from staging area
+
+
+26. What is the use of git log?
+full history of a commit
+
+
+27. What is git add used for?
+adds new files to working directory
+
+
+28. What is the function of git reset?
+git reset will reset back to previous commit
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Continous Integration:
+
+
+developer integrates code into remote repository several times a day and each checkins has to be verified by automation
+build to compile test and deploy in QA or prod
+
+Jenkins:
+
+Jenkins is an open source CI tool written in Java for testing and reporting changes in large code base.
+The software helps developers identify defects at early stage and also automates testing of their builds.
+
+build = compile, test and deploy
+
+Benefits of Jenkins:
+
+1. open source and easy installation
+2. extenisve plugin support
+3. faster release cycle
+4. supports Shell and Windows commands
+5. display reports in graphical and tabular format
+
+Jenkins Projects:
+Freestyle, Maven projects, pipeline
+
+
+Plugin Management:
+1. Test
+2. Reports
+3. Notification
+4. Deployment
+5. Compile
+
+Manage Jenkins -> Manage Plugins
+Updates - Shows updates to plugins already installed
+Available - Shows plugins available to install
+Installed - Shows plugins installed
+Advanced - Can upload plugins manually
+
+Basics of POM.xml - 
+
+Project Object Model contains the project and configuration information to build the project dependencies, build dierectories,
+plugin, goals etc
+Maven used to read pom.xml to execute goals,
+Used for Java project
+
+project - root element of project, "http://maven.apache.org/POM/4.0.0"
+modelversion - version of project, 4.0.0
+groupid - groupid of project, com.qtpselenium.hybrid
+artifactid - ID of artifact, ZohoHybridProject
+version - version of artifact, 1.0
+
+packaging - specify packaging jar or war
+name - name of project, ZohoHybridProject
+url - url of project, http://maven.apache.org
+dependencies - define dependencies
+dependency - define a dependency
+scope - test or compile
+
+-----
+sample POM.xml
+	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.qtpselenium.hybrid</groupId>
+  <artifactId>ZohoHybridProject</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>ZohoHybridProject</name>
+  <url>http://maven.apache.org</url>
+<!--  Testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.6</version>
+			<scope>test</scope>
+		</dependency>
+
+-----
+Delivery Pipeline for our Projects:
+
+Developer compile -> developer code review -> QA unit test -> QA metric check -> package -> deploy
+
+
+  build job  			    description						  plugin 				scope in pom
+
+developer compile   		Compile the code commited in github			NA					compile
+code review			review the code to verify if it meets org standards	PMD - Program mistake detector		NA
+QA unit test			perform unit test					junit					test
+QA metric check			calculate percentage of code accessed			cobertura				 
+package				package a code to deploy				WAR buld package
+deploy				spcify path to deploy application			NA
+
+
+
+Build a job:
+
+1. github repo link: specify github link from where code is pulled to jenkins
+2. build trigger: previous build that triggers the current job
+3. job goal: specify goal for current job
+4. post build action: specify next job to be triggerred
+
+DEMO of Delivery Pipeline:
+
+1
+developercompile:
+github repo link: github link
+build trigger: NA
+job goal: compile
+post build action: codereview
+
+2
+codereview:
+github repo link: github link
+build trigger: developercompile
+job goal: -P metrics pmd:pmd
+post build action: QAunittest
+
+3
+QAunittest
+github repo link: github link
+build trigger: codereview
+job goal: test
+post build action: QAmetriccheck
+
+4
+QAmetriccheck
+github repo link: github link
+build trigger: QAunittest
+job goal: cobertura:cobertura
+post build action: package				
+
+5
+packageanddeploy			
+github repo link: github link
+build trigger: QAmetriccheck
+job goal: package
+post build action: **/target/addressbook.war
+
+note:default branch in jenkins: **
+only for the 5th build package and deploy is together, in post build action deploy path is provided
+
+Build Pipeline:
+plugin: build pipeline
+
+create an additional pipeline tab in jenkins
+create a name for build pipeline
+mention the first job that is developercompile
+mention no.of runs
+run the pipeline
+each build will be executed as in the pipeline
+while executing it will be yellow
+not executed in blue
+once all jobs are executed it will be green
+
+results can be viewd in console output
+
+
+
+SECURITY IN JENKINS:
+
+When Jenkins installed, users can run any job which is security threat
+So users should be given access to certain jobs according to the role
+
+Iendtifying Jenkins user:
+LDAP - jenkins authenticate users from LDAP repository
+Jenkins database - jenkins user name/passwd
+github authentication plugin - can be accessed by github users only	
+
+
+Authorization:
+
+Legacy mode: admin has fulla access
+Matrix based security: user/group is give certain access like build configure etc
+Project based matrix authorization: user/group is give certain access like build configure etc
+
+Auditing
+Audit trail plugin helps in watching what each user performs in jenkins in the form of log files
+
+
+Notification:
+
+Plugin: EMail Ext plugin
+Setup email address
+If build fails or success, developer is notified
+
+
+
+Jenkins Interview Questions:
+
+
+1.What is meant by Continuous Integration?
+
+In software web development, multiple developers works on to develop a software,
+any change in the large code basis, should be tested to get immediate feedback of the code change to developer.
+Hence Jenkins is used as a CI to build compile, test, package and deploy. Jenkins also helps in automating the builds
+
+
+2.Why we use Jenkins?
+Jenkins supports 
+1. Version control software
+2. Build scripts (MAVEN/ANT)
+
+3.What are some of the benefits of using Jenkins?
+
+1. Easy installation of open source software
+2. Faster release cycle
+3. Multiple plugins available
+4. Reporting in graphical and tabular form
+5. Can be connected to version control system
+6. support shell and window commands
+
+4.You are asked to backup Jenkins.How would you approach this task?
+Install backup plugin
+or Shell commands
+or copy jobs in Jenkins folder
+
+5. You are required to run 2 jobs in parallel while a 3rd job is to run after these have completed.How will you achieve this in Jenkins?
+Use the Pipeline plugin
+
+6. As part of the unit testing process, you are required to run unit test cases in parallel. How do you do
+this?
+ The choice of testing suite is important. TestNG and Junit 4 do support running
+test suites in parallel. Note that this runs test cases in parallel on a single node
+
+
+8.Name some common plugins you have used.
+
+1. Email Ext
+2. build pipeline
+3. WAR build package
+4. depoyment plugin
+5. git
+6. audit trail plugin
+7. html publisher plugin - to publish any html file
+8. Ant plugin - supports Ant
+9. pipeline
+
+
+9.How will you secure Jenkins?
+
+1. ensure global security is on.
+2. Matrix based security - Assign only required access to user
+3. perform security audit using audit trail plugin
+4. limit physical access to Jenkins folder
+5. Jenkins should be integrated with company user directory
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Module 4 - Docker
+
+
+How docker fits in devops
+
+1. Docker combined with Jenkins - Code is committed in GIT, Jenkins initiated build process and docker image is created available accross env.
+2. Docker makes easy to deploy - Can reuse resources
+3. Docker helps in packaging and deploying softwares - Ops team packages product as images and uploads in central registry and used for final deployment.
+4. Docker container easy to update infrastructures - Applications can be added deleted in docker images easily.
+
+
+What is docker?>
+
+Docker is a containerization platform, which packages your application and its dependencies in the form of containers
+which can seamlessly be used in any environment be it dev, test and prod.
+
+
+			Container1   	Container2
+			     | 		    |
+			   App1		   App2
+			     |              |		
+			  BIN/LIBS	 BIN/LIBS
+			       Docker Engine
+			       	  Host OS
+
+
+Virtualization:
+
+			Container1   	Container2
+			     | 		    |
+			   App1		   App2
+			     |              |		
+			  BIN/LIBS	 BIN/LIBS
+			      |		    |  
+		          Guest OS	 Guest OS
+ 			      Hypervisors
+			       	Host OS
+
+
+VM adv and disadv against Docker
+
+Advantage VM
+multiple os in one machine
+easy to maintain
+low cost
+
+
+Disadvantages
+machine is slow
+unstable performance
+hypervisors not as eficient as docker engine
+
+
+
+Advantage of Containerization
+better resource utilization than vm
+short booting time
+containers on same OS kernal is much lighter and smaller
+
+
+Benefits of Docker over VM
+1. Size
+2. Startup
+3.Integration
+
+1. Size
+In VM, suppose VM1 allocated 4GB, but application uses 2GB rest 2GB is waste
+In Docker, suppose application requires 2GB docker allocates only 2GB. So no waste of memory
+
+
+2. Startup
+In VM, multiple OS is used
+In Docker, same OS is used
+
+3.Integration
+In VM, integration of devops tool possible but costly and not easily scalable
+In Docker, integration of devops tool is faster, easier and easily scalable
+
+Ansible
+Puppet
+Jenkins    >>   Container >> Container1 , Container2, COntainer3
+Git
+Chef
+
+
+When to use VM and Docker
+
+VM - Use if you want to run multiple applications
+Docker - Use if you want to run multiple copies of same application
+
+VM - Uses lot of resources
+Docker - Uses less resources
+
+VM - Sudo privileges not required
+Docker - Uses Sudo privileges. Causes threat in prod
+
+
+
+----Docker Architecture ----
+
+Client		----->			docker host machine			Registry
+
+  docker build				     Docker daemon			  images in central registry
+  docker pull	 		          Containers     Images
+  docker run
+
+Docker Architecture Flow
+Docker build -> Docker daemon -> Image -> Images -> Resistry
+Docker pull -> Docker daemon -> Registry -> Docker daemon
+Docker run -> Docker daemon -> Image -> Containers(run)
+
+Docker daemon - 
+Docker run on host machine	
+Responsible for creating, running and monitoring containers
+building and storing images
+
+Docker Client - 
+Docker client is UI to docker
+client communicates to daemon via HTTPS using commands
+
+Docker Registry - 
+Docker images can be stored in registry
+Can be stored in public/private respositories
+docker hub is its own cloud reposiotry
+
+ Docker Images -				------run----->				Docker Containers
+
+1. Readonly template used to create containers					Isolated application platform
+2. Built by docker users							Containes everything to run an application
+3. Stored in local or registry							built from one or more images
+
+Docker Ecosystem:
+		1. Images     ->  Commands, image distribution
+		2. Containers   -> Modes of attaching, Volume managment, Network
+		3. Docker file -> project docker file  
+
+flow --> 1 -> 2 -> 3 -> 1 -> 2 -> 3
+
+Docker file -> Image  -> Containers
+
+What is an Image?
+1. Image is a read only template or text file with set of pre written commands called as docker file
+2. Docker images are made of multiple layers of file system
+3. A layer is created for each instruction and placed on top of previous layer
+When image is turned into a container then docker engines creates a readwrite
+filesystem on top(initializing the ip address, name, id etc)
+
+Commands:
+1. docker help
+2. docker images - respository name, tag, image id, created, size of image
+3. docker ps - displays list of active containers   - container id, image, created, ports, status, image id
+4. docker ps -a  - displays list of all active containers or containers run in past
+
+
+Create Hello-World image
+1. docker search hello		-> searches for image hello-world in repository
+2. docker pull hello-world     -> pulls hello-world image from local or registry
+3. docker history hello-world   -> shows the history of how hello-world was build
+
+
+Tagging - 
+It is label applied to image
+
+Command
+Syntax - docker tag imageid/imagename tagname
+
+1. docker tag f2c hello-world2
+
+o/p ->renames image with imageid f2c as hello-world2
+
+
+
+Image Distribution - Repositories
+Repositories - Is a collection on images
+
+Can be stored
+1. local - store in local machine
+2. Private - Can purchase private repositories from docker
+3. Public - Signup to docker hub and store images and can be viewed to public
+
+
+Pushing Images to Dockerhub - 
+
+hub.docker.com
+login -mubeen85
+password - Hightime9
+
+pre req - any image that needs to be pushed to docker hub, tag the image as mubeen85/imagename - This is important
+
+
+1. Go to client
+2. docker images
+3. docker tag imageid mubeen85/imagename
+4. docker login
+5. docker push mubeen85/imagename
+6. goto hub.docker.com - refresh to see the docker image is pushed to docker hub
+
+Image namings
+1. mubeen85/imagename - means imaganame belongs to user mubeen85 in dockerhub
+2. CentOs - without user names are official images of the company - Use this as most trust worthy images
+3. localhost:8080/imagename - organization hosted registries
+
+
+--Containers--
+
+Connection modes
+ 1. Detatched mode
+ 2. Root user mode
+
+Connection mode architecture:
+Detatched Mode:
+Command: docker run -itd ubuntu:xenial
+
+Docker host:
+	Docker daemon - > Containers
+
+Root User Mode:
+Command: docker run -it ubuntu:xenial
+
+Docker host
+	Docker daemon ---roort user---> Containers
+
+
+Difference Detatched Mode vs Root User Mode
+
+Detatched Mode	-itd						Root User Mode   -it
+1. User manages from Daemon and runs container in               1. User manages from Root and run in foreground. You enter inside the container
+background					
+2. Continer doesnot exit after the 				2. Container exit after the process is complete
+process is complete
+3. Can attach to container					3. Can come inside container using exec if we had come out from container
+								for any reason using Cntrl p+ Contrl Q
+4. Container could be stopped later				4. Container could be restarted later
+
+
+root user mode:
+docker run -it centos
+root@user: mkdir mubeen
+	 : cntrlp+contrlq
+	 comes out from root user
+	 : docker exec -it containerid /bin/bash
+	 : ls (we can see directory mubeen)
+
+
+root@user: mkdir mubeen
+	 : exit
+	 comes out from root user
+	 : docker exec -it container id
+	 : ls (cannot view mubeen directory)
+
+
+detatched mode:
+docker run -itd centos
+f12iiu39333093289032jejn332923903290
+
+container f12 never exits, if we want to exit either stop the container or attach as root user and type exit
+
+command to stop container in detatched mode
+docker stop container id
+
+attaching in detatched mode
+docker attach f12
+this will enter the container as root user which was initially in detatched mode
+
+
+Usecases:
+detatched mode use case
+1. Container in detatched mode exit only if root process exits
+2. Cannot remove container once it stops
+3. detatched mode used if many servers involved where you dont want to kill the container as the process may be dependent on other process
+4. if no mode is specified. by default uses foreground mode
+
+
+root user mode use case:
+1. in build process in jenkins, if we need to remove container after the job is executed. Use root user mode
+2. root user mode for small testing purpose we use root user mode
+
+
+
+Examine existing containers
+docker ps -a
+Fields: Container ID  Image Created Status Name
+
+Name is any name randomly is displayed
+
+Can give our own name with below commands
+docker run -itd -name mubeen centos:latest
+
+
+
+
+Getting attached to container from detatched mode
+
+1.docker images
+2. docker run -itd f123
+o/p h62782829829288219
+3. docker attach h627
+o/p root@h627 - attach to container in root mode
+
+
+Stopping a container from detatched mode:
+2 ways
+
+1. attach to container and then exit
+2. stop command
+docker run -itd d233
+o/p h662772287281287827h8
+docker stop h662
+
+
+Restart a container
+docker start containerid
+
+
+Inspect Containers:
+docker inspect containerid
+
+complete details about the container like
+ip address
+status
+image
+dns details and many more
+
+
+Removing Images:
+1. with associated containers - remove containers then remove image
+2. with out associated containers: docker imagename/id rmi
+3. forcefully remove image: use -f option  (not a good option)
+
+
+
+
+Creating Image from Containers: COMMIT
+Note: we run a container, make changes and exit. changed wont be saved until we commit. INstead of exit, cntrlp+q and come out. run the 
+commit command and create new image from the base image. Now run the new image again to see the changes.
+
+
+
+1. docker images
+2. docker run -it ubuntu
+3. touch a.txt
+4. cntrl p +q
+5. docker commit containerid newimagename
+6. docker commit 3d4 ubuntu1
+7. docker images -  we can see ubuntu1 image
+8. docker run -it ubunut1
+9. ls
+10. we can see a.txt file
+
+if we had exit the container at step4 instead of cntl p+q, we wouldnt be able to see the new file a.txt created
+
+
+
+Important commands:
+
+1. docker help
+2. docker help stop
+3. docker images
+4. docker search ubuntu
+5. docker pull chef/chef
+6. docker ps - list active containers
+7. docker ps -a
+8. docker attach containerid - enter back into container where initially logged in as detatched mode
+9. docker exec -it containerid - enter back into container where initially logged in as root user mode and came out using cntrl p+q
+10. exit - to exit a container from root user mode
+11. docker history imagename - full history of the image
+12. docker inspect containerid - full details of the container
+13. docker tag imagename newimagename
+14. docker push mubeen85/imagename
+pre req: docker login
+	 docker push mubeen85/imagename
+	 goto hub.docker.com - refresh to see the docker image is pushed to docker hub
+15. docker run -itd -p 2020:8080 tomcat:7.0
+	run tomcat on port 2020
+	192.168.172.1:2020
+16. docker imagename rmi - remove image
+17. docker imagename rmi -f - forcefully remove image
+18. docker run -it imagename - root user mode - will exit after process is complete. ctntrl p+q to come out with out exiting
+19. docker run -itd imagename - detatched mode -  will not exit
+20. docker exec -it imagename /bash -  to enter containerid back again in root user mode
+21. docker attach containerid - enter container again in detatched mode which was previously run in detatched mode
+22. docker run -itd -name mubeen imagename -  will give a name to container instead of random name
+related to containers
+21. docker ps
+22. docker ps -a
+23. docker start containerid
+24. docker stop containerid
+25. docker rm containerid - need to stop container before removing otherwise use -f option docker run containerid -f
+26. docker logs containerid - to see the logs in a container
+27 link container syntax - docker run --name <localcontainername> --link <localcontainername>:<actualcontainername> -p 8080:80 -itd imagename 
+
+
+
+
+Module5 
+
+Docker Networking
+
+pre req:
+Client - Docker commands to communicate with host daemon
+Host - boot2docker vm
+Daemon - service running inside host
+
+
+
+$DOCKER_HOST - Is a variable which should be set system ip address and port for the client to communicate with daemon
+
+command: 
+export $DOCKER_HOST=tcp://192.168.1.11:2376   (any port number)
+
+similarly, below mentioned variable also should be updated with IP just as above. This is for docker. 
+in /etc/default/docker - update $DOCKER_OPTS="-H tcp://192.168.1.11:2376"
+after updating perform docker restart
+
+
+If above environments are updated, then the docker commands will work
+
+to check if $DOCKER_HOST is updated write command 
+echo $DOCKER_HOST
+
+if value is blank, then we need to set the variable by export command mentioned above
+now type docker network ls command and it will work
+------
+
+
+When docker is installed
+
+type ifconfig
+we see docker0 newtwork with ip address as the first option
+
+ubuntu - 172.17.0.1
+wondows - 192.168.99.1
+
+these are bridge network between the your machine and containers
+
+
+When docker is installed, 3 networks as below are automatically created
+
+
+Command: docker network ls
+
+o/p
+networkid  name    driver  scope
+54ge6e2y2  bridge  bridge  local
+72bbj2277  host    host    local
+n2282822n  none	   none    local
+
+
+
+1. bridge network - represent docker0 network, docker daemon connects to containers using this network
+2. host network - adds container to host network
+3. none network - adds container to container stack network
+
+
+command: docker network inspect bridge
+
+if we inspect bridge with above command, then we can find the subnet and gateway (172.17.0.1) details for the 
+docker containers and then bridge id
+
+now, when we run a container with the docker run -itd command and then again inspect bridge
+then we can see the container  details added to bridge network
+we see the container ip address is 172.17.0.2/16 
+
+again if we run another container
+we see second container details updated in bridge network
+172.17.0.3/16 
+
+When to use bridge network?
+
+bridge network is used when multiple containers share services among each other and should not be exposed to outside world
+then use bridge network, as the ip address and its network is totally isolated
+
+
+bridge network architecture
+
+docker host  - Container1
+	     - Container2   > isolated network
+	     - Container3
+
+
+2 ways of using bridge network
+
+1. bridge network  between containers where they can only communicate among themselves and not to outside world(ports not published to outside world)
+
+attach to a container and ping the second container ping 172.17.0.3 and it will work start to ping
+
+2. custom bridge network, where containers can partially communicate to outside world to connect to internet etcs
+
+external host can connect to containers via docker host. any one of the container port is published to external host
+that is why all containers will have different port. So any 1 container port can be published to outside
+
+external container  -> external host -> docker host ---isolated---> (container 1 (port exposed), container2(portnot exposed), container3(portnot exposed)} 
+
+
+Ports:
+
+Containers are exposed via ports
+
+container ports are exposed to host ports(local host machine)
+
+two ways to expose ports
+free ports
+binding ports
+
+
+two ways to connect: (-p and -P)
+1. free ports - docker run -itd -name nginix -P ngnix:latest
+2.binding ports - docker run -itd -name nginix -p 8080:80 nginix:latest
+
+important:
+
+1. -P - randomly exposed to any port in host between 32768 and 65000 will be picked by docker to expose to container port
+
+In -P, when we use -P to run container, it uses any random external host port which user is not aware. docker ps -a will show the internal
+container port it is listening. In order to access the website from localhost we need to know host port(external), knowing only
+container port(internal) wont help. Hence we have -p
+
+2. -p - in -p option in command we provide the host ports and container ports that will exposed
+
+In -p, if we give the port as -p 8080:80. It means container port(internal) 80 is exposed to host port 8080. Hence if we browse the
+link localhost:8080 it will open application. localhost:80 wont work
+
+command
+-P method: free ports
+docker run -itd -name=nginix -P ngnix:latest
+docker ps
+
+o/p - shows active container details plus gives port details. it will show the randoly picked host port that will be exposed
+to container port like below
+0:0:0:0:32771->80/tcp
+means 32771 in host will be directed to 80 port on container.
+
+if we run localhost:32771 or localhost:80 it will open nginix
+
+
+command
+-p method: binding ports
+docker run -itd -name=nginix -p 8080:80 nginix:latest   
+docker ps
+
+o/p: shows active container details
+plus it will show that nginix is connected to local host port 8080 which is bound to container port 80
+
+
+identify host port syntax:
+docker port containername $containerport
+
+command:
+docker port nginix 80
+this will work if container is exposed to port by binding port and not free port method
+
+
+
+free or binding ports is often used
+
+binding ports often used because
+1. end user know which port is exposed rather than docker connecting to random ports
+
+
+
+Volumes:
+
+Container Volumes are files or directories mounted on host
+Docker file system are temporary by default
+Usually when container is stopped or restarted, all new files created will be lost and what was deleted will be back
+So we use volume concept to mount data on to host 
+
+command:
+docker run -itd -v /home/edureka/scripts:/cscripts Ubuntu
+
+o/p - containerid 1d7 is active and here data in local /home/edureka/scripts will be moved to cscripts in container permanantely
+
+
+How to share data between container:
+mounted data in one container can be shared to second container
+
+command:
+docker run -itd --volumes-from container1 Ubuntu
+here Ubuntu is image
+container1 = id or name of container where volume was created
+
+docker run -itd --volumes-from 1d7 Ubuntu
+
+Use cases of Volumes
+1. to keep data around even if container restarts
+2. to share data between host and container
+3. to share data between containers
+
+usecase1
+1. to keep data around even if container restarts
+
+Command:
+docker create -v /tmp --name docks ubuntu
+o/p - volume /tmp is created in the docker docks 
+
+
+Usecase2
+2. to share data between host and container
+
+In this method, what you write on container will be reflectin in host and whats written on host will reflect in container
+
+Command:
+docker run -itd -v /home/edureka/scripts:/scripts ubuntu
+
+note:
+ubuntu=image
+/home/edureka/scripts = path in local
+/scripts =path in container
+
+
+Usecase3
+3. to share data between containers
+
+Command:
+docker create -v /tmp --name docks ubuntu
+docker run -it --volumes-from docks -name dock1 ubuntu
+
+o/p - in container docks if volume is created, that is shared to the new container dock1
+note: ubuntu is image name, dock1 is new container, docks is previous container where volume is created
+
+Also,
+
+there are other plugins to share data between containers
+iSCSI, NFS, FC, flocker is used.
+
+benefits of sharing data between containers - they are host independent
+
+
+Best ways to use container
+1. usecase2 is commonly used
+2. what deceides which method to use- volume of data and cost
+
+
+
+
+Docker file:
+
+docker file is building blocks for docker container
+docker file contains set of instructions to create an image
+using docker file an image is created every time with a base image
+
+
+Steps to create image using docker file
+
+1. create a folder - /dockerfiles/tomcat/'
+
+2. create a file - dockerfile
+3. input set of instructions
+4. save the file
+5. build the image   - docker build -t imagename [path where docker file is placed]
+
+Main section of docker file
+
+1. FROM and MAINTAINER
+2. RUN commands
+3. set ENV variables
+4. CMD command
+5. Expose ports
+
+
+1. FROM:
+it is the base image from which the new image will built
+base image is usually taken from the hub
+ex: ubuntu:16.0
+
+2. MAINTAINER
+
+shows the owner of the docker file
+mubeen85<mubeen85@gmail.com>
+
+here mubeen85 is docker hub acct
+
+
+3. RUN
+set of actions that needs to be performed on base image
+RUN apt get install vi
+RUB apt get update
+
+
+on top of base image following RUN steps will be performed and created as layer on top
+
+
+4. COPY and ADD:
+
+files to be copied will be placed parallel to docker file
+so the files can be easily copied to container location as required
+
+COPY a.txt /tmp
+
+a.txt in the local will copied to /tmp in container
+
+
+ADD is same as COPY but in ADD and zipped file will be copied and unzipped at same time
+
+
+note: how files to be copied are placed parallel to docker file
+suppose docker file in local is at below location
+/dockerfiles/tomcat/dockerfile
+
+then to be copied files will be in below location
+/dockerfile/tomcate/a.txt
+
+files at any other location cannot be copied
+
+
+5. Set ENV variables:
+
+
+
+6. CMD command:
+any process to start once the image is created will be mentioned in CMD
+
+syntax:
+CMD ["usr/bin/appache2"]
+
+
+7. EXPOSE
+command to expose ports in container to host
+syntax:
+EXPOSE 80
+
+
+1. once the docker file is saved in path for ex: /dockerfiles/tomcat/dockerfile.txt
+2. go to path /dockerfiles/tomcat
+3. type command to build the image
+docker build -t dockimage .
+
+here - -t is target
+dockimage is image name
+. (dot)is path where file is located to run the image
+
+4. we can save the image in docker hub
+5. docker login mubeen85
+6. docker push mubeen85/dockimage
+
+
+---LiNKING MULTIPLE CONTAINERS USING LINKS---youtube
+
+If we wanted to run mysql container and wordpress container and the link both
+
+1 docker pull mysql
+2 docker run --name mysql1 -e MYSQL_ROOT_PASSWORD=abc123 -itd mysql:latest
+
+-e = environment variable
+  mysql:latest = image name
+
+3. docker pull wordpress
+4. syntax - docker run --name <localcontainername> --link <localcontainername>:<actualcontainername> -p 8080:80 -itd imagename
+4. docker run --name wordpress1 --link mysql1:mysql -p 8080:80 -itd wordpress
+
+here wordpress blog can be access by localhost:8080 and install wordpress, wordpress container is linked with mysql
+
+
+--------DOCKER COMPOSE - Manage Services---------youtube
+
+
+Is a tool for defining and running multiple containers of a docker application
+Compose file is used to configure all application services. using single command
+you can create and start all the services from your configuration
+
+It is used in all test,dev and CI env
+
+Normal docker config - We have to write multiple commands to run many containers
+for different services. We also have to link the containers. It is not required
+in docker compose
+
+normal method - docker run -itd -name wordpress --link mysql -p 8080:80 imagename
+
+In normal method - services will be running in many containers. So after testing
+if we need to distroy the container we have to remove each container
+whereas in docker compose we just have to type the below command it stops all the services containers in just one command
+
+command 
+docker-compose stop
+
+
+What is docker compose file?
+Is a config file where we can define all the stuffs performed in CLI(via powershell)
+File is saved in .yml format
+Docker-compose is not required to be specifically installed. It is by deffault available in powershell
+
+
+
+
+Docker compose commands
+
+1. docker-compose --help
+	build - build services
+	bundle - bundle from compose file
+	ps
+	port
+	start - start services
+	stop  -  stop services
+	up - create and start containers
+	down - stop and remove containers, images, network and volumes
+	logs - view output from containers
+
+
+
+YAML File
+
+1. Create a folder in local C drive	
+2. Folder - wordpress
+3. Using visual studio code - create docker-compose.yml file
+4. yaml file will contain
+
+version: '2'
+
+services: 
+
+	wordpress:
+	 image: wordpress
+	 ports:
+	    -8080:80
+	 environments: 
+	    WORDPRESS_DB_PASSWORD: abc123
+
+
+	mysql:
+  	  image: mysql
+	  environments: 
+		MYSQL_ROOT_PASSWORD :abc123
+
+
+5. go to powerrshell of under above folder
+6. docker-compose ps
+	list both services
+7. docker-compose up
+8. installs both mysql and wordpress and links each other
+
+
+Interview question - DOCKER
+
+8. Can you name some other container technologies?  
+
+solaris container
+linux openvz
+free bsdjails
+
+9. How to check/configure IP in docker? 
+docker inpect containerid
+
+13. What’s the difference between up, run, and start in docker compose?
+
+up - docker-compose up will start the container with all services
+run - addhoc container to start
+start - to start already stopped container. Cannot create an new container
+
+
+18. What is Kubernetes?  
+It is designed by google. It is an open source container cluster manager used to deploy application containers
+accross cluster of host
+
+19. You are asked to choose between Kubernetes and Docker. What will influence your decision?
+
+1. If you know docker continue with docker 
+2. If old docker migrate to new 1.9+ which uses network, volumes etc
+
+
+20.  Explain the Docker Architecture 
+see above
+
+22. Can I use JSON instead of YAML for my Compose file? 
+yes, as YAML is superset of JSON
+
+
+23. Should I include my code with COPY/ADD or a volume? 
+
+COPY/ADD -  You can use Copy/Add if it is required to relocate your code to different env.
+Volume - you can use volume if you want to change the code and immedialtely reflect in the image
+
+
+
+24. What is Immutable infrastructure
+Immutable image contains everything to run an application including source code. So self contained
+images are easily postable and scalable
+
+
+25. Can you explain about Docker networking? 
+1 When docker is installed, docker by default creates 3 networks
+2. docker network ls command shows the network details
+3. bridge, none andn host are the networks
+4. none network - none network adds container to container stack
+5. host networks -- add container to host network
+6. bridge network - docker0- is default network, docker daemon connects to container using bridge network
+7. container ip is similar to host ip
+8. default docker0 network for ubuntu - 172.17.0.1
+9. default docker0 network for windows -192.168.99.1
+
+o/p
+networkid  name    driver  scope
+54ge6e2y2  bridge  bridge  local
+72bbj2277  host    host    local
+n2282822n  none	   none    local
+
+26. What is Docker Compose?
+It is a tool for defining and running multiple containers for a docker application
+Compose file is used to configure application services
+Using a single command we can create and start all the services from your configuration required for the applcaition.
+
+
+27. What is your typical use flow for Compose?  
+
+1. define all required services and environment variable that needs to be set in a docker-compse.yml file
+2. run the command docker-compose up command which starts container with all services
+
+
+28. What is docker file used for ?
+dockerfile is a text file with set of instructions
+docker can build images from a base image by following the instructions with commands similar to commands written in CLI
+
+
+
+29. Best practices in Docker files
+
+1. dockerfile should be short
+2. the directory in which dockerfile is place should not contain any other files
+3. use one service in one container
+4. avoid using copy/add
+5. use copy over add
+6. avoid unncessary packaging
+7. use ap-get install over apt-get uopgrade
+8. combine apt-get install and apt-get update in one command using &&
+9. use absolute path in container
+10. use official repositories and images
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+PUPPET-1 - Configuration Management
+
+It is easy to deploy an application on 5 vm's but not practically possible to deploy on 500 machines. Cannot configure
+all 500 vm's manually to deploy application. We need a tool to do this process
+
+
+IaC - Infrastructure as a code
+IaC is automation of IT operations(Build, deploy, manage) by provisioning of code rather than manual process in dev, test and prod
+
+iac  --> Puppet --> Dev, Test and Prod
+
+
+Puppet Configuration - 
+
+Puppet is a configuration management tool used to deploying application on multiple servers, define resources and configuration at 
+node level and maintains consistency in configuration accross nodes
+
+1. deployment of application to large no.of servers
+2. maintains consistency in configuration accross nodes, any change in configuration made locally can be rolled back original config file
+3. define resources and configuration at each node level easily
+
+
+
+Puppet Ecosystem
+
+Puppet Labs - The company
+Puppet - Open source version
+Puppet Enterprise - Commercial version
+Pupper Documentation - official documentation
+Puppet Module - Modules
+Community - community
+
+
+Puppet - MASTER-AGENT ARCHITECTURE- ------------
+
+
+
+Puppet is based on Master-Agent Architecture
+
+Facts - pre set variables containing system information
+
+Catalog-   a document that describes the desired system state for a node
+
+
+   -----------------            <----1.sends facts and request for catalog----                   ---------------
+  |                 |   					     				|		|
+  |		    | 		-----2.Compiles and sends catalog------------>			|		|
+  | Puppet Master   |						     				|  Puppet Agent	|
+  |    		    |		-----3.Agent Applies the catalog--------------			|     node1	|	 	
+  |		    |						     				|     node2     |
+   ----------------		<----4.----Agents sends report to master-----			 ---------------
+
+
+Catalog Compilation
+
+
+Puppet Agent  <--1 & 2 --> Puppet Master   ->  Catalog Compilation  -  1. Retrieve the node object
+								       2. Set varibales from facts, node object and certificate	
+								       3. Evaluate Manifest
+								       4. Evaluate Classes from modules
+								       5. Evalute Classes from the node
+					
+
+node object - node ip address
+
+certificate - serial number, node get access to puppet master
+
+main manifest/site manifest - Starting point for compilation, single file or multiple manifest files available
+
+modules - bundle of code and date, combination of manifests, lib,facts, files etc
+
+classes - block of puppet code
+
+how to identify code for a resource from puppet
+Synta: puppet resource resourcename resourcetitle
+
+this give complete code for the resource. this can be copied to manifest
+
+Resources - Basics units for system configuration
+
+Manifest -> Resources
+Class -> Resources (best practice)
+
+
+Resource Types - 
+files - manages file content, permission
+services - manages running services
+user - manages system users
+packages - manages packages
+group - manages groups
+
+
+example:
+
+packages {'openssh': 
+  ensure => present,
+}
+
+services {'httpd':
+  ensure => running,
+  enable =>true,
+}
+
+
+Resource Declaration -  Contains block of puppet code
+
+Resource type - Ex user, service etc
+Resource title - name , ex: edureka
+Attributes - resource properties
+Values - property values
+
+
+user {'edureka':
+ensure => present,
+uid = '526',
+shell => 'bin/bash'
+home => '/home/edureka'
+}
+
+
+
+Manifests - /etc/puppet/manifests/site.pp or /etc/puppet/modules/modulename/manifests/init.pp
+
+Manifests - Puppet program containing resources are manifests.
+
+File format - site.pp 
+Extension - .pp
+Path - /etc/puppet/manifests
+
+Classes
+block of puppet code with different resource type. It can be called anywhere with in the scope of class
+
+
+
+Class Declaration
+1. Class declaration occurs when class is declared in manifests
+
+two types of class declaration
+1. Normal declaration using include command - include example_class
+2. Resource like declaration - class {'example_class':}
+
+
+
+Modules
+
+path: /etc/puppet/modules
+
+Modules contains code and dara, it is a collection of manifest, files, facts and lib
+Module can downloaded from forge
+Module is used to group puppet code into multiple manifest and can be called as and how required
+Modules are placed in following path /etc/puppet/modules
+
+/etc/puppet/modules  -
+	 /facts , /lib, /manifests, /files(file to download by node)
+
+
+
+Relationships in Puppet:
+
+			
+			  Relationship definition
+	meta parameters       chained arrows    requires() function
+
+
+
+Meta parameters
+
+before = applies a resource before target source
+require = applies a resource after target source
+notify = applies a resource before target source, target resource refreshes if notifyin resource changes (if i change he should be refreshed)
+subscribe = applies a resource after target source, the subscribing resource refreshes if target resource changes (if he change i should be refreshed)
+
+
+before and require - 
+
+package {'openssh-server':
+ensure => present,
+before => File['/etc/ssh/ssh_config']
+}
+
+
+file{'/etc/ssh/ssh_config':
+ensure => file,
+mode => '0600',
+source => puppet:///modules/ssh/sshd_config',
+require => Package ['openssh-server']
+
+}
+
+
+notify and subscribe - 
+
+
+file{'/etc/ssh/ssh_config':
+ensure => file,
+mode => '0600',
+source => puppet:///modules/ssh/sshd_config',
+notify=> Service ['sshd']
+}
+
+service {'sshd':
+ensure => 
+enable
+subscribe =>
+ File ['/etc/ssh/ssh_config'],
+}
+
+
+
+
+Chaining Arrows - 
+
+-> ordering arrow -  applies resource on left and then right
+~> notifying arrow - applies resource on left and then right.if left resource changes right resuoce is refreshed.
+
+
+file{'':
+
+} -> # then
+
+package {'':
+ 
+} ~> # then, if package changes, service is refreshed
+
+service {'':
+
+}
+
+
+Require function:
+
+if require class is called with in a class, then the require class should be applied first before the main class
+
+Class wordpress {
+require mysql
+require apache
+}
+
+
+Variables
+variables prefixed with $
+starts with lowecase or underscore
+reserved variables = $facts, $title	
+ 
+Assigning multiple variables
+Arrays and Hashes
+
+
+Variable scope:
+same variable can have different values in different classes
+
+Puppet facts:
+facter tool runs on client which can be used by master. these are variables that cannot be changed
+like ipaddress, macaddress, hostname and other node details
+
+
+Puppet data types:
+string, boolean, integer, arrays, hashes, regular exporessions
+
+
+arrays
+$foo = ['1','2','3']
+
+notice($foo[0]) = 1
+
+hash
+{key =>'value', key=>'value'}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Puppet -2
+
+Modules - contains code and data, module is a collection of manifests,lib,facts,files, specs, templates, test,metadata.json and readme files
+
+path: /etc/puppet/modules/modulename
+
+To create basic structure of a module and to write puppet code use below syntax
+
+syntax: puppet module generate username-mymodule
+command: puppet module generate mubeen-tomcat
+
+Should answer metadata question like version of the module and who wrote it etc and it will be updated in metadata.json
+
+finally when we enter yes, a default structure is created for the module with the meta data entered
+
+Following files and directories are created
+
+/mymodule/manifests
+/mymodule/manifests/init.pp
+/mymodule/spec
+/mymodule/metadata.json
+
+
+If no need to write code directly you can download modules from forge directly
+Module Installation from Forge:
+
+
+modules are available to download from below link
+https://forge.puppet.com   - search ---> install ---> manage modules(lists modules, upgrade,uninstall modules)
+
+
+1. search modules   
+	syntax: puppet module search modulename
+	command: puppet module search mysql
+
+2. install modules 
+	syntax: sudo puppet module install puppetlabs-tomcat
+
+3. manage modules
+	syntax: sudo puppet uninstall puppetlabs-tomcat
+	syntax: puppet module list   (lists all modules in the machine)
+
+by default install from https://forge.puppet.com
+
+
+other commands in addition
+
+--target-dir  - directory path to install module
+--version -mention the version of module
+--force  -forcefully install/reinstall modules
+--ignore-dependencies - skip dependent modules
+--debug - see what puppet is doing in detail
+--module_repository - download modules from other repository and not forge.puppet.com
+
+
+3. install from other module respository
+	syntac: sudo puppet module install --module_repository http://otherrepository.com puppetlabs-tomcat
+
+
+4. install from tar ball
+	syntax: sudo puppet mdule install ~puppetlabs/-apache.1.0.tar.gz --ignore-dependencies
+
+ 	1.should be root user
+	2.need license to install
+	3. can install the tar if available in local. no need to download from internet
+
+
+
+Targetting nodes to configure:--
+
+/etc/puppet/manifests
+above path has the main manifest file site.pp
+
+any configuration in site.pp is applied to all nodes unless the nodes to which the configuration should be performed has to be mentioned
+in site.pp main file
+
+node name is identified from certname
+
+node 'test02' {
+include apache
+}
+
+node 'test02' , 'test03' {
+include apache
+}
+
+
+ENC - External node classifier
+
+Puppet dashboard
+Puppet Enterprise
+The Forman
+
+Puppet Enterprise ENC is by default connected to puppet. few variables has to be set
+
+All above are GUI's from which nodes can be managed.
+We can monitor each node and push configs from the GUI itself
+We can view the current status of all nodes
+Classes and paramters are applied to nodes which is pushed to nodes by running it from LIVE MANAGEMNT tab
+All nodes will be listed in the GUI
+
+
+Classes:
+Blaock of code whcih can be called anywhere with in the scope
+Classes can contain packaging, service, file required for config
+classes can be called in main manifest file to configure a node
+
+
+Clases - Two Types With parameter and With out parameter
+
+
+with out paramter
+class apache{
+file{
+}
+service{
+}}
+
+
+with paramter
+
+class apache( $version='latest'){
+file{
+}
+service{
+}}
+
+
+Parameter
+Class is configured with facts
+external data can be configured using paramter as shown above in the form of variables
+
+cannot use $title and $name
+
+Class inheritance:
+
+class class1(string $version='latest') inherits class2()
+
+class1 = main class
+class2 = base class
+
+any attributes in base class can be overriden in the main class
+
+
+Overriding attributes: => or +>
+
+Attributes can be either overriden in main class or added as below by using +> instead of =>
+
+require +> [File['apache.pem'] , File['httpd.conf']]
+
+Environment:
+Rather than having main manifest file in /etc/puppet/manifests.
+Each environment prod, qa and dev manifests are separately maintained in environment folder 
+so that depending on the environment. agent can run puppet agent -t and corresponding manifests file 
+in the environment folder will be compiled and executed
+/etc/puppet/environments/production/manifests/site.pp
+/etc/puppet/environments/dev/manifests/site.pp
+
+
+Prerecorded - Puppet 2
+
+
+module structure - organizing classes
+/etc/puppet/modules/manifest/init.pp - all classes are coded in init.pp for separate modules
+in /etc/puppet/manifests - site.pp - classes from init.pp can be called in site.pp for required node or for all nodes
+ 
+
+/etc/puppet/modules/
+
+manifests - contains site.pp
+facts - node details
+test - to test your code in manifest/init.pp here
+spec - has specshelper.rb file to run the test in multiple platforms
+lib - common code files, can be referred from here 
+files - file server, puppet:///modules/modulename
+templates - 
+
+
+command: puppet module list
+will list all the modules available
+
+metadat.json file can be later updated using vi editor
+
+
+Deploying Java, Tomcat and deploy addressbook.war file from test01 to test02:
+
+pre req : /etc/host in test02 - update the node names with IP adress
+
+In Jenkins,
+write Execute shell script
+scp $WORKSPACE/jenkinspath/addressbook.war edureka@test01.edureka.com:/etc/puppet/modules/tomcat/files
+ssh edureka@test02.edureka.com "sudo puppet agent -t"
+build the job after below mentioned 7 points
+
+1. sudo puppet module install mubeen-java
+2. sudo puppet module install mubeen-tomcat
+3. puppet module list - lists both 2 modules installed
+4. In test01, goto /etc/puppet/modules/tomcat/files - jenkins will deploy addressbook.war here
+5. For that,  for /etc/puppet/modules/tomcat - chown jenkins:jenkins - only then jenkins can deploy addressbook here
+6. In test01, goto /etc/puppet/manifests/site.pp
+	node 'test02.edureka.com' {
+	class{'java'}
+	class{'tomcat'}
+	tomcat::war {'addresbook.war'
+	Catalina_Base => '/opt/tomcat'	
+	Source => puppet:///tomcat/addressbook.war
+	}}
+
+
+7. In test02, puppet agen -t
+	java and tomcat will be installed
+	addressbook.war will be deployed
+	open tomcat, we can see the deployed addressbook.war 
+
+
+
+-------------------miscallenous---
+set up puppet: refer notebook for more details
+
+1. rm -rf /var/lib/puppet deletes conf files and ssl
+2. puppet cer list (shows pending certs to sign)
+3. puppet cert sign test02.edureka.com
+4. puppet cert list --all  (shows all certificates)
+
+/etc/puppet/puppet.conf
+
+all configuration for puppet is here
+dns_alt_names - master node name
+SSL
+paths for puppet conf files and ssl
+/var/lib/puppet
+SSL is available in above path
+if puppet has to be removed,
+first rm -rf /var/lib/puppet
+service puppetmaster start
+-----------------------------------
+
+
+Devops Interview questions - video
+
+
+1. What is devops
+Collaboration between dev and ops to continously deliver the software in a systematic process by minimizing the issues
+
+
+2. How is agile different from devops
+Agile is a methodolgy and devops is a process
+
+Agile - dev start to dev end
+where devops e2e sdlc lifecycle, it is development +testing + operations
+
+
+3. What is the need for devops
+1. increase deployment frequency
+2. reduce time to fix issues
+3. identifying issues at ealry stage
+4. low release failure
+5. faster recovery from release failure
+
+
+	
+6. explain git uses distributed repository 
+ans: multiple copies available in distributed repo
+
+
+7. how to revert a commit
+git revert commitname
+
+
+
+8. How do you find list of files changed in a particular commit
+git diff-tree -r {hash}
+
+
+12. Explain Jenkins distributed architecture
+
+Jenkins master - jenkins slave1
+   	       - jenkins slave2
+               - jenkins slave3
+
+If jenkins master has workload it shares the load with slave
+
+
+
+14. how you can create a backup of jenkins
+
+ans: copy the job folder from old server to new location
+or use backup plugin
+
+
+16.Difference between asset managment and configuration management
+
+
+Asset managment
+1. related to finance
+2. defines scope
+3. takes care of software licencing and taxes
+
+Config Managment
+1. IT related
+2. Operation side of software delivery
+
+
+18. Difference between pull and push configuration?
+
+Push - Ansible
+Pull -Puppet, Chef,
+
+
+
+node <-----Central Server------>node      central server pushes the config to nodes
+
+node <----->Central Server<------>node    node updates the configuration from server dynamically 
+
+
+19.how docker is used in sdlc
+
+docker file -git repo -  jenkins - test env - prod env
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+

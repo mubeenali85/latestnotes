@@ -1,0 +1,5819 @@
+Python3 - Naveen
+
+1. Create a project
+2. Create a directory
+3. In directory -> new -> create python file
+
+Python Console
+Write code directly and execute
+
+Terminal
+>> Python DataType.pv
+
+Will execute the line
+
+Or 
+Main Console
+1. Write program, right click run the python file. We can see output in Console
+
+
+How Python works
+-----------------
+
+Source Code Python(Test.py) ----[Compiler]---->Byte Code(Test.pyc)----> PVM Interpretor
+
+1 .pyc compiled code is not viewed by user
+2. Can write a line code in Terminal to view the .pyc file
+	In Pycharm Terminal
+	type: python -m py_compile DataTypes.py
+
+	Go to Project path: C:\Users\mubali\PycharmProjects\PythonSelenium\PythonPractice\__pycache__
+3. We can see a .pyc compiled Byte code
+4. PVM interpreter can execute Byte code or Source Code
+5. Python is faster, because once .pyc is executed then next time it uses only .pyc and not .py
+6. 
+
+
+
+Intendation: Is formatting. Each block should be alligned in correct format
+
+Sample Code:
+a=10
+print(a)
+print(a+10)
+if (a>=10) :
+    print("Pass")
+else:
+    print("Fail")
+
+
+
+Advantage of Python
+-------------------
+1. No need to declare data type for any variable
+
+
+
+How memory allocationworks
+---------------------------
+
+
+1. It uses floating concept
+
+2.
+
+Integer		Float			Boolean
+i=10		i=10.1  		i=true
+j=i
+
+
+3. identity id will be same for i and j
+4. how to find identity id and provide both i and j is same is a below
+
+python (id(i))
+python (id(j))
+
+the id generated for both i and j will be same
+
+
+Assignments and Key Features
+-----------------------------
+
+1.a=b=c=1
+	print(a,b,c)
+
+or
+a,b,c = 2,3,munnu
+print(a,b,c)
+	
+	o/p - 2 3 munnu
+
+
+2. j=10
+3. name="mubeen"
+4. print(j,name)
+o/p 10 mubeen
+
+Concatenation and Substring
+s1="Hello World"
+print (s1[0])
+	o/p -> H
+print (s1[2:6])
+	o/p -> llo W
+
+print (s1*2)
+	o/p -> Hello WorldHello World
+
+print (s1[2:])
+	o/p -> llo World
+
+print (s1+" "+"Python")
+Hello World Python
+
+Strings:
+------------
+
+s1="hello world"
+s2='hello world'
+
+both single quote and double quote is acceptable
+
+Concat - print(s1+s2)
+
+escaping charecters
+-------------------
+print("hello \n world") -> o/p - hello
+				  world
+
+print("hello \t world") -> o/p - hello	world
+
+
+To print string 5 times:
+------------------------
+print("hellow"*5)
+o/p -> hellowhellowhellowhellowhellow
+
+IN operator is like contains
+-----------------------------
+s2="mubeen ali"
+print("mubeen" in s2)
+o/p - true
+
+print("java" not in s2)
+o/p - false
+
+
+Formatting Operator
+-----------------
+
+print("my name is %s and my age is %d" %("tom",25))
+
+How to write multiple paragraph
+-------------------------------
+print('''testing 
+mubeen
+and is on
+the way''')
+
+print("""testing
+is only the 
+wsy
+to success""")
+
+
+Use of \ to avoid single quote or double conflicts
+----------------------------------------------------
+
+s1 ='Hi, i\'m Mubeen'
+print(s1)
+
+o/p -> Hi, i'm Mubeen
+
+s2 = "Hi my name is \"mubeen\" and my age is 10)
+o/p -> "Hi my name is "mubeen" and my age is 10)
+
+
+Built in functions:
+--------------------
+
+1. capitalize() - it will convert first letter of string to capital
+
+str = "mubeen ali"
+print(str.capitalize()) -> Mubeen ali
+
+
+2. count() -> counts a particular word in a string
+str= "I am learning Python and Python is simple"
+print(str.count("Python")) -> o/p 2
+
+3. find() - find index of a string
+str="my name is khan"
+print(str.find("name"))
+
+o/p - 2 is the index
+
+str="my name is khan"
+print(str.find("mubeen"))
+o/p - -1  since string mubeen cannot be found
+
+
+4. len() -  length of string
+print(str.len())
+
+5. lower() -  everything will be converted to lower case
+
+6. lstrip() - it will trim the string from left
+str1 = "  hello  "
+print(str1.lstrip())
+ o/p - hello
+
+
+7. rstrip() - it will trim the string from right
+str1 = "  hello  "
+print(str1.lstrip())
+ o/p - 	  hello
+
+8. strip() - it will trim the string from both sides
+str1 = "  hello  "
+print(str1.lstrip())
+ o/p - hello
+
+9. max() - highest letter in a string for ex: z is highest or max
+
+str1 ="hello"
+print(max(str1)) - o/p -o
+print(min(str1)) - o/p -e
+
+10.min() - lowest letter in a string for ex: a is min
+
+
+11. replace() - to replace a word in a string
+
+str="hello test python"
+print(str.replace("hello","bye"))
+o/p - bye test python
+
+12. split() - it will split based on with what we are splitting and store in an array
+
+str1 = "java hello python hello js"
+str2 = print(str1.split())
+o/p - ['java','python','js']
+
+print(str2[0]) - o/p - java
+
+13. upper() - to convert all chars to upper case
+print(str.upper())
+
+
+
+Index of a string
+-----------------
+Index =  -6 -5 -4 -3 -2 -1
+String = P   Y  T  H  O  N
+Index  = 0   1  2  3  4  5
+
+print(String[0]) - o/p - P
+print(String[-5]) - o/p - Y
+
+
+
+String COmparison
+------------------
+a="mubeen"
+b="mubeen"
+print(a is b)
+o/p - True
+
+print(a==b)
+o/p - True
+
+List
+-----
+score = [10,20,30]
+print(score)
+
+o/p-> [10,20,30]
+
+print(score[1]) 
+o/p -> 20
+
+
+print(score[4])
+o/p -> index of out range error
+
+Slicing Feature
+----------------
+print(score[-1])
+o/p -> 30
+
+in reverse order it starts from -1 as last number, -2 as second last number
+
+note: similar what we have in string
+
+
+How to create a Shallow copy of list
+------------------------------------
+
+score = [10,20,30]
+print(score[:])
+o/p -> [10,20,30] , will create a copy of score
+
+Concatenating of List
+---------------------
+
+print(score+[1,2,3])
+
+o/p-> [10,20,30,1,2,3]
+
+print(score+["A","B","C"])
+o/p-> [10,20,30,'A','B','C']
+
+Note: String is immutable like in Java but List is mutable
+
+
+Replacing value in a list
+---------------------------
+
+score = [10,20,30]
+score[1] = 100
+
+print(score)
+o/p-> [10,100,30]
+
+
+Append
+--------
+
+score = [10,20,30]
+print(score.append(100))
+
+o/p-> [10,20,30,100]
+
+
+Append Cube of 7
+-----------------
+
+print(score.append(7**3))
+o/p-> [10,20,30,100,343]
+
+
+Replacing Range of Values in List 
+---------------------------------
+
+name=['a','b','c','d','e','f']
+
+name[2:5] = ['C','D','E']
+
+print(name)=['a','b','C','D','E','f']
+
+name[2:5] = []
+print(name)
+
+o/p-> ['a','b','f']
+
+How to empty a List
+--------------------
+name=['a','b','c','d','e','f']
+name[:] = []
+
+print(name)
+o/p-> []
+
+Again to append
+name.append([1,2,3])
+
+print(name)
+o/p-> [1,2,3]
+
+
+len() Method
+-------------
+
+test = [10,20,30]
+print(len(test))
+o/p-> 3
+
+
+Nested List
+--------------
+1.
+a=['a','b','c']
+b=[1,2,3]
+
+x=[a,b]
+print(x)
+o/p -> [['a','b','c'],[1,2,3]]
+
+print(x[0])
+o/p-> ['a','b','c']
+
+print(x[1])
+o/p-> [1,2,3]
+
+2.
+print(x[0][1])
+
+Note: above is not 2 dimensional
+it means take the list at 0'th position and fetch the value at 1st index
+o/p-> b
+
+
+Input in Python
+----------------
+
+x = int(input("Enter value of x"))
+print(x)
+
+>>> Enter 10
+o/p-> 10
+
+x = int(input("Enter value of x"))
+print(x+100)
+
+>>> Enter 10
+o/p-> 110
+
+IF Else Condition
+-------------------
+
+
+If Syntax:
+----------
+
+if x>0:
+    print("x is greater than 0")
+
+OR
+
+if (x>0):
+    print("x is greater than 0")
+
+note: No curly braces in Python
+
+
+Else Syntax:
+-------------
+if x>1000:
+      print("x is biggest number")
+
+elif x<0:
+      print("X is less than 0")
+
+elif (x>100):
+     print("x is bigg number")
+
+else:
+    print("x is not number")
+
+
+
+What is dead code:
+------------------
+
+it will never go inside that condition
+
+for ex:
+
+if True:
+   print("Pass")
+else:
+   print("Fail")
+
+note: here else condition is dead code as it will never go inside it
+
+
+
+Write a program to check which is highest number:
+-------------------------------------------------
+
+a=100
+b=200
+c=300
+
+if a>b and a>c:
+	print("a is greatest")
+elif b>c:
+	print("b is greatest")
+
+else:
+	print("c is greatest")
+
+
+
+
+
+if(total<100):
+	total = total+10
+
+elif(total>100 and total<500):
+	total = total+20
+
+else:
+	total =total+30
+
+print(total)
+
+
+IMPORTANT: COncatenating String with Variable Value in Python
+--------------------------------------------------------------
+
+1. using str() method
+2. using f strings
+
+
+x=10
+
+1.using str method
+print("the value is"+str(x))
+
+OR
+
+2.use F strings
+print(f'{"the value are"}{x}')
+
+
+
+
+While Loop
+-----------
+
+count=0
+
+while (count<10):
+	print("hello")
+	count = count+1
+
+
+2,Below concept is not in JAVA
+
+count=0
+while (count<3):
+	print("hello")
+	count = count+1
+
+else:
+	print("bye")
+
+o/p ->
+
+hello
+hello
+bye
+
+
+FOR Loop
+---------
+1.
+name = ["java","c","python","dotnet"]
+
+for i in name
+	print(i)
+
+o/p
+java
+c
+python
+dotnet
+
+2.
+str = "I love python"
+
+for i in str
+	print(i)
+o/p->
+I
+
+L
+o
+v
+e
+
+y
+o
+u
+
+
+
+3.
+for index in range(len(list)):
+    print(list[index])
+    print("the length is "+str(len(list)))
+    print(f'{"the index is"}{index}')
+else:
+    print("List os over")
+
+o/p->
+['my', 'name', 'mubeen']
+my
+the length is 3
+the index is0
+name
+the length is 3
+the index is1
+mubeen
+the length is 3
+the index is2
+List os over
+
+
+4. 
+for index in range(-4):
+    print(list[index])
+else:
+    print("List is over")
+
+o/p- List is over  # SInce condition is not satisfied
+
+Note: value passed in range, for loop will execute that many times starting 0
+for example if range is 3, then it will execute 3 times with values 0 1 and 2
+
+
+
+Nested For Loop
+-----------------
+
+for i in range(1,5):
+    for j in range(i):
+        print(i,end='')
+    print()
+
+o/p
+1
+22
+333
+4444
+
+
+
+For Loop with Dictionary:
+----------------------------
+
+d={'key1':1,'key2',2}
+for k in d:
+  print(k + " " +str(d[k])
+
+>>
+two 2
+one 1
+
+note: k by default will print the keys. After getting key we can access the value
+
+or 
+
+for k,v in d.items:
+	print(k)
+	print(v)
+
+
+
+Break:
+----------
+name="mubeen"
+
+for i in name:
+    print(i)
+    if i== 'b':
+     break
+
+
+o/p
+m
+u
+
+
+Break in List:
+---------------
+
+name=["java,"vba","python",c#]
+for i in range(len(name)):
+	print(name)
+	if(i=='python']
+	   break
+
+o/p - > java vba
+
+Continue:
+---------
+
+
+name=["java,"vba","python",c#]
+for i in range(len(name)):
+	print(name)
+	if(i=='python']
+	   print("i found python")
+	   continue
+
+o/p - > 
+java
+vba
+python
+i found python
+C#
+
+
+Functions in Python
+--------------------
+1. 
+def test():
+    print("my first method")
+
+2.
+def test1(a):
+    print(a)
+    print("my second method")
+
+3. 
+##Optional parameter - If no parameter is given it will take default value "munnu" mentioned in defintiion
+def test2(name="munnu"):
+    print("my third method - optional param method")
+    print(name)
+
+
+test()
+test1("mubeen")
+test2()
+test2("ali")
+
+o/p
+my first method
+mubeen
+my second method
+my third method - optional param method
+munnu
+my third method - optional param method
+ali
+
+
+
+Function on List
+-----------------
+
+def mymo(list):
+    for i in list:
+        print(i+str(" "),end='')
+
+name = ["java","c#","pyth",".Net"]
+mymo(name)
+
+o/p-> java c# pyth .Net 
+
+
+
+
+Function with return:
+-----------------------
+
+
+def test(a,b):
+    c=a+b
+    return c
+
+s1 = test(10,20)
+	print(s1)
+
+>> 30
+
+
+****************Discontinued Naveens sessions********************************
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------Udemy----------------------------------------------------------------------------------
+
+GIT HUB LInk  Udemy - https://github.com/pierian-data/complete-python-3-bootcamp
+
+
+How to find type of variable
+--------------------------------
+
+a=3.2
+print(type(a))
+
+o/p - Class Float
+
+Strings
+-----------
+
+Both works
+1. print("hey i'm mubeen")
+2. print('hey i\'m mubeen')
+
+
+Slicing (s1[start:stop:step size]
+----------------------------------
+s1 = 'abcde'
+
+print(s1[1:])
+print(s1[:3])
+
+o/p - 
+bcde
+abc
+
+note: [:3] -> means up to 3rd index. 3rd index will not be included
+
+s1 = 'abcde'
+print(s1[2:4])
+
+>>
+cd
+--------
+s1 = 'abcde'
+print([::]) - 
+>>
+abcde
+
+It will print from beginning to end
+
+
+--------------
+s1 = 'abcde'
+print([::2]) - it will skip with size of 2
+>>
+ace
+
+ ---------
+s2='abcdefghi'
+print(s2[::-1])  - will reverse the string
+>>
+ihgfedcba
+
+s2='abcdefghi'
+print(s2[::-2])
+>>
+igeca
+
+
+
+String is immutable:
+---------------------
+
+name="sam"
+name[0]='p' --- this is not possible
+
+
+String Concatenation is possible
+---------------------------------
+name="sam"
+last_letters = name[1:]
+>>
+am
+
+print('P'+last_letters)
+>>
+Pam
+
+Methods:
+---------
+
+s2='abcdefghi'
+print(s2.upper())
+>>
+ABCDEFGHI
+
+note: this will not permanantely change value of s2 to capital. 
+For that we need to assign to new var
+
+s3 = s2.upper()
+print(s3)
+>>
+ABCDEFGHI
+
+
+Split:
+------
+
+Split will by default split of white space but we can use
+other chars to split the string
+
+s1 = "Hi iam idle"
+s1.split()
+>>
+['Hi','iam','idle']
+
+s1.split('i')
+>>
+['H', ' ', 'am ', 'dle']
+
+
+Format Method:-
+----------------
+print("My {2} {1} {0}".format("country", "is","India"))
+ >>
+My India is country
+
+print("My {} {} {}".format("country", "is","India"))
+ >> My country is India
+
+print("My {0} {1} {2}".format("country", "is","India"))
+ >> My country is India
+
+OR
+
+Using Format with Keywords
+-----------------------------
+
+
+print("My {f} {b} {q}".format(f="country", b="is",q="India"))
+>>
+My country is India
+
+
+Syntax for Floating Formatting
+----------------------------------
+
+Syntax: "{value:width.precision f}"
+
+Value is the variable
+Width is the no.of spaces
+precision is to which number it should be rounded
+
+result = 0.12894324
+
+print("The result is {r:1.3f}".format(r=result))
+
+>>
+0.129
+
+
+Using F String:
+------------------
+name="mubeen"
+print(f'My name is {name}')
+
+name = "mubeen"
+age=33
+
+print(f"My name is {name} and age is {age}")
+
+>>
+My name is mubeen and age is 33
+
+
+List
+------
+
+List can do slicing like any other strings
+
+note: List can be mutated, it is not immutable like String
+
+l1 = ['a','b','c','d']
+l1[0] = 'z'
+print(l1)
+>>
+['z','b','c','d']
+
+
+Append()
+-----------
+l1 = ['a','b','c','d']
+li.append('e')
+print(l1)
+>>
+['a','b','c','d','e']
+
+
+Pop() will display the last item from end of the list
+------------------------------------------------
+l1 = ['a','b','c','d']
+l1.pop()
+
+>>
+d
+
+pop() method to display one item based on index
+--------------------------------------------------
+l1 = ['a','b','c','d']
+l1.pop(1)
+
+>>
+b
+
+
+Sort()
+------------
+note: we cannot sort a list and assign to a variable, by itself it gets sorted permantely
+
+l1 = ['z','h','a','b','c','d']
+l1.sort()
+print(l1)
+>>
+['a', 'b', 'c', 'd', 'h', 'z']
+
+We CANNOT do like this
+l2 = l1.sort()
+print(l2)
+>>
+None
+
+Reverse()
+----------
+note:Same logic as sort applies to reverse()
+
+l1 = ['z','h','a','b','c','d']
+l1.reverse()
+>>
+['z','h','d','c','b','a']
+
+
+Dictionaries:
+---------------
+
+Dictionary - Data stored in key, value pair. Cannot be sorted
+
+List-  Data stored based on location, so can be sorted, or sliced
+
+Dictionary  - Data stored in key/value pair
+
+my_dict = {"apple":1.99,"orange":2.99,"grapes":4.00,"anar":5.99}
+
+print(my_dict["apple"])
+>>
+
+1.99
+
+
+
+-----------
+The values in dictionary can be a list or again key:value with in the key:value and it can be retreived
+as seen below
+
+my_dicto = {'mubeen':33,'feb':[28,27,26],'ninu':{'naz':4}}
+print(my_dicto['mubeen'])
+print(my_dicto['feb'])
+print(my_dicto['feb'][0])
+print(my_dicto['ninu'])
+print(my_dicto['ninu']['naz'])
+
+>>
+33
+[28, 27, 26]
+28
+{'naz': 4}
+4
+
+
+How to make char upper case in dictionary form
+------------------------------------------------
+
+mylist ={'key1':['a','b','c']
+res = mylist['key1'][2].upper()
+print(res)
+>>
+C
+
+
+How to append key value to existing dictionary
+-----------------------------------------------
+
+mydict = {'key1':value1,'key2':value2}
+mydict['key3'] = value3
+
+print(mydict)
+>>
+{'key1':value1,'key2':value2,'key3',value3}
+
+
+
+How to get only keys or values or items
+------------------------------------------
+mydict = {'key1':value1,'key2':value2}
+
+mydict.keys()
+>>
+key1, key2
+
+mydict.values()
+>>
+value1,value2
+
+mydict.items()  - it will display key values in tuple format
+>>
+[('key1':value1),('key2':value2)]
+
+
+Nested Dictionary:
+--------------------
+
+cars = {'bmw':{'model':'550i','year':2016},'merc':{'model':'E350','year':2015}}
+
+
+car['bmw']
+>>
+{'model':'550i','year':2016}
+
+
+
+car['bmw']['model']
+>>
+550i
+
+
+
+
+
+Tuples:
+-----------
+
+1. Tupeles are similar to list but it is immutable.
+2. instead of square brackets we use normal ()
+3. Elements once assigned cannot be reassigned in tuples
+
+
+syntax:
+t = (1,2,3)
+
+type(t)
+
+>>
+tuple
+
+Slicing and indexing works in Tuple is same as List
+
+
+Count in tuple
+-----------------
+t =('a','a','b','c')
+t.count('a')
+>>
+2
+
+t.index('b')
+>>
+2
+
+
+we can change value in list but not in tuple,see below
+--------------------------------------------------------
+
+list1 = [1,2,3,4]
+list1[0]='A'
+print(list1)
+>>
+['A',2,3,4]
+
+tuple1 = (1,2,3,4)
+tuple1[0] = 'A'  - -#it will throw,  here 1 wont be replaced by 'A'
+
+
+
+SETS:
+------
+
+Sets are unordered collection of Unique elements
+
+mySet = set()
+print(type(mySet))
+
+mySet.add(1)
+mySet.add(1)
+mySet.add(2)
+mySet.add(3)
+print(mySet)
+
+>>
+
+<class 'set'>
+{1, 2, 3}
+
+----------------
+
+OR
+
+myList1 = [1,1,1,1,2,3,3,4,4,5,3]
+print(set(myList1))
+>>
+{1, 2, 3, 4, 5}
+
+
+Boolean
+----------
+True or False
+T and F should be capital
+
+type(True)
+>>
+bool
+
+
+Boolean Precedence
+-------------------
+1. not
+2. and
+3. Or
+
+bool_out = True or not False and False
+print(bool_out)
+
+>>
+True   (True or False=True / True and False =False)
+
+
+---------------------------------------
+
+I/O with Basic Files in Python
+--------------------------------
+
+Only in Jupiter NOtebook
+------------------------
+To create a file and write text
+------------------------------------
+%%Writefile myfile.txt
+Hello this is my first file
+this is my secoind line
+this is my thir line
+
+In Pycharm:
+------------
+Create a notepad file manually in program location and try to open
+
+myfile = myfile.open('a1.txt')  -# it will open if will file exit and path is correct
+
+to read the file
+
+myfile.read()
+>>
+it will read all the lines in the notepad
+
+------------------------
+
+In Jupyter notebook:
+-----------------------
+if we read all lines in a text file, next time if we try to read again. out put will be blank because
+cursor is now at the end fo the line. So cursor has to be reset to first line
+
+
+myfile = open('a.txt')
+
+ex:
+myfile.read()
+>>
+all strings will be displayed
+
+myfile.read()
+>>
+''  -# no data as cursor is at the end
+
+so, myfile.seek(0) - it will reset to firt line
+myfile.read()
+>>
+it will again read all lines
+
+---------------------------------------------------------
+
+Store all content of a file in a var
+---------------------------------------
+
+myfile = myfile.open('a.txt')
+content = myfile.read()
+print(content)
+
+>>
+
+it will print all the content
+
+---------------------
+
+ReadLines() - All content will be in list
+------------------------------------------
+myfile = myfile.open('a.txt')
+myfile.seek(0)
+print(myfile.readlines())
+>>
+['a\n', 'b\n', 'c\n', 'c\n']
+
+
+
+
+How to open a file in different path:
+-------------------------------------
+
+mmm = open('C:\\Users\\mubali\\PycharmProjects\\pythons\\venv\\a.txt')
+print(mmm.read())
+mmm.seek(0)
+print(mmm.readlines())
+
+>>
+asmksms
+asknsak
+asknsak
+kasks
+kaskas
+ksama
+b
+c
+c
+
+['asmksms\n', 'asknsak\n', 'asknsak\n', 'kasks\n', 'kaskas\n', 'ksama\n', 'b\n', 'c\n', 'c\n']
+
+
+
+Best Practice:
+----------------
+
+Always close the file after opening, 2 ways to do it
+
+1. myfile.close()
+
+2. with open('a.txt') as myfile2:
+	content = myfile2.read()    - # no need to close file for this format
+
+print(content)
+
+
+Writing to a file
+------------------
+
+#mode = 'r'   -> is read only
+#mode = 'w'   -> is write only (overwrites existing file or creates new file)
+#mode = 'a'   -> is append only
+#mode = 'r+'  -> is reading and writing
+#mode = 'w+'  -> is writing and reading(overwrites existing file or creates new file)
+
+with open('a.txt',mode='r') as f:
+    print(f.read())
+
+with open('a.txt',mode='a') as f:
+    f.write("\n123456789")
+
+with open('a.txt',mode='r') as f:
+    print(f.read())
+
+
+>>
+
+it will all lines in text
+it will read all lines in text + 123456789
+
+
+
+Write and Read:
+------------------
+
+with open('12.txt',mode='w') as m1:
+    print(m1.write("asdfghjkl"))
+
+with open('12.txt',mode='r') as m1:
+    print(m1.read())
+
+
+Append and read:
+------------------
+with open('123456.txt',mode='a') as m1:
+    m1.write("mubeeeeeeeeeeeenali1234")
+    m1.seek(0)
+
+with open('123456.txt',mode='r') as m1:
+    print(m1.read())
+
+
+-----------------
+
+Recap of Section3:
+--------------------
+
+
+Strings:Ordered sequence of characters
+
+Lists:Ordered sequence of objects(mutable)
+
+Tuples:Ordered sequence of objects(immutable)
+
+Dictionary: Unordered format key:value pairing
+
+
+
+Q1:Reverse string 'hello'
+
+s='hello'
+s[::-1]
+>>
+olleh
+
+Q2. Create list in 2 ways
+
+1. list1 = [0,1,2]
+
+2. [0]*3 
+>>
+[0,0,0]
+
+
+Q3. Reassign 'hello' in this nested list to 'goodBye'
+
+list1 = [1,2,[3,4,'hello']]
+
+list1[2][2] = 'goodBye'
+
+print([list1])
+
+>>
+[1,2,[3,4,'goodBye']]
+
+Q4. 2 ways to sort a list
+
+l1 = [3,2,4,1,9]
+l1.sort()
+print(l1)
+
+OR
+
+sorted(l1)
+
+>>
+[1,2,3,4,9]
+
+
+Q5. print hello from below dictionary
+d= {'k1':{'k2':'hello'}}
+
+d{'k1'}{'k2'}
+>>
+hello
+
+Q6. Can you sort a dictionary
+
+No, because it is mappings and not in sequence and it cannot be ordered
+
+Q7. Difference between and Tuple and Set
+
+1. Tuple is immutable similar to list
+t=(1,2,3,3)
+
+
+1. Set is list with no duplicates
+list = [1,1,2,3,3,3,4,5]
+set(list)
+>>
+[1,2,3,4,5]
+
+Q8. How to find square and square root
+
+square root
+4 ** 0.5  --> any number to the power of 0.5 is square root
+
+square
+4 ** 2 - > this is square of 4
+
+cube
+
+4 ***3 -> result is cube of 4
+
+----------------------------------------------------------------------Section4-------------------------------------------------------------------------------
+
+Section4: Python Comparison Operator
+------------------------------------
+
+
+1. 2.0 == 2
+True
+
+2. 'Bye' == 'bye'
+False
+
+
+Chaining Comparison Operators in Python with Logical operator
+-------------------------------------------------------------
+Chain Comparison
+
+1. print(1>2>3)
+False
+
+2. 1<2 and 2<3
+True
+
+3.('h' == 'h')  and (2==2)
+True
+
+4. Similarly there is or and not
+
+5. not(1==1)  -> False
+
+6. not 1==1  -> False
+
+7. not 400>5000
+True
+
+---------------------------------------------------------------------------------Section 5------------------------------------------------------------
+Section5:
+Python Statements
+--------------------
+
+IF Statement:
+------------------
+if (condition):
+	#execute statement
+elif (condition):
+	#execute statement
+else:
+	#execute statements
+
+
+
+For Loops
+-----------
+
+my_terable=[1,2,3]
+
+for i in my_terable:
+	print(i)
+
+>>
+1
+2
+3
+
+
+----
+For loop for Strings:
+-------------------------
+
+
+mystring = "Hello World"
+for i in mystring:
+	print(i)
+
+>>
+H
+e
+l
+l
+o
+
+W
+o
+r
+l
+d
+
+
+Simiarly we can iterate to tuple
+------------------------------
+
+tup =(1,2,3)
+
+for t in tup:
+	print(t)
+
+>>
+1
+2
+3
+
+
+
+
+mylist = [(1,2),(3,4),(5,6)]
+
+for m in mylist:
+    print(m)
+    for m1 in m:
+        print (m1)
+
+>>
+(1, 2)
+1
+2
+(3, 4)
+3
+4
+(5, 6)
+5
+
+
+OR we can use Tuple unpacking
+---------------------------------
+mylist = [(1,2),(3,4),(5,6)]
+
+for (a,b) in mylist:
+	print(a)
+	print(b)
+
+
+OR
+
+mylist1 = [(1,2,3),(4,5,6),(7,8,9)]
+
+for a,b,c in mylist1:
+	print(a)
+	print(b)
+
+>>
+1
+2
+4
+5
+7
+8
+
+
+For loop with dictionary
+----------------------------
+4 ways of doing it
+
+1,
+mylist2 = {'k1': 1, 'k2': 2, 'k3': 3}
+for m2 in mylist2:
+    print(m2)   ## it will print only the keys
+
+
+>>
+
+k1
+k2
+k3
+
+
+2,
+mylist3 = {'k1': 1, 'k2': 2, 'k3': 3}
+for m3 in mylist3.items():
+    print(m3)   ## in dictionary, using .items() will print both key and  value. otherwise it will print only keys like above example
+
+>>
+
+('k1', 1)
+('k2', 2)
+('k3', 3)
+
+
+3,
+mylist4 = {'k1': 1, 'k2': 2, 'k3': 3}
+for key,value in mylist3.items():
+    print(key)   ## Tuple unpacking with dictionary
+    print(value)
+
+>>
+k1
+1
+k2
+2
+k3
+3
+
+
+4, to print only vlaues
+
+
+mylist4 = {'k1': 1, 'k2': 2, 'k3': 3}
+for value in mylist3.values():
+    print(value)
+
+>>
+k1
+1
+k2
+2
+k3
+3
+
+-----------------------------------
+
+While Loops:-
+-------------
+
+x=0
+
+while x > 5
+	print(f'the value of x is {x}')
+	x=x+1
+
+
+
+Using While with else
+-------------------------
+
+while x > 5
+	print(f'the value of x is {x}')
+	x=x+1
+
+else: 
+	print("x is not a value")
+
+
+
+-----------------------------
+
+PASS:
+--------
+
+Pass does nothing, it will help in continuing a programm
+
+
+for x in number:
+	pass    ---# pass will be executed with out any output
+
+print('testing')
+
+>>
+testing
+
+
+Continue:
+-------------
+
+Continue will go back to previous loop
+
+mystring = 'hello'
+
+for ms in mystring:
+	if ms=='e':
+	conitnue
+
+	print(ms)
+
+
+
+
+Sample:
+
+name = 'hello'
+
+for n1 in name:
+    if n1=='l':
+        continue
+    print(n1)
+
+>>
+h
+e
+o
+
+
+
+Break:
+------
+name = 'hello'
+
+for n1 in name:
+    if n1=='l':
+        break
+    print(n1)
+
+
+## break will stop a loop
+
+
+Using Range in For Loops
+-------------------------
+
+
+Syntax: for num in range(start,stop,step):
+
+Code:
+
+for num in range(0,10)
+	print(num)
+
+>>
+1
+2
+3
+4
+5
+6
+7
+8
+9  -> it will print upto 9
+
+Code2:
+
+for num in range(2,10,2)
+	print(num)
+
+>>
+2
+4
+6
+8
+
+
+Enumerate: Used instead of counter
+------------
+
+Enumerate is used to iterate on any iterable variable and provides output  in tuple format with the index and the value
+
+1.
+For Ex:
+word='abcde'
+
+for num in enumerate(word):
+    print(num)
+>>
+(0, 'a')
+(1, 'b')
+(2, 'c')
+(3, 'd')
+(4, 'e')
+
+2. Since enumerate gives output in tuple format, we can use tuple unpacking also
+
+
+For Ex:
+
+for index,value in enumerate(word):
+    print(index,value)
+>>
+0 a
+1 b
+2 c
+3 d
+4 e
+
+
+
+
+What is ZIP
+-----------
+
+ZIP will merge to list and pair it as a tuple
+We can merge more than 2 list
+it is 1:1 mapping, any list with more records will be ignored
+
+
+mylist1 = [1,2,3,4]
+mylist2 = ['a','b','c']
+
+for item in zip(mylist1,mylist2):
+	print(item)
+
+>>
+(1,'a')
+(2,'b')
+(3,'c')
+
+OR
+we can cast it as list
+
+list(zip(mylist1,mylist2)
+>>
+
+[(1,'a'),(2,'b'),(3,'c')]
+
+
+
+We can do ZIP for multiple list
+---------------------------------
+mylist1 = [1,2,3]
+mylist2 = ['a','b','c']
+mylist3 = [100,200,300]
+
+for item in zip(mylist1,mylist2,mylist3):
+	print(item)
+
+>>
+(1,'a',100)
+(2,'b',200)
+(3,'c',300)
+
+
+IN Operator:-
+-------------
+
+To check if a value is available in a list, tuple, dictionary or string
+
+1.
+print("the" in "the abcde")
+
+>>
+True
+
+2.
+mys=[1,2,3]
+print(1 in mys)
+
+>>
+True
+
+3. 
+myk = {'key1':1,'key2':2}
+
+print('key1' in myk)
+>>
+True
+
+
+4. Note:
+myk = {'key1':1,'key2':2}
+
+print(2 in myk)
+
+>>
+False ---> 2 is not in myk because 2 is value
+
+
+5. 
+myk = {'key1':1,'key2':2}
+
+print(2 in myk.values())
+
+>>
+True   -> 2 is available in myk.values()
+
+
+6. 
+myk = {'key1':1,'key2':2}
+
+print('key1' in myk.keys())
+
+>>
+True   
+
+
+MIN and MAX Functions:
+-----------------------
+
+mylist =[10,20,30,40]
+
+min(mylist)
+>>
+10
+
+max(mylist)
+>>
+40
+
+
+How to import function from a library
+---------------------------------------
+
+
+SHUFFLE() in Random library
+------------------------------
+syntax:  from random import shuffle
+
+here random is the library and shuffle is the function
+
+lis = [1,2,3,4,5,6,7,8]
+from random import shuffle
+shuffle(lis)
+print(lis)
+print(lis)
+
+>>
+[5, 6, 4, 3, 2, 1, 7, 8]
+
+
+Note:
+there is no return type for shuffle function, so we cannot assign to any variable
+each time we shuffle, gets a different output
+
+
+NOT POSSIBLE XX
+rand = shuffle(lis)
+
+rand will have no output
+
+instead
+shuffle(list)
+print(list)
+
+
+randint() in random library
+---------------------------
+
+output is gives a random integer from a range
+
+syntax:
+from random import randint
+
+myvar = randint(0,100)
+
+print(myvar)
+
+>>
+3
+
+next time we run will get another random integer
+
+
+
+How user to provide input
+---------------------------
+
+res = input("enter a number")
+print(f'result is {res}')
+
+>>
+enter a number10
+result is 10
+
+
+Note: generally input will return type is string, to cast it to float or integer do as below
+
+Float:
+
+res = input("enter a number")
+print(f'result is {float(res)}')
+
+>>
+10.0
+
+Integer:
+
+res = input("enter a number")
+print(f'result is {int(res)}')
+
+>>
+10
+
+
+
+OR the above can be written in below format as well
+----------
+1.
+res1 = float(input("give the number"))
+print(res1)
+
+>>
+10.0
+
+
+2. 
+res1 = int(input("give the number"))
+print(res1)
+
+>>
+10
+
+
+What is List Comprehension:-
+-----------------------------
+
+A unique way to quickly create a list in python
+
+
+
+Usual method to create a list
+-----------------------------
+
+1.
+mylist=[1,2,3,4,5]
+list1 = []
+
+
+for x in mylist:
+	list1.append(x)
+
+
+>>
+output for list1 is [1,2,3,4,5]
+
+
+
+Using List comprehension: we can write like below
+
+list1 = [x for x in mylist]
+
+>>
+[1,2,3,4,5]
+
+
+
+2. 
+mylist=[x for x in range(0,9)]
+print(mylist)
+
+>>
+[0,1,2,3,4,5,6,7,8]
+
+
+3. to get a sqyare of numbers in a range
+mylist = [x**2 for x in range(0,5)]
+print(mylist)
+
+>>
+[0,1,4,9,16]
+
+
+
+How to get the temperature in Farenheit using List Comprehension
+-----------------------------------------------------------------
+
+celsius= [0,10,20,30]
+
+farenheit = [((9/5)*temp)+32 for temp in celsius]
+print(farenheit)
+
+
+OR
+
+Usual process
+
+fahrenhit = []
+
+for temp in celsius:
+	print(farenhit.append(9/5*temp+32))
+
+
+
+
+Use if condition in List Comprehension
+-----------------------------------------
+
+mylist = [x**2 for x in range(0,10) if x%2==0]
+print(mylist)
+
+
+
+Use of if else condition in List Complrehension
+-------------------------------------------------
+
+results = [x if x%2==0 else 'ODD' for x in range(0,10)]
+
+
+syntax is different from using if statement with list comprehension and if else with list comprehension
+
+
+>>
+[0,'ODD',2,'ODD',4,'ODD',5,'ODD',6,'ODD',7,'ODD',8,'ODD']
+
+
+
+
+List Comprehension with Nested LOops
+---------------------------------------
+
+We can use list comprehension even with nested loops
+
+
+Nested Loops using List Comprehension
+
+res = [x*y for x in [1,2,3] for y in [1,10,1000]]
+print(res)
+
+>>
+[1, 10, 1000, 2, 20, 2000, 3, 30, 3000]
+
+
+
+Practice Question1:
+
+print all the words that starts with "s"
+
+
+Method1:
+-----------
+st = 'Print only the word that starts with s in this sentence and it is Sam'
+ls = st.split()
+
+res = [x for x in ls if x.startswith("s") or x.startswith("S")]
+
+print(res)
+
+
+Method2:
+----------
+st = 'Print only the word that starts with s in this sentence and it is Sam'
+ls = st.split()
+
+for x in ls:
+    if x.startswith("S"):
+        print(x)
+    elif x.startswith("s"):
+        print(x)
+
+>>
+
+starts
+s
+sentence
+Sam
+
+
+
+-------------
+
+
+Practice Question2:
+
+print even numbers in range 0 to 10
+
+
+Ans:
+
+
+for x in range(0,11,2):
+    print(x)
+
+>>
+0
+2
+4
+6
+8
+10
+
+OR to list it
+
+print(list(range(0,11,2))
+
+>>
+[0,2,4,6,8,10]
+
+----------------
+
+Practice3:
+
+Use a List Comprehension to create a list of all numbers between 1 and 50 that are divisible by 3.
+
+Ans:
+
+res = [x for x in range(1,51) if x%3==0]
+print(res)
+
+>>
+[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48]
+
+----------
+
+Practice4:
+
+Go through the string below and if the length of a word is even print "even!"
+
+st = 'Print every word in this sentence that has an even number of letters'
+
+
+st = 'Print every word in this sentence that has an even number of letters'
+
+ls = st.split()
+
+for x in ls:
+    if len(x)%2==0:
+        print(f'len of word {x} = Even')
+    else:
+        print(f'len of word {x} = Odd')
+
+>>
+
+len of word Print = Odd
+len of word every = Odd
+len of word word = Even
+len of word in = Even
+len of word this = Even
+len of word sentence = Even
+len of word that = Even
+len of word has = Odd
+len of word an = Even
+len of word even = Even
+len of word number = Even
+len of word of = Even
+len of word letters = Odd
+
+----------------------------
+
+Practice5
+
+
+Write a program that prints the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number,
+ and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
+
+for x in range(0,101):
+    if(x%3==0 and x%5==0):
+        print(f'the number {x} is divisble by both 3 and 5, hence FizzBuzz')
+    elif(x%3==0):
+        print(f'the number {x} is divisble by 3, hence Fizz')
+    elif(x%5==0):
+        print(f'the number {x} is divisble by 5, hence Buzz')
+    else:
+        print(f'the number {x} is Not divisible by any number')
+
+>>
+the number 0 is divisble by both 3 and 5, hence FizzBuzz
+the number 1 is Not divisible by any number
+the number 2 is Not divisible by any number
+the number 3 is divisble by 3, hence Fizz
+the number 4 is Not divisible by any number
+
+--------------------
+
+Practice6
+Use List Comprehension to create a list of the first letters of every word in the string below:
+
+st = 'Create a list of the first letters of every word in this string'
+
+ls = st.split()
+
+res = [x[0] for x in ls]
+print(res)
+
+>>
+
+['C', 'a', 'l', 'o', 't', 'f', 'l', 'o', 'e', 'w', 'i', 't', 's']	
+
+
+
+--------------------------------------------------------------------------Section6-------------------------------------------------------------------
+
+
+Methods and Functions:
+-----------------------
+
+Use HELP in fucntions
+------------------------
+
+help(st.split)
+
+>>
+split(sep=None, maxsplit=-1) method of builtins.str instance
+    Return a list of the words in the string, using sep as the delimiter string.
+    
+    sep
+      The delimiter according which to split the string.
+      None (the default value) means split according to any whitespace,
+      and discard empty strings from the result.
+    maxsplit
+      Maximum number of splits to do.
+      -1 (the default value) means no limit.
+
+
+------------------------
+
+
+How to define documentation for user defined methods
+------------------------------------------------------
+
+def mymo():
+    '''
+    This is my first method
+    '''
+
+    print("hello")
+
+mymo()
+
+help(mymo)
+
+>>
+mymo()
+    This is my first method
+
+---------------------------------
+
+
+Creating a method with parameter and not passing an argument
+--------------------------------------------------------------
+
+def say_hello(name):
+	print("hello")
+
+
+say_hello()
+
+>>
+Will give error since no argument is passed
+
+------------
+In such cases, we can give default argument
+
+def say_hello(name='MUNNU'):
+	print("hello"+name)
+
+
+say_hello()
+
+>>
+hello MUNNU
+
+-----------------------
+If we pass argument, that would be considered and MUNNU will be ignored
+
+def say_hello(name='MUNNU'):
+	print("hello"+name)
+
+
+say_hello("MUBEEN")
+
+>>
+hello MUBEEN
+
+------------------------------------
+
+
+Define Method with return statement
+------------------------------------
+
+def add(n1,n2):
+	return n1+n2
+
+
+result = add(2,3)
+print(result)
+
+>>
+5
+
+-------
+
+To Check if "dog" is in the string
+-----------------------------
+
+def check_dog(mystring):
+	if 'dog' in mystring.lower():            ----> converting the sentence to lower to check for "dog"
+	return True
+	
+	else
+	return False
+
+
+mystr ="check if dog is in this string"
+check_dog(mystr)
+
+
+>>
+True
+
+
+OR write the same program with less number of codes
+------------------------------------------------------
+note: 'dog' in mystring.lower(): itself is true
+
+
+def check_dog(mystring):
+	if 'dog' in mystring.lower():            ----> converting the sentence to lower to check for "dog"
+
+
+mystr ="check if dog is in this string"
+check_dog(mystr)
+
+
+>>
+True
+
+
+Create a method for PIG_Latin
+-------------------------------
+
+What is pig latin
+
+if a word has vowel, then apple+ay= appleay    --if word is apple
+
+if a word has no vowel, then ord+w+ay = ordway  --if word is word
+
+
+
+def pig_latin(mstring):
+
+first_letter = mstring[0]
+
+	if mstring in 'aeiou':
+		pigword= mstring+"ay"
+		
+
+	else:
+		pigword =  mstring[1:] + first_letter + "ay"
+		
+	return pigword
+
+
+--
+
+pig_lating("apple")
+pig_lating("mubeen")
+
+>>
+
+appleay
+ubeenmay
+
+
+--------------------------------------
+
+
+
+What is *args:  This is tuple type
+---------------
+
+Usually we have limitation in passing argument, we can only pass max upto 5 arguments in a func, even if we set few in it as default
+but using *args we can intake how many ever arguments
+
+For Ex:
+
+def myfunc(*args):						-> it is not mandatory to use args itself, but good to use same terminology
+	return sum(args)
+
+
+myfunc(1,2,3,4,5)
+myfunc(1,2)
+>>
+15
+3
+
+
+What is *kwargs:  This is Dictionary type(key:value)
+------------------------------------------------------
+key word arguments
+
+like how args return tuple, kwqrgs return dictionary type
+
+
+
+def myfunc(**kwargs):
+	print(kwargs)
+
+
+
+
+myfunc(fruit='apple',veg='tomato')
+
+
+>>
+
+[fruit:'apple',veg='tomato']
+
+
+
+
+
+How to use both *args and *kwargs in one method
+---------------------------------------------------
+
+
+def myfunc(*args,**kwargs):
+	print(args)
+	print(kwargs)
+	print('the answer is {} and {}'.format(args[0],kwargs['age']))
+
+
+
+
+myfunc(1,2,3,name='mubeen',age=33)
+myfunc(3,4,5,2,1,3,4,name='munnu', age=23, type='male')
+
+>>
+
+the answer is 1 and 33
+
+the answer is 3 and 23
+
+
+
+Note: since def myfunc(*args,**kwargs):
+
+has first *args and then **kwargs, the arguments passed also should be in the same order
+
+
+
+
+---------------------------------------
+
+Practice:
+Capitalize first and 4th letter in the word
+
+
+def myfunc(str):
+    first_word = str[:3]
+    second_half =str[3:]
+    return  first_word.capitalize() + second_half.capitalize()
+
+a= myfunc("macdonald")
+print(a)
+
+>>
+MacDonald
+
+
+
+-----------------------------
+
+How to use Join
+-----------------
+
+str = "mubeenali"
+c = '0'.join(str)
+print(c)
+
+>>
+
+m0u0b0e0e0n0a0l0i
+
+
+str = "mubeenali"
+c = ' '.join(str)
+print(c)
+
+>>
+m u b e e n a l i
+
+
+----------------------------
+
+Practice:
+
+How to reverse a string
+------------------------
+
+def myfunc(str):
+  word = str.split()
+  reverse_word = word[::-1]
+  return ' '.join(reverse_word)
+
+
+
+a= myfunc("Hi my name")
+print(a)
+
+
+>>
+name my Hi
+
+
+------------------------
+
+Practice:
+
+Check if in a list, there are two 3s next to each other, then return True
+
+Ans
+
+def myf(list1):
+    l = len(list1)
+    l = l-1
+    i=0
+
+    for i in range(0,l):
+        if list1[i] ==3 and list1[i+1] ==3:
+            return True
+    else:
+        return False
+
+
+
+list1 = [4,4,1,3,3,1]
+a = myf(list1)
+print(a)
+
+
+>>
+
+True
+
+------------
+
+Practice:
+repeat same char in word 3 times like inthe output:
+
+def fun(str):
+    for i in range(0,len(str)):
+        print(str[i]*3,end='')
+
+str = "newyork"
+fun(str)
+
+>>
+nnneeewwwyyyooorrrkkk
+
+-----------------------------
+
+Lambda Expressions:
+----------------------
+
+Map:
+----
+Map is to repeat the same function to multiple items in a list
+
+
+def square(num):
+    return num**2
+
+num=2
+a = square(num)
+print(a)
+
+
+n=[2,3,4]
+
+for i in map(square,n):
+    print(i)
+
+>>
+4
+9
+16
+
+
+Samething if need to represent in a list format
+
+def square(num):
+    return num**2
+
+num=2
+a = square(num)
+print(a)
+
+
+n=[2,3,4]
+
+a =list(map(square,n))
+print(a)
+
+>>
+
+[4, 9, 16]
+------------
+
+
+Using Map function, if length of string is even, return even else return first char of the string
+
+def splicer(name):
+    if len(name)%2==0:
+        return 'Even'
+    else:
+        return name[0]
+
+
+
+name='even'
+splicer(name)
+
+lis=['febi','munnu','ninu','mubeen','aaa']
+
+a =list(map(splicer,lis))
+
+print(a)
+
+>>
+
+['Even', 'm', 'Even', 'Even', 'a']
+
+
+------------------
+
+Filter Function:
+----------------
+
+Filter is almost same as map, in one condition is it will display the result only if condition returns true
+
+
+def square(num):
+    if num%2==0:
+        return True
+    else:
+        return False
+
+
+num=2
+a = square(num)
+print(a)
+
+
+n=[2,3,4,6,7,8,5,4,3]
+
+for i in filter(square,n):
+    print(i)
+
+a =list(filter(square,n))
+print(a)
+
+
+
+>>
+2
+4
+6
+8
+4
+[2, 4, 6, 8, 4]
+
+Note: returns only if condition is True
+
+
+----------------
+
+
+Lambda Expression with Map:
+------------------------------
+
+l1 =[2,3,4,5]
+
+a =list(map(lambda n:n**2,l1))			---> n is the argument, 
+print(a)
+
+>>
+[4, 9, 16, 25]
+
+
+
+Lambda Expression with filter:
+-----------------------------------
+l1=[2,3,4,5,6]
+a = list(filter(lambda n:n%2==0,l1))
+
+>>
+[2,4,6]
+
+
+
+-------------------------------
+
+Where is Lambda used:
+---------------------
+it is used as replacement for simple functions..
+
+like getting the first letter of all strings in a list
+
+l1=['munnu','mub','feb']
+a = list(map(lambda n: n[0],l1))
+
+>>
+[m,m,f]
+
+---------------------------------
+
+
+How is scope defined for variable?
+
+it uses below legb rule, to give preference for a variable
+
+l = local - local variables 
+e = enclosed function - variable of a function with in a function,
+g = global variable
+b -  built in variable,, last preference is built in function. So dont override any built in function
+
+
+
+Example:  Function inside another function	
+
+x='global variable'
+def function1():
+    x = 'enclosed variable'
+
+    def function2():
+        x="local variable"
+        print('Hello'+x)
+    function2()
+
+function1()
+
+>>
+
+local variable    --> local is given preference
+
+
+-----------------------
+
+Practice:
+Create a function, that counts total upper case and lower case chars in a string.
+Hint : use dictionary to count
+
+def countchar(str):
+    dic = {'upper':0,'lower':0}
+    for s in str:
+        if s.isupper():
+            dic['upper'] = dic['upper'] + 1
+        elif s.islower():
+            dic['lower'] = dic['lower'] + 1
+    print("Total upper case char count is",dic['upper'])
+    print("Total lower case char count is", dic['lower'])
+
+str = "Hi my Name is Mubeen ali what is Your name"
+countchar(str)
+
+>>
+Total upper case char count is 4
+Total lower case char count is 29
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+How to install Jupyter notebook:
+---------------------------------
+
+pre requirsite is to install python3
+
+1. Go to python path C:\Users\mubali\AppData\Local\Programs\Python\Python37-32\Scripts
+
+2. in cmd , go to cd C:\Users\mubali\AppData\Local\Programs\Python\Python37-32\Scripts
+3. pip3 install jupyter
+4. in scripts folder, to open jupyter notebook
+5. type "jupyter notebook" in cmd, in same path C:\Users\mubali\AppData\Local\Programs\Python\Python37-32\Scripts
+6. copy the token
+
+
+---------------------------------------------------------------------Section 8----------------------------------------------------------------------------
+
+Section8 - Object Oriented Programming :-
+----------------------------------------
+
+
+How to create a simple Class and Object:
+
+
+class Sample():
+    pass
+
+
+my_sample = Sample()
+
+type(my_sample)
+
+>>
+
+__main__.Sample
+
+
+----------------------
+
+1. Class is like a blue print, Class is always written in Capital letter
+2. Inside class we write a function, which is called method when inside class
+3. self keyword is used, its like this in constructor of java
+4. we need to assign the instance variable to the argument with following syntax
+self.name = name
+
+here name is passed to self.name  which is the instance variable.name
+
+5. def __init__(self) is the syntax to write the method constructor
+
+
+Sample:
+--------
+
+class Dog():
+	def __init__(self,name,age,spots):			----# init is like Constructor
+		self.name = name
+		self.age = age
+		self.spots = spots
+
+my_dog = Dog(name='lab',age=23,spots=False)					##my_dog instance of Dog() class, no need to use new keyword like in java, also no need to pass self here
+
+my_dog.name
+my_dog.age
+my_dog.spots
+
+>>
+lab
+23
+False
+
+---------
+
+What is Class Object Variable:
+-------------------------------
+
+It is similar to Global Variable in Java
+
+What ever is defined in Class level is applicable for all the instance variable
+
+
+class Dog():
+
+	species = 'mammal'				--------------> Class Attribute, applicable for all instance variable
+	def __init__(self,name,age,spots):
+		self.name = name
+		self.age = age
+		self.spots = spots
+
+my_dog = Dog(name='lab',age=23,spots=False)
+
+my_cat = Dog(name='meow',age=2,spots=False)
+
+my_dog.name
+my_dog.age
+my_dog.spots
+
+my_dog.species
+my_cat.species
+
+>>
+lab
+23
+False
+
+mammal
+mammal
+
+IMPORTANT: Class object atribute can be called directly by the class name also instead of self.species, it can be called Dog.species
+
+
+Difference between Method and Function
+----------------------------------------
+
+Method is defined inside the class that will work with Object inside the class in someway
+
+
+Write a method in a Class:
+--------------------------
+
+class Dog():
+    species = 'mammal'
+    def __init__(self,name,age,spot):
+        self.name = name
+        self.age = age
+        self.spot = spot
+    
+    def bark(self):
+        print('Woof! My name is {}'.format(self.name))
+
+my_dog = Dog(name='lab',age=23,spot=False)
+
+
+my_dog.bark()
+
+>>
+
+Woof! My name is lab
+
+
+
+Note: in above code, we are not passing anything from outside. for already defined attributes. we need to mention like self.name etc
+
+
+For external attributes
+-------------------------
+class Dog():
+    species = 'mammal'
+    def __init__(self,name,age,spot):
+        self.name = name
+        self.age = age
+        self.spot = spot
+    
+    def bark(self,number):
+        print('Woof! My name is {} and number is'.format(self.name,number))   -----> here number is not self.number, because this passed while calling method
+
+my_dog = Dog(name='lab',age=23,spot=False)
+
+my_dog.bark(23)
+
+>>
+
+Woof! My name is lab and number is 23
+
+
+--------------------------
+
+Another example of method in Class
+-----------------------------------
+
+class Circle():
+    pi = 3.14
+    def __init__(self,radius=1):
+        
+        self.radius = radius
+        self.area = radius * radius * Circle.pi
+        
+    def get_circumference(self):
+        return self.radius * self.pi * 2
+        return circumference
+
+
+my_circle = Circle(radius=30)
+
+my_circle.radius
+
+my_circle.area
+
+my_circle.get_circumference()
+
+>>
+Out[91]:
+30
+
+Out[93]:
+2826.0
+
+Out[92]:
+188.4
+
+----------------------------------------------------
+
+Inheritance:
+-------------
+
+
+Parent Class:
+class Animal():
+    def __init__(self):
+        print("I am an animal class")
+        
+    def whoami(self):
+        print("I am a Mammal")
+    
+    def eat(self):
+        print("I eat all")
+
+Child Class: Inheriting Parent Class like below
+
+class Doggy(Animal):
+    
+    def __init__(self):
+        Animal.__init__(self)						//this is not mandatory, but good to write this line
+        print("I am a doggy class")
+        
+    def eat(self):
+        print("Eat meat")
+
+
+my_doggy = Doggy()
+
+>>
+
+I am an animal class
+I am a doggy class
+
+my_doggy.whoami()
+>>
+I am a Mammal
+
+my_doggy.eat()
+>>
+
+Eat meat
+
+-----------------------------------
+
+Polymorphism
+----------------
+
+class Dog():
+    def __init__(self,name):
+        self.name = name
+        print("Doggy    "+self.name)
+        
+    def speak(self):
+        print("Woof!")
+
+niko = Dog("niko")
+
+
+niko.speak()
+>>
+Woof!
+
+--------------------------
+
+Class2:
+class Cat():
+    def __init__(self,name):
+        self.name = name
+        print("Cat    "+self.name)
+        
+    def speak(self):
+        print("Meow!")
+
+
+Felix = Cat("Felix")
+>>
+Cat    Felix
+
+Felix.speak()
+>>
+Meow!
+
+
+def pet_speak(pet):
+    pet.speak()
+
+pet_speak(Felix)
+>>
+Meow!
+
+pet_speak(niko)
+>>
+Woof!
+
+
+Note: Both niko and Felix share the same method name pet_speak()
+
+
+
+How to call Base class method from child class instance using Super keyword: Polymorphism
+-------------------------------------------------------------------------------------------
+
+
+class Car(object):
+	def __init__(self):
+		print("just created the car instance")
+
+	def drive(self):
+		print("driving Car")
+
+class BMW(Car):
+	def __init__(self):
+	Car.__init__self):
+		print("just created the bmw instance")
+
+
+	def driver(self):
+		super(BWM, self).drive()					//this is how to call base class method from child class instance
+		print("driving BMW)
+
+
+b = BMW()
+
+b.drive()
+>>
+driving BMW
+
+
+
+Magic/Dender Methods:
+----------------------
+
+How to find the properties of user defined objects:
+---------------------------------------------------
+
+For Ex: 
+
+Suppose there is a user defined object defined for a class, we cannot print the object or find the length of object by just using
+print or len methods
+
+instead there are some additional steps to define in Class for to print an object, find lenght of object and also delete object with some
+pre requisite
+
+
+class Book():
+    def __init__(self,name,author,pages):
+        print("This is book class")
+
+
+b = Book(name='booksforlife',author='mubeen',pages=200)
+>>
+
+This is book class
+
+print(b)
+>>
+
+<__main__.Book object at 0x066EE7B0>
+
+
+
+str(b)
+>>
+]:
+'<__main__.Book object at 0x066EE7B0>'
+
+
+Inorder to play with the objects: Make below changes to code
+-------------------------------------------------------------
+
+remember the return type in main class different for __str__, __len__ and __del__
+
+
+class Book():
+    def __init__(self,title,author,pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+        print("This is book class")
+        
+    def __str__(self):
+        return f'the book is {self.title} and the author is {self.author}'
+    
+    ## len will return only integers
+    def __len__(self):
+        return self.pages
+    
+    def __del_(self):
+        print("A book object is deleted")
+
+b = Book(title='booksforlife',author='mubeen',pages=200)
+
+>>
+
+This is book class
+
+print(b)
+>>
+the book is booksforlife and the author is mubeen
+
+str(b)
+>>
+'the book is booksforlife and the author is mubeen'
+
+len(b)
+>>
+200
+
+del b
+>>
+b object will be deleted
+
+---------------------
+
+Practice - Class and Objects, Find distance and slope of of 2 cordinates in tuple format. Remeber to use tuple unpacking
+
+
+class Line():
+    
+    def __init__(self,coor1,coor2):
+        self.coor1 = coor1
+        self.coor2 = coor2
+    
+    def distance(self):
+        # Or use tuple unpacking - it is better option
+        return ((self.coor2[0] - self.coor1[0])**2 + (self.coor2[1] - self.coor1[1])**2)**0.5
+    
+    def slope(self):
+        x1,y1 = self.coor1
+        x2,y2 = self.coor2
+        return ((y2-y1) / (x2 - x1))
+
+coordinate1 = (3,2)
+coordinate2 = (8,10)
+
+
+l1 = Line(coordinate1,coordinate2)
+
+l1.distance()
+
+>>
+:
+9.433981132056603
+
+l1.slope()
+
+>>
+0]:
+1.6
+
+----------------------------------------------------------------------------Section 9---------------------------------------------------------------------
+
+Section9: Pip Install and Pypi
+------------------------------
+
+How to call one program function in another program :
+-----------------------------------------------------
+Create a program in sublime text in desktop as mymodule.py
+
+def my_func():
+	print("Hey i am in mymodule.py")
+
+
+Create a program in sublime text in desktop as myprogram.py
+
+from mymodule import my_func
+my_func()
+
+
+In cmd, 
+type python myprogram.py
+>>
+Hey i am in mymodule.py
+
+---------------------------------------------
+
+How to create packages and call functions from other scripts
+--------------------------------------------------------------
+
+Each folder can  be considered as a package, provided there is an empty file named __init__.py
+
+
+See demonstration below
+
+
+1. Create folder in desktop MyMainPackage
+
+2. Create a file __init__.py in this folder
+
+3. Create another folder inside MyMainPackage as SubPackage
+
+4. GO inside the SubPackage folder
+
+5. Create an empty file named as __init__.py
+
+6. Create a some_main_script.py in MyMainPackage
+
+below is the sample code inside this script
+
+def report_main():
+	print("Hey i am fun in main package")
+
+
+7. Create a mysubscript.py file inside SubPackage
+
+def sub_report():
+	print("Hey i am function inside sub script")
+
+8. Go to Desktop create a file, myprogram.py
+
+to import the functions in some_main_script.py and mysubscript.py
+
+Do as below
+
+====================
+from MyMainPackage import som_main_script
+from MyMainPackage.SubPackage import mysubscript
+
+som_main_script.report_main()
+mysubscript.sub_report()
+=========================
+
+9. Go to CMD and run below command to execute myprogram.py
+
+>> python myprogram.py
+
+>>
+o/p
+Hey i am fun in main package
+Hey i am function inside sub script
+
+Here functions inside som_main_script and mysubscript is called in myprogram.py
+
+
+
+Use of __name__ = "__main__"
+--------------------------------
+
+__name__ is an in built variable, when a program is run direclty then __main__ gets assigned to __name__ variable.
+So if both are equal that means this program is run directly 
+
+
+Create 2 files like below and understand how __name__ works
+------------------------------------------------------------
+
+1. create two files in desktop like below
+
+2. one.py
+
+def func():
+	print("FUNC() in ONE.PY")
+
+print("Top lvel in ONE.PY")
+
+if __name__ == "__main__":
+	print('ONE.py run directly')
+
+else: 
+	print('ONE.py is imported')
+
+
+3. two.py
+import one
+
+print("Top level in two.py")
+one.func()
+
+if __name__ == "__main__":
+
+	print("two.py is run directly")
+
+else:
+	print("two.py is imported")
+
+
+
+4. now run the following command in cmd and understand the output
+
+in cmd
+>> python one.py
+o/p
+Top lvel in ONE.PY
+FUNC() in ONE.PY
+ONE.py run directly
+
+>> python two.py
+
+o/p
+Top lvel in ONE.PY
+ONE.py is imported
+Top level in two.py
+FUNC() in ONE.PY
+two.py is run directly
+
+-----------------------------------------------------------------Section 10-Errors and Exception Handling--------------------------------------------------
+
+Section 10 -  Errors and Exception Handling
+---------------------------------------------
+
+Exception:
+
+
+try:
+
+except:
+
+else:
+
+finally:
+
+
+
+Note: the flow of execution is 
+
+positive scenario - try > else > finally
+negative scenario - when try fails  > except > finally
+
+----------------
+
+
+try:
+    f= open('testfile','w')
+    f.write("Write a line")
+    print("in try block")
+    
+except TypeError:
+    print("its type error")
+    
+except OSError:
+    print("its os error")
+finally:
+    print("in finally block")
+
+
+>>
+in try block
+in finally block
+
+
+try:
+    f= open('testfile','r')
+    f.write("Write a line")
+    print("in try block")
+    
+except TypeError:
+    print("its type error")
+    
+except OSError:
+    print("its os error")
+finally:
+    print("in finally block")
+
+
+>>
+its os error
+in finally block
+
+--------------
+
+
+except:
+
+note: except is all other exceptions.
+
+
+
+Below code will re iterate until correct number is entered
+-------------------------------------------------------------
+def ask_input():
+    
+    while True:
+        try:
+            res = int(input("Enter number"))
+
+        except:
+            print("enter correct number")
+
+        else:
+            print("thanks")
+            break
+
+
+Practice:
+-----------
+
+try:
+    for i in ['a','b','c']:
+        print(i**2)
+    
+except TypeError:
+        print("format not supported")
+
+>>
+format not supported
+
+---------------------------------------------------------
+
+Pylint:
+--------
+
+pylint is to check the formatting and score of program.Write code in sublime
+instead of running as python program.py, run it as pyling program.py.
+
+It gives a complete picture of how the code is written, if intendation is correct and the score etc
+
+
+For intendation, it is best practice to use spaces instead of tabs. 
+In submile, if we hit tab and select that space we can see a while line, whereas when you put 4 spaces
+by hitting space bar and select that space, we can see dots
+
+
+-----------------------------------------------------------------
+
+Unit Test Library
+------------------
+
+??
+
+
+-------------------------------------------------
+
+decorator
+
+Decorator is function inside a function passed as argument
+
+def hey():
+    print("Heyy")
+    return hi
+
+def hi():
+    print("hi only")
+
+a = hey()
+
+>>
+
+Heyy
+
+a()
+>>
+hi only
+
+-------------------------------------
+
+Generators:
+
+Generator is a yield keyword to store data in more efficient manner. Usuall when we run a program
+we tried to append it in a list, instead use the yeild keyword. so that we can iterate through it.
+
+
+Ex:
+def generate_square(n):
+    for i in range(n):
+        yield (i**2)
+
+for x in generate_square(10):
+    print(x)
+
+
+>>
+
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+
+THis is more memory efficient than the usual process of appending each value to a list
+
+-------------------------------------------------------------Section 15-----------------------------------------------
+
+Collections:
+------------
+
+from collections import Counter
+
+a = [1,2,2,1,1,2,3,4,4,4,45,6,4,3,33,3,2,1,2,3,4,4]
+
+Counter(a)
+>>
+
+Counter({1: 4, 2: 5, 3: 4, 4: 6, 45: 1, 6: 1, 33: 1})
+
+
+----
+
+s = "Hi this is mubeen hi this is is is is mubeen mubeen hi Hi"
+
+s.split()
+
+b = s.split()
+
+Counter(b)
+
+>>
+
+Counter({'Hi': 2, 'this': 2, 'is': 5, 'mubeen': 3, 'hi': 2})
+
+--------------------------------
+
+
+Methods in Counter:
+--------------------
+Counter methods can do more functions
+
+from collections import Counter
+words.split()
+a = words.split()
+Counter(a)
+
+>>
+
+
+Out[9]:
+Counter({'this': 4, 'is': 4, 'mubeen': 5, 'how': 2, 'are': 1, 'you': 2})
+
+c.most_common()
+>>
+[('mubeen', 5), ('this', 4), ('is', 4), ('how', 2), ('you', 2), ('are', 1)]
+
+list(c)
+>>
+['this', 'is', 'mubeen', 'how', 'are', 'you']
+
+set(c)
+>>
+{'are', 'how', 'is', 'mubeen', 'this', 'you'}
+
+dict(c)
+>>
+{'this': 4, 'is': 4, 'mubeen': 5, 'how': 2, 'are': 1, 'you': 2}
+
+c.items()
+>>
+:
+dict_items([('this', 4), ('is', 4), ('mubeen', 5), ('how', 2), ('are', 1), ('you', 2)])
+
+
+sum(c.values())
+>>
+18
+
+sum(c.values())
+c.most_common()
+list(c)
+set(c)
+dict(c)
+c.items()
+
+
+--------------------------
+
+
+Collections - Defaultdict
+---------------------------
+
+defaultdict is used for providing default values in a dictionary if the key is not avaialable
+
+
+d = {'key1':1,'key2':2}
+
+from collection import defaultdict
+
+d = defaultdict(lambda:0)
+
+d['key0']
+
+>>
+0 ---as default value for the key key0 not availabel in the dictionary of d
+
+
+--------------------------------------
+
+
+Collections - Ordereddict
+---------------------------
+
+Ideally dictionary is not ordered, for that reason we use OrderedDict. But from python 3.6 and above we see normal dictionary itself display in order
+
+
+
+from collections import OrderedDict
+
+d={}
+d = OrderedDict()
+d['A'] = 3
+d['C'] = 2
+d['Z'] = 1
+d['P'] = 31
+
+for k,v in d.items():
+    print(k,v)
+
+>>
+A 3
+C 2
+Z 1
+P 31
+
+
+Note:
+
+From Python3.6 even regular dictionary is in ordered. how to differentiate between ordereddictionary and regular dictionary
+
+
+
+
+Regular Dictionary:
+
+if 2 dictionaries are having same key and value but initialized in different order, then if we try to compare the 2 dictionaries it will return true like below
+
+Regular Dictionary:
+d3={}
+d4={}
+
+d3['C'] = 2
+d3['A'] = 3
+d3['P'] = 31
+d3['Z'] = 1
+
+d4['P'] = 31
+d4['C'] = 2
+d4['Z'] = 1
+d4['A'] = 3
+
+print(d3==d4)
+>>
+
+True
+
+Ordered Dictionary:-
+--------------------
+
+from collections import OrderedDict
+
+
+d1={}
+d2={}
+d1 = OrderedDict()        ----> initialize d1 and d2 as ordereddictionary
+d2 = OrderedDict()
+
+d1['C'] = 2
+d1['A'] = 3
+d1['P'] = 31
+d1['Z'] = 1
+
+d2['P'] = 31
+d2['C'] = 2
+d2['Z'] = 1
+d2['A'] = 3
+
+print(d2==d1)
+>>
+
+False
+
+---------------------------------------------------
+
+
+Collection - namedtuple
+--------------------------
+
+namedtuple is a library from collections, it is an extension of tuple. Generally in tuple, we fetch value using the index position. Someitme if we dont knwo the index position
+in such cases namedtuple can be used.
+
+Normal tuple
+t = (1,2,3)
+t[0]
+>>
+1
+
+Syntax:
+from collections import namedtuple
+Class name = namedtuple('Class Name','Attribute1 Attribute2 Attribute3')
+
+Dog = namedtuple('Dog','name age weight')
+d = Dog(name='mub', age=1, weight='100lb')
+
+d[0]
+>>
+mub
+
+d.name
+>>
+mub
+
+d.age
+>>
+1
+------------------------------------------------------------------------------
+
+datetime:-
+---------
+
+Python has datetime module to handle dates and time
+
+t = datetime.time(4,20,1)
+print(t)
+print('hour  :', t.hour)
+print('minute:', t.minute)
+print('second:', t.second)
+print('microsecond:', t.microsecond)
+print('tzinfo:', t.tzinfo)
+
+>
+
+04:20:01
+hour  : 4
+minute: 20
+second: 1
+microsecond: 0
+tzinfo: None
+
+
+
+print('Earliest  :', datetime.time.min)
+print('Latest    :', datetime.time.max)
+>>
+Earliest  : 00:00:00
+Latest    : 23:59:59.999999
+
+
+today = datetime.date.today()
+
+print(today)
+print('ctime:', today.ctime())
+print('tuple:', today.timetuple())
+print('ordinal:', today.toordinal())
+print('Year :', today.year)
+print('Month:', today.month)
+print('Day  :', today.day)
+
+>>
+2018-02-05
+ctime: Mon Feb  5 00:00:00 2018
+tuple: time.struct_time(tm_year=2018, tm_mon=2, tm_mday=5, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=36, tm_isdst=-1)
+ordinal: 736730
+Year : 2018
+Month: 2
+Day  : 5
+
+
+
+print('Earliest  :', datetime.date.min)
+print('Latest    :', datetime.date.max)
+>>
+
+Earliest  : 0001-01-01
+Latest    : 9999-12-31
+
+
+
+Replcae time:
+------------
+
+d1 = datetime.date(2015, 3, 11)
+print('d1:', d1)
+
+d2 = d1.replace(year=1990)
+print('d2:', d2)
+
+>>
+d1: 2015-03-11
+d2: 1990-03-11
+
+
+
+Time Difference:
+----------------
+
+d1 = datetime.date(2015, 3, 11)
+
+d2 = datetime.date(1990, 3, 11)
+d1-d2
+>>
+datetime.timedelta(9131)
+
+----------------------------------------------------------------------
+
+Python Debugger:-
+-----------------
+
+import pdb
+pdb.set_trace()
+
+this command is used to debug a code. q is used to quit
+
+-----------------------------------------------------------------------
+
+Regular Expression:
+----------------------
+
+Regular expression is a search,manipulate data method
+
+
+import re
+
+pattern = ['mubeen','febi']
+text  = 'my name is mubeen, and my pet name is munnu'
+
+we can search for any of the pattern in below text, also we can assign it to variable which acts like a object and we can use method on top of it like belwo
+
+
+import re
+
+pattern = ['mubeen','febi']
+text  = 'my name is mubeen, and my pet name is munnu'
+
+match = re.search(pattern[0],text)
+
+match.start()
+>>
+11
+
+
+match.end()
+>>
+17
+
+Split in regular expression
+-------------------------------
+
+split_term = '@'
+phrase = 'my email is mub@gmail.com'
+re.split(split_term,phrase)
+>>
+
+['my email is mub','gmail.com']
+
+
+
+find all in regular expression
+--------------------------------
+
+re.findall('match','this is a match and another match')
+>>
+['match','match']
+
+
+
+Pattern find all using Regular Expression:
+-------------------------------------------
+'sd*', # s followed by zero or more d's
+'sd+',  # s followed by one or more d's
+'sd?',  # s followed by zero or one d's
+'sd{3}', # s followed by three d's
+'sd{2,3}',  # s followed by two to three d's
+
+
+import re
+
+
+phrase = 'sdsdd..sssddd...sdddsddd...dsds...dsssss...sdddd'
+
+re.findall('sd*',phrase)
+
+>>
+['sd',
+ 'sdd',
+ 's',
+ 's',
+ 'sddd',
+ 'sddd',
+ 'sddd',
+ 'sd',
+ 's',
+ 's',
+ 's',
+ 's',
+ 's',
+ 's',
+ 'sdddd']
+
+
+re.findall('sd+',phrase)
+>>
+['sd', 'sdd', 'sddd', 'sddd', 'sddd', 'sd', 'sdddd']
+
+re.findall('sd?',phrase)
+>>
+
+['sd',
+ 'sd',
+ 's',
+ 's',
+ 'sd',
+ 'sd',
+ 'sd',
+ 'sd',
+ 's',
+ 's',
+ 's',
+ 's',
+ 's',
+ 's',
+ 'sd']
+
+re.findall('sd{2,3}',phrase)
+
+>>
+['sdd', 'sddd', 'sddd', 'sddd', 'sddd']
+
+re.findall('sd{3}',phrase)
+>>
+['sddd', 'sddd', 'sddd', 'sddd']
+
+
+
+Charecter Set Pattern
+----------------------
+
+test_phrase = 'sdsd..sssddd...sdddsddd...dsds...dsssss...sdddd'
+
+test_patterns = ['[sd]',    # either s or d
+                's[sd]+']   # s followed by one or more s or d
+
+
+re.findall('[sd]',test_phrase)
+
+>>
+['s', 'd', 's', 'd', 's', 's', 's', 'd', 'd', 'd', 's', 'd', 'd', 'd', 's', 'd', 'd', 'd', 'd', 's', 'd', 's', 'd', 's', 's', 's', 's', 's', 's', 'd', 'd', 'd', 'd']
+
+
+
+re.findall('s[sd]+',test_phrase)
+>>
+['sdsd', 'sssddd', 'sdddsddd', 'sds', 'sssss', 'sdddd']
+
+
+Exclusion using re:
+-------------------
+note: ^ is used for exlusion
+
+test = 'this si my sentence with ? or . and ?? *'
+
+re.findall('[^!.? ]+',test)
+
+>>
+['this', 'si', 'my', 'sentence', 'with', 'or', 'and', '*']
+
+
+Charecter Ranges in Regular Expression:
+-----------------------------------------
+
+test_phrase = 'This is an example sentence. Lets see if we can find some letters.'
+
+test_patterns=['[a-z]+',      # sequences of lower case letters
+               '[A-Z]+',      # sequences of upper case letters
+               '[a-zA-Z]+',   # sequences of lower or upper case letters
+               '[A-Z][a-z]+'] # one upper case letter followed by lower case letters
+
+
+Searching the phrase using the re check: '[a-z]+'
+['his', 'is', 'an', 'example', 'sentence', 'ets', 'see', 'if', 'we', 'can', 'find', 'some', 'letters']
+
+
+Searching the phrase using the re check: '[A-Z]+'
+['T', 'L']
+
+
+Searching the phrase using the re check: '[a-zA-Z]+'
+['This', 'is', 'an', 'example', 'sentence', 'Lets', 'see', 'if', 'we', 'can', 'find', 'some', 'letters']
+
+
+Searching the phrase using the re check: '[A-Z][a-z]+'
+['This', 'Lets']
+
+
+
+Escape codes:
+-------------
+
+code	Meaning
+\d	a digit
+\D	a non-digit
+\s	whitespace (tab, space, newline, etc.)
+\S	non-whitespace
+\w	alphanumeric
+\W	non-alphanumeric
+
+r'\d+', # sequence of digits
+r'\D+', # sequence of non-digits
+r'\s+', # sequence of whitespace
+r'\S+', # sequence of non-whitespace
+r'\w+', # alphanumeric characters
+r'\W+', # non-alphanumeric
+              
+
+test_phrase = 'This is a string with some numbers 1233 and a symbol #hashtag'
+
+Searching the phrase using the re check: '\\d+'
+['1233']
+
+
+Searching the phrase using the re check: '\\D+'
+['This is a string with some numbers ', ' and a symbol #hashtag']
+
+
+Searching the phrase using the re check: '\\s+'
+[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+
+
+Searching the phrase using the re check: '\\S+'
+['This', 'is', 'a', 'string', 'with', 'some', 'numbers', '1233', 'and', 'a', 'symbol', '#hashtag']
+
+
+Searching the phrase using the re check: '\\w+'
+['This', 'is', 'a', 'string', 'with', 'some', 'numbers', '1233', 'and', 'a', 'symbol', 'hashtag']
+
+
+Searching the phrase using the re check: '\\W+'
+[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' #']
+
+
+
+
+
+-----------------------------------------------------------------------------------Section 16-----------------------------------------------------------------------------------------
+
+Section 16 - Advanced Python Objects and data structures
+---------------------------------------------------------
+
+Advanced String:
+------------------
+
+Difference between partition and split.
+
+Split will occus at every instance of the split variable
+Partition will occur at the first instance and will display all other part
+
+
+test = 'hihihihihih'
+
+test.split('i')
+>>
+['h','h','h','h','h','h']
+
+test.partition('i')
+>>
+('h','i','hihihihih')
+
+
+
+
+
+Advanced Sets:
+---------------
+
+s = set()
+
+s.add(1)
+s.add(2)
+
+s
+>>
+(1,2)
+
+
+s.clear() - clears the sets
+
+
+to copy contents from a set
+----------------------------
+
+s = {1,2,3}
+sc = s.copy()
+
+sc = 
+>>
+{1,2,3}
+
+
+Difference Method in sets
+-----------------------------
+s = {1,2,3}
+sc = {1,2,3,4}
+
+s.difference(sc)
+>>
+{4}
+
+
+What is difference_update()
+-----------------------------
+
+usually difference method will show the difference, whereas difference_update will assign the value to variable after the operations directly
+
+
+
+
+
+Discard Method in sets
+---------------------
+
+s = {1,2,3}
+s.discard(2)
+
+>>
+{1,3}
+
+
+
+What is interscetion method in sets:
+-------------------------------------
+
+it will show the common values between 2 sets
+
+s1 = {1,2,3}
+s2 = {1,2,4}
+s1.intersection(s2)
+
+>>
+{1,2}
+
+What is intersection_update
+------------------------------
+
+same as intersection, but here it will provide that value to s1 directly rather than showing it as o/p
+
+s1 = {1,2,3}
+s2 = {1,2,4}
+s1.intersection_update(s2)
+
+print(s1)
+>>
+{1,2}
+
+
+isdisjoint() method in sets
+---------------------------
+
+it checks if there is an intersection between 2 sets, if not intersection then isdisjoint() will return true
+
+s1 = {1,2,3}
+s2 = {1,2,4}
+s1.isdisjoint(s2)
+
+>>
+False
+
+s1 = {1,2}
+s2 = {3,4}
+
+s1.isdisjoint(s2)
+
+>>
+True
+
+
+issubset()
+------------
+s1 = {1,2}
+s2 = {1,2,4}
+
+s1.issubset(s2)
+
+>>
+True
+
+because s1 is as subset of s2
+
+
+issuperset()
+--------------
+
+to check if s2 is superset and contains all of s1
+
+s2.issuperset(s1)
+
+>>
+True
+
+
+symmetric_difference
+-------------------
+
+
+opposite of intersectiom
+
+s1 = {1,2}
+s2 = {1,2,4}
+
+s1.symmetric_difference(s2)
+
+>>
+{4}
+
+
+Union method
+--------------
+
+it will combine the unique values in 2 sets
+
+s1 = {1,2,3}
+s2 = {1,2,4}
+s1.union(s2)
+
+?>>
+{1,2,3,4}
+
+
+--------------------------------------------------
+
+Advanced list
+--------------
+
+What is the diffeernce between append and extend
+
+l1 = [1,2,3]
+l1.append([4,5])
+
+>>
+[1,2,3,[4,5]]
+
+
+Extend
+l1 = [1,2,3]
+l1.append([4,5])
+
+>>
+[1,2,3,4,5]
+
+
+
+insert
+--------
+
+iserts a  value to the index specified
+
+l1 = [1,2,3,4]
+
+l1.insert(2,'inserted')
+
+>>
+[1,2,inserted,3,4]
+
+
+-----------------------------------------------------------------Selenium with Python - by Lets Kode it (letskodeit@gmail.com)---------------------------------------------------------------
+
+
+Install wheel
+>> pip3 install wheel
+
+>> pip3 list   (showss all the instaled packahes)
+
+>>pip show wheel   (all details about the package)
+
+
+uninstall package
+>> pip3 uninstall wheel
+
+Search for a package
+>> pip3 search wheel
+
+
+
+How help works:
+---------------
+help('print')
+
+How to exit terminal
+------------------
+q
+
+
+How to exit Python terminal
+----------------------------
+Cntrl +D
+
+
+
+
+
+Install wheel
+>> pip3 install wheel
+
+>> pip3 list   (showss all the instaled packahes)
+
+>>pip show wheel   (all details about the package)
+
+
+uninstall package
+>> pip3 uninstall wheel
+
+Search for a package
+>> pip3 search wheel
+
+All the main keywords: donot use these keywords as variables
+
+import keyword
+print(keyword.kwlist)
+>>
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 
+'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 
+'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+
+
+
+Arithmetic Operation
+----------------------
+
+Order of precedence - Multiplication and Division is first followed by Addition and Subtraction
+2+4*3/2 = 8
+
+Or use paranthesis to have the operation in coders ways
+(2+4)*3/2 = 9
+
+
+How to check the boolean of something using inbuilt function
+-------------------------------------------------------------
+
+print(bool(0)) 
+>>false
+
+print(bool(1))
+>>true
+
+
+Strings:
+-------
+
+Replace:
+------------
+a= 'labcmabchabc'
+a.replace('abc','ABC')
+print(a)
+>>
+lABCmABChABC
+
+Replace for N instances:
+-------------------------
+a= 'labcmabchabc'
+a.replace('abc','ABC',2)
+print(a)
+>>
+lABCmABChabc
+
+
+------------------------------------------------------------------------------------Section 11 ---------------------------------------------------------------------------------------------------
+not done yet
+
+------------------------------------------------------------------------------------Section 12 Selenium with Python Starting----------------------------------------------------------------------
+
+
+In the dom, when you inspect elements we can see all the parent tags. from that you can find out if there is iframe element in it.
+
+
+
+How to find element using console:
+---------------------------------
+
+
+
+Practice link: https://letskodeit.teachable.com/p/practice
+
+
+alternate way to search for a webelement is click on console, then type element inside $x()
+
+For Ex:
+> $x("//*[@id='input']")
+
+output should give 0, that means only one matching node. If there are multiple results that means webelemtn needs to be refined more
+
+
+In Firefox
+------------
+Try Xpath:
+Add this addon in firefox and eneter xpath and hit execute to see if it is valid xpath or not
+
+
+
+
+In Chrome,
+Inpsect element and hit cntrl+f to search for xpath
+
+Chrome also the console option like in firefxo
+
+
+
+
+Ranorex Addons on Chrome: not working for me. So ignore
+-------------------
+Click on 3 dots -M more tools ->Extensions-> web store -> ranorex - Automation ranorex (add this )
+
+
+Chropath Addons on Chrome: Working
+-------------------
+Click on 3 dots -M more tools ->Extensions-> web store -> Chropath
+
+this will help in checking if xpath is correct or not
+
+
+How to install Selenium in Windows:
+-------------------------------------
+
+In CMD,
+pip install selenium 
+>>
+this will install selenium
+
+pip list
+>> 
+it will list all installed items
+
+
+
+Go to Pycharm, File -> Settings -Project Interpreter -> Selenium should be installed
+if not search for Selenium by clicking on + sign and install the packages.
+
+
+Download Geckodriver:
+------------------------
+download geck driver from below location
+
+https://github.com/mozilla/geckodriver/releases
+
+
+
+Run test on Firefox:
+----------------------
+1. Open Pycharm
+2. Create new project
+3. Name the file
+4. Create a package
+5. Create a python file
+
+
+Code:
+from selenium import webdriver
+driver = webdriver.Firefox(executable_path="C:\\Users\\mubali\\Desktop\\Projects\\geckodriver.exe")
+driver.get("https://google.com")
+
+OR
+
+By building a class
+
+from selenium import webdriver
+
+class RunFF():
+
+    def testMethod(self):
+        driver = webdriver.Firefox(executable_path="C:\\Users\\mubali\\Desktop\\Projects\\geckodriver.exe")
+        driver.get("https://google.com")
+
+
+Run = RunFF()
+
+Run.testMethod()
+
+
+Run test on Chrome:
+----------------------
+Download chromedriver from below location:
+
+https://chromedriver.chromium.org/downloads
+
+
+Code:
+from selenium import webdriver
+
+class RunChrome():
+
+    def testMethod(self):
+        driverlocation = "C:\\Users\\mubali\\Desktop\\Projects\\chromedriver.exe"
+        driver = webdriver.Chrome(executable_path=driverlocation)
+        driver.get("https://google.com")
+
+
+Run = RunChrome()
+
+Run.testMethod()
+
+
+What are the different locators in a web page:
+---------------------------------------------
+1. id
+2. name
+3. xpath
+4. css selector
+5. link text
+6. partial link text
+7. tagname 
+8. class
+
+
+
+How to find element by Id
+------------------------------
+
+Code:
+from selenium import webdriver
+
+class FindByIDName():
+
+    def run(self):
+        baseURL = "https://letskodeit.teachable.com/p/practice"
+        driverLocation = "C:\\Users\\mubali\\Desktop\\Projects\\geckodriver.exe"
+        driver = webdriver.Firefox(executable_path=driverLocation)
+        driver.get(baseURL)
+        driver.find_element_by_xpath("//input[@id='name']").send_keys("Hello")
+
+
+test = FindByIDName()
+
+test.run()
+
+
+How to find if wbeelement is valid:
+----------------------------
+      elementbyID = driver.find_element_by_xpath("//input[@id='name']")
+        driver.find_element_by_xpath("//input[@id='name']").send_keys("Hello")
+
+        if elementbyID is not None:
+            print("We found an element")
+
+
+
+How to find element by Xpath:
+-----------------------------
+driver.find_element_by_xpath("xpath")
+
+How to find element by CSS
+-----------------------------
+driver.find_element_by_css_selector("cssselector")
+
+
+How to find element by Link Text    	//it will work only with <a tag
+-----------------------------
+driver.find_element_by_link_text("login")
+
+
+How to find element by Partial Text
+-----------------------------------
+driver.find_element_by_partial_link_text("pract")
+
+
+How to find element by Class Name
+-----------------------------
+driver.find_element_by_class_name("classname")			 it can take only one class name if there are more than one with spaces between 2
+
+
+How to find element by Class Name
+-----------------------------
+driver.find_element_by_tag_name("a")		//a is the tagname <a
+
+
+How to send keys:
+-------------------
+driver.find_element_by_xpath("//input[@id='name']").send_keys("Hello")
+
+
+How to get Text:
+-------------------
+text = driver.find_element_by_tag_name("h1").text()
+print(text)
+
+
+Alternate way to find elements: Using BY Class
+---------------------------------------------------
+
+import selenium.webdriver.common.by import BY
+
+driver.find_element(By.xpath,"xpath expression")
+
+note: xpath can be replaced by other elements like id, name, class, css selector,tagname  etc.
+Also, need to import BY class from selenium webdriver
+
+
+How to find list of elements:
+--------------------------------
+find_elements_by_id
+find_elements_by_xpath etc.
+
+
+How to get Length of the list: Size in Java/Selenium
+-----------------------------------------------------
+
+element = driver.find_elements_by_id("")
+
+length = len(element)
+
+print(str(length))
+
+>>
+more than 1
+
+
+
+
+Interview Questions:
+---------------------
+
+How to find webelement:
+-------------------------
+2ways
+driver.find_element_by_id("")
+driver.find_element(By.xpath(""))
+
+How to find element list:
+----------------------------
+2ways
+driver.find_elements_by_id("")
+driver.find_elements(By.xpath(""))
+
+
+Which locator gives best performance:
+-----------------------------------
+
+Best is ID
+Then CSS
+then XPath
+
+
+
+
+Why we should not opt for class, link text and tagname often
+-------------------------------------------------------------
+because multiple elements on a dom can share the same text and tagname
+
+
+
+
+How to find CSS Expresision:
+-----------------------------------------------------------------------------------
+
+syntax
+tag[attribute='value']
+
+if attribute is 
+
+ID we can use #
+Class we can use .
+
+
+Sample:
+input[id='displaytext']
+
+OR use below short cut for id's and Class
+
+#displaytext
+
+OR
+
+input#displaytext
+
+
+Similarly for CSS with Class attribute
+----------------------------------------
+
+input[class='someclassname']
+
+OR
+
+.someclassname
+
+OR 
+input.someclassname
+
+
+Multiple classes in Class attribute: Use Append
+-------------------------------------
+
+Suppose you see a class with value 'inputs displayed-text'
+in this example there are 2 class values inputs and displayed-text, so we can append it like below
+.class1.class2.class3 etc
+
+
+so for above example
+.inputs.displayed-text
+
+
+Using Wild Cards in CSS selector:
+-------------------------------------
+special characters:
+
+^ -starting text
+$ - ending text
+* - text contains
+
+syntax:
+tag[attribute<special char> = 'value']
+
+Below CSS Expression can also be written
+input[class='inputs']
+
+can be written
+input[class^='inputs']			//it will look for a class that starts with inputs
+
+input[class$='displayed-text']		//it will look for a class that ends with displayed class
+
+
+Note: this can be used not just with class. but any other attributes as well.
+
+
+What is fieldset in CSS selector:
+----------------------------------
+
+If we search in chropath or any search option of a dom. 
+
+Type fieldset and it will show the result of all the webelements present in the page
+
+further to filter more search with below syntax to find more specific search results
+
+Syntax:
+fieldset
+
+fieldset>tagname
+ex:
+fieldset>a
+
+it will highlight all the results with that particular tag and use CSS selector to select it
+
+
+
+
+Feild set can be used with arribute value as well
+--------------------------------------------------
+
+fieldset>#product
+
+here product is a value of an id
+
+
+
+Note: fieldset can be used 2 ways, either with tagname or attribute value	
+
+
+OR
+
+fieldset>input#name
+
+input is tagname and #name is the attribute value of tag id
+
+
+How to find Xpath:
+-----------------------------------------------------------------------------------
+
+Xpath Syntax:
+//tag[@attribute='value1']
+
+//tag[text()='value']
+
+//tag[@id='value']
+//*[@id='']
+
+
+
+Difference between single slash / and double // in xpath expression
+-------------------------------------------------------------------
+
+/ - it will look for immediate child class
+// -look for any child in the nested children
+
+
+
+Contains in Xpath:
+----------------------
+//input[contains(@attribute,'value')]
+
+
+starts-with in Xpath:
+----------------------
+//input[starts-with(@attribute,'value')]
+
+ends-with in Xpath:
+----------------------
+//input[ends-with(@attribute,'value')]
+
+
+
+For more analysis on finding the parent tag, preceding tag or  etc:
+------------------------------------------------------------------------------
+
+
+Below things are used if we need to find the next value to a webelement. for ex; in a table fi we need to find price
+of a product, so search for product then with following sibling get the price.. Just an ex.
+
+To find parent tag
+-----------------------
+//input[@id='']//parent::li
+
+
+To find preceding sibling tag
+-----------------------
+//input[@id='']//parent::li//preceding-sibling::li
+
+it will show a sibling tag just above
+
+
+To find following sibling tag
+-----------------------
+//input[@id='']//parent::li//preceding-sibling::li//following-sibling::li[2]
+
+it will show a sibling tag just above
+
+
+
+Methods using Driver
+------------------------
+
+1. maximize_window()
+2. driver.get(url)
+3. driver.title
+4. driver.current_url
+5. driver.refresh()
+6. driver.get(driver.current_url)
+7. driver.back()
+8. driver.forward()
+9. driver.page_source -gets complete source code
+10. driver.close()
+11. driver.quit()
+
+
+
+Operations on browser:
+-------------------------
+
+driver.find_element(BY.ID, "").send_keys("")
+
+
+important packages to import:
+------------------------------
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+
+
+Syntax to sleep:
+-------------------
+import time
+time.sleep(3)     //3 seconds
+
+
+implicit wait:
+----------------
+driver.implicit_wait(10)   //wait for 10seconds
+
+
+
+
+To check if element is Enabled or disabled"
+----------------------------------------------
+
+e1 = driver.find_element_by_id().is_enabled()
+print(e1)
+
+>>
+True or False
+
+
+Radio BUttons:
+------------------
+
+Type will be radio for all radio buttons, but be sure now aday only round is not a radio button. There might look like tabs. But there
+will be still radio buttons by seeing the type in the dom.
+
+driver.find_element_by_id().click()
+
+
+.is_selected()
+
+>>
+True or False
+
+Checkbox:
+------------
+
+In DOM, the type will be checkbox for all checkboxed
+
+driver.find_element_by_id("").click()
+
+
+
+How to find a group of Radio buttons and click on each of the button
+------------------------------------------------------------------------
+
+radioButtons = driver.find_elements(BY.XPATH,"//input[contains(@type,'radio') and contains(@id='')]")
+
+size= len(radioButtons)
+
+print(str(size))
+
+
+for radioButton in radioButtons:
+	isSelected = radioButton.is_Selected()
+	print(isSelected)
+
+	if not isSelected:
+		radioButton.click()
+
+
+
+
+UNderstanding Dropdown elements:
+---------------------------------
+We use Select class for selecting from dropdown. But remember select class will work only with <select tag. It will not
+work for any
+
+
+
+Using Select class for Selecting from dropdown which has tag <select
+----------------------------------------------------------------------
+from selenium.webdriver.support.select import Select
+
+element = driver.find_element_by_id("")
+
+sel  = Select(element)
+
+sel.select_by_value("BMW")
+sel.select_by_index("2")
+sel.select_by_index(2)
+sel.select_by_visible_text("bwm")
+
+
+
+How to work with Hidden Elements:
+----------------------------------
+To check if an element is displayed or hidden
+
+element = driver.find_element_by_id("")
+state = element.is_displayed()
+
+print(str(state))
+
+>>
+True or False
+
+
+----------------------------------
+
+Interview Question:
+----------------------
+How to maximize window
+driver.maximize_window()
+
+How to get title of page
+driver.title
+
+How to refresh page
+driver.refresh()
+
+How to go back and forward in browser
+driver.forward()
+driver.back()
+
+
+How to get text on Element:
+---------------------------
+
+s1 = driver.find_element_by_id("openTab").text
+print(s1)
+
+it will give the text 
+
+
+
+How to get value of the attribute:
+------------------------------------
+
+id, class and names are few of the attribute
+
+driver.find_element_by_id("openTab").get_attribute("class")
+
+or
+
+driver.find_element_by_id("openTab").get_attribute("id")
+
+
+
+Generic Methods to find elements:- Video 114
+------------------------------------
+
+
+Code1:
+from selenium import webdriver
+from basics.HandyWrappers import HandyWrappers
+import time
+
+
+class UsingWrappers1():
+
+    def test(self):
+        driver = webdriver.Firefox(executable_path="C:\\Users\\mubali\\Desktop\\Projects\\geckodriver.exe")
+        baseUrl = "https://learn.letskodeit.com/p/practice"
+        #driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.implicitly_wait(10)
+        hw = HandyWrappers(driver)
+        driver.get(baseUrl)
+
+        textField1 = hw.getElement("name")
+        textField1.send_keys("Test")
+        time.sleep(2)
+        textField2 = hw.getElement("//input[@id='name']", locatorType="xpath")
+        textField2.clear()
+
+ff = UsingWrappers1()
+ff.test()
+
+Code2"
+from selenium.webdriver.common.by import By
+
+class HandyWrappers():
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def getByType(self, locatorType):
+        locatorType = locatorType.lower()
+        if locatorType == "id":
+            return By.ID
+        elif locatorType == "name":
+            return By.NAME
+        elif locatorType == "xpath":
+            return By.XPATH
+        elif locatorType == "css":
+            return By.CSS_SELECTOR
+        elif locatorType == "classname":
+            return By.CLASS_NAME
+        elif locatorType == "linktext":
+            return By.LINK_TEXT
+        else:
+            print("Locator type " + locatorType + " not correct/supported")
+        return False
+
+    def getElement(self, locator, locatorType="id"):
+        element = None
+        try:
+            locatorType = locatorType.lower()
+            byType = self.getByType(locatorType)
+            element = self.driver.find_element(byType, locator)
+            print("Element Found")
+        except:
+            print("Element not found")
+        return element
+
+-----------------------------------------------
+
+Method to check if element is present: Video 115
+-----------------------------------------------
+
+  def isElementPresent(self, locator, byType):
+        try:
+            element = self.driver.find_element(byType, locator)
+            if element is not None:
+                print("Element Found")
+                return True
+            else:
+                print("Element not found")
+                return False
+        except:
+            print("Element not found")
+            return False
+
+
+Method to check the presence of element 
+---------------------------------------------
+
+  def elementPresenceCheck(self, locator, byType):
+        try:
+            elementList = self.driver.find_elements(byType, locator)
+            if len(elementList) > 0:
+                print("Element Found")
+                return True
+            else:
+                print("Element not found")
+                return False
+        except:
+            print("Element not found")
+            return False
+
+
+Interview Questions: Video 116
+----------------------------------
+
+1. How to get text on an element
+driver.find_element().text
+
+Also can be done using get_attribute
+driver.find_element().get_attribute("innertext")			//innertext not visible in dom though
+
+2. How to get attribute on an element:
+driver.find_element().get_attribute("")
+
+
+3. How can we check elment is presnet on the webpage
+a. check the size of element
+b. check if element is not None or none
+
+use utility methods like elementPresenceCheck() , isElementPresent() user created methods
+
+
+----------------------------------------------------------------------------------Section 20 Wait------------------------------------------------------------------------------------------
+
+
+Explicit Wait:
+--------------
+packages to import for Explicit wait
+--------------------------------------
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import *
+
+explicit wait syntax:
+----------------------
+wait = WebDriverWait(self.driver, timeout, poll_frequency=pollFrequency,ignored_exceptions=[NoSuchElementException,ElementNotVisibleException,ElementNotSelectableException])
+element=wait.until(EC.element_to_be_clickable((byType,locator)))
+
+alert_is_present
+element_located_selection_state_to_be
+element_located_to_be_selected
+element_selection_state_to_be
+element_to_be_clickable
+element_to_be_selected
+visibility_of
+
+
+Example Explicit Wiat:
+-----------------------
+wait = WebDriverWait(driver, 10, poll_frequency=1,ignored_exceptions=[NoSuchElementException,ElementNotVisibleException,ElementNotSelectableException])
+element=wait.until(EC.element_to_be_clickable((By.ID,"stopFilter_stops-0")))
+
+
+
+Generic Method for Explicit Wait:
+-----------------------------------
+??
+
+
+Implicit Wait:
+-------------
+driver.implicitly_wait(10)
+
+---------------------------------------------------------Section21 Advanced Selenium--------------------------------------------------------------------------------------------
+
+Calender:
+-------------
+
+Option1:
+Important note:
+
+if there are 2 tags for ex. which selects left and right pane of a date. Then we can use 'position' keyword in xpath like below.
+
+//section[@class='cal-month'][position()=1]
+
+
+this will select the section tag in position 1
+
+
+Option2 to select date:
+--------------------
+
+calMonth = driver.find_element(By.XPATH,"")
+
+allValiddates = callMonth.find_elements(By.TAG_NAME,"a")
+
+for date in allValiddates:
+	date.text = '31'
+	date.click()
+	break
+
+
+
+Auto Complete:
+-----------------
+??
+
+
+
+
+Screenshot:
+---------------
+
+    destinationFileName = "C:\\Users\\mubali\\Desktop\\temp.png"
+
+        try:
+            driver.save_screenshot(destinationFileName)
+            print('save screenshot')
+        except NotADirectoryError:
+            print('not a dir error')
+        driver.quit()
+
+
+
+
+Generic method to take screenshot:
+---------------------------------------
+
+def takeScreenshot(self,driver):
+
+	fileName = str(round(time.time()*1000)) + ".png"
+	screenshotDirectory = "C:\\Users\\mubali\\Desktop\\"
+	destinationFile = screenshotDirectory + fileName
+	
+	   try:
+            driver.save_screenshot(destinationFile)
+            print('save screenshot')
+        except NotADirectoryError:
+            print('not a dir error')
+        
+
+
+Javascript Executor:
+---------------------
+
+driver.execute_script("window.location = 'http://google.com';")
+
+element = driver.execute_script("return document.getElementById('name');")			//return is used in JS when we need to return value
+
+
+How to find height and width of Browser Window:
+-----------------------------------------------
+
+
+height = driver.execute_script("return window.innerHeight;")
+
+width = driver.execute_script("return window.innerWidth;")
+
+print(str(height))
+
+
+How to scroll up and down in WebPage:
+-----------------------------------------
+      #Scroll Down
+        driver.execute_script("window.scroll(0,1000);")
+        time.sleep(2)
+
+        #Scroll Up
+        driver.execute_script("window.scroll(0,-1000);")
+        time.sleep(2)
+
+
+       #Scroll in View the Element
+
+        element = driver.find_element_by_id('name')
+        driver.execute_script("arguments[0].scrollIntoView(true)",element)
+        driver.execute_script("window.scroll(0,-150);")
+        time.sleep(2)
+
+
+
+#To get the location of the element
+
+  driver.execute_script("window.scroll(0,-1000);")
+
+        location = element.location_once_scrolled_into_view
+        print(str(location))
+        driver.quit()
+
+
+
+
+--------------------------------------------
+
+Interview Question:
+--------------------
+
+
+1. How to select date
+
+Click on date, wait for it to display and click on the xpath of number
+
+
+2. How to Auto Complete from destinatation fields forexample?
+
+type in the text, wait for sugegstion to display. Find the xpath from the drop down of the airport code to select
+
+
+-----------------------------------------------------------------------------------Section 22 Switch Window and iFrame--------------------------------------------------------------------------
+
+
+How to swtich window handles:
+------------------------------
+driver.switch_to.window(handle)
+
+
+Code:
+//Current window handle
+parenthandle =  driver.current_window_handle
+
+//All Active Window Handles
+handles = driver.window_handles
+
+
+for handle in handles:
+	print(handle)
+	if handle not in handle1:
+		driver.switch_to.window(handle)
+
+
+
+
+
+How to switch to Frames:
+---------------------------
+3 ways to switch to frame
+
+driver.switch_to.frame("id")
+driver.switch_to.frame("name")
+driver.switch_to.frame(0)
+
+driver.switch_to.defaultcontent()
+
+
+
+
+Handling JavaScript POP Up
+----------------------------
+
+alert1 = driver.switch_to.alert
+alert1.accept()
+
+alert1.dismiss()
+
+
+
+
+-------------------------------------------------------------------------------------Section23 	Working with Action Class----------------------------------------------------------------------
+
+Mouse Hover Actions:
+-------------------
+package: from selenium.webdriver import ActionChains
+
+actions = ActionChains(driver)
+
+#Hover mouse
+actions.move_to_element(element).perform()
+
+
+#Hover mouse and click
+actions.move_to_element(element).click().perform()
+
+
+
+Drag and drop Element in Website:
+--------------------------------------
+actions = ActionChains(driver)
+
+source = driver.find_element_by_id("")
+target = driver.find_element_by_id("")
+
+actions.drag_and_drop(source,target).perform()
+	
+
+or
+#Use Chain Actions like below
+
+actions.click_and_hold(source).move_to_element(target).release().perform()
+
+
+
+
+Working With Slider Operations:
+---------------------------------
+
+hwo to slide an element
+
+actions = ActionChains(driver)
+actions.drag_and_drop_by_offset(element,100,0).perform()			//this is horizontal slider, so Y axis is 0
+	
+
+
+-------------------------------------------------------------------------------Section 24 Logging Infrastructure--------------------------------------------------------------------------------
+
+
+
+Logging Levels
+
+DEBUG - While debugging, detailed information
+
+INFO - Confirmation, things are workign as expected
+
+WARNING - Something unexpected happened, but its working now. But may cause issue later
+
+ERROR - Functionality not working as expected
+
+CRITICAL - More serious error
+
+
+
+import logging
+
+
+logging.warning("Hello warning")
+logging.info("Hello info")
+logging.error("Hello error")
+
+
+>>
+WARNING:root:Hello warning
+ERROR:root:Hello error
+
+Note: info message is not displayed, only warning and above will be displayed. Infor will be displayed only in debug mode
+
+
+
+How to pring the logs in log file:
+----------------------------------
+import logging
+
+logging.basicConfig(filename="test.log",level=logging.DEBUG)
+logging.warning("Hello warning")
+logging.info("Hello info")
+logging.error("Hello error")
+
+
+>>
+in test.log file in same package path
+
+WARNING:root:Hello warning
+INFO:root:Hello info
+ERROR:root:Hello error
+
+
+Changing the format of logs:
+-------------------------------
+Type1:
+
+logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s',level=logging.DEBUG)
+logging.warning("Hello warning")
+logging.info("Hello info")
+logging.error("Hello error")
+
+>>
+
+2019-10-16 10:57:12,181: WARNING: Hello warning
+2019-10-16 10:57:12,184: INFO: Hello info
+2019-10-16 10:57:12,185: ERROR: Hello error
+
+Note: to change format again in customed manner with date time format changed see beloe
+
+Type2:
+
+logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p',level=logging.DEBUG)
+logging.warning("Hello warning")
+logging.info("Hello info")
+logging.error("Hello error")
+
+>>
+10/16/2019 10:59:00 AM: WARNING: Hello warning
+10/16/2019 10:59:00 AM: INFO: Hello info
+10/16/2019 10:59:00 AM: ERROR: Hello error
+
+%m/%d/%Y %I:%M:%S %p - month date year hour(12 hour clock) min seconds am/pm
+
+replace I with H for 24 hour clock
+
+
+-------------------------------------------------------------------------------------
+
+Logger Advanced Topic:
+
+Logger Console Configuration:
+
+Working Code:
+-------------
+
+import logging
+class LoggerDemoConsole():
+
+    def testlog(self):
+        # create logger object
+
+        logger = logging.getLogger(LoggerDemoConsole.__name__)      #name of class will be displayed
+        logger.setLevel(logging.DEBUG)
+
+        #create console handler and set level to info
+        chandler = logging.StreamHandler()          #prints to console
+        chandler.setLevel(logging.DEBUG)
+
+        #create formatter
+        formatter = logging.Formatter('%(asctime)s - %(name)s -  %(levelname)s: %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p')
+
+        #add formatter to console handler
+        chandler.setFormatter(formatter)
+
+        #add console handler to logger
+        logger.addHandler(chandler)
+
+        logger.info("Hello info")
+        logger.debug("Hello debug")
+        logger.warning("Hello warning")
+        logger.error("Hello error")
+        logger.critical("Hello Critical")
+
+
+lg = LoggerDemoConsole()
+lg.testlog()
+
+>>
+10/16/2019 02:12:40 PM - LoggerDemoConsole -  INFO: Hello info
+10/16/2019 02:12:40 PM - LoggerDemoConsole -  DEBUG: Hello debug
+10/16/2019 02:12:40 PM - LoggerDemoConsole -  WARNING: Hello warning
+10/16/2019 02:12:40 PM - LoggerDemoConsole -  ERROR: Hello error
+10/16/2019 02:12:40 PM - LoggerDemoConsole -  CRITICAL: Hello Critical
+
+-----------------------------------------------------------------------------------------
+
+
+Logger Configuration File:
+---------------------------------
+
+In above example we have all configs in a class, in this below example we will have all the configurations in a config file. Then read the config file.
+
+
+Class1:logger_demo_conf.py file
+----------------------------------
+
+import logging
+import logging.config    #helps in loading the config file
+
+class LoggerDemoConf():
+
+    def testlog(self):
+        # create logger object
+        logging.config.fileConfig('logging.conf')                   #separate logging.conf file is created
+        logger = logging.getLogger(LoggerDemoConf.__name__)
+
+        logger.info("Hello info")
+        logger.debug("Hello debug")
+        logger.warning("Hello warning")
+        logger.error("Hello error")
+        logger.critical("Hello Critical")
+
+lg = LoggerDemoConf()
+lg.testlog()
+
+
+
+Class2: logging.conf file
+----------------------------
+
+[loggers]
+keys=root,LoggerDemoConf
+
+[handlers]
+keys=fileHandler
+
+[formatters]
+keys=simpleFormatter
+
+[logger_root]
+level=DEBUG
+handlers=fileHandler
+
+[logger_LoggerDemoConf]
+level=INFO
+handlers=fileHandler
+qualname=demoLogger
+propagate=0
+
+[handler_fileHandler]
+class=FileHandler
+level=DEBUG
+formatter=simpleFormatter
+args=('test.log', 'w')       #if 'a' changed 'w', the each time it willc reate new test.log file. 'a' is append 'w' is write
+
+[formatter_simpleFormatter]
+format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
+datefmt=%m/%d/%Y %I:%M:%S %p
+
+
+>>
+test.log file
+---------------
+
+10/16/2019 02:52:21 PM - LoggerDemoConf - INFO - Hello info
+10/16/2019 02:52:21 PM - LoggerDemoConf - DEBUG - Hello debug
+10/16/2019 02:52:21 PM - LoggerDemoConf - WARNING - Hello warning
+10/16/2019 02:52:21 PM - LoggerDemoConf - ERROR - Hello error
+10/16/2019 02:52:21 PM - LoggerDemoConf - CRITICAL - Hello Critical
+
+---------------------------------------------------------------------------------------------
+
+How to create Generic Logger Utility: IMPORTANT
+--------------------------------------
+
+File1: custom_logger.py
+------------------------
+
+#note - class is not required, just create a function like below
+
+import inspect
+import logging
+
+def customLogger(logLevel):
+    # Gets the name of the class / method from where this method is called
+    loggerName = inspect.stack()[1][3]
+    logger = logging.getLogger(loggerName)
+    # By default, log all messages
+    logger.setLevel(logging.DEBUG)
+
+    fileHandler = logging.FileHandler("{0}.log".format(loggerName), mode='w')
+    fileHandler.setLevel(logLevel)
+
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p')
+    fileHandler.setFormatter(formatter)
+    logger.addHandler(fileHandler)
+
+    return logger
+
+
+
+Class2:
+-----------
+
+
+
+import logging
+import loggingpackage.custom_logger as cl
+
+class LoggingDemo2():
+
+    log = cl.customLogger(logging.DEBUG)		//this is applicable for all mmethods
+
+    def method1(self):
+        self.log.debug('debug message')
+        self.log.info('info message')
+        self.log.warn('warn message')
+        self.log.error('error message')
+        self.log.critical('critical message')
+
+    def method2(self):
+        m2Log = cl.customLogger(logging.INFO)			//this overrides the above - log = cl.customLogger(logging.DEBUG)
+        m2Log.debug('debug message')
+        m2Log.info('info message')
+        m2Log.warn('warn message')
+        m2Log.error('error message')
+        m2Log.critical('critical message')
+
+    def method3(self):
+        m3Log = cl.customLogger(logging.INFO)			//this overrides the above - log = cl.customLogger(logging.DEBUG)
+        m3Log.debug('debug message')
+        m3Log.info('info message')
+        m3Log.warn('warn message')
+        m3Log.error('error message')
+        m3Log.critical('critical message')
+
+demo = LoggingDemo2()
+demo.method1()
+demo.method2()
+demo.method3()
+
+>>
+3 files are created with logs
+
+first file for class LoggingDemo2
+second file for methods method2
+third file for method mt
+
+
+
+
