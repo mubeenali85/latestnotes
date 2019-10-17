@@ -2356,7 +2356,6 @@ How to add only one file:
 >> git add c:/user/mubeen/note.txt
 
 
-
 It is important to do commit for Push,pull and merge operations
 
 
@@ -2370,6 +2369,23 @@ How to Delete a repository
 2. Click on the repo
 3. Go to settings tab
 4. go down - enter repo name and hit delete
+
+
+How to upload existing repo with updated file
+-------------------------------------------------
+
+1. in GIT Bash, go to the file path location
+2. git add .
+or git add filename
+
+3. git commit -m "message"
+
+4.  git remote add origin https://github.com/mubeenali85/GitDemo.git
+4. git push origin master   (it will ask for github credentials for first time)
+
+OR
+
+>> git push origin master -f		(-f is force, if above syntax doesnot work)
 
 --------------------------------------------------------------------------END--------------------------------------------------------------------
 

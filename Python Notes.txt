@@ -5817,3 +5817,256 @@ third file for method mt
 
 
 
+
+
+--------------------------------------------------------------------------------------Section 25 Unit test INfrastructure--------------------------------------------------------------------------	
+
+
+Unittest - It similar to Pytest or TestNG
+
+
+Test Case  <------>  Test Fixture(setup and teardown)		|        Application UNder Test
+ |								|
+ V								|
+Test Suite							|
+ |								|
+ V								|
+Test Runner							|
+ |								|
+ V								|
+Test Report							|
+
+
+
+
+Test Fixture - Are clike @Before and @After in TestNG
+In python we call, setup() and teardown()
+
+
+Test Suite - Collection of Test Case
+
+
+Test Runner - Responsible to run the test suite
+
+
+
+Remember for each test case need to prefix "test_" to it. it is like @Test in TestNG
+--------------------------------------------
+
+
+Sample Working COde:
+-----------------------
+
+import unittest
+
+class TestCaseDemo1(unittest.TestCase):
+
+    def setUp(self):
+        print("I will run once before every testdemo")
+
+    def test_methodA(self):				//test_ is important to identify it as a test case
+        print("Running method A")
+
+    def test_methodB(self):
+        print("Running method B")
+
+    def tearDown(self):
+        print("I will run after every testdemo")
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
+
+
+>>
+
+I will run once before every testdemo
+test_methodA (__main__.TestCaseDemo1) ... ok
+Running method A
+I will run after every testdemo
+test_methodB (__main__.TestCaseDemo1) ... ok
+I will run once before every testdemo
+
+Running method B
+--------------------------
+I will run after every testdemo
+Ran 2 tests in 0.000s
+	
+
+Note: setUp and tearDown will be run for each test case
+
+
+
+Implement Setup and Teardown at Class Level
+---------------------------------------------
+
+Working COde:
+---------------
+
+import unittest
+
+class TestCaseDemo1(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        print("Before CLass level setUp")
+
+
+
+    def setUp(self):
+        print("I will run once before every testdemo")
+
+    def test_methodA(self):
+        print("Running method A")
+
+    def test_methodB(self):
+        print("Running method B")
+
+    def tearDown(self):
+        print("I will run after every testdemo")
+
+    @classmethod
+    def tearDownClass(cls):
+        print("After Class level tearDown")
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
+
+
+>>
+test_methodA (__main__.TestCaseDemo1) ... ok
+Before CLass level setUp
+test_methodB (__main__.TestCaseDemo1) ... ok
+I will run once before every testdemo
+
+Running method A
+----------------------------------------------------------------------
+I will run after every testdemo
+Ran 2 tests in 0.000s
+I will run once before every testdemo
+
+Running method B
+OK
+I will run after every testdemo
+After Class level tearDown
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+Assertions in UNit test
+------------------------
+
+Reference Link for all Assertions: https://docs.python.org/3/library/unittest.html    (scroll bottom down)
+
+
+How to run test case,
+
+1. Right click on a test and then hit run will run onlu that test case
+2. Right click on the class or if __name=='__main__, then all test cases will run'
+
+
+
+
+Sample Working Code:
+---------------------
+import unittest
+
+
+class AssertDemo(unittest.TestCase):
+
+    def test_assertTrueFalse(self):
+        a= True
+        self.assertTrue(a,"a not true")
+
+    def test_test1(self):
+        a=1
+        b=2
+        self.assertEqual(a,b,msg="a not b")
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+How to execute test from Command line:
+----------------------------------------
+
+1. Go to cmd,
+ 
+2. Go to path of the package
+
+3. set PYTHONPATH=%PYTHONPATH%:.				(set this variable in cmd)
+
+4. python3 assert.demo.py   					(it will execute and show the output)
+
+
+Note: if python3 is not working use python only.  
+
+
+Or we can directly go to terminal inside Pycharm. it works same as cmd
+
+
+
+
+How to create a Test Suite:
+-----------------------------
+
+Create a test suite and run all classes at one's
+
+I have 2 files under unittestpackage, AssertDemo and TestCaseDemo1
+
+
+
+
+Working Code:
+----------------
+import unittest
+
+from unittestpackage.assert_demo import AssertDemo
+from unittestpackage.test_case_demo import TestCaseDemo1
+
+# Get all tests from TestClass1 and TestClass2
+tc1 = unittest.TestLoader().loadTestsFromTestCase(AssertDemo)
+tc2 = unittest.TestLoader().loadTestsFromTestCase(TestCaseDemo1)
+
+# Create a test suite combining TestClass1 and TestClass2
+smoke_test = unittest.TestSuite([tc1,tc2])
+
+unittest.TextTestRunner(verbosity=2).run(smoke_test)
+
+
+>>
+Right click and run the test suite all test cases in both the classes will be run
+
+
+
+-----------------------------------------------------------------------------Section26 - Pytest Advanced Testing Framework----------------------------------------------------------------------
+
+
+Pytest built on top of Unittest
+
+
+How to install Pytest
+-----------------------
+
+in CMD
+pip3 install pytest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
