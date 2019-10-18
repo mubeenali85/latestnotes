@@ -4500,8 +4500,18 @@ lABCmABChabc
 ------------------------------------------------------------------------------------Section 11 ---------------------------------------------------------------------------------------------------
 not done yet
 
-------------------------------------------------------------------------------------Section 12 Selenium with Python Starting----------------------------------------------------------------------
 
+
+
+==================================================================================================================================================================================================
+==================================================================================================================================================================================================
+------------------------------------------------------------------------------------Section 12 Selenium with Python Starting----------------------------------------------------------------------
+==================================================================================================================================================================================================
+==================================================================================================================================================================================================
+
+
+
+Lets Kode It Trainer - Udemy acct mubeen85ali@gmail.com
 
 In the dom, when you inspect elements we can see all the parent tags. from that you can find out if there is iframe element in it.
 
@@ -6054,6 +6064,464 @@ How to install Pytest
 
 in CMD
 pip3 install pytest
+
+
+IMPORTANT NOTE:
+File names should start or end with “test”, as in test_example.py or example_test.py
+Class name should start with “Test”, as in TestExample
+Test method names should start with “test_”, as in test_example
+
+
+How to execute pytest files:
+-----------------------------
+1. In Pycharm terminal or CMD terminal
+2. Go to the directory of the package
+
+3. if need to run all the test files inside the package
+
+py.test
+
+or 
+py.test -v -s			-v is verbose and -s is print the statements in detail
+
+4. if need to run just one file inside the package
+py.test -v -s test_demo.py
+
+
+
+How to run just one method in a test file:
+---------------------------------------------
+>>
+py.test test_dem.py::test_methodname
+
+OR
+for detailed result
+
+>>
+
+py.test -s test_dem.py::test_methodname
+
+
+Sample Working Code:
+---------------------
+Remember - FILE NAME FOR PYTEST should always start with test
+Also testcase methods  should also start "test_"
+
+
+import pytest
+
+def test_methodA():
+    print("Running method AA")
+
+def test_methodB():
+    print("Running method BB")
+
+
+>>
+py.test			//ouput will have only failed test cases if any
+
+or py.test -v -s     //this is for detailed result. Includes passed test cases
+
+
+
+Adding Fixtures to test case:
+-------------------------------
+
+Adding fixtures is nothing but setUp to test cases
+
+if setUp is not applied inside test case method, setUp would not be applied for those test case
+
+Code:
+-----
+
+import pytest
+
+@pytest.fixture()
+def setUp():
+    print("Before test")
+
+def test_methodA(setUp):
+    print("Running method AA")
+
+def test_methodB(setUp):
+    print("Running method BB")
+
+
+>>
+py.test -v -s
+
+Output:
+
+test_dem.py::test_methodA Before test
+Running method AA
+PASSED
+test_dem.py::test_methodB Before test
+Running method BB
+PASSED
+
+
+How to run setUp and tearDown in Pytest:
+------------------------------------------
+
+In Pytest, we can give both setUp and tearDown() inside setUp itself.
+
+@pytest.yield_fixture() is the key 
+
+Using yield keyword, anything after 'yield' will be considered as after test
+
+But in Pytest version 2.10 and greater, we dont have to use @pytest.yield_fixture(), instead  we can use @pytest.fixture() itself with 'yield' keyword
+
+
+
+Sample code:
+---------------
+import pytest
+
+@pytest.yield_fixture()
+def setUp():
+    print("Before test")
+    yield
+    print("After test")
+
+def test_methodC(setUp):
+    print("Running method CC")
+
+def test_methodD(setUp):
+    print("Running method DD")
+
+
+>
+py.test -s test_dem2.py
+
+>>
+test_dem2.py Before test
+Running method CC
+.After test
+Before test
+Running method DD
+.After test
+
+
+OR
+
+
+Sample code:
+---------------
+import pytest
+
+@pytest.fixture()
+def setUp():
+    print("Before test")
+    yield				//anything after yield will be considered after test
+    print("After test")
+
+def test_methodC(setUp):
+    print("Running method CC")
+
+def test_methodD(setUp):
+    print("Running method DD")
+
+
+>
+py.test -s test_dem2.py
+
+>>
+test_dem2.py Before test
+Running method CC
+.After test
+Before test
+Running method DD
+.After test
+
+
+Conftest -> Common Fixtures to  Multiple Modules:
+------------------------------------------------------
+
+Conftest.py is separate class where we create the setUp method. So it is common accross module
+
+
+Suppose we have 2 test modules to test like test_moduleA.py and test_moduleB.py. Then in same package create conftest.py
+
+In conftest.py:
+------------------
+
+import pytest
+
+@pytest.yield_fixture()
+def setUp():
+    print("Before test")
+    yield
+    print("After test")
+
+
+test_moduleA.py
+-----------------
+
+import pytest
+
+def test_methodC(setUp):
+    print("Running method CC")
+
+def test_methodD(setUp):
+    print("Running method DD")
+
+test_moduleB.py
+------------------
+import pytest
+
+def test_methodA(setUp):
+    print("Running method AA")
+
+def test_methodB(setUp):
+    print("Running method BB")
+
+
+
+>>
+py.test -s
+
+>>
+setUp in conftest.py will run common for each test method in test_moduleA and test_moduleB
+
+
+-----------------------------------------------------------------
+
+
+
+Use Conftest to create setUp and tearDown like Before Class and After Class in TestNG
+-----------------------------------------------------------------------------------------
+This will run before each module. That is it will run before each test method in each module
+
+Key Syntax:
+-------------
+Key syntax to differentiate between normal setUp method(before method) is we have to pass scope="module". So that it understand this has to be run before the module and not before each test
+
+@pytest.yield_fixture(scope="module")
+
+
+
+
+conftest.py
+--------------
+import pytest
+
+@pytest.yield_fixture()
+def setUp():
+    print("Before test")
+    yield
+    print("After test")
+
+
+@pytest.yield_fixture(scope="module")
+def oneTimeSetUp():
+    print("Running conftest demo one time setUp")
+    yield
+    print("Running conftest demo one time tearDown")
+
+
+
+test_moduleA.py
+-----------------
+
+import pytest
+
+def test_methodC(setUp):
+    print("Running method CC")
+
+def test_methodD(setUp):
+    print("Running method DD")
+
+test_moduleB.py
+------------------
+import pytest
+
+def test_methodA(setUp):
+    print("Running method AA")
+
+def test_methodB(setUp):
+    print("Running method BB")
+
+
+>>
+py.test -s
+
+>>
+test_moduleA.py
+Running conftest demo one time setUp
+Before test
+Running method AA
+.After test
+
+Before test
+Running method BB
+.After test
+Running conftest demo one time tearDown
+
+test_moduleB.py 
+Running conftest demo one time setUp
+Before test
+Running method CC
+.After test
+Before test
+Running method DD
+.After test
+Running conftest demo one time tearDown
+
+
+-----------------------------------------------------------------------------------------------
+
+How to run test cases in a order
+---------------------------------------
+
+Reference link for more options : http://pytest-ordering.readthedocs.io/en/develop/
+(Note: few options may not work from the link)
+
+Extra plugin required
+
+In CMD, pip3 install pytest-ordering
+
+
+Code:
+-----------
+
+import pytest
+
+
+@pytest.mark.run(order=1)
+def test_run_order_methodA(oneTimeSetUp, setUp):
+    print("Running method A")
+
+@pytest.mark.run(order=2)
+def test_run_order_methodB(oneTimeSetUp, setUp):
+    print("Running method B")
+
+
+>>
+methodA will run first and then followed by methodB
+
+------------------------------------------------------------------------------------------------
+
+Running test based on command line arguments:
+--------------------------------------------------
+
+We can run additional parameters or arguments from the command line itself
+
+Main Sample Code:
+---------------------
+
+@pytest.yield_fixture(scope="module")
+def oneTimeSetUp(browser, osType):
+    print("Running conftest demo one time setUp")
+    if browser=='firefox':
+        print("Run FF")
+    else:
+        print("Run Chrome")
+
+    yield
+    print("Running conftest demo one time tearDown")
+
+
+def pytest_addoption(parser):
+    parser.addoption("--browser")
+    parser.addoption("--osType", help="Type of Operating System")
+
+@pytest.fixture(scope="session")
+def browser(request):
+    return request.config.getoption("--browser")
+
+@pytest.fixture(scope="session")					
+def osType(request):
+    return request.config.getoption("--osType")
+
+--------------------------------------------------------------------------------------------------------
+Working Code:
+--------------
+
+conftest.py:
+------------
+
+import pytest
+
+@pytest.yield_fixture()
+def setUp():
+    print("Before test method")
+    yield
+    print("After test method ")
+
+
+@pytest.yield_fixture(scope="module")
+def oneTimeSetUp(browser, osType):						//rememeber to give browser and osType here in oneTimesetup
+    print("Running conftest demo one time setUp")
+    if browser=='firefox':
+        print("Run FF")
+    else:
+        print("Run Chrome")
+
+    yield
+    print("Running conftest demo one time tearDown")
+
+
+def pytest_addoption(parser):
+    parser.addoption("--browser")
+    parser.addoption("--osType", help="Type of Operating System")
+
+@pytest.fixture(scope="session")
+def browser(request):
+    return request.config.getoption("--browser")
+
+@pytest.fixture(scope="session")
+def osType(request):
+    return request.config.getoption("--osType")
+
+
+Sample test file:
+------------------
+
+import pytest
+
+
+@pytest.mark.run(order=1)
+def test_run_order_methodA(oneTimeSetUp, setUp):
+    print("Running method A")
+
+@pytest.mark.run(order=2)
+def test_run_order_methodB(oneTimeSetUp, setUp):
+    print("Running method B")
+
+
+
+>> in Command line pass below command
+
+py.test -s test_run_order_demo.py --browser firefox
+
+
+>>
+Running conftest demo one time setUp
+Run FF
+Before test method
+Running method A
+.After test method
+
+Before test method
+Running method B
+.After test method
+Running conftest demo one time tearDown
+
+
+------------------------------------------------------------------------------------------------------
+
+
+Structure Test in A Test Class:
+--------------------------------
+
+
+
+
+
+
+
+
+
 
 
 
