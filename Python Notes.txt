@@ -8195,6 +8195,11 @@ class. But we may need to verify the title for all pages. So rather having the m
 
 Note: All Page classes like LoginPage or any other Page class will now inherit BasePage Class and BasePage class will inherityu seleniumdriver class
 
+Inheritance flow:
+-------------------
+
+LoginTest > LoginPage > BasePage > SeleniumWebdriver
+
 base>basepage.py
 -------------------
 
@@ -8455,9 +8460,11 @@ class LoginPage(BasePage):
 
 --------------------------------
 
-Video 186
+20. Video 186
+Custom Driver -> Addition Methods
 
 
 
+Before repeating video 186. work on webdriverfactory and make it work
 
 

@@ -1832,9 +1832,15 @@ webdriver exception - driver performs action immediately after closing the brpws
 IllegalStateException -  When browser driver exe path is not set using System.setproprty
 				
 
-=============================================================================END OF INTERVIEW================================================================
+===================================================================================================================================================================================================
+										END OF INTERVIEW
+===================================================================================================================================================================================================
 
-===========================================================================Core Java==========================================================================================
+
+
+===================================================================================================================================================================================================
+										Core Java
+===================================================================================================================================================================================================
 
 Naveen Automation Labs - Core Java Videos
 
@@ -2352,961 +2358,8 @@ public class HDFCBank implements USBank, UKBank{
 
 }
 
---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-							Overview of Collection Framework
-						      ------------------------------------
-
-Collection is frameowrk in Java to store and manipulate objects
-
-Opertions: searching, deletion, manipulation, sorting
-
-
-Popular Interfaces and Classes:
--------------------------------
-Interfaces in collection API = Set, List, Queue, Dequeue,SortedSet
-Classes = ArrayList, Vector, LinkedList, HashSet, TreeSet,PriorityQueue
-
-
-These are present in Collection Api ready made, no need to write code from beginning for searching, deletion, manipulation, sorting
-
-Java.Util package containes all collection API's
-
-						   Collections: Architecture:
-						  ---------------------------
-a
-							Iterable Interface
-								^
-								|					
-							Collection Interface				//collection interface implementing Iterable
-								^								
-	                         -------------------------------|------------------------------------------			
-				|				|				          |	
-
-			List Interface	         	 Queue Interface			          Set Interface  //interface implementing Collection
-  														
-													    ^	^	^
-				^			   ^	^					    |	|	|	
-				|			   |	|					    |	|   HashSet Class
-							   |	---------------- 			    |	LinkedHashSet Class
-			Array LIst Class		   |		  Priority Queue Class 		    |
-//Array, LinkedList					   |		(implement Queue Interface)         |
-& Vector implements	LinkedList Class------------       |						    |	
-List Interface					    |      |						    |	
-			Vector Class		    ---->Dequeue Interface  (Implements Queue Interface)     ---SortedSet Interface
-			     ^					^							^				
-			     |					|							|
-								|						  TreeSet Class
-//stack extends vector	Stack Class  			ArrayDequeue Class
-							(ArrayDequeu class extends Dequeue)
-							(linkedlist also implements Dequeue interface) 
-
-
-
-Note:
-Class to Class - Extends
-Interface to Interface - Extends
-Class to Interface - Implements
-
------------------------------------
-
-Collections in Details::
-------------------------
-
-ArrayList Concepts:
-==================
-
-Arraylist can store any number of values with out limit and also of any data type
-
-ArrayList ar = new ArrayList();  //here any datatype can be stored
-
-ar.add("Mubeen");
-ar.add(123);
-ar.add('M');
-
-system.out.println(ar.size());
-system.out.println(ar.get(1));
-
-
-To limit only 1 data type can be stored using array list
---------------------------------------------------------
-
-ArrayList<String> ar = new ArrayList<String>();
-ar.add("Mubeen");
-
-ar.remove(0);
-will remove data in 0 index
-
-
-Static array is size is fixed
-int a[] = new int[4];  //if we try to add 5th element, it will throw arrayoutofboundexception
-
-Dynamic Array - Array list
-
-Properties of ArrayList:
---------------------------
-1. it can contain duplicate values
-2. No limit, any number of data can be stored
-3. Maintains insertion order, index is based on how data is added
-4. It is not synchronized, (that is why it is slow compared to other collections)
-5. Allows random access of values in any index
-6. Implements List Interface
-7. ArrayList is slower when the size increases
-
-
-
-
-
-To print all values in ArrayList:
-------------------------------------
-
-1. For loop
-2. Using Iterator
-
-for(int i=0; i<ar.size();i++){
-system.out.println(ar.get(i));
-
-}
-
-Generic vs Non Generic Concepts
------------------------------------
-In JDK 1.5 and greater, we have generic and non generic concepts, before JDK1.5 Generics was not supported
-
-ArrayList ar = new ArrayList();
-
-ar.add("mubeen");  it will show a yellow line warning. this is non generic because data type is not defined
-
-
-ArrayList<String> ar1 = new ArrayList<String>();
-ar1.add("ali");   //no yellow line warning, this is generic as data type is defined as String
-
-
-How to use iterator and class objects in Array List
-------------------------------------------------------
-
-public class Employee{
-String name;
-int age;
-String dept;
-
-Employee(String name,int age, String dept){		/constructor
-this.name = name;
-this.age = age;
-this.dept = dept
-
-}}
----------------------
-
-public class Arralistconcept{
-
-public static void main(String args[]){
-
-Employee e1 = new Employee("Mubeen",33,"QA");
-Employee e2 = new Employee("Ali",32,"Test");
-Employee e3 = new Employee("Munnu",34,"KP");
-
-ArrayList<Employee> ar = new ArrayList<Employee>();			//data type is class object type
-
-ar.add(e1);
-ar.add(e2);
-ar.add(e3);
-
-Iterator it = ar.iterator();
-
-while(it.hasNext()){
-
-Employee emp = it.next();
-system.out.println(emp.name);
-system.out.println(emp.age);
-system.out.println(emp.dept);
-
-}}
-}
----------------------
-
-
-AddAll() Method in array list
--------------------------------
-
-To add all the data in one array list to another arraylist
-
-ArrayList a1 = new ArrayList();
-a1.add("mubeen");
-a1.add(21);
-
-ArrayList a2 = new ArrayList();
-a2.add("munnu");
-a2.add(31);
-
-a1.addAll(a2);
-
-all values in a2 arraylist will go to a1
-
-
-removeAll() Method:
----------------------
-ALl ar2 data from ar1 will be removed
-
-ArrayList a1 = new ArrayList();
-a1.add("mubeen");
-a1.add(21);
-
-ArrayList a2 = new ArrayList();
-a2.add("munnu");
-a2.add(31);
-
-a1.removeAll(a2);
-
-
-retainAll() Method:
--------------------
-
-TO see the common data between 2 array list
-
-
-ArrayList a1 = new ArrayList();
-a1.add("mubeen");
-a1.add(21);
-
-ArrayList a2 = new ArrayList();
-a2.add("munnu");
-a2.add("mubeen");
-a2.add(31);
-
-a1.retainALl(a2);
-
-O/p => only common daata will be printed, in this case it is mubeen
-
-
-
-
-
-----------------------------------------------
-
-LinkedList Concepts:-
-=====================
-
-LinkedList is a class which implements List Interface and Dequeue Interface, refer architecture above
-
-
-Singly Linked List:
--------------------
-
-Contains Head, data/next, 
-
-
-	 Head
-	  |
-	  V
-	Data|next ----------->	Data|next  ---------> Data|next---------|[[ null			//last next points to null
-
-
-Sample:
-
-
-	 Head
-	  |
-	  V
-	10 |next ----------->	20|next  ---------> 30|next---------|[[ null
-	node1			node2		    node3
-
-Each and every element stores the reference of next element, not the reference of previous element - it is called singly lined list
-
-
-Coding:
---------
-Features
-1. add data in first and last using addfirst() and addlast() method
-2. remove data in first and last using addfirst() and addlast() method
-3. we can set data using set method
-4. we can get data using get method with index
-5. use object reference to print the data
-
-LinkedList<String> ll = new LinkedList<String>();
-
-ll.add("qtp");
-ll.add("selenium");
-ll.add("uft");
-
-system.out.println(ll);
-
-o/p -> [qtp,selenium,uft]
-
-ll.addfirst("RPA");
-ll.addlast("GIT");
-
-system.out.println(ll);
-
-o/p -> [RPA,qtp,selenium,uft,GIT]
-
-ll.set(2,"Jenkins");
-ll.get(2) 
-
-o/p-> Jenkins
-
-ll.removefirst();
-ll.removelast();
-
-ll.remove(2);
-
-//how to iterate in LinkedList
---------------------------------
-
-1. Using forloop
-2. Using advanced forloop
-3. Using iterator
-
-
-1. Using for loop
-
-for(int n=0;n<ll.size();n++){
-system.out.println(ll.get(n));
-}
-
-
-2. Using advanced forloop //foreach concept
-
-for(String str : ll){
-system.out.print(ll);
-}
-
-3. Using Iterator
-
-Iterator<String> it = ll.iterator();
-while(it.hasnext()){
-String st = it.next();
-system.out.println(st);
-}
-
-----------------------
-
-								Map Interface in Collections
-								-----------------------------
-
-In Map, data is stored informat of <Key, Value>
-
-Map<String, String> m = new Map<String, String>();
-m.put("name","mubeen");
-m.get("name");
-o/p - Mubeen
-
-								Map Architechture
-								-----------------
-
-					  ---------------Map Interface-------------------------------------
-					|			|					  |
-					|			|				SortedMap Interface
-					|			---------------------			  |
-					|					    |			  ----------------------------
-					|					    |						     |
-				HashTable Class*				HashMap Class* 				Navigable Map Interface
-										      |						    |
-										      |						Tree Map class
-									     Linked HashMap Class
-
-
-Example of Maps:
-1. Error codes
-2. Map of zip codes
-3. Map of managers and employee
-4. Test data storage
-5. Config/Environment variables
-
-
-Methods in Map
-1. put()
-2. putAll()
-3. get(key)
-4. containsKey(key) -----> to search if specfic key of not.return boolean
-5. remove(key);
-6. keySet();	------->return a setview containing all the keys
-7. entrySet();  -------> return set view containing all keys and values
-
-
-
-HashMap Class
-------------
-
-1. Stores value in Key, Value pair
-2. it contains only unique elements
-3. it can have only 1 null key and multiple null values
-4. it maintains no order
-5. HashMap is non synchronized.   //very important, if used in multi threading. HashMap objects can be accessed by all objects
-					hashmap is used in fast accessing systems
-					//not thread safe
-
-
-What is synchronized and non synchronized
--------------------------------------------
-
-Suppose there is a HashMap that contains key, value pair as 1,A. Multiple objects can access this hash map. Each object accessing the map is called a
-thread. So if thread T1 is accessing the Map, until it is released thread T2 cannot access the Map. this is called synchronized. Only Hashtable is 
-synchronized. Whereas HashMap
-is not synchronized. Because multiple threads can access the hashmap at the same time. Support thread T1 modifies or removes the value. At the same time T2
-access the object. This is called Fail Fast  condition or concurrent modification exception. Very important interview question.
-
-
-HashMap - Non Syncrhonized
-Hashtable - Syncrhonized
-
-Problem with HashMap:
--------------------
-
-1. Fail Fast condition or concurrent modification exception**
-2. Because HashMap is non synchronized unlike Hashtable
-3. Since hashmap is not synchronized, suppose there is hashmap object with key value pair 1,A. And if thread1 tries to access 1,A and tries to remove
-the value A. Same time thread2 is trying to access the same object. It will throw concurrent modification exception or called fail fast condition.
-This would not happen if it was thread safe or synchronized like hashtable.
-
-
-
-Syntax:  
-HashMap<Integer, String> m = new HashMap<Integer, String>();
-m.put(1,"Selenium");
-m.put(2,"UFT");
-
-system.out.println(m.get(1));
-system.out.println(m.get(3));  ---> returns null
-
-for(Entry m1 : m.entrySet()){					//in HashMap data is not stored in index, so we need to use entry
-system.out.print(m1.getKey()+m1.getValue());
-}
-
-system.out.println(m);  			//will show full key value pairs
-m.remove(2);   //will remove the record with key 2
-
-
-
-CODING for HashMap:
--------------------
-Class1:
-
-public class Employee{
-int age;
-String name, dept;
-
-Employee(String name, int age, String dept){			//constructor
-this.name = name;
-this.age = age;
-this.dept = dept;
-
-}}
-
-Class2:
-
-public class HashMap1{
-
-public static void main(String args[]){
-
-Employee e1 = new Employee("mubeen",25,"QA");
-Employee e2 = new Employee("febi",26,"IT");
-Employee e3 = new Employee("naz",27,"DEV");
-
-HashMap<Integer, Employee> hm = new HashMap<Integer, Employee>();
-hm.put(1,e1);
-hm.put(2,e2);
-hm.put(3,e3);
-
-for(entry<Integer,Employee> m : hm.entrySet()){
-
-int key = m.getKey();
-Employee e = m.getValue(key);
-system.out.println(key);
-system.out.println(e.name+" "+e.age+" "+e.dept)
-
-}}}
-
-
-HashTable:
------------
-
-1. Similar to HashMap
-2. but Synchronized
-3. Sores in key value pair
-4. Key stored inform of object, each key has unique hashcode
-5. Hashcode is java object number which is unique, 32bit intger number
-6. Hashtable stores value on the basis of the hashcode of the key
-7. Hashcode is generated for an object, if we clone exactly same object again it will get the same hashcode
-8. Only unique values can be stored, if tried to add value twice. it will take only 1 value
-9. No null key and null value
-
-if h.put(name,mubeen) it is like h.put(23322221,mubeen) where 23322221 is the hashcode
-
-Syntax:
-
-Hashtable h1 = new Hashtable();
-h1.put(1,"mubene");
-h1.put(2,"ali");
-
-Hashtable h2 = new Hashtable();
-
-h2 = (Hashtable)h1.clone();   //it will clone all the vallues in h1 to h2
-
-system.out.println(h1);				//it will display 1 mubeen and 2 ali
-system.out.println(h2);				//it will display 1 mubeen and 2 ali
-
-h1.clear();
-system.out.println(h1);				//null
-system.out.println(h2);				//it will display 1 mubeen and 2 ali
-
-
-//containsvalue()
-Hashtable st = new Hashtable();
-
-st.put(1,"mubeen");
-st.put(2,"ali");
-
-
-if(st.containsValue(mubeen))
-system.out.println("Value found")
-
-
-
-How to print elements in Hashtable
------------------------------------
-
-Hashtable st = new Hashtable();
-
-st.put(1,"mubeen");
-st.put(2,"ali");
-
-Enumeration e = st.elements();
-
-while(e.hashmoreelements()){
-system.out.println(e.nextElement())
-
-}
-
-
-or print using entry set
----------------------------
-
-Set s =  st.entrySet()){
-system.out.println(s);
-
-
-How to check if both hashtables are equal or not:
--------------------------------------------------
-Hashtable st = new Hashtable();
-
-st.put(1,"mubeen");
-st.put(2,"ali");
-
-Hashtable st1 = new Hashtable();
-
-st1.put(1,"mubeen");
-st1.put(2,"ali");
-
-if(st.equals(st1)
-system.out.ptintln("both are equal")
-
-
-how to get value from Key in hashtable
---------------------------------------
-st.get(key)
-
-how to get hashcode hashtable object
---------------------------------------------------
-st.hashcode();
-
-
-
-Note: All uses generic concept over non generic, where sepecific data type can be stored
-
-Arraylist
-1. Unlimited data can be stored
-2. Follow indexing
-3. Not synchronized
-
-Linkedlist
-1. unlimited data can be stored
-2. can add data in first and last
-3. can access data with index
-
-
-HashMap
-1. Can store only unique key,value
-2. not synchornized
-3. can access key and value using keyset and entryset
-4. Can store 1 null value in key and multuple nulls in value
-
-
-Hashtable
-1. Synchronized, because it uses hash code
-2. only store unique value in key,value
-
-
-HashTree:
-displays in sorted format
-
-HashMap h = new HashMap<>();
-h.put("b",1);
-h.put("a",2);
-for(Entry e : h.entrySet()){
-e.getKey();
-}
-o/p - b,a
-
-Hashtree ht = new Hashtree<>(h);
-for(Entry e : ht.entrySet()){
-e.getKey();
-}
-
-o/p - a,b //it will be sorted
-
-
-----------------------------------------------------------------Advance Collections - Google-------------------------------------------------------------
-========================================================================================================================================================
-
-
-Advanced Interview Questions in Arraylist:
-----------------------------------------------
-
-1. How to remove duplicates from ArrayList
------------------------------------------
-Use set, as set cannot hold duplicates. it will remove duplicates from arraylist using below code
-
-Code:
-
-	ArrayList<String> arr = new ArrayList<String>();
-		
-arr.add("mubeen");
-arr.add("ali");
-arr.add("mubeen");
-arr.add("naznin");
-arr.add("naznin");
-arr.add("munnu");
-
-//System.out.println(arr.get(0));
-
-Set<String> set = new HashSet<String>(arr);
-
-//arr.clear();
-//arr.addAll(set);
-
-Iterator it = set.iterator();
-while(it.hasNext()){
-	System.out.println(it.next());
-}
-
-}
-}
-
-o/p - 
-naznin
-mubeen
-munnu
-ali
-
-
-2. How to reverse an arraylist
------------------------------
-Use Collections.reverse(Arraylist)
-
-Code:
-ArrayList<Integer> arr  = new ArrayList<>();
-arr.add(1);
-arr.add(2);
-arr.add(3);
-arr.add(4);
-for (Integer int1 : arr) {
-	System.out.println(int1);
-	
-}
-
-Collections.reverse(arr);
-
-
-3. What is the difference between Array and ArrayList:
-------------------------------------------------------
-
-1. Array is static and ArrayList is dynamic, the size of arraylist can be increased but size of array cannot be changed once set
-2. ArrayList uses generics, but array does not use generics
-3. Arraylist uses size() where as array uses length();
-4. Arraylist cannot store primitives, it can store only objects whereas Array can store both primitives and objects. (int is primitive, integer is object)
-5. ArrayList uses add() to simiply add data
-
-
-4. How to synchronize ArrayList:
--------------------------------
-
-Arraylist and Linkedlist are not synchronized, inorder to synchronize we use external synchronization methor Collections.synchronizedlist()
-
-Code:
-	arr= (ArrayList<Integer>) Collections.synchronizedList(arr);
-	
-	synchronized(arr){
-		
-		Iterator<Integer> it = arr.iterator();
-		while(it.hasNext()){
-			System.out.println(it.next());
-		}
-
-
-5. What is the similarity between ArrayList and Linked List:
-----------------------------------------------------------
-
-1. Both ArrayList and Linked List implements List interface
-2. Both are not synchronized
-3. Both maintains insertion order
-4. Both can hold duplicates and null
-
-
-6. What is the difference between ArrayList and Linked List:
-------------------------------------------------------------
-
-1. ArrayList is backed by an Array, Linked list is backed by Linked List
-2. Apart from implementing List interface, Linked List implements dequeue interface
-3. Removing elements from a position in ArrayList is O(n) and in LinkedList is O(n/2) (shortest distance from front or back)
-4. Iterating over elements is O(n) in ArrayList and in LinkedList
-
-
-7.What is similarity between ArrayList and HashSet
----------------------------------------------------
-
-1. Both uses iterator() to traverse
-2. Both are not synchronized
-3. ArrayList and Hashset are fail-fast, both throws concurrentmodificationexception, when the structure altered in a thread.
-
-
-8.Difference between ArrayList and HashSet
---------------------------------------------
-1. ArrayList implements List interface whereas HashSet implements Set interface
-2. HashSet doesnot contain duplicates whereas ArrayList contains duplicate
-3. ArrayList maintains insertion order, data can beretrived using get(index) whereas set does not maintain any order
-4. Arraylist is backed by Array, HashSet is backed by HAshMap
-
-
-9.How to traverse through data in ArrayList
------------------------------------------
-
-1. Using for loop
-2. foreach
-3.iterator() with While loop
-
-
-10. What is similarity between ArrayList and Vector
----------------------------------------------------
-
-1. Both Vector and ArrayList implements List interface
-2. Both follows insertion order
-3. Both ArrayList and Vector is backed by Array
-
-11. What is the difference between ArrayLIst and Vector
---------------------------------------------------------
-
-1. ArrayList is not synchronized whereas Vector is Synchronized
-2. Vector is slower than ArrayList because vector is synchronized
-3. Vector was initially not part of Collection. Only from java1.4 it is part of collections
-
-
-12. What is the similarity between ArrayLIst and HashMap
-
-1. Both ArrayLIst and HashMap are not synchronized
-2. Both can store duplicate values
-3. Both are fail fast type, throws concurrentmodificationexception
-
-
-13. What is the difference between ArrayLIst and HashMap
-1. ArrayList implements List, HashMap implement Map
-2. ArrayList stores multiple nulls, HashMap store one null key and multiple null values
-3. ArrayLIst uses get(index) to get data, HashMap uses get(key) method
-4. HashMap stores value in Key,Value pair unlike ArrayLIst
-5. 
-
-14. What is Sublist in ArrayList?
-----------------------------------
-
-if we need to list only 1,4 out 6 elements of arrayList then we use SubList
-
-ArrayList arr = new ArrayList<>();
-arr.add(1);
-arr.add(2);
-arr.add(3);
-arr.add(4);
-arr.add(5);
-arr.add(6);
-
-arr.sublist(1,4);
-
-o/p - 1,2,3,4
-
-15.What is difference between size() and length()
----------------------------------------------
-
-Size() uses ArrayList and length() uses Array
-
-
-16.How to make arraylist read only
---------------------------------------
-
-Collections.unmodifiableCollection()
-
-17.How to swap 2 elements in ArrayList
------------------------------------------
-Collections.swap(arr,1,4);
-
-
-Advanced HashMap interview questions:
-------------------------------------------
-
-1. Retreiving value from HashMap
-HashMap<Integer,String> map = new HashMap<>();
-
-map.get(key);
-
-
-2. How to iterate in HashMap
-HashMap<Integer,String> map = new HashMap<>();
-Iterator it = map.keySet().iterator();
-while(it.hasNext()){
-Integer key = it.next();
-syso(map.get(key));
-}
-
-
-3. How to get Size and clear HashMap
-map.size();
-map.clear();
-
-4. HashMap is Synchronized or Not synchronized
-HahsMap is not synchronized but HashTable is synchronized and slower
-
-
-5. How to synchronize HashMap
-Collections.syncronizeMap(map);
-
-
-6. How to check if the key or value is available in HashMap?
-Boolean b = map.containskey(21);
-Boolean b = map.containsValue("mubeen");
-
-
-7. How to sort HashMap?
-HashMap<Integer,String> unsortedmap = new HashMap<>();
-TreeMap sortedtreemap = new TreeMap(unsortedmap);
-
-8.How to remove key
-map.remove(key);  //this will remove the record
-
-9. Check if hashMap is empty
-Boolean b = map.IsEmpty();
-
-10. what is time taken to fetch value from HashMap
-O(1)
-
-11. Important points on how HashMap works
-1. Hashmap works on Hashing principle
-2. If we know the key, it take O(1) constant time to retreive the value.
-3. Data is retreived by get(key) method
-4. map.put() method is called, calls hashcode() method and finds a bucket location to store value using the hashcode value
-5. HashMap stores vallue in Map.Entry which contains both jkey and value
-6. when get(key) method is called, again it generates hashcode and get the associated value from bucket Map.Entry
-
-
-11. What is Collision in HashMap
-When HashMap keeps storing key/value using hashing function, at one point the hashcode will be same for 2 keys. This is called collision.
-In such cases data is stored in linkedlist to next node.
-
-12. How to retrive value when collision occurs and 2 keys are having same hashcode
-uses keys.equals() method. If key matches, then associated value is picked from Map.Entry bucket
-for example, key A and B has same hashcode 12345. Then use keys.equals("A"). Then associated value is pulled from bucket
-
-
-13. What happens if HashMap is full?
-It does rehashing where the new HashMap is created double the size, all values in old HashMap is copied to new HashMap
-
-14. Why is String, Integer good candidate for keys
-They are wrapper classes and also immutable. So the valuue of key cannot be changed. hence this will not interrupt in generating the hashcode() function
-from the key
-
-15. How null key handled in HashMap?
-HashMap uses one null key, hashcode() or equals() method is not used in null. But one null is acceptable in HashMap
-
-16. Will HashMap store null value?
-HashMap can store as many null values as required
-
-17. Does HashMap contains duplicate keys?>
-No HashMap doesnot contain duplicate key, it will override previous key. You can get all keys using keySet() method
-which returns a Set where there is no duplicate key
-
-18. Is HashMap thread safe?
-No HashMap is not thread safe as it is not synchronized
-
-19. what happens if multithreaded application uses HahsMap?
-it can corrupt the keys and may not fetch the correct data
-
-20. How to remove key in HashMap?
-using remove method
-
-code:
-HashMap<Integer,String> map = new HashMap<>();
-Iterator it = map.KeySet().iterator();
-while(it.hashNext()){
-Map.Entry list= it.next();
-
-if(list.getKey().equals("mubeen")){
-it.remove();
-}
-
-}
-
-
-21. How to iterate in HashMap?
-Method1: KeySet()
-
-HashMap<Integer,String> map = new HashMap<>();
-Iterator it = map.KeySet().iterator();
-while(it.hashNext()){
-String key = it.next();
-syso(map.get(key));
-
-}
-
-
-Method2: Using EntrySet
-
-HashMap<Integer,String> map = new HashMap<>();
-for(Entry entry : map.EntrySet()){
-syso(entry.getkey()+entry.getValue())
-}
-
-Method3: Use foreach loop
-HashMap<Integer,String> map = new HashMap<>();
-for(String key : map.KeySet()){
-syso(map.get(key));
-}
-
-
-20. is HashMap Sorted?
-No, there is no order in HashMap but we can use treemap and source HashMap inside it to sort it
-
-HashMap<Integer,String> map = new HashMap<>();
-TreeMap sortedtreemap = new TreeMap(map);
-
-21. What is load factor in HashMap
-It is .75, if the map is 75% then it will rehash
-
-
-Similarity between HashSet and TreeSet
---------------------------------------
-
-1. Both implements Set interface
-2. Bith are not synchronized
-3. both are fail fast, throws concurrentmodificationexception
-
-
-
-Difference between HashSet and TreeSet
-----------------------------------------
-
-1. HashSet is faster than TreeSet
-2. HashSet has no ordering, but for sorting we should use TreeSet
-3. HashSet accepts null but not treeset
-4. HashSet is backed by HashMap and TreeSet is backed by TreeMap
-5. 
-
-===============================================================End of Collections===========================================================================
 
 Final vs finally vs finalize
 ---------------------------
@@ -3920,69 +2973,967 @@ o/p
 no catch in throws
 from div throws go to sum, from sum it goes to main
 
----------------------------------------------------------------------------------------------------------
+===================================================================================================================================================================================================
+										Overview of Collection Framework
+===================================================================================================================================================================================================
+
+Collection is frameowrk in Java to store and manipulate objects
+
+Opertions: searching, deletion, manipulation, sorting
 
 
-Prime Number:
--------------
+Popular Interfaces and Classes:
+-------------------------------
+Interfaces in collection API = Set, List, Queue, Dequeue,SortedSet
+Classes = ArrayList, Vector, LinkedList, HashSet, TreeSet,PriorityQueue
 
-Number divisible by itself is prime number, 2 is smallest prime. 1 and 0 is not primem.
+
+These are present in Collection Api ready made, no need to write code from beginning for searching, deletion, manipulation, sorting
+
+Java.Util package containes all collection API's
+
+						   Collections: Architecture:
+						  ---------------------------
+a
+							Iterable Interface
+								^
+								|					
+							Collection Interface				//collection interface implementing Iterable
+								^								
+	                         -------------------------------|------------------------------------------			
+				|				|				          |	
+
+			List Interface	         	 Queue Interface			          Set Interface  //interface implementing Collection
+  														
+													    ^	^	^
+				^			   ^	^					    |	|	|	
+				|			   |	|					    |	|   HashSet Class
+							   |	---------------- 			    |	LinkedHashSet Class
+			Array LIst Class		   |		  Priority Queue Class 		    |
+//Array, LinkedList					   |		(implement Queue Interface)         |
+& Vector implements	LinkedList Class------------       |						    |	
+List Interface					    |      |						    |	
+			Vector Class		    ---->Dequeue Interface  (Implements Queue Interface)     ---SortedSet Interface
+			     ^					^							^				
+			     |					|							|
+								|						  TreeSet Class
+//stack extends vector	Stack Class  			ArrayDequeue Class
+							(ArrayDequeu class extends Dequeue)
+							(linkedlist also implements Dequeue interface) 
 
 
-public statuc boolean isprimenumber(int num){
-if(num<=1){
-return false
+
+Note:
+Class to Class - Extends
+Interface to Interface - Extends
+Class to Interface - Implements
+
+-----------------------------------
+
+Collections in Details::
+------------------------
+
+ArrayList Concepts:
+==================
+
+Arraylist can store any number of values with out limit and also of any data type
+
+ArrayList ar = new ArrayList();  //here any datatype can be stored
+
+ar.add("Mubeen");
+ar.add(123);
+ar.add('M');
+
+system.out.println(ar.size());
+system.out.println(ar.get(1));
+
+
+To limit only 1 data type can be stored using array list
+--------------------------------------------------------
+
+ArrayList<String> ar = new ArrayList<String>();
+ar.add("Mubeen");
+
+ar.remove(0);
+will remove data in 0 index
+
+
+Static array is size is fixed
+int a[] = new int[4];  //if we try to add 5th element, it will throw arrayoutofboundexception
+
+Dynamic Array - Array list
+
+Properties of ArrayList:
+--------------------------
+1. it can contain duplicate values
+2. No limit, any number of data can be stored
+3. Maintains insertion order, index is based on how data is added
+4. It is not synchronized, (that is why it is slow compared to other collections)
+5. Allows random access of values in any index
+6. Implements List Interface
+7. ArrayList is slower when the size increases
+
+
+
+
+
+To print all values in ArrayList:
+------------------------------------
+
+1. For loop
+2. Using Iterator
+
+for(int i=0; i<ar.size();i++){
+system.out.println(ar.get(i));
+
 }
 
-for(int i=2;i<num;i++){
+Generic vs Non Generic Concepts
+-----------------------------------
+In JDK 1.5 and greater, we have generic and non generic concepts, before JDK1.5 Generics was not supported
 
-if(num % i ==0){
-return false
+ArrayList ar = new ArrayList();
+
+ar.add("mubeen");  it will show a yellow line warning. this is non generic because data type is not defined
+
+
+ArrayList<String> ar1 = new ArrayList<String>();
+ar1.add("ali");   //no yellow line warning, this is generic as data type is defined as String
+
+
+How to use iterator and class objects in Array List
+------------------------------------------------------
+
+public class Employee{
+String name;
+int age;
+String dept;
+
+Employee(String name,int age, String dept){		/constructor
+this.name = name;
+this.age = age;
+this.dept = dept
+
+}}
+---------------------
+
+public class Arralistconcept{
+
+public static void main(String args[]){
+
+Employee e1 = new Employee("Mubeen",33,"QA");
+Employee e2 = new Employee("Ali",32,"Test");
+Employee e3 = new Employee("Munnu",34,"KP");
+
+ArrayList<Employee> ar = new ArrayList<Employee>();			//data type is class object type
+
+ar.add(e1);
+ar.add(e2);
+ar.add(e3);
+
+Iterator it = ar.iterator();
+
+while(it.hasNext()){
+
+Employee emp = it.next();
+system.out.println(emp.name);
+system.out.println(emp.age);
+system.out.println(emp.dept);
+
+}}
+}
+---------------------
+
+
+AddAll() Method in array list
+-------------------------------
+
+To add all the data in one array list to another arraylist
+
+ArrayList a1 = new ArrayList();
+a1.add("mubeen");
+a1.add(21);
+
+ArrayList a2 = new ArrayList();
+a2.add("munnu");
+a2.add(31);
+
+a1.addAll(a2);
+
+all values in a2 arraylist will go to a1
+
+
+removeAll() Method:
+---------------------
+ALl ar2 data from ar1 will be removed
+
+ArrayList a1 = new ArrayList();
+a1.add("mubeen");
+a1.add(21);
+
+ArrayList a2 = new ArrayList();
+a2.add("munnu");
+a2.add(31);
+
+a1.removeAll(a2);
+
+
+retainAll() Method:
+-------------------
+
+TO see the common data between 2 array list
+
+
+ArrayList a1 = new ArrayList();
+a1.add("mubeen");
+a1.add(21);
+
+ArrayList a2 = new ArrayList();
+a2.add("munnu");
+a2.add("mubeen");
+a2.add(31);
+
+a1.retainALl(a2);
+
+O/p => only common daata will be printed, in this case it is mubeen
+
+
+
+
+
+----------------------------------------------
+
+LinkedList Concepts:-
+=====================
+
+LinkedList is a class which implements List Interface and Dequeue Interface, refer architecture above
+
+
+Singly Linked List:
+-------------------
+
+Contains Head, data/next, 
+
+
+	 Head
+	  |
+	  V
+	Data|next ----------->	Data|next  ---------> Data|next---------|[[ null			//last next points to null
+
+
+Sample:
+
+
+	 Head
+	  |
+	  V
+	10 |next ----------->	20|next  ---------> 30|next---------|[[ null
+	node1			node2		    node3
+
+Each and every element stores the reference of next element, not the reference of previous element - it is called singly lined list
+
+
+Coding:
+--------
+Features
+1. add data in first and last using addfirst() and addlast() method
+2. remove data in first and last using addfirst() and addlast() method
+3. we can set data using set method
+4. we can get data using get method with index
+5. use object reference to print the data
+
+LinkedList<String> ll = new LinkedList<String>();
+
+ll.add("qtp");
+ll.add("selenium");
+ll.add("uft");
+
+system.out.println(ll);
+
+o/p -> [qtp,selenium,uft]
+
+ll.addfirst("RPA");
+ll.addlast("GIT");
+
+system.out.println(ll);
+
+o/p -> [RPA,qtp,selenium,uft,GIT]
+
+ll.set(2,"Jenkins");
+ll.get(2) 
+
+o/p-> Jenkins
+
+ll.removefirst();
+ll.removelast();
+
+ll.remove(2);
+
+//how to iterate in LinkedList
+--------------------------------
+
+1. Using forloop
+2. Using advanced forloop
+3. Using iterator
+
+
+1. Using for loop
+
+for(int n=0;n<ll.size();n++){
+system.out.println(ll.get(n));
+}
+
+
+2. Using advanced forloop //foreach concept
+
+for(String str : ll){
+system.out.print(ll);
+}
+
+3. Using Iterator
+
+Iterator<String> it = ll.iterator();
+while(it.hasnext()){
+String st = it.next();
+system.out.println(st);
+}
+
+----------------------
+
+								Map Interface in Collections
+								-----------------------------
+
+In Map, data is stored informat of <Key, Value>
+
+Map<String, String> m = new Map<String, String>();
+m.put("name","mubeen");
+m.get("name");
+o/p - Mubeen
+
+								Map Architechture
+								-----------------
+
+					  ---------------Map Interface-------------------------------------
+					|			|					  |
+					|			|				SortedMap Interface
+					|			---------------------			  |
+					|					    |			  ----------------------------
+					|					    |						     |
+				HashTable Class*				HashMap Class* 				Navigable Map Interface
+										      |						    |
+										      |						Tree Map class
+									     Linked HashMap Class
+
+
+Example of Maps:
+1. Error codes
+2. Map of zip codes
+3. Map of managers and employee
+4. Test data storage
+5. Config/Environment variables
+
+
+Methods in Map
+1. put()
+2. putAll()
+3. get(key)
+4. containsKey(key) -----> to search if specfic key of not.return boolean
+5. remove(key);
+6. keySet();	------->return a setview containing all the keys
+7. entrySet();  -------> return set view containing all keys and values
+
+
+
+HashMap Class
+------------
+
+1. Stores value in Key, Value pair
+2. it contains only unique elements
+3. it can have only 1 null key and multiple null values
+4. it maintains no order
+5. HashMap is non synchronized.   //very important, if used in multi threading. HashMap objects can be accessed by all objects
+					hashmap is used in fast accessing systems
+					//not thread safe
+
+
+What is synchronized and non synchronized
+-------------------------------------------
+
+Suppose there is a HashMap that contains key, value pair as 1,A. Multiple objects can access this hash map. Each object accessing the map is called a
+thread. So if thread T1 is accessing the Map, until it is released thread T2 cannot access the Map. this is called synchronized. Only Hashtable is 
+synchronized. Whereas HashMap
+is not synchronized. Because multiple threads can access the hashmap at the same time. Suppose thread T1 modifies or removes the value. At the same time T2
+access the object. This is called Fail Fast  condition or concurrent modification exception. Very important interview question.
+
+
+HashMap - Non Syncrhonized
+Hashtable - Syncrhonized
+
+Problem with HashMap:
+-------------------
+
+1. Fail Fast condition or concurrent modification exception** - Because HashMap is non synchronized unlike Hashtable
+2. Since hashmap is not synchronized, suppose there is hashmap object with key value pair 1,A. And if thread1 tries to access 1,A and tries to remove
+the value A. Same time thread2 is trying to access the same object. It will throw concurrent modification exception or called fail fast condition.
+This would not happen if it was thread safe or synchronized like hashtable.
+
+
+
+Syntax:  
+HashMap<Integer, String> m = new HashMap<Integer, String>();
+m.put(1,"Selenium");
+m.put(2,"UFT");
+
+system.out.println(m.get(1));
+system.out.println(m.get(3));  ---> returns null
+
+for(Entry m1 : m.entrySet()){					//in HashMap data is not stored in index, so we need to use entry
+system.out.print(m1.getKey()+m1.getValue());
+}
+
+system.out.println(m);  			//will show full key value pairs
+m.remove(2);   //will remove the record with key 2
+
+
+
+CODING for HashMap:
+-------------------
+Class1:
+
+public class Employee{
+int age;
+String name, dept;
+
+Employee(String name, int age, String dept){			//constructor
+this.name = name;
+this.age = age;
+this.dept = dept;
+
+}}
+
+Class2:
+
+public class HashMap1{
+
+public static void main(String args[]){
+
+Employee e1 = new Employee("mubeen",25,"QA");
+Employee e2 = new Employee("febi",26,"IT");
+Employee e3 = new Employee("naz",27,"DEV");
+
+HashMap<Integer, Employee> hm = new HashMap<Integer, Employee>();
+hm.put(1,e1);
+hm.put(2,e2);
+hm.put(3,e3);
+
+for(entry<Integer,Employee> m : hm.entrySet()){
+
+int key = m.getKey();
+Employee e = m.getValue(key);
+system.out.println(key);
+system.out.println(e.name+" "+e.age+" "+e.dept)
+
+}}}
+
+
+HashTable:
+-----------
+
+1. Similar to HashMap
+2. but Synchronized
+3. Sores in key value pair
+4. Key stored inform of object, each key has unique hashcode
+5. Hashcode is java object number which is unique, 32bit intger number
+6. Hashtable stores value on the basis of the hashcode of the key
+7. Hashcode is generated for an object, if we clone exactly same object again it will get the same hashcode
+8. Only unique values can be stored, if tried to add value twice. it will take only 1 value
+9. No null key and null value
+
+if h.put(name,mubeen) it is like h.put(23322221,mubeen) where 23322221 is the hashcode
+
+Syntax:
+
+Hashtable h1 = new Hashtable();
+h1.put(1,"mubene");
+h1.put(2,"ali");
+
+Hashtable h2 = new Hashtable();
+
+h2 = (Hashtable)h1.clone();   //it will clone all the vallues in h1 to h2
+
+system.out.println(h1);				//it will display 1 mubeen and 2 ali
+system.out.println(h2);				//it will display 1 mubeen and 2 ali
+
+h1.clear();
+system.out.println(h1);				//null
+system.out.println(h2);				//it will display 1 mubeen and 2 ali
+
+
+//containsvalue()
+Hashtable st = new Hashtable();
+
+st.put(1,"mubeen");
+st.put(2,"ali");
+
+
+if(st.containsValue(mubeen))
+system.out.println("Value found")
+
+
+
+How to print elements in Hashtable
+-----------------------------------
+
+Hashtable st = new Hashtable();
+
+st.put(1,"mubeen");
+st.put(2,"ali");
+
+Enumeration e = st.elements();
+
+while(e.hashmoreelements()){
+system.out.println(e.nextElement())
+
+}
+
+
+or print using entry set
+---------------------------
+
+Set s =  st.entrySet()){
+system.out.println(s);
+
+
+How to check if both hashtables are equal or not:
+-------------------------------------------------
+Hashtable st = new Hashtable();
+
+st.put(1,"mubeen");
+st.put(2,"ali");
+
+Hashtable st1 = new Hashtable();
+
+st1.put(1,"mubeen");
+st1.put(2,"ali");
+
+if(st.equals(st1)
+system.out.ptintln("both are equal")
+
+
+how to get value from Key in hashtable
+--------------------------------------
+st.get(key)
+
+how to get hashcode hashtable object
+--------------------------------------------------
+st.hashcode();
+
+
+
+Note: All uses generic concept over non generic, where sepecific data type can be stored
+
+Arraylist
+1. Unlimited data can be stored
+2. Follow indexing
+3. Not synchronized
+
+Linkedlist
+1. unlimited data can be stored
+2. can add data in first and last
+3. can access data with index
+
+
+HashMap
+1. Can store only unique key,value
+2. not synchornized
+3. can access key and value using keyset and entryset
+4. Can store 1 null value in key and multuple nulls in value
+
+
+Hashtable
+1. Synchronized, because it uses hash code
+2. only store unique value in key,value
+
+
+HashTree:
+displays in sorted format
+
+HashMap h = new HashMap<>();
+h.put("b",1);
+h.put("a",2);
+for(Entry e : h.entrySet()){
+e.getKey();
+}
+o/p - b,a
+
+Hashtree ht = new Hashtree<>(h);
+for(Entry e : ht.entrySet()){
+e.getKey();
+}
+
+o/p - a,b //it will be sorted
+
+====================================================================================================================================================================================================
+										Advance Collections - Google
+====================================================================================================================================================================================================
+
+
+Advanced Interview Questions in Arraylist:
+----------------------------------------------
+
+1. How to remove duplicates from ArrayList
+-----------------------------------------
+Use set, as set cannot hold duplicates. it will remove duplicates from arraylist using below code
+
+Code:
+
+	ArrayList<String> arr = new ArrayList<String>();
+		
+arr.add("mubeen");
+arr.add("ali");
+arr.add("mubeen");
+arr.add("naznin");
+arr.add("naznin");
+arr.add("munnu");
+
+//System.out.println(arr.get(0));
+
+Set<String> set = new HashSet<String>(arr);
+
+//arr.clear();
+//arr.addAll(set);
+
+Iterator it = set.iterator();
+while(it.hasNext()){
+	System.out.println(it.next());
+}
+
 }
 }
-return true}
+
+o/p - 
+naznin
+mubeen
+munnu
+ali
+
+
+2. How to reverse an arraylist
+-----------------------------
+Use Collections.reverse(Arraylist)
+
+Code:
+ArrayList<Integer> arr  = new ArrayList<>();
+arr.add(1);
+arr.add(2);
+arr.add(3);
+arr.add(4);
+for (Integer int1 : arr) {
+	System.out.println(int1);
+	
+}
+
+Collections.reverse(arr);
+
+
+3. What is the difference between Array and ArrayList:
+------------------------------------------------------
+
+1. Array is static and ArrayList is dynamic, the size of arraylist can be increased but size of array cannot be changed once set
+2. ArrayList uses generics, but array does not use generics
+3. Arraylist uses size() where as array uses length();
+4. Arraylist cannot store primitives, it can store only objects whereas Array can store both primitives and objects. (int is primitive, integer is object)
+5. ArrayList uses add() to simiply add data
+
+
+4. How to synchronize ArrayList:
+-------------------------------
+
+Arraylist and Linkedlist are not synchronized, inorder to synchronize we use external synchronization method Collections.synchronizedlist()
+
+Code:
+	arr= (ArrayList<Integer>) Collections.synchronizedList(arr);
+	
+	synchronized(arr){
+		
+		Iterator<Integer> it = arr.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
+
+
+5. What is the similarity between ArrayList and Linked List:
+----------------------------------------------------------
+
+1. Both ArrayList and Linked List implements List interface
+2. Both are not synchronized
+3. Both maintains insertion order
+4. Both can hold duplicates and null
+
+
+6. What is the difference between ArrayList and Linked List:
+------------------------------------------------------------
+
+1. ArrayList is backed by an Array, Linked list is backed by Linked List
+2. Apart from implementing List interface, Linked List implements dequeue interface
+3. Removing elements from a position in ArrayList is O(n) and in LinkedList is O(n/2) (shortest distance from front or back)
+4. Iterating over elements is O(n) in ArrayList and in LinkedList
+
+
+7.What is similarity between ArrayList and HashSet
+---------------------------------------------------
+
+1. Both uses iterator() to traverse
+2. Both are not synchronized
+3. ArrayList and Hashset are fail-fast, both throws concurrentmodificationexception, when the structure altered in a thread.
+
+
+8.Difference between ArrayList and HashSet
+--------------------------------------------
+1. ArrayList implements List interface whereas HashSet implements Set interface
+2. HashSet doesnot contain duplicates whereas ArrayList contains duplicate
+3. ArrayList maintains insertion order, data can beretrived using get(index) whereas set does not maintain any order
+4. Arraylist is backed by Array, HashSet is backed by HAshMap
+
+
+9.How to traverse through data in ArrayList
+-----------------------------------------
+
+1. Using for loop
+2. foreach
+3.iterator() with While loop
+
+
+10. What is similarity between ArrayList and Vector
+---------------------------------------------------
+
+1. Both Vector and ArrayList implements List interface
+2. Both follows insertion order
+3. Both ArrayList and Vector is backed by Array
+
+11. What is the difference between ArrayLIst and Vector
+--------------------------------------------------------
+
+1. ArrayList is not synchronized whereas Vector is Synchronized
+2. Vector is slower than ArrayList because vector is synchronized
+3. Vector was initially not part of Collection. Only from java1.4 it is part of collections
+
+
+12. What is the similarity between ArrayLIst and HashMap
+
+1. Both ArrayLIst and HashMap are not synchronized
+2. Both can store duplicate values
+3. Both are fail fast type, throws concurrentmodificationexception
+
+
+13. What is the difference between ArrayLIst and HashMap
+1. ArrayList implements List, HashMap implement Map
+2. ArrayList stores multiple nulls, HashMap store one null key and multiple null values
+3. ArrayLIst uses get(index) to get data, HashMap uses get(key) method
+4. HashMap stores value in Key,Value pair unlike ArrayLIst
+5. 
+
+14. What is Sublist in ArrayList?
+----------------------------------
+
+if we need to list only 1,4 out 6 elements of arrayList then we use SubList
+
+ArrayList arr = new ArrayList<>();
+arr.add(1);
+arr.add(2);
+arr.add(3);
+arr.add(4);
+arr.add(5);
+arr.add(6);
+
+arr.sublist(1,4);
+
+o/p - 1,2,3,4
+
+15.What is difference between size() and length()
+---------------------------------------------
+
+Size() uses ArrayList and length() uses Array
+
+
+16.How to make arraylist read only
+--------------------------------------
+
+Collections.unmodifiableCollection()
+
+17.How to swap 2 elements in ArrayList
+-----------------------------------------
+Collections.swap(arr,1,4);
+
+
+Advanced HashMap interview questions:
+------------------------------------------
+
+1. Retreiving value from HashMap
+HashMap<Integer,String> map = new HashMap<>();
+
+map.get(key);
+
+
+2. How to iterate in HashMap
+HashMap<Integer,String> map = new HashMap<>();
+Iterator it = map.keySet().iterator();
+while(it.hasNext()){
+Integer key = it.next();
+syso(map.get(key));
+}
+
+
+3. How to get Size and clear HashMap
+map.size();
+map.clear();
+
+4. HashMap is Synchronized or Not synchronized
+HahsMap is not synchronized but HashTable is synchronized and slower
+
+
+5. How to synchronize HashMap
+Collections.syncronizeMap(map);
+
+
+6. How to check if the key or value is available in HashMap?
+Boolean b = map.containskey(21);
+Boolean b = map.containsValue("mubeen");
+
+
+7. How to sort HashMap?
+HashMap<Integer,String> unsortedmap = new HashMap<>();
+TreeMap sortedtreemap = new TreeMap(unsortedmap);
+
+8.How to remove key
+map.remove(key);  //this will remove the record
+
+9. Check if hashMap is empty
+Boolean b = map.IsEmpty();
+
+10. what is time taken to fetch value from HashMap
+O(1)
+
+11. Important points on how HashMap works	//////when we use map.put(""). then,bucket is Map.Entry (storing key,vaue) and the location is the hashcode value generated by hashcode()//////
+1. Hashmap works on Hashing principle
+2. If we know the key, it take O(1) constant time to retreive the value.
+3. Data is retreived by get(key) method
+4. map.put() method is called, calls hashcode() method and finds a bucket location to store value using the hashcode value
+5. HashMap stores vallue in Map.Entry which contains both jkey and value
+6. when get(key) method is called, again it generates hashcode and get the associated value from bucket Map.Entry
+
+
+11. What is Collision in HashMap
+When HashMap keeps storing key/value using hashing function, at one point the hashcode will be same for 2 keys. This is called collision.
+In such cases data is stored in linkedlist to next node.
+
+12. How to retrive value when collision occurs and 2 keys are having same hashcode
+uses keys.equals() method. If key matches, then associated value is picked from Map.Entry bucket
+for example, key A and B has same hashcode 12345. Then use keys.equals("A"). Then associated value is pulled from bucket
+
+
+13. What happens if HashMap is full?
+It does rehashing where the new HashMap is created double the size, all values in old HashMap is copied to new HashMap
+
+14. Why is String, Integer good candidate for keys
+They are wrapper classes and also immutable. So the valuue of key cannot be changed. hence this will not interrupt in generating the hashcode() function
+from the key
+
+15. How null key handled in HashMap?
+HashMap uses one null key, hashcode() or equals() method is not used in null. But one null is acceptable in HashMap
+
+16. Will HashMap store null value?
+Yes, HashMap can store as many null values as required
+
+17. Does HashMap contains duplicate keys?>
+No HashMap doesnot contain duplicate key, it will override previous key. You can get all keys using keySet() method
+which returns a Set where there is no duplicate key
+
+18. Is HashMap thread safe?
+No HashMap is not thread safe as it is not synchronized
+
+19. what happens if multithreaded application uses HahsMap?
+it can corrupt the keys and may not fetch the correct data
+
+20. How to remove key in HashMap?
+using remove method
+
+code:
+HashMap<Integer,String> map = new HashMap<>();
+Iterator it = map.KeySet().iterator();
+while(it.hashNext()){
+Map.Entry list= it.next();
+
+if(list.getKey().equals("mubeen")){
+it.remove();
+}
 
 }
 
 
+21. How to iterate in HashMap?
+Method1: KeySet()
 
-Palindrome 
----------------
-
-int num;
-int r=0;
-int sum=0;
-int t = num;
-
-while(num>0){
-
-r=num%10;
-sum=(sum*10)+r;
-num=num/10;
+HashMap<Integer,String> map = new HashMap<>();
+Iterator it = map.KeySet().iterator();
+while(it.hashNext()){
+String key = it.next();
+syso(map.get(key));
 
 }
 
-Armstrong -
----------------
-Summation of cube of number will be same as number
 
-1 = 1*1*1
-370 - 3*3*3+7*7*7+0 - 343+27 - 370
+Method2: Using EntrySet
 
-
-
-
-while(num>0){
-
-r=num%10;
-num=num/10;
-cube = cube+r*r*r
+HashMap<Integer,String> map = new HashMap<>();
+for(Entry entry : map.EntrySet()){
+syso(entry.getkey()+entry.getValue())
 }
 
------------------------------------------------------------------------------------------------------------------------------------------------------------
+Method3: Use foreach loop
+HashMap<Integer,String> map = new HashMap<>();
+for(String key : map.KeySet()){
+syso(map.get(key));
+}
 
-=======================================================================Java - TutorialPoint===============================================================
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+20. is HashMap Sorted?
+No, there is no order in HashMap but we can use treemap and source HashMap inside it to sort it
+
+HashMap<Integer,String> map = new HashMap<>();
+TreeMap sortedtreemap = new TreeMap(map);
+
+21. What is load factor in HashMap
+It is .75, if the map is 75% then it will rehash
+
+
+Similarity between HashSet and TreeSet class
+--------------------------------------
+
+1. Both implements Set interface
+2. Bith are not synchronized
+3. both are fail fast, throws concurrentmodificationexception
+
+
+
+Difference between HashSet and TreeSet
+----------------------------------------
+
+1. HashSet is faster than TreeSet
+2. HashSet has no ordering, but for sorting we should use TreeSet
+3. HashSet accepts null but not treeset
+4. HashSet is backed by HashMap and TreeSet is backed by TreeMap
+5. 
+
+=====================================================================================================================================================================================================
+											End of Collections
+=====================================================================================================================================================================================================
+
+
+
+====================================================================================================================================================================================================
+											Java - TutorialPoint
+====================================================================================================================================================================================================
 
 Java Platform?
 1. JAVA SE - Standalone Edition SE8
@@ -4990,8 +4941,9 @@ o/p -
 
 
 
-==========================================================================================================================================================
-------------------------------------------------Java File Handling GC Reddy-------------------------------------------------------------------------------
+===================================================================================================================================================================================================
+											Java File Handling GC Reddy
+==================================================================================================================================================================================================
 
 File Handling -  Using fileclass we can handle computer files
 
@@ -5078,10 +5030,9 @@ public class filereader {
 	
 	}}
 
-===================================================================================================================================================================================
-===================================================================================================================================================================================
-
----------------------------------------------------------SELENIUM COURSE-------------------------------------------------------------------------------------------------------
+====================================================================================================================================================================================================
+										SELENIUM COURSE
+====================================================================================================================================================================================================
 Github
 mubeenali85
 Hightime9
@@ -6394,7 +6345,7 @@ or
 note: there is no ends with function in xpath, it is available in css
 
 
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Module13 Part1- Selenium webdriver-3
@@ -7482,10 +7433,10 @@ Module35:
 ----------
 SkippedXXXX - Module34 is enough
 
-============================================================================================================================================================
-===================================================================STARTING FRAMEWORKS FROM NOW=============================================================
+=================================================================================================================================================================================================
+===================================================================STARTING FRAMEWORKS FROM NOW==================================================================================================
 
------------------------------------------------------------------------Data Driven Framework by Naveen-------------------------------------------------------
+-----------------------------------------------------------------------Data Driven Framework by Naveen--------------------------------------------------------------------------------------------
 
 
 Video1: Simple Java Proj on how to read data from excel
@@ -12311,6 +12262,70 @@ We can start multiple threads concurrently
 
 Enumeration:
 Enumeration is ready data one by one
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Prime Number:
+-------------
+
+Number divisible by itself is prime number, 2 is smallest prime. 1 and 0 is not primem.
+
+
+public statuc boolean isprimenumber(int num){
+if(num<=1){
+return false
+}
+
+for(int i=2;i<num;i++){
+
+if(num % i ==0){
+return false
+}
+}
+return true}
+
+}
+
+
+
+Palindrome 
+---------------
+
+int num;
+int r=0;
+int sum=0;
+int t = num;
+
+while(num>0){
+
+r=num%10;
+sum=(sum*10)+r;
+num=num/10;
+
+}
+
+Armstrong -
+---------------
+Summation of cube of number will be same as number
+
+1 = 1*1*1
+370 - 3*3*3+7*7*7+0 - 343+27 - 370
+
+
+
+
+while(num>0){
+
+r=num%10;
+num=num/10;
+cube = cube+r*r*r
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 ==============================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==============================================================
