@@ -1,0 +1,142 @@
+
+What is Rest API
+
+Set of operation where developers can perform a request and receive response via http protocol
+
+
+Rest API Architecture
+-----------------------
+Iphone App	<--JSON/XML-->	Rest API(Process Businees Logic)  <---https://->   App Server
+(Platform independen)
+
+1. For ex, for a weather app, enter zip code. It is passed through xml or json
+2. Rest API applies business logic and sends to App server (weather.com server) gets the data and transfer back to Iphone APP
+
+3. Sometime we may not have access to hit their API
+4. The App server itself gives the API. We can use their API to get the data
+
+
+5. For example, Google exposes API to apps like UBER to use the locations
+
+
+
+6. What is the endpoint?
+
+Endpoint consisit of : baseURL/resource?parameters			//resource and paramters can be separatd by ?
+
+Ex: qaclickacademy.com/courses-detail/id=wev
+
+BaseURL: basic web urls : qaclickacademy.com
+Resource: exact tab in the url : courses-detail
+Paremeters: paremters/data can either be passed in xml or directly in the endpoint
+
+Sample endpoint geenrated when searched something on google
+Ex: https://www.google.com/search?q=qaclickacademy&rlz=1C1GCEB_enUS862US862&oq=qaclickace&aqs=chrome.1.69i57j0l2j5.3830j0j7&sourceid=chrome&ie=UTF-8
+
+here, google.com is baseuRL
+      search is resource
+      q=value is the parameter
+
+
+7. What are types of rest requests?
+GET, POST, PUT, DELETE
+
+GET - To retrieve details from server. It cannot be modified
+Paramters needs to be sent as part of request URL
+
+POST - Adding/Creating something new. Not for retreiving data from server
+Parameters should be in xml/json. It should not be sent in request URL
+
+Request : Body/Payload
+
+coursename:
+description:
+trainer details:
+
+PUT - Same as POST, but only difference here we are replacing something but not creating new
+
+DELETE - For delete something from server
+
+Request : Body/Payload
+
+coursename:
+description:
+trainer details:
+
+
+
+
+8. What is Header/cookies
+
+Sometimes you need to autheniticate yourself to talk to the server
+
+For ex, for qaclickacademy
+
+Need a key, value to be passed as header along with request to the server
+Server will authenticate the key,value sent along with the request
+
+
+Also, other than authenticate . the other type of header is content-type
+Content-type is like in what format the server has to respond
+
+for ex, content-type = json
+this is passed in the header
+
+Key is content-type
+Value is JSON
+
+
+
+Another Ex,
+
+In JIRA - Session ID is generated when logged in
+
+To create a Bug, need to use POST request
+
+POST baseURL/defect - But JIRA will reject it because Rest API is stateless and need to send the Header each time to authenticate
+
+
+So when using POST need to send the Header with session ID along with endpoint
+
+POST baseURL/defect
+Header
+SessionID=kadkjndjasn
+
+
+
+REST represents with URI - baseURL/resource?params
+
+
+
+9. Understanding google place searching API for scripting
+
+1. Go to google, search = google place search api and click on first link
+
+2. URI = https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters
+	baseURL = https://maps.googleapis.com
+	Resource = maps/api/place/findplacefromtext
+	output = output may be in JSON or XML format, should be mentioned here
+	?paremters = It is the params
+
+
+Sample URI
+
+https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=YOUR_API_KEY
+
+baseURL = https://maps.googleapis.com
+Resource = maps/api/place/findplacefromtext
+Output = JSON
+Params = ?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry
+key = key=YOUR_API_KEY
+
+Key is important to be passed as header to authenticate yourself to google server and use their features
+
+
+
+
+
+
+
+
+
+
