@@ -2358,7 +2358,7 @@ public class HDFCBank implements USBank, UKBank{
 
 }
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Final vs finally vs finalize
@@ -2582,7 +2582,7 @@ B obj = new B();
 }
 
 o/p-
-parent class constructor
+parent class constructor	//note to call paremeterized constructor, need to use super(param1) 
 child class constructor
 
 What happens the moment object is created for Class B, it will go to B constructor, but before executing B constructor
@@ -2628,7 +2628,7 @@ o/p:->
 parent class constructor with value 10
 child class constructor
 
-1. When object for B class created, goes to B constructor, sees super keyword, goes to A class with the same oparamter,
+1. When object for B class created, goes to B constructor, sees super keyword, goes to A class with the same paramter,
 executes the constructor in A, then comes back to B and execcutes B class constructor
 
 2. first super(10) executes in Class A, then Class B constructor
@@ -2670,7 +2670,7 @@ Difference between Abstract and Interface
 
 
 Class1:
-
+--------
 public abstract class Bank{
 
 public abstract void loan();  //abtract method. No method body
@@ -3574,7 +3574,7 @@ e.getKey();
 o/p - a,b //it will be sorted
 
 ====================================================================================================================================================================================================
-										Advance Collections - Google
+											Advance Collections - Google
 ====================================================================================================================================================================================================
 
 
@@ -4040,7 +4040,18 @@ Non Access Modifiers:
 	vi.) static method - cannot use this and super keyword
 
 
-2. non static - non static variable cannot be called by static method 
+
+1. Static Method - Cannot Access Non Static Variable
+		It can access the variables passed through params
+		Cannot use this and super keyword
+
+
+2. Static Variables -  Accessed by Non Static and Static Method
+		    Static variables can be modified by Static Method
+
+
+3. Non Static Variables - Accessed by Non Static Method only
+			  Cannot be accessed by Static Method
 
 
 3. final  - 
@@ -4371,7 +4382,7 @@ public class RegularExpression {
 		System.out.println(b);
 		System.out.println("-------------------------");
 		//OR
-				System.out.println(Pattern.matches(regex, str));
+		System.out.println(Pattern.matches(regex, str));
 		System.out.println(Pattern.matches("[abc]", "ab"));   //false - String should be single char and matches any in regex
 		System.out.println(Pattern.matches("[amn]", "m"));	  //true - String has m, it matches any in regex
 		System.out.println(Pattern.matches("[^amn]", "m"));   //false - regex excepts any other than a,m or n
@@ -4380,7 +4391,7 @@ public class RegularExpression {
 		
 		System.out.println("---------------------------");
 		
-		System.out.println(Pattern.matches("[AM][a-z]{1,5}", "Mubeen")); //true - Capital 'M' matches, 1 is min and 5 is max
+		System.out.println(Pattern.matches("[AM][a-z]{1,5}", "Mubeen")); //true - Capital 'M' matches, 1 is min and 5 is max total charecters
 	    System.out.println(Pattern.matches("[xy]+","xxy"));      //true []+ , patter should occor 1 or more
 	    System.out.println(Pattern.matches("[xyz]?", "xy"));    //false, occur 1s or not at all
 	    System.out.println(Pattern.matches("[xy]*", "xyy"));   //true, occurs 0 or more times
@@ -4532,8 +4543,8 @@ only using getter and setter method.
 
 
 
-User Defined Exception:
------------------------
+User Defined Exception: Using Throwable
+----------------------------------------
 If we try to create a user defined exception, it is mandaotory that it extends Throwable of Exception class
 
 Code1:
@@ -5031,7 +5042,7 @@ public class filereader {
 	}}
 
 ====================================================================================================================================================================================================
-										SELENIUM COURSE
+											SELENIUM COURSE
 ====================================================================================================================================================================================================
 Github
 mubeenali85
@@ -5933,8 +5944,10 @@ quick summary of maven:
 Part3 -XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 Did not understand ANT integrtion with Maven - Skipped
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-=======================================================================CORE-SELENIUM========================================================================================================================
+
+=====================================================================================================================================================================================================
+										Core Selenium
+=====================================================================================================================================================================================================
 
 Module11 selenium webdriver - 1.5hrs
 --------------------------------------
@@ -6111,7 +6124,7 @@ cntrl+shoft+o - to import everything
 while importing you might see errors because, you are importing Ashish jar file. need to replace with your Jars
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Module12 - Selenium Webdriver 3
 -------------------------------
@@ -6741,7 +6754,7 @@ static WebDriver driver;
 	}}
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Module14: 45min
 ---------
@@ -6932,7 +6945,7 @@ WebDriverWait wait = new WebDriverWait(driver,20);
 wait.until(Expectedconditions.alertIsPresent());
 Alert al = driver.switchTo().alert();
 
----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Module15 - Selenium Features-3 2Hours:
 ---------------------------------------
@@ -7111,7 +7124,7 @@ Explanation link - https://www.guru99.com/handling-dynamic-selenium-webdriver.ht
 No.of Columns in table - //table[@id='container']/table/thead/tr/th
 No.of Rows in a table - //table[@id='container']/table/tbody/tr/td[1]
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Module16 - Selenium Features-5 1.40Hours:
 ---------------------------------------
@@ -7188,7 +7201,7 @@ Part3, Part4
 XXXXXXXXXXXXXXXXXX
 did not cover AUTO IT to upload files, file downloading
 
------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Module17:
 --------
@@ -7333,7 +7346,7 @@ pass
 2. Decode - Use Base64.getDecoder() on the encoded String in Byte format and then conver to string
 
 
------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Module34 - Java Database Connectivity
 ---------------------------------------
@@ -7433,1467 +7446,14 @@ Module35:
 ----------
 SkippedXXXX - Module34 is enough
 
-=================================================================================================================================================================================================
-===================================================================STARTING FRAMEWORKS FROM NOW==================================================================================================
-
------------------------------------------------------------------------Data Driven Framework by Naveen--------------------------------------------------------------------------------------------
-
-
-Video1: Simple Java Proj on how to read data from excel
-
-1. Copy XLS_Reader to utility package from Video1 link in Naveen
-2. create a package com.excel.utility
-3. Create java class and copy XLS_reader.Java, rename to import com.excel.utility
-4. Once all Jars are uploaded related Apached POI, the error will go
-5. Download Apache POI apache from poi.apache.org
-6. Downlaod tar file from Binary distribution
-7. unzip and upload the jar files by going to properties/ java build path / external jar files
-
-
-8. create a package com.datadriven.test
-9. create a class DataDrivenTest.Java
-
-10.Create excel sheet
-11. Tab name - RegTestData
-12. create columns firstname, lastname, address, emailadd etc   (no space in col names)
-13. Save the file, halfebaytestdata.xlsx   (save it with xlsx only)
-14. Automate Registration on www.half.ebay.com
-
-
-15. create a package com.testdata  (copy the excel file with test data here)
-
-16. create a package com.test, create a class DataDrivenTest
-17. write following code in DataDrivenTest.Java
-
-Code: Reading one row of data
-----------------------------------
-Ex: firstname lastname age address1 address2
-    mubeen    ali      30  downtown LO
-
-public static void main(String args[]){
-
-XLS_Reader reader = new XLS_Reader("path of test data in eclipse");
-
-String firstname = reader.getCellData("Sheet Name","Col Name",2);    //2 is row number
-syso(firstname);
-
-String lastname = reader.getCellData("Sheet Name","Col Name",2);
-syso(lastname);
-
-String Address1 = reader.getCellData("Sheet Name","Col Name",2);
-syso(Address1);
-
-String Address2 = reader.getCellData("Sheet Name","Col Name",2);
-syso(Address2);
-
-System.setProperty("webDriver.Chrome.Driver","exe file path");
-WebDriver driver = new ChromeDriver();
-driver.get("half.ebay.com registeration link");
-
-driver.findElement(By.xpath("@id='FirstName'")).sendKeys(firstname);
-driver.findElement(By.xpath("@id='LastName'")).sendKeys(lastname);
-driver.findElement(By.xpath("@id='Address'")).sendKeys(addresstname);
-
-}
-
-
-Video2:
-
-Code : Parameterization - Reading multiple rows from excel file
----------------------------------------------------
-Ex: firstname lastname age address1 address2
-    mubeen    ali      30  downtown LO
-    naznin    ali      4   down     LO
-    feb       pa       25  downtown LO
-
-
-public static void main(String args[]){
-
-System.setProperty("webDriver.Chrome.Driver","exe file path");
-WebDriver driver = new ChromeDriver();
-driver.get("half.ebay.com registeration link");
-
-XLS_Reader reader = new XLS_Reader("path of test data in eclipse");
-int rowCount = getRowCount("SheetName");  //gives total rows
-
-for(int rowNum=2; rowNum<=rowCount;rowNum++){
-
-String firstname = reader.getCellData("Sheet Name","Col Name",rowNum);    //2 is row number
-syso(firstname);
-
-String lastname = reader.getCellData("Sheet Name","Col Name",rowNum);
-syso(lastname);
-
-String Address1 = reader.getCellData("Sheet Name","Col Name",rowNum);
-syso(Address1);
-
-String Address2 = reader.getCellData("Sheet Name","Col Name",rowNum);
-syso(Address2);
-
-driver.findElement(By.xpath("@id='FirstName'")).cler();
-driver.findElement(By.xpath("@id='FirstName'")).sendKeys(firstname);
-driver.findElement(By.xpath("@id='LastName'")).clear();
-driver.findElement(By.xpath("@id='LastName'")).sendKeys(lastname);
-driver.findElement(By.xpath("@id='Address'")).clear();
-driver.findElement(By.xpath("@id='Address'")).sendKeys(addresstname);
-
-
-}
-
-
-How to Add a column Status and update each row of data as Pass/Fail
-----------------------------------------------------------------------
-
-Ex: firstname lastname age address1 address2 Status
-    mubeen    ali      30  downtown LO		Pass
-    naznin    ali      4   down     LO		Pass
-    feb       pa       25  downtown LO		Pass
-
-note: for writing on excel, ensure it is closed
-
-Code:
-
-public static void main(String args[]){
-
-System.setProperty("webDriver.Chrome.Driver","exe file path");
-WebDriver driver = new ChromeDriver();
-driver.get("half.ebay.com registeration link");
-
-XLS_Reader reader = new XLS_Reader("path of test data in eclipse");
-int rowCount = getRowCount("SheetName");  //gives total rows
-
-reader.addColumn("SheetName","ColName");				//this code will add col name Status at the end
-
-for(int rowNum=2; rowNum<=rowCount;rowNum++){
-
-String firstname = reader.getCellData("Sheet Name","Col Name",rowNum);    //2 is row number
-syso(firstname);
-
-String lastname = reader.getCellData("Sheet Name","Col Name",rowNum);
-syso(lastname);
-
-String Address1 = reader.getCellData("Sheet Name","Col Name",rowNum);
-syso(Address1);
-
-String Address2 = reader.getCellData("Sheet Name","Col Name",rowNum);
-syso(Address2);
-
-driver.findElement(By.xpath("@id='FirstName'")).cler();
-driver.findElement(By.xpath("@id='FirstName'")).sendKeys(firstname);
-driver.findElement(By.xpath("@id='LastName'")).clear();
-driver.findElement(By.xpath("@id='LastName'")).sendKeys(lastname);
-driver.findElement(By.xpath("@id='Address'")).clear();
-driver.findElement(By.xpath("@id='Address'")).sendKeys(addresstname);
-
-
-reader.setData("RegTestData", "Status", rowNum, "Pass");   		//status is col name  //this will help in updating row as Pass/Fail
-
-
-}
- 
-
-
-How to add sheet
------------------
-reader.addSheet("New Sheet Name");
-
-To check if Sheet exist
-----------------------
-
-if(!reader.isSheetExist("SheetName"){
-reader.addSheetName("SheetName");
-}
-
-How to get the total columns in a tab
---------------------------------------
-reader.getColumnCount("SheetName");
-
-
-
-Video3:
-Using @DataProvider and fetching data from Excel
--------------------------------------------------
-
-1. Create a testng test case
-
-
-@BeforeMethod
-public void setUp(){
-
-//WebDriver Setup here
-}
-
------------
-
-@AfterMethod
-public void tearDown(){
-driver.quit();
-}
-
---------------------
-
-@Test(DataProvider="getData")
-public void testcase1(String firstname, String lastname, String Address1, String Address2){
-
-driver.findElement(By.xpath("@id='FirstName'")).sendKeys(firstname);
-driver.findElement(By.xpath("@id='LastName'")).sendKeys(lastname);
-driver.findElement(By.xpath("@id='Address1'")).sendKeys(address1);
-driver.findElement(By.xpath("@id='Address2'")).sendKeys(address2);
-}
-
----------------
-
-
-@DataProvider
-public Iterator<Object[]> getData(){
-
-ArrayList<Object[]> testData = TestUtil.testDataFromExcel();
-
-return testData.iterator();
-
-}
-
-
-
-2. Create another package for TestUtility and create a static TestUtil
-this will contain the method to fetch data from excel
-
-
-public class TestUtil{
-
-static Xls_Reader reader;
-public static ArrayList<Object[]> testDataFromExcel(){
-
-ArrayList<Object[]> myData = new ArrayList<Object[]>();
-
-try{
-reader = new XLS_Reader("path of testdata excel file");
-
-}
-catch(Exception e){
-e.printstackrace();
-}
-
-for(int rowNum=2; rowNum<=rowCount;rowNum++){
-
-String firstname = reader.getCellData("Sheet Name","Col Name",rowNum);    //2 is row number
-String lastname = reader.getCellData("Sheet Name","Col Name",rowNum);
-String Address1 = reader.getCellData("Sheet Name","Col Name",rowNum);
-String Address2 = reader.getCellData("Sheet Name","Col Name",rowNum);
-
-Object[] obj = {firstname,lastname,address1,address2};
-
-return myData(obj); 
-}
-}
-
-
-Video4:
-Use @Parameter to read environment variables from TestNg.xml
-
-ususally @Paramter is used for env variables which are generic like browsername, url and email id etc
-
-
-
-1. Create TestNG.xml
-
-add Parameter tags like below 
-
-<parameter name = "browser" value = "chrome"/>
-<parameter name = "url" value = "www.google.com"/>
-<parameter name = "emailid" value = "mubeen85@gmail.com"/>
-
-<classes>
-<class name = "com.testcase1" />
-</classes>
-
-
-
-2. 
-
-@Test
-@Parameter{"browser","url","emailid"}
-public void testcase1(String browser, String url, String emailid){
-
-if(browser.equals("chrome"){
-driver = new ChromeDriver();
-driver.get(url);
-driver.findElement(By.xpath("@id='email'")).sendKeys(emailid);
-
-}
-
-
-Video-4
-Data from WebTable copying to Excel - Nothing great in this video
-
-
-----------------------------------------------------------------------HYBRID FRAMEWORK-----------------------------------------------------------------------
-
-
-Module21 - Hybrid Framework
-----------------------------
-Framework - creating an outside structure, creating provision for reporting, logs, reading data from xls
-
-Hybrid Requirement:
--------------------
-1. Maven project
-2. Read data from xls
-3. implement test and validation
-4. Report - XSLT , Extent
-5. Loggin in reports
-6. Screenshots - putting in reports
-7. Run proj in ANT/MAVEN
-8. Implement Grid
-9. Reusabuility
-10. Diff environemtn - Prod, Test
-11. Integrate with Jenkins
-12. Emailing reports
-13. Implement keyword effectively
-14. Easy to change
-
-
-Steps to follow:
-1. Create Maven Project
-2. Create packages
-3. Creat dummy test
-4. Built generickeywords class
-5. reading locators from property file
-6. make common function for element extraction (getelement(String locatorykey))
-7. implemented keyword function
-8. read parameters from property file
-9. execute test and associated keywords from xls
-10.convert keywords to executekyword fucntion and call the keywords class from gmailtest
-11. Create extent report
-12. Create reportfailure and takescreenshot function
-13. return type for keyword functions
-14. central codde to report errors
-7. Introduce dependency
-8. Make testng.xmlfor batch running
-6. Built base test and functions in base test
-7. Build validation function	
-8. Built generic function
-9. build report generation function
-10. initiate the properties file
-11. build centralized/reusable functions to extract objects
-12. generate reports and loggin in reports
-13. put screenshots in report
-14. genearating reports for each run
-15. build validation function
-16. softassertion - prevent test to stop for minor issues
-17. reading data from xls - parametrizing
-18. build utility function for reading data
-19. selectively/optionally run
-
-
-Create Maven project:
-===============================
-1. create a folder hybrid1 -> cd C:\Users\mubeen\hybrid1
-2. mvn archetype:generate
-3. groupid: com.qtpselenium.core.hybrid
-4. artifactid: CORE_Hybrid_Framework
-5. hit enter enter yes
-6. Project will be created here C:\Users\mubeen\hybrid1\CORE_Hybrid_Framework
-7. replace pom.xml with current and latest pom.xml -  dependencies for tetsng, java emailign, reports, selenium jars, extent reports
-8. cd C:\Users\mubeen\hybrid1\CORE_Hybrid_Framework
-9. mvn compile   -> all jars as per pom.xml will be downloaded to M2_REPO path
-10. mvn eclipse:eclipse   -> WIll convert project to classpath recogonizable by eclipse
-11. Go to eclipse, file -> import - existing projects -> import the project to eclipse
-12. In eclipse, under reference libraries, all the downloaded jars will be present
-13. src/test/java  -> Testcases will be placed
-14. src/main/java  -> Utility files are placed
-
-
-Should be able to reuse the frame work for any website
-
-2. Create packages
-===================
-1. In src/test/java folder, create packages com.qtpselenium.hybrid and com.qtpselenium.hybrid.testcases - Testcases.java, BaseTest.java
-2. In src/main/java  folder, create packages - com.qtpselenium.hybrid  - Generickeywords.java, Keywords.java, Appkeywords.java
-					       com.qtpselenium.hybrid.util - XLS_Reader, Constants, ExtentManager.java,DataUtil.java etc
-					       com.qtpselenium.com.hybrid.mail - sendmail, filefilterdatautil,zip.java - all 3 files to send email
-3. In src/test/resources - create project.properties, suiteA.xml, suiteB.xml, testng.xml, test-results.xsl file
-
-3. Creat dummy test
-=====================
-create a simple GmailLogin test inside src/test/java folder
-Create basic gmail login test code
-
-a. write element present after each line of code
-b. we need to read data from xls file
-c. we need to run the script in different browser
-d. xpaths should be in propertiesfile
-e. username, password - Should be kept in xls
-f. xpath, environment - data which doesnot change freq is kept in properties file
-g. properties file is central file where all locators are kept
-
-
-4. Built in generickeywords class
-=======================================
-
-In src/main/java, packages com.qtpselenium.hybrid - create 2 classes Keywords.java and generickeywords.java
-
-In Generickeywords - general functions are created
-------------------
-openbrowser, 
-navigate,
-click, 
-input, 
-verify title, 
-verify text
-
-
-public openBrowser(String browser type){
-if browser-mozilla{
-open mozilla
-}
-else if broswer=chrome{
-then open chrome
-}
-}
-public navigate(String url){
-driver.get(url)
-}
-public click(String locator){
-}
-public input(String locator, String data){
-}
-public verifytext(String locator, String expectedtext){
-}
-
-
-In keywords.java class - 
-------------------------------
-Executekeywords function is created based on keywords read from xls and called in keywords.java which then navigates to generickeywords.java and appkeywords.java.
-The functions are implemented above in generickeywords
-
-Important:
------------
-Actual flow is - Testcase ---> Keywords ---> generickeywords
-By writing keywordws class -  we can reuse it in another testcases
-
-
-public class Keywords {
-public static void main{String [args]{
-Generickeywords app = new Genericskeywords();
-app.openBroswer("Mozilla")
-app.navigate("http://google.com")
-app.click("loctor of gmail");
-app.input("Email","mubeen85");
-app.click("next");
-}}
-
-
-5. Reading locators from properties file
-==============================================
-
-In keywords.java, values should not be hard code locators as shown above instead use properties file
-
-in properties file - type of locator is mentioned as _xpath, _css, _id
-
-In source folder  src/test/resources - create project.properties file
-
-url=http://google.com
-gmailink_xpath=	//a[gmail]
-email_id=Email
-nextButton_id=next
-
-
-Now in Keywords.java, all values replaced by key from properties file
-
-app.openBroswer("Mozilla")
-app.navigate(url)
-app.click("gmaillink_xpath");
-app.input("email_id","mubeen85");
-app.click("nextButton_id");
-
-
-
-In generickeywords class, we are passing key value from properties file instead of values direclty. Generickeywords functions will be capable enough to get the value from key using prop.getproperty(key)
-
-So need to initalize properties class in generickeywords and also replace parameter to key names
-
-In generickeywords class
--------------------------
-1. Declare properties prop
-2. create a constructor of generickeywords.
-3. so in keywords class if object of generickeywords is created, it will go inside the generickeywords construcotr
-4. properties object prop is initalized
-5. then goes to generickeywords, functions executed. Keys read from properties file
-5. prop.getproperty(urlkey)  - gets the value of the key
-
-
-public geneickeywords{
-prop = new Properties();
-FileInputStream fs = new FileInputStream(system.getproperty("user.dir")+"//src/test/resources/project.properties")
-prop.load(fs);
-}
-
-
-public generickeywords
-public openBrowser(String browsertype){
-if browser-mozilla{
-open mozilla
-
-}
-else if broswer=chrome{
-then open chrome
-}
-}
-
-public void navigate(String urlkey){
-syso("navigating to url"+prop.getproperty(urlkey))
-//driver.get(url)
-}
-
-public void click(String locatorkey){
-syso("clicking on"+prop.getproperty(locatorkey))
-}
-
-public void input(String locatorkey, String datakey){
-syso("typing in "+prop.getproperty(locatorkey))
-}
-
-public void verifytext(String locatorkey, String expectedtext){
-
-}
-
-
-6.common Function for element extaction: getElement(String locatorkey)
-=======================================================================
-
-Create function to click based on xpath or id as per the _xpath/_id in properties file
-------------------------------------------------------------------------------------
-
-To avoid writing driver.findelement(BY.id) or By.xpath in each functions implemented in Generickeywords class
-A function is created for this task
-
-public webelement getelement(string locatorkey){
-Webelement e=null;
-
-try{
-if(locatorykey.contains("_xpath"))
-driver.findelement(by.xpath(prop.getpropert(locatorykey)))
-}
-
-if(locatorykey.contains("_id"))
-driver.findelement(by.id(prop.getpropert(locatorykey)))
-}
-if(locatorykey.contains("_name"))
-driver.findelement(by.name(prop.getpropert(locatorykey)))
-}
-}catch (Exception e){
-Asert.fail("failure in element extraction"+locatorykey)
-}
-
-return e;
-}
-
-
-And functions implemented in generickeywords will be updated like below:
-
-public navigate(String urlkey){
-Webelement e = getelemenet(urlkey)
-e.click();
-}
--------------------------------------------------------------------------------
-
-
-7.Keywords in keywords.java class generally called from xls file
-===============================================================
-1. Create a folder data 
-2. create 3 excel files SuiteA, SuiteB, SuitC
-3. In suiteA , create a tab called keywordssheet
-
-tabname = keywords
-
-TCID	   Description	Keyword	     	object			data
-----------------------------------------------------------------------------
-GmailTest		openBrowser				chrome
-GmailTest		navigate	url	
-GmailTest		click		gmailLink_xpath	
-GmailTest		click		signIn_xpath	
-GmailTest		input		email_xpath		mubeen85
-GmailTest		click		nextButton_xpath	
-GmailTest		closeBrowser		
-
-
-1. Object columns will have keys in propertiesfile
-2. Copy xls_reader file In src/main/java  folder, com.qtpselenium.hybrid.util
-3. instead of writing in Keywords class like below
-
-app.openBroswer("Mozilla")
-app.navigate(url)
-
-We are going to read the keywords from xls file
-
-In keywords.java
---------------------
-String testunderexecution = gmailtest;
-Generickeywords app = new Genericskeywords();
-Xls_Reader xls  = new Xls_Reader(System.getproperty(user.dir)+"//data//SuiteA.xls")
-int rows = xls.getrowcount("keywords")
-
-for (int rnum=2;rnum<rows;rnum++){
-
-String TCID = xls.getcelldata("keywordsheet","TCID",rNUm);
-if (TCID.equals(testunderexecution)){
-String Keywords= xls.getcelldata("keywordsheet","keywords",rNUm);
-String Objects= xls.getcelldata("keywordsheet","object",rNUm);
-String data= xls.getcelldata("keywordsheet","data",rNUm);
-syso(TCID+Keywords+Object+data)
-}}
-
-In order to run the above script only for TCID=gMail test, we create a variable testunderexecution=gmailtest
-So now keywords, object, data will be read only TCID is matched with testunderexecution
-
-So now since all data is read from xls, we execute functions based on keywords read from SuiteA file
-
-in Keywords.class
---------------------
-if(keywords.equals("openBrowser"))
-app.openBrowser(data)
-if(keywords.equals("navigate"))
-app.openBrowser(object)
-if(keywords.equals("click"))
-app.navigate(object)
-if(keywords.equals("input"))
-app.input(object,data)
-
-if(keywords.equals("closebrowser"))
-app.closebrowsers()
-
----------------------------------------------
-
-8. Contants.java created in Src/main/java - com.qtpselenium.hybrid.util package
-================================================================================
-we create Contants.class, where all contants are stored for easy maintenance
-
-package com.qtpselenium.hybrid.util;
-
-public class Constants {
-	public static final String SUITEA_XLS = System.getProperty("user.dir")+"\\data\\SuiteA.xlsx";
-	public static final String KEYWORDS_SHEET = "KeywordSheet";
-	public static final String TCID_COL="TCID";
-	public static final String KEYWORD_COL="Keyword";
-	public static final String OBJECT_COL="object";
-	public static final String DATA_COL="data";
-	public static final String REPORT_PATH = "C:\\Users\\mubeen\\Desktop\\Reports\\";
-}
-
-in Keywords.java
--------------
-instead of 
-Xls_Reader xls  = new Xls_Reader(System.getproperty(user.dir)+"//data//SuiteA.xls")
-
-new will be
-Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
-
-Similarly, column names can be stored in Contants class for easy maintainability
-
-
-In keywords class
-
-String TCID = xls.getcelldata(Contants.Keywords_Sheet,Contants.TCID_COL,rNUm);
-if (TCID=testunderexecution){
-String Keywords= xls.getcelldata(Contants.Keywords_Sheet,Contants.Keywords_COL,rNUm);
-String Objects= xls.getcelldata(Contants.Keywords_Sheet,Contants.Object_Col,rNUm);
-String data= xls.getcelldata(Contants.Keywords_Sheet,Contants.data_col,rNUm);
-syso(TCID+Keywords+Object+data)
-}
-}
-
-------------------------------------------------
-
-9. Creating Dummy testcase gmailtest - In src/test/java
-=====================================
-Till now keywords.class was considered like main function, but in real time that is not the case
-
-Gmail Test (dologin test) ----------->   Keywords.java (executeKeywords function) -----------------> Generickeywords.java (all functions implemented)
-
-GmailTest:
-----------
-public gmailTest{
-String testname = "gmailtest"
-@Test
-public void doLogin(){
-Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
-
-Keywords app = new Keywords();
-app.executekeywords(testname, xls);
-
-}}
-
-Keywords:
-----------
-Create function executeKeywords
-
-public keywords{
-
-public void executekeywords(String testunderexecution, Xls_Reader xls)
-
-GenericKeywords app = new Generickeywords();
-String TCID = xls.getcelldata(Contants.Keywords_Sheet,Contants.TCID_COL,rNUm);
-if (TCID=testunderexecution){
-String Keywords= xls.getcelldata(Contants.Keywords_Sheet,Contants.Keywords_COL,rNUm);
-String Objects= xls.getcelldata(Contants.Keywords_Sheet,Contants.Object_Col,rNUm);
-String data= xls.getcelldata(Contants.Keywords_Sheet,Contants.data_col,rNUm);
-syso(TCID+Keywords+Object+data)
-}
-if(keywords.equals("openBrowser"))
-app.openBrowser(data)
-if(keywords.equals("navigate"))
-app.openBrowser(object)
-if(keywords.equals("click"))
-app.navigate(object)
-if(keywords.equals("input"))
-app.input(object,data)
-
-if(keywords.equals("closebrowser"))
-app.closebrowsers()
-
-}}
-
------------------------------------------
-
-10. Create Extent Reports
-==========================
-1. Copy ReportsConfig.xml file in project main folder
-2. Copy ExtentManager.java file in src/main/java/hybrid.util
-3. In ExtentManager class, we declare the path where the report should be generated
-4. initalize -- 
-	ExtentReports rep = ExtentManager.getInstance();
-5. inside the test -- 
-	ExtentTest test = rep.startTest(testname);
-
-6. Main commands in ExtentReports:
-   test.log(logstaus.info,"Starting gmail login test");
-   test.log(logstaus.PASS,"Passed");
-   test.log(logstatus.FAIL,"failure message");   //this can be given instead of assert.fail (in place ofexceptions catch)
-   test.log(logstatus.skip,"Skipping the tets");
-   test.log(logstatus.info,test.addscreenshot("path of screenshot"))
-
-8. At the end, it is import to end the test from extent reports like below
- 
-@AfterTest
-public void quittest();
- rep.endtest(testname);
- rep.flush();
-
-9. To generate reports with filename based on dates and newest on top
-
-In ExtendManager.java class below code is required
-Date d=new Date();
-String fileName=d.toString().replace(":", "_").replace(" ", "_")+".html";
-extent = new ExtentReports(Constants.REPORT_PATH+fileName, true, DisplayOrder.NEWEST_FIRST);
-
-10. Reports path can be placed in Constants.java class
-
-from GmailTest.java:
---------------------
-
-public gmailTest{
-String testname = "gmailtest"
-
-ExtentReports rep = ExtentManager.getInstance();
-@Test
-
-public void doLogin(){
-
-ExtentTest test = rep.startTest(testname);
-test.log(logstaus.info,"Starting gmail login test");
-
-Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
-Keywords app = new Keywords();
-test.log(logstaus.info,"execute keywords");
-app.executekeywords(testname, xls);
-test.log(logstaus.PASS,"Passed");
-}}
-
-
-11. till now, we could only generate reports and its log at test case gmailTest level. 
-How to create reports for Keywords and GenericKeywords
-
-
-in gmail Test, when Keywords class object is created, pass the ExtentTest test into it like below
-
-Keywords app = new Keywords(test);
-
-
-In Keywords.class
----------------------
-declare on top
-ExtentTest test;     //global declaration
-
-Also create a constructor, so when the Keywords class is called anywhere with test passed to it, then the constructor in Keywords is called
-
-public Keywords(ExtentTest test){
-this.test = test;           //test variable from gmailtest comes to constructor and it is assigned to the global test variable this.test in Keywords.class
-}
-
-So where system.out.println used in Keywords can be replaced with test.log(logstatus.info..)
-
-syso(TCID+Keywords+Object+data) can be replaced by
-test.log(LogStatus.INFO,tcid+" -- "+keyword+" -- "+object+" -- "+data ); 
-
-
-12. In generickeywords, Similarly to step11, same logs should be generated insider generickeywords where functions are implemented
-
-
-In Keywords.class:
-----------------------
-
-GenericKeywords app = new Generickeywords(test);
-
-
-in generickeywords
-----------------------
-
-ExtentTest test;
-
-public geneickeywords(Extenttest test){
-this.test = test;  		//test variable from gmailtest comes to constructor and it is assigned to the global test variable this.test in Keywords.class
-prop = new Properties();
-FileInputStream fs = new FileInputStream(system.getproperty("user.dir")+"//src/test/resources/project.properties")
-prop.load(fs);
-}
-
-
-public generickeywords
-
-public openBrowser(String browsertype){
-
-if browser-mozilla{
-test.log(logstatus.info,"open browser")
-open mozilla
-}
-else if broswer=chrome{
-then open chrome
-}
-}
-
-public navigate(String urlkey){
-test.log(logstatus.info,"navigating to url"+prop.getproperty(urlkey))
-//syso("navigating to url"+prop.getproperty(urlkey))
-//driver.get(url)
-}
-
-
--------------------------------------
-
-11.Function: Takescreenshot() and reportFailure()
-====================================================
-takescreenshot() and reportFailure() is created and called in GenericKeywords.java whenever there is a failure
-
-For ex, in genericKeywords - GetElement() is catch block if we want to report a failure on locatorkey not available
-
-In GenericKeywords class
-------------------------
-
-public webelement getelement(string locatorkey){
-Webelement e=null;
-try{
-if(locatorykey.contains("_xpath"))
-driver.findelement(by.xpath(prop.getpropert(locatorykey)))
-}nt(by.name(prop.getpropert(locatorykey)))
-}
-}catch (Exception e){
-//Asert.fail("failure in element extraction"+locatorykey)
-//test.log(logstatus.info,"Element not found"+locatorkey)
-reportFailure("Element not found"+locatorykey);         <---------------
-}
-return e;
-}
-
-
-public void reportFailure(String failuremessage){
-takescreenshot();
-test.log(logstatus.fail,failuremessage))
-}
-
-
-public void takeScreenshot(){
-Date d = new Date();
-		String screenshotFile=d.toString().replace(":", "_").replace(" ","_")+".png";
-		String path=Constants.SCREENSHOT_PATH+screenshotFile;
-		// takescreenshot
-		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(srcFile, new File(path));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		test.log(logstatus.info,test.addscreenshot("path of screenshot"))
-		}
-
-
-
-important:
-12. Now that we created the reportFailure() function in GenericKeywords, how can it be used in gmailTest class
-================================================================================================================
-
-Architecture is like this
-Gmail Test (dologin test) ----------->   Keywords.java (make Generickeywords app global) -----------------> Generickeywords.java (reportFailure())
-
-
-
-In keywordsclass create a function
------------------------------------
-public keywords{
-
-GenericKeywords app;
-app = new GenericKeywords(test);
-
-----
----
-----
-
-public GenericKeywords getgenericKeywords(){
-return app
-}
-
-
-In Gmailtest class,
------------------------
-
-Keywords app = new Keywords(test);
-
-app. = below app is keywords app which calls getgenerickeywords() which returns app of generickeywords class and then calls reportfailure and takescreenshotfunction
-app.getGenericKeywords().reportFailure("Failuremessage");   //this report failure will automaticlly take screenshots
-
-
-Question may arise, why reportfailure cannot beused like other functions in generickeywords. Report failure is needed anytime in gmailtest
-so in that case we need to create the generickeywords app return function in keywords class as shown above
-
--------------------------------------------------------------
-
-
-13. Separate project - Reading data sets from xls
-============================================
-Tab=TestCases
-
-TCID 	RunMode
-TestA	Y
-TestB	N
-TestC	N
-
-
-Tab=Data
-TestA
-RunMode Col1  Col2 	Col3
-Y	a1	a2	a3
-N	a4	a5	a6
-N	a7	a8	a9
-
-
-TestB
-RunMode Col1  Col2
-Y	b1	b2
-N	b4	b5
-	
-
-Xls_Reader xls = new XLs_Reader(path);
-
-string sheetName = "Data";
-string testCaseName = "TestB"
-
-teststartrownum=1
-while(xls.getcelldata(sheetname,0,teststartrownum).equals(testCaseName)){
-teststartrownum++;
-}
-int colstartrownum = teststartrownnum+1;
-int datastartrownum = teststartrownnum+2;
-
-//count total no.of rows
-int rows=0;
-
-while(xls.getcelldata(sheetname,0,datastartrownum).equals(""){
-rows++;
-}
-syso("total data rows"+rows)
-
-//count total columns
-int cols=1;
-while(xls.getcelldata(sheetname,col-1,colastartrownum).equals(""){
-colss++;
-}
-
-syso("total cols "+cols)
-
-
-//now you have rows and cols, read the data
-
-
-for(int rNum=datastartrownum;rNum<datastartrownum+data;rNum++){
-for(int cNum=0;cNum<cols;cNum++){
-syso(xls.getcelldata(sheetName,cNum,rNum));
-}}
-//this will print all the data
-
-
-Now, data from xls is not printed in real time,. instead it is fed to data provider
-
-
-@Test(DataProvider="getData")
-public void testing(String runmod,string col1, string col2){
-}
-
-
-@DataProvider
-public object[][] getData(){
-
-Xls_Reader xls = new XLs_Reader(path);
-
-string sheetName = "Data";
-string testCaseName = "TestB"
-
-teststartrownum=1
-while(xls.getcelldata(sheetname,0,teststartrownum).equals(testCaseName)){
-teststartrownum++;
-}
-int colstartrownum = teststartrownnum+1;
-int datastartrownum = teststartrownnum+2;
-
-//count total no.of rows
-int rows=0;
-
-while(xls.getcelldata(sheetname,0,datastartrownum).equals(""){
-rows++;
-}
-syso("total data rows"+rows)
-
-//count total columns
-int cols=1;
-while(xls.getcelldata(sheetname,col-1,colastartrownum).equals(""){
-colss++;
-}
-
-syso("total cols "+cols)
-
-Object[][] d = new Object[rows][cols];
-//now you have rows and cols, read the data
-int dataRow=0;
-
-for(int rNum=datastartrownum;rNum<datastartrownum+data;rNum++){
-for(int cNum=0;cNum<cols;cNum++){
-syso(xls.getcelldata(sheetName,cNum,rNum));
-
-data[dataRow][cNum] = xls.getcelldata(sheetName,cNum,rNum);
-}
-dataRow++
-}
-return data[][];
-}
-
-But above logic in testcase to read the data, we need to keep changing parameters. instead we use hashtable which acts as a bag
-
-Hashtable has key value pair and it will store each set of record in 1 column by creating a new hashtable
-
-
-hashtable1  = Runmode = Y
-	      col1 = A1
-	      col2 = A2
-	      col3  = A3
-
-hashtable1  = Runmode = Y
-	      col1 = A4
-	      col2 = A5
-	      col3  = A6
-
-hashtable1  = Runmode = N
-	      col1 = A1
-	      col2 = A2
-	      col3  = A3
-
-
-In data provoder
-
-Object[][] data=new Object[rows][1];
-
-Hashtable()<String,String> table = null;
-
-
-for(int rNum=datastartrownum;rNum<datastartrownum+data;rNum++){
-table = new Hashtable()<>; //hash table table is created newly for each row
-for(int cNum=0;cNum<cols;cNum++){
-String key = xls.getcelldata(sheetName,col,colstartrownum));
-String valie = xls.getcelldata(sheetName,cNum,rNum));
-
-table.put(key,value)
-}
-data[datarow][0]=table;
-dataRow++
-}
-return data;
-}
-
-
-@Test(DataProvider="getData")
-public void testing(Hashtable<> data){
-syso(data.get("runmod") +data.get("col1")+data.get("col2")+data.get("col2")) ;   //column names are the keys
-}
-
-
----------------------------------------------------------
-
-Now, coming back to gmail test
-
-
-GmailTest:
-----------
-
-public gmailTest{
-String testname = "gmailtest"
-Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
-
-@Test(Dataprovider="getdata")
-public void doLogin(Hashtable<> data){
-
-if(data.get("runmod").equals("N"))}
-test.log(logstatus.skip,"Skipping the tets");
-
-throw new skip exception("Skipping test");
-}
-
-ExtentTest test = rep.startTest(testname);
-test.log(logstaus.info,"Starting gmail login test");
-
-Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
-Keywords app = new Keywords();
-test.log(logstaus.info,"execute keywords");
-app.executekeywords(testname, xls);
-test.log(logstaus.PASS,"Passed");
-}}
-
-
-
-
-Now, in realtime we dont create dataprovider like this for each test like gmailtest
-
-instead, 
-create a class DataUtil in src/main/java/hybrid1.util
-
-
-public class DataUtil{
-public static object[][] getdata(Xls_reader xls, String testname)
-write above code to read data from xls.........
-}
-
-
-
----
-
-
-@DataProvideer
-public object[][] getdata{
-return DataUtil.getdata(xls,testname);
-}
-
----------------------------
-
-
-Now data is in hashtable, how to read that data instead of data column in Keywordsheet
-
-
-tab = Keywordsheet
-TCID	Description	Keyword		object			data
-
-GmailTest		openBrowser				chrome(REPLACE WITH KEY BROWSER FROM BELOW)
-GmailTest		navigate	url	
-GmailTest		click		gmailLink_xpath	
-GmailTest		click		signIn_xpath	
-GmailTest		input		email_xpath		mubeen85(REPLACE WITH KEY USERNAME FROM BELOW)
-GmailTest		click		nextButton_xpath	
-GmailTest		closeBrowser		
-
-
-tab=data
-
-GmailTest			
-Runmode	Browser		Username	Password
-Y	Mozilla		mubeen85	Hightime
-N	Chrome		U2		P2
-N	Mozilla		U3		P3
-
-
-In gmailtest class,
----------
-pass the hashtable data
-
-app.executekeywords(testname,xls,data);    //pass the hash table data
-
-
-In Keywords class,
-------------------
-
-public void executekeywords(String testunderexecution, xls_reader xls, Hashtable<> testdata)
-
-if (TCID=testunderexecution){
-String Keywords= xls.getcelldata(Contants.Keywords_Sheet,Contants.Keywords_COL,rNUm);
-String Objects= xls.getcelldata(Contants.Keywords_Sheet,Contants.Object_Col,rNUm);
-String key = xls.getcelldata(Contants.Keywords_Sheet,Contants.data_col,rNUm);  
-String data = testdata.get(key);    //browser and username will act as key and corresponding value is retrieved from data sheet
-syso(TCID+Keywords+Object+data)
-}
-
-
-
-14. How to optionally run the testcases
-============================================
-
-
-tab1 = TestCases
-tab2 = Keywords
-tab3 = Data
-
-
-tab1 = TestCases
-
-TCID   			Runmodes
-gmailTets		Y
-Facebooktest		N
-xyztest			N
-
-
-tab2 = Keywordsheet
-TCID	Description	Keyword		object			data
-
-GmailTest		openBrowser				chrome(REPLACE WITH KEY BROWSER FROM BELOW)
-GmailTest		navigate	url	
-GmailTest		click		gmailLink_xpath	
-GmailTest		click		signIn_xpath	
-GmailTest		input		email_xpath		mubeen85(REPLACE WITH KEY USERNAME FROM BELOW)
-GmailTest		click		nextButton_xpath	
-GmailTest		closeBrowser		
-
-
-tab3=data
-
-GmailTest			
-Runmode	Browser		Username	Password
-Y	Mozilla		mubeen85	Hightime
-N	Chrome		U2		P2
-N	Mozilla		U3		P3
-
-
-
-Based on tab1 runnability a test case will be executed and corresponding data set in tab3 is executable for runmode Y
-
-
-Implementing optional run
------------------------------
-
-in Datautil class other than the dataprovider, we create another function
-
-
-public static boolean isSkippable(xls_reader, String testname){
-
-int rows  =xls.getrowcount(CONSTANTS.TESTCASES_SHEET)
-
-for(int rNum=2;rNum<rows;rNum++)
-String tcid = xls.getcelldata(CONSTANTS.TESTCASE_SHEET,CONSTANTS.TCID_COL,rNum);
-if(TCID.equals(testname))
-String runmod = xls.getcelldata(CONSTANTS.TESTCASE_SHEET,CONSTANTS.RUNMOD_COL,rNum);
-if runmod.equals("Y")
-return false
-else
-return true;   //that mean you need to skip test cases
-
-//true - N	
-//false - Y
-}
-
-In Gmailtest
-------------------
-
-if(Datautil.isSkippable(xls, testName) || data.get("runmod").equals("N"))}    //skip if this line is true
-----
-
-@Test(Dataprovider="getdata")
-public void doLogin(Hashtable<> data){
-
-if(Datautil.isSkippable(xls, testName) || data.get("runmod").equals("N"))}  
-test.log(logstatus.skip,"Skipping the tets");
-
-throw new skip exception("Skipping test");
-}
-
-ExtentTest test = rep.startTest(testname);
-test.log(logstaus.info,"Starting gmail login test");
-
---------------------------------
-
-15. Implementing Application specifc keywords
-=================================================
-
-1. Create Appkeywords in src/main/java baside keywords and geenrickeywords
-2. This will have functions specifc to test and cannot be used for other testing
-3. this class will extend generickeywords
-4. 
-
-public class Appkeywords extends generickeywords{
-
-public Appkeywords(ExtenTest test){
-super(test);    //reference to test in generickeywords
-}
-
-public void verifylogindetails(){
-}
-
-
-
-In keywords class
-replace 
-app = new genericKeywords(test)
-
-to 
-app = new AppKeywords(test)
-
-
-also replace
-
-public Appkeywords getgenericKeywords{
-return app
-}
-
-
-Also
-
-in Keywords class
-
-add below line to read the name of title from hastable of data sheet
-
-
-elseif(keywords.equals("verifylogindetail"))
-app.verifylogindetails(testdata)
-
-
-in Appkeywords
-
-public void verifylogindetails(Hashtable<>,testdata){
-
-//name
-String expectedName = testdata.get("name");
-String expID = testdata.get("username");
-
-//below write actualvalue and give results
-}
-
-GmailTest			
-Runmode	Browser		Username	Password      Name
-Y	Mozilla		mubeen85	Hightime      Mubeen
-N	Chrome		U2		P2		x
-N	Mozilla		U3		P3		x
-
-
-
----------------------------------------------------------------
-
-
-Interesting thing
-
-16. Return value assigned to all functions
-============================================
-
-Till now all functions implemented in Generic keywords and Appkeywords are returning void. Instead of that we return Pass of Fail
-with associated error message. Then this error message is captured in keywords.class
-
-In Constants class
-add
-public static String PASS = "PASS"
-pubcli static String FAIL = "FAIL"
-
-
-In GenericKeywords and Appkeywords, replace void with String and add return type
-
-
-public string navigate(String urlkey){
-syso("navigating to url"+prop.getproperty(urlkey))
-//driver.get(url)
-return Constants.PASS
-}
-
-public string click(String locatorkey){
-syso("clicking on"+prop.getproperty(locatorkey))
-return Constants.PASS
-}
-
-public string input(String locatorkey, String datakey){
-syso
-return Constants.PASS
-}
-
-
-
-In Keywords class
-
-if(keywords.equals("openBrowser"))
-result = app.openBrowser(data)
-elseif(keywords.equals("navigate"))
-result = app.openBrowser(object)
-elseif(keywords.equals("click"))
-result = app.navigate(object)
-else if(keywords.equals("input"))
-result = app.input(object,data)
-
-if (!result.equals(Constants.PASS))
-app.reportfailure(result);  //this will take screenshot
-assert.fail(result);  //will fail tcs
-
-
-
-17. Implement ANT
-===================
-refer ANT topics
-
-
-18. Emailing Reports:
-=======================
-
-Create a new package qtp.selenium.com.hybrid.mail
-
-in the package keep below 3 files
-1. FileFilterDateIntervalUtils.Java
-2. SendMail.Java
-3. Zip.java
-
-in pom.xml -- dependency mail.jar has to be added
-
-
-in Constants file add the Extent Reports path
-
-
-In SendMail.java
---------------------
-
-1. provide the path of Extent Reports.
-2. using FileFilterDateIntervalUtils class find the latest extent report in the path provided
-3. Using File class, get the latest file based on the filefilter class above
-4. use sendmail function to send email
-5. need following details like username,passwords, host, port, auth and also provide attachment path etc
-
-For xslt report, it is avaialable in test-output folder. whcih needs to be zipped and send
-hence we use zip.java class
-
-To send XSL reports from ANT, add target report_email with package path sendmail.java
-
-1. ANT report_email will send the email
-
-
-
-
----------------------------------------------------------------------END of CORE HYBRID FRAMEWORK-----------------------------------------------------------------------------------------------------
-
------------------------------------------------------------STARTING WEBSITE test using HYBRID--------------------------------------------------------------------------------------------------------
-
 
 Learn Data driven frameowrk from Naveen.
 
 
+=====================================================================================================================================================================================================
+											CUCUMBER By Naveen
+=====================================================================================================================================================================================================
 
-
-------------------------------------------------------------------------CUCUMBER By Naveen---------------------------------------------------------------------------------------------------
-=============================================================================================================================================================
 1. Learn Cucumber first
 2. The POM
 3. POM with Cucumber
@@ -9672,8 +8232,11 @@ We can provide order id in which before and after test should be executed if the
 
 O/P ->  @Before(order=0)  -> @Before(order=1) -> @After(order=0	) -> @After(order=1)
 
-============================================================================================================================================================================================
---------------------------------------------------------------CUCUMBER with POM by Naveen------------------------------------------------------------------------------------
+=====================================================================================================================================================================================================
+										CUCUMBER with POM by Naveen
+=====================================================================================================================================================================================================
+
+
 Only 1 video for this
 https://www.youtube.com/watch?v=crpxZjB3qdo&list=PLFGoYjJG_fqoBFPevCDZDCufDX5h-o3yO&index=8
 
@@ -9828,9 +8391,303 @@ is the stepDefinition class
 8. Similarly create feature file for all the ContactsPage, DealsPage etc
 
 
-============================================================================================================================================================================================
---------------------------------------------------------------------------Naveen ---Data driven or Hybrid POM----------------------------------------------------------------------------
 
+=====================================================================================================================================================================================================
+									Read from Excel -- Data Driven Framework by Naveen
+=====================================================================================================================================================================================================
+
+Video1: Simple Java Proj on how to read data from excel
+
+1. Copy XLS_Reader to utility package from Video1 link in Naveen
+2. create a package com.excel.utility
+3. Create java class and copy XLS_reader.Java, rename to import com.excel.utility
+4. Once all Jars are uploaded related Apached POI, the error will go
+5. Download Apache POI apache from poi.apache.org
+6. Downlaod tar file from Binary distribution
+7. unzip and upload the jar files by going to properties/ java build path / external jar files
+
+
+8. create a package com.datadriven.test
+9. create a class DataDrivenTest.Java
+
+10.Create excel sheet
+11. Tab name - RegTestData
+12. create columns firstname, lastname, address, emailadd etc   (no space in col names)
+13. Save the file, halfebaytestdata.xlsx   (save it with xlsx only)
+14. Automate Registration on www.half.ebay.com
+
+
+15. create a package com.testdata  (copy the excel file with test data here)
+
+16. create a package com.test, create a class DataDrivenTest
+17. write following code in DataDrivenTest.Java
+
+Code: Reading one row of data
+----------------------------------
+Ex: firstname lastname age address1 address2
+    mubeen    ali      30  downtown LO
+
+public static void main(String args[]){
+
+XLS_Reader reader = new XLS_Reader("path of test data in eclipse");
+
+String firstname = reader.getCellData("Sheet Name","Col Name",2);    //2 is row number
+syso(firstname);
+
+String lastname = reader.getCellData("Sheet Name","Col Name",2);
+syso(lastname);
+
+String Address1 = reader.getCellData("Sheet Name","Col Name",2);
+syso(Address1);
+
+String Address2 = reader.getCellData("Sheet Name","Col Name",2);
+syso(Address2);
+
+System.setProperty("webDriver.Chrome.Driver","exe file path");
+WebDriver driver = new ChromeDriver();
+driver.get("half.ebay.com registeration link");
+
+driver.findElement(By.xpath("@id='FirstName'")).sendKeys(firstname);
+driver.findElement(By.xpath("@id='LastName'")).sendKeys(lastname);
+driver.findElement(By.xpath("@id='Address'")).sendKeys(addresstname);
+
+}
+
+
+Video2:
+
+Code : Parameterization - Reading multiple rows from excel file
+---------------------------------------------------
+Ex: firstname lastname age address1 address2
+    mubeen    ali      30  downtown LO
+    naznin    ali      4   down     LO
+    feb       pa       25  downtown LO
+
+
+public static void main(String args[]){
+
+System.setProperty("webDriver.Chrome.Driver","exe file path");
+WebDriver driver = new ChromeDriver();
+driver.get("half.ebay.com registeration link");
+
+XLS_Reader reader = new XLS_Reader("path of test data in eclipse");
+int rowCount = getRowCount("SheetName");  //gives total rows
+
+for(int rowNum=2; rowNum<=rowCount;rowNum++){
+
+String firstname = reader.getCellData("Sheet Name","Col Name",rowNum);    //2 is row number
+syso(firstname);
+
+String lastname = reader.getCellData("Sheet Name","Col Name",rowNum);
+syso(lastname);
+
+String Address1 = reader.getCellData("Sheet Name","Col Name",rowNum);
+syso(Address1);
+
+String Address2 = reader.getCellData("Sheet Name","Col Name",rowNum);
+syso(Address2);
+
+driver.findElement(By.xpath("@id='FirstName'")).cler();
+driver.findElement(By.xpath("@id='FirstName'")).sendKeys(firstname);
+driver.findElement(By.xpath("@id='LastName'")).clear();
+driver.findElement(By.xpath("@id='LastName'")).sendKeys(lastname);
+driver.findElement(By.xpath("@id='Address'")).clear();
+driver.findElement(By.xpath("@id='Address'")).sendKeys(addresstname);
+
+
+}
+
+
+How to Add a column Status and update each row of data as Pass/Fail
+----------------------------------------------------------------------
+
+Ex: firstname lastname age address1 address2 Status
+    mubeen    ali      30  downtown LO		Pass
+    naznin    ali      4   down     LO		Pass
+    feb       pa       25  downtown LO		Pass
+
+note: for writing on excel, ensure it is closed
+
+Code:
+
+public static void main(String args[]){
+
+System.setProperty("webDriver.Chrome.Driver","exe file path");
+WebDriver driver = new ChromeDriver();
+driver.get("half.ebay.com registeration link");
+
+XLS_Reader reader = new XLS_Reader("path of test data in eclipse");
+int rowCount = getRowCount("SheetName");  //gives total rows
+
+reader.addColumn("SheetName","ColName");				//this code will add col name Status at the end
+
+for(int rowNum=2; rowNum<=rowCount;rowNum++){
+
+String firstname = reader.getCellData("Sheet Name","Col Name",rowNum);    //2 is row number
+syso(firstname);
+
+String lastname = reader.getCellData("Sheet Name","Col Name",rowNum);
+syso(lastname);
+
+String Address1 = reader.getCellData("Sheet Name","Col Name",rowNum);
+syso(Address1);
+
+String Address2 = reader.getCellData("Sheet Name","Col Name",rowNum);
+syso(Address2);
+
+driver.findElement(By.xpath("@id='FirstName'")).cler();
+driver.findElement(By.xpath("@id='FirstName'")).sendKeys(firstname);
+driver.findElement(By.xpath("@id='LastName'")).clear();
+driver.findElement(By.xpath("@id='LastName'")).sendKeys(lastname);
+driver.findElement(By.xpath("@id='Address'")).clear();
+driver.findElement(By.xpath("@id='Address'")).sendKeys(addresstname);
+
+
+reader.setData("RegTestData", "Status", rowNum, "Pass");   		//status is col name  //this will help in updating row as Pass/Fail
+
+
+}
+ 
+
+
+How to add sheet
+-----------------
+reader.addSheet("New Sheet Name");
+
+To check if Sheet exist
+----------------------
+
+if(!reader.isSheetExist("SheetName"){
+reader.addSheetName("SheetName");
+}
+
+How to get the total columns in a tab
+--------------------------------------
+reader.getColumnCount("SheetName");
+
+
+
+Video3:
+Using @DataProvider and fetching data from Excel
+-------------------------------------------------
+
+1. Create a testng test case
+
+
+@BeforeMethod
+public void setUp(){
+
+//WebDriver Setup here
+}
+
+-----------
+
+@AfterMethod
+public void tearDown(){
+driver.quit();
+}
+
+--------------------
+
+@Test(DataProvider="getData")
+public void testcase1(String firstname, String lastname, String Address1, String Address2){
+
+driver.findElement(By.xpath("@id='FirstName'")).sendKeys(firstname);
+driver.findElement(By.xpath("@id='LastName'")).sendKeys(lastname);
+driver.findElement(By.xpath("@id='Address1'")).sendKeys(address1);
+driver.findElement(By.xpath("@id='Address2'")).sendKeys(address2);
+}
+
+---------------
+
+
+@DataProvider
+public Iterator<Object[]> getData(){
+
+ArrayList<Object[]> testData = TestUtil.testDataFromExcel();
+
+return testData.iterator();
+
+}
+
+
+
+2. Create another package for TestUtility and create a static TestUtil
+this will contain the method to fetch data from excel
+
+
+public class TestUtil{
+
+static Xls_Reader reader;
+public static ArrayList<Object[]> testDataFromExcel(){
+
+ArrayList<Object[]> myData = new ArrayList<Object[]>();
+
+try{
+reader = new XLS_Reader("path of testdata excel file");
+
+}
+catch(Exception e){
+e.printstackrace();
+}
+
+for(int rowNum=2; rowNum<=rowCount;rowNum++){
+
+String firstname = reader.getCellData("Sheet Name","Col Name",rowNum);    //2 is row number
+String lastname = reader.getCellData("Sheet Name","Col Name",rowNum);
+String Address1 = reader.getCellData("Sheet Name","Col Name",rowNum);
+String Address2 = reader.getCellData("Sheet Name","Col Name",rowNum);
+
+Object[] obj = {firstname,lastname,address1,address2};
+
+return myData(obj); 
+}
+}
+
+
+Video4:
+Use @Parameter to read environment variables from TestNg.xml
+
+ususally @Paramter is used for env variables which are generic like browsername, url and email id etc
+
+
+
+1. Create TestNG.xml
+
+add Parameter tags like below 
+
+<parameter name = "browser" value = "chrome"/>
+<parameter name = "url" value = "www.google.com"/>
+<parameter name = "emailid" value = "mubeen85@gmail.com"/>
+
+<classes>
+<class name = "com.testcase1" />
+</classes>
+
+
+
+2. 
+
+@Test
+@Parameter{"browser","url","emailid"}
+public void testcase1(String browser, String url, String emailid){
+
+if(browser.equals("chrome"){
+driver = new ChromeDriver();
+driver.get(url);
+driver.findElement(By.xpath("@id='email'")).sendKeys(emailid);
+
+}
+
+
+Video-4
+Data from WebTable copying to Excel - Nothing great in this video
+
+
+
+=====================================================================================================================================================================================================
+										Naveen  - Data driven or Hybrid POM
+=====================================================================================================================================================================================================
 Data Driven POM
 ----------------
 
@@ -10509,7 +9366,11 @@ GOals: clean install
 9. Run the job
 
 
--------------------------------------------------------------------Log 4J--------------------------------------------------------------------------------
+
+
+=====================================================================================================================================================================================================
+											 LOG 4J
+=====================================================================================================================================================================================================
 
 1. What is Log?
 Capturing activities at the time of execution
@@ -10588,8 +9449,9 @@ log.debug("this is debug message")
 
 
 
-
--------------------------------------------------------------------Selenium GRID--------------------------------------------------------------------------
+=====================================================================================================================================================================================================
+											Selenium GRID
+=====================================================================================================================================================================================================
 
 Cross browser testing using Selenium Grid
 
@@ -10734,10 +9596,22 @@ To create node2: Open it on new port -5556
 
 
 
-=================================================================END OF SELENIUM=============================================================================
+=====================================================================================================================================================================================================
+											END OF FRAMEWORKS
+=====================================================================================================================================================================================================
 
 
------------------------------------------------------------------------JENKINS-------------------------------------------------------------------------------
+=====================================================================================================================================================================================================
+											END OF SELENIUM
+=====================================================================================================================================================================================================
+
+
+
+=====================================================================================================================================================================================================
+											 JENKINS and GIT
+=====================================================================================================================================================================================================
+
+
 
 Module43 - Jenkins,Git,Github Integration
 -----------------------------------------
@@ -10930,9 +9804,16 @@ similarly for ANT
 
 
 as mentioned above Maven can also be run by giving Root pom as pom.xml and target as test <mvn test>
----------------------------------------------------------------END OF JENKINS----------------------------------------------------------------
 
-----------------------------------------------------------------------------------Jira By Naveen-----------------------------------------------
+=====================================================================================================================================================================================================
+										END OF JENKINS AND GIT
+=====================================================================================================================================================================================================
+
+
+=====================================================================================================================================================================================================
+										Jira By Naveen
+=====================================================================================================================================================================================================
+
 
 1. google - download jira
 2. either download Jira or use Jira which is hosted on cloud
@@ -11089,7 +9970,96 @@ Raise a bug:
 1. Like in QC ,we create a bug and link to User story or Test
 2. Can add comments. Bug can be later moved from ToDO to In Progress to Done
 
-------------------------------------------------------------------------------------------------------------END OF JIRA-----------------------------------------------------------
+
+=====================================================================================================================================================================================================
+											END OF JIRA
+=====================================================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -12326,6 +11296,1165 @@ cube = cube+r*r*r
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+----------------------------------------------------------------------HYBRID FRAMEWORK-----------------------------------------------------------------------
+
+
+Module21 - Hybrid Framework
+----------------------------
+Framework - creating an outside structure, creating provision for reporting, logs, reading data from xls
+
+Hybrid Requirement:
+-------------------
+1. Maven project
+2. Read data from xls
+3. implement test and validation
+4. Report - XSLT , Extent
+5. Loggin in reports
+6. Screenshots - putting in reports
+7. Run proj in ANT/MAVEN
+8. Implement Grid
+9. Reusabuility
+10. Diff environemtn - Prod, Test
+11. Integrate with Jenkins
+12. Emailing reports
+13. Implement keyword effectively
+14. Easy to change
+
+
+Steps to follow:
+1. Create Maven Project
+2. Create packages
+3. Creat dummy test
+4. Built generickeywords class
+5. reading locators from property file
+6. make common function for element extraction (getelement(String locatorykey))
+7. implemented keyword function
+8. read parameters from property file
+9. execute test and associated keywords from xls
+10.convert keywords to executekyword fucntion and call the keywords class from gmailtest
+11. Create extent report
+12. Create reportfailure and takescreenshot function
+13. return type for keyword functions
+14. central codde to report errors
+7. Introduce dependency
+8. Make testng.xmlfor batch running
+6. Built base test and functions in base test
+7. Build validation function	
+8. Built generic function
+9. build report generation function
+10. initiate the properties file
+11. build centralized/reusable functions to extract objects
+12. generate reports and loggin in reports
+13. put screenshots in report
+14. genearating reports for each run
+15. build validation function
+16. softassertion - prevent test to stop for minor issues
+17. reading data from xls - parametrizing
+18. build utility function for reading data
+19. selectively/optionally run
+
+
+Create Maven project:
+===============================
+1. create a folder hybrid1 -> cd C:\Users\mubeen\hybrid1
+2. mvn archetype:generate
+3. groupid: com.qtpselenium.core.hybrid
+4. artifactid: CORE_Hybrid_Framework
+5. hit enter enter yes
+6. Project will be created here C:\Users\mubeen\hybrid1\CORE_Hybrid_Framework
+7. replace pom.xml with current and latest pom.xml -  dependencies for tetsng, java emailign, reports, selenium jars, extent reports
+8. cd C:\Users\mubeen\hybrid1\CORE_Hybrid_Framework
+9. mvn compile   -> all jars as per pom.xml will be downloaded to M2_REPO path
+10. mvn eclipse:eclipse   -> WIll convert project to classpath recogonizable by eclipse
+11. Go to eclipse, file -> import - existing projects -> import the project to eclipse
+12. In eclipse, under reference libraries, all the downloaded jars will be present
+13. src/test/java  -> Testcases will be placed
+14. src/main/java  -> Utility files are placed
+
+
+Should be able to reuse the frame work for any website
+
+2. Create packages
+===================
+1. In src/test/java folder, create packages com.qtpselenium.hybrid and com.qtpselenium.hybrid.testcases - Testcases.java, BaseTest.java
+2. In src/main/java  folder, create packages - com.qtpselenium.hybrid  - Generickeywords.java, Keywords.java, Appkeywords.java
+					       com.qtpselenium.hybrid.util - XLS_Reader, Constants, ExtentManager.java,DataUtil.java etc
+					       com.qtpselenium.com.hybrid.mail - sendmail, filefilterdatautil,zip.java - all 3 files to send email
+3. In src/test/resources - create project.properties, suiteA.xml, suiteB.xml, testng.xml, test-results.xsl file
+
+3. Creat dummy test
+=====================
+create a simple GmailLogin test inside src/test/java folder
+Create basic gmail login test code
+
+a. write element present after each line of code
+b. we need to read data from xls file
+c. we need to run the script in different browser
+d. xpaths should be in propertiesfile
+e. username, password - Should be kept in xls
+f. xpath, environment - data which doesnot change freq is kept in properties file
+g. properties file is central file where all locators are kept
+
+
+4. Built in generickeywords class
+=======================================
+
+In src/main/java, packages com.qtpselenium.hybrid - create 2 classes Keywords.java and generickeywords.java
+
+In Generickeywords - general functions are created
+------------------
+openbrowser, 
+navigate,
+click, 
+input, 
+verify title, 
+verify text
+
+
+public openBrowser(String browser type){
+if browser-mozilla{
+open mozilla
+}
+else if broswer=chrome{
+then open chrome
+}
+}
+public navigate(String url){
+driver.get(url)
+}
+public click(String locator){
+}
+public input(String locator, String data){
+}
+public verifytext(String locator, String expectedtext){
+}
+
+
+In keywords.java class - 
+------------------------------
+Executekeywords function is created based on keywords read from xls and called in keywords.java which then navigates to generickeywords.java and appkeywords.java.
+The functions are implemented above in generickeywords
+
+Important:
+-----------
+Actual flow is - Testcase ---> Keywords ---> generickeywords
+By writing keywordws class -  we can reuse it in another testcases
+
+
+public class Keywords {
+public static void main{String [args]{
+Generickeywords app = new Genericskeywords();
+app.openBroswer("Mozilla")
+app.navigate("http://google.com")
+app.click("loctor of gmail");
+app.input("Email","mubeen85");
+app.click("next");
+}}
+
+
+5. Reading locators from properties file
+==============================================
+
+In keywords.java, values should not be hard code locators as shown above instead use properties file
+
+in properties file - type of locator is mentioned as _xpath, _css, _id
+
+In source folder  src/test/resources - create project.properties file
+
+url=http://google.com
+gmailink_xpath=	//a[gmail]
+email_id=Email
+nextButton_id=next
+
+
+Now in Keywords.java, all values replaced by key from properties file
+
+app.openBroswer("Mozilla")
+app.navigate(url)
+app.click("gmaillink_xpath");
+app.input("email_id","mubeen85");
+app.click("nextButton_id");
+
+
+
+In generickeywords class, we are passing key value from properties file instead of values direclty. Generickeywords functions will be capable enough to get the value from key using prop.getproperty(key)
+
+So need to initalize properties class in generickeywords and also replace parameter to key names
+
+In generickeywords class
+-------------------------
+1. Declare properties prop
+2. create a constructor of generickeywords.
+3. so in keywords class if object of generickeywords is created, it will go inside the generickeywords construcotr
+4. properties object prop is initalized
+5. then goes to generickeywords, functions executed. Keys read from properties file
+5. prop.getproperty(urlkey)  - gets the value of the key
+
+
+public geneickeywords{
+prop = new Properties();
+FileInputStream fs = new FileInputStream(system.getproperty("user.dir")+"//src/test/resources/project.properties")
+prop.load(fs);
+}
+
+
+public generickeywords
+public openBrowser(String browsertype){
+if browser-mozilla{
+open mozilla
+
+}
+else if broswer=chrome{
+then open chrome
+}
+}
+
+public void navigate(String urlkey){
+syso("navigating to url"+prop.getproperty(urlkey))
+//driver.get(url)
+}
+
+public void click(String locatorkey){
+syso("clicking on"+prop.getproperty(locatorkey))
+}
+
+public void input(String locatorkey, String datakey){
+syso("typing in "+prop.getproperty(locatorkey))
+}
+
+public void verifytext(String locatorkey, String expectedtext){
+
+}
+
+
+6.common Function for element extaction: getElement(String locatorkey)
+=======================================================================
+
+Create function to click based on xpath or id as per the _xpath/_id in properties file
+------------------------------------------------------------------------------------
+
+To avoid writing driver.findelement(BY.id) or By.xpath in each functions implemented in Generickeywords class
+A function is created for this task
+
+public webelement getelement(string locatorkey){
+Webelement e=null;
+
+try{
+if(locatorykey.contains("_xpath"))
+driver.findelement(by.xpath(prop.getpropert(locatorykey)))
+}
+
+if(locatorykey.contains("_id"))
+driver.findelement(by.id(prop.getpropert(locatorykey)))
+}
+if(locatorykey.contains("_name"))
+driver.findelement(by.name(prop.getpropert(locatorykey)))
+}
+}catch (Exception e){
+Asert.fail("failure in element extraction"+locatorykey)
+}
+
+return e;
+}
+
+
+And functions implemented in generickeywords will be updated like below:
+
+public navigate(String urlkey){
+Webelement e = getelemenet(urlkey)
+e.click();
+}
+-------------------------------------------------------------------------------
+
+
+7.Keywords in keywords.java class generally called from xls file
+===============================================================
+1. Create a folder data 
+2. create 3 excel files SuiteA, SuiteB, SuitC
+3. In suiteA , create a tab called keywordssheet
+
+tabname = keywords
+
+TCID	   Description	Keyword	     	object			data
+----------------------------------------------------------------------------
+GmailTest		openBrowser				chrome
+GmailTest		navigate	url	
+GmailTest		click		gmailLink_xpath	
+GmailTest		click		signIn_xpath	
+GmailTest		input		email_xpath		mubeen85
+GmailTest		click		nextButton_xpath	
+GmailTest		closeBrowser		
+
+
+1. Object columns will have keys in propertiesfile
+2. Copy xls_reader file In src/main/java  folder, com.qtpselenium.hybrid.util
+3. instead of writing in Keywords class like below
+
+app.openBroswer("Mozilla")
+app.navigate(url)
+
+We are going to read the keywords from xls file
+
+In keywords.java
+--------------------
+String testunderexecution = gmailtest;
+Generickeywords app = new Genericskeywords();
+Xls_Reader xls  = new Xls_Reader(System.getproperty(user.dir)+"//data//SuiteA.xls")
+int rows = xls.getrowcount("keywords")
+
+for (int rnum=2;rnum<rows;rnum++){
+
+String TCID = xls.getcelldata("keywordsheet","TCID",rNUm);
+if (TCID.equals(testunderexecution)){
+String Keywords= xls.getcelldata("keywordsheet","keywords",rNUm);
+String Objects= xls.getcelldata("keywordsheet","object",rNUm);
+String data= xls.getcelldata("keywordsheet","data",rNUm);
+syso(TCID+Keywords+Object+data)
+}}
+
+In order to run the above script only for TCID=gMail test, we create a variable testunderexecution=gmailtest
+So now keywords, object, data will be read only TCID is matched with testunderexecution
+
+So now since all data is read from xls, we execute functions based on keywords read from SuiteA file
+
+in Keywords.class
+--------------------
+if(keywords.equals("openBrowser"))
+app.openBrowser(data)
+if(keywords.equals("navigate"))
+app.openBrowser(object)
+if(keywords.equals("click"))
+app.navigate(object)
+if(keywords.equals("input"))
+app.input(object,data)
+
+if(keywords.equals("closebrowser"))
+app.closebrowsers()
+
+---------------------------------------------
+
+8. Contants.java created in Src/main/java - com.qtpselenium.hybrid.util package
+================================================================================
+we create Contants.class, where all contants are stored for easy maintenance
+
+package com.qtpselenium.hybrid.util;
+
+public class Constants {
+	public static final String SUITEA_XLS = System.getProperty("user.dir")+"\\data\\SuiteA.xlsx";
+	public static final String KEYWORDS_SHEET = "KeywordSheet";
+	public static final String TCID_COL="TCID";
+	public static final String KEYWORD_COL="Keyword";
+	public static final String OBJECT_COL="object";
+	public static final String DATA_COL="data";
+	public static final String REPORT_PATH = "C:\\Users\\mubeen\\Desktop\\Reports\\";
+}
+
+in Keywords.java
+-------------
+instead of 
+Xls_Reader xls  = new Xls_Reader(System.getproperty(user.dir)+"//data//SuiteA.xls")
+
+new will be
+Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
+
+Similarly, column names can be stored in Contants class for easy maintainability
+
+
+In keywords class
+
+String TCID = xls.getcelldata(Contants.Keywords_Sheet,Contants.TCID_COL,rNUm);
+if (TCID=testunderexecution){
+String Keywords= xls.getcelldata(Contants.Keywords_Sheet,Contants.Keywords_COL,rNUm);
+String Objects= xls.getcelldata(Contants.Keywords_Sheet,Contants.Object_Col,rNUm);
+String data= xls.getcelldata(Contants.Keywords_Sheet,Contants.data_col,rNUm);
+syso(TCID+Keywords+Object+data)
+}
+}
+
+------------------------------------------------
+
+9. Creating Dummy testcase gmailtest - In src/test/java
+=====================================
+Till now keywords.class was considered like main function, but in real time that is not the case
+
+Gmail Test (dologin test) ----------->   Keywords.java (executeKeywords function) -----------------> Generickeywords.java (all functions implemented)
+
+GmailTest:
+----------
+public gmailTest{
+String testname = "gmailtest"
+@Test
+public void doLogin(){
+Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
+
+Keywords app = new Keywords();
+app.executekeywords(testname, xls);
+
+}}
+
+Keywords:
+----------
+Create function executeKeywords
+
+public keywords{
+
+public void executekeywords(String testunderexecution, Xls_Reader xls)
+
+GenericKeywords app = new Generickeywords();
+String TCID = xls.getcelldata(Contants.Keywords_Sheet,Contants.TCID_COL,rNUm);
+if (TCID=testunderexecution){
+String Keywords= xls.getcelldata(Contants.Keywords_Sheet,Contants.Keywords_COL,rNUm);
+String Objects= xls.getcelldata(Contants.Keywords_Sheet,Contants.Object_Col,rNUm);
+String data= xls.getcelldata(Contants.Keywords_Sheet,Contants.data_col,rNUm);
+syso(TCID+Keywords+Object+data)
+}
+if(keywords.equals("openBrowser"))
+app.openBrowser(data)
+if(keywords.equals("navigate"))
+app.openBrowser(object)
+if(keywords.equals("click"))
+app.navigate(object)
+if(keywords.equals("input"))
+app.input(object,data)
+
+if(keywords.equals("closebrowser"))
+app.closebrowsers()
+
+}}
+
+-----------------------------------------
+
+10. Create Extent Reports
+==========================
+1. Copy ReportsConfig.xml file in project main folder
+2. Copy ExtentManager.java file in src/main/java/hybrid.util
+3. In ExtentManager class, we declare the path where the report should be generated
+4. initalize -- 
+	ExtentReports rep = ExtentManager.getInstance();
+5. inside the test -- 
+	ExtentTest test = rep.startTest(testname);
+
+6. Main commands in ExtentReports:
+   test.log(logstaus.info,"Starting gmail login test");
+   test.log(logstaus.PASS,"Passed");
+   test.log(logstatus.FAIL,"failure message");   //this can be given instead of assert.fail (in place ofexceptions catch)
+   test.log(logstatus.skip,"Skipping the tets");
+   test.log(logstatus.info,test.addscreenshot("path of screenshot"))
+
+8. At the end, it is import to end the test from extent reports like below
+ 
+@AfterTest
+public void quittest();
+ rep.endtest(testname);
+ rep.flush();
+
+9. To generate reports with filename based on dates and newest on top
+
+In ExtendManager.java class below code is required
+Date d=new Date();
+String fileName=d.toString().replace(":", "_").replace(" ", "_")+".html";
+extent = new ExtentReports(Constants.REPORT_PATH+fileName, true, DisplayOrder.NEWEST_FIRST);
+
+10. Reports path can be placed in Constants.java class
+
+from GmailTest.java:
+--------------------
+
+public gmailTest{
+String testname = "gmailtest"
+
+ExtentReports rep = ExtentManager.getInstance();
+@Test
+
+public void doLogin(){
+
+ExtentTest test = rep.startTest(testname);
+test.log(logstaus.info,"Starting gmail login test");
+
+Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
+Keywords app = new Keywords();
+test.log(logstaus.info,"execute keywords");
+app.executekeywords(testname, xls);
+test.log(logstaus.PASS,"Passed");
+}}
+
+
+11. till now, we could only generate reports and its log at test case gmailTest level. 
+How to create reports for Keywords and GenericKeywords
+
+
+in gmail Test, when Keywords class object is created, pass the ExtentTest test into it like below
+
+Keywords app = new Keywords(test);
+
+
+In Keywords.class
+---------------------
+declare on top
+ExtentTest test;     //global declaration
+
+Also create a constructor, so when the Keywords class is called anywhere with test passed to it, then the constructor in Keywords is called
+
+public Keywords(ExtentTest test){
+this.test = test;           //test variable from gmailtest comes to constructor and it is assigned to the global test variable this.test in Keywords.class
+}
+
+So where system.out.println used in Keywords can be replaced with test.log(logstatus.info..)
+
+syso(TCID+Keywords+Object+data) can be replaced by
+test.log(LogStatus.INFO,tcid+" -- "+keyword+" -- "+object+" -- "+data ); 
+
+
+12. In generickeywords, Similarly to step11, same logs should be generated insider generickeywords where functions are implemented
+
+
+In Keywords.class:
+----------------------
+
+GenericKeywords app = new Generickeywords(test);
+
+
+in generickeywords
+----------------------
+
+ExtentTest test;
+
+public geneickeywords(Extenttest test){
+this.test = test;  		//test variable from gmailtest comes to constructor and it is assigned to the global test variable this.test in Keywords.class
+prop = new Properties();
+FileInputStream fs = new FileInputStream(system.getproperty("user.dir")+"//src/test/resources/project.properties")
+prop.load(fs);
+}
+
+
+public generickeywords
+
+public openBrowser(String browsertype){
+
+if browser-mozilla{
+test.log(logstatus.info,"open browser")
+open mozilla
+}
+else if broswer=chrome{
+then open chrome
+}
+}
+
+public navigate(String urlkey){
+test.log(logstatus.info,"navigating to url"+prop.getproperty(urlkey))
+//syso("navigating to url"+prop.getproperty(urlkey))
+//driver.get(url)
+}
+
+
+-------------------------------------
+
+11.Function: Takescreenshot() and reportFailure()
+====================================================
+takescreenshot() and reportFailure() is created and called in GenericKeywords.java whenever there is a failure
+
+For ex, in genericKeywords - GetElement() is catch block if we want to report a failure on locatorkey not available
+
+In GenericKeywords class
+------------------------
+
+public webelement getelement(string locatorkey){
+Webelement e=null;
+try{
+if(locatorykey.contains("_xpath"))
+driver.findelement(by.xpath(prop.getpropert(locatorykey)))
+}nt(by.name(prop.getpropert(locatorykey)))
+}
+}catch (Exception e){
+//Asert.fail("failure in element extraction"+locatorykey)
+//test.log(logstatus.info,"Element not found"+locatorkey)
+reportFailure("Element not found"+locatorykey);         <---------------
+}
+return e;
+}
+
+
+public void reportFailure(String failuremessage){
+takescreenshot();
+test.log(logstatus.fail,failuremessage))
+}
+
+
+public void takeScreenshot(){
+Date d = new Date();
+		String screenshotFile=d.toString().replace(":", "_").replace(" ","_")+".png";
+		String path=Constants.SCREENSHOT_PATH+screenshotFile;
+		// takescreenshot
+		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(srcFile, new File(path));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		test.log(logstatus.info,test.addscreenshot("path of screenshot"))
+		}
+
+
+
+important:
+12. Now that we created the reportFailure() function in GenericKeywords, how can it be used in gmailTest class
+================================================================================================================
+
+Architecture is like this
+Gmail Test (dologin test) ----------->   Keywords.java (make Generickeywords app global) -----------------> Generickeywords.java (reportFailure())
+
+
+
+In keywordsclass create a function
+-----------------------------------
+public keywords{
+
+GenericKeywords app;
+app = new GenericKeywords(test);
+
+----
+---
+----
+
+public GenericKeywords getgenericKeywords(){
+return app
+}
+
+
+In Gmailtest class,
+-----------------------
+
+Keywords app = new Keywords(test);
+
+app. = below app is keywords app which calls getgenerickeywords() which returns app of generickeywords class and then calls reportfailure and takescreenshotfunction
+app.getGenericKeywords().reportFailure("Failuremessage");   //this report failure will automaticlly take screenshots
+
+
+Question may arise, why reportfailure cannot beused like other functions in generickeywords. Report failure is needed anytime in gmailtest
+so in that case we need to create the generickeywords app return function in keywords class as shown above
+
+-------------------------------------------------------------
+
+
+13. Separate project - Reading data sets from xls
+============================================
+Tab=TestCases
+
+TCID 	RunMode
+TestA	Y
+TestB	N
+TestC	N
+
+
+Tab=Data
+TestA
+RunMode Col1  Col2 	Col3
+Y	a1	a2	a3
+N	a4	a5	a6
+N	a7	a8	a9
+
+
+TestB
+RunMode Col1  Col2
+Y	b1	b2
+N	b4	b5
+	
+
+Xls_Reader xls = new XLs_Reader(path);
+
+string sheetName = "Data";
+string testCaseName = "TestB"
+
+teststartrownum=1
+while(xls.getcelldata(sheetname,0,teststartrownum).equals(testCaseName)){
+teststartrownum++;
+}
+int colstartrownum = teststartrownnum+1;
+int datastartrownum = teststartrownnum+2;
+
+//count total no.of rows
+int rows=0;
+
+while(xls.getcelldata(sheetname,0,datastartrownum).equals(""){
+rows++;
+}
+syso("total data rows"+rows)
+
+//count total columns
+int cols=1;
+while(xls.getcelldata(sheetname,col-1,colastartrownum).equals(""){
+colss++;
+}
+
+syso("total cols "+cols)
+
+
+//now you have rows and cols, read the data
+
+
+for(int rNum=datastartrownum;rNum<datastartrownum+data;rNum++){
+for(int cNum=0;cNum<cols;cNum++){
+syso(xls.getcelldata(sheetName,cNum,rNum));
+}}
+//this will print all the data
+
+
+Now, data from xls is not printed in real time,. instead it is fed to data provider
+
+
+@Test(DataProvider="getData")
+public void testing(String runmod,string col1, string col2){
+}
+
+
+@DataProvider
+public object[][] getData(){
+
+Xls_Reader xls = new XLs_Reader(path);
+
+string sheetName = "Data";
+string testCaseName = "TestB"
+
+teststartrownum=1
+while(xls.getcelldata(sheetname,0,teststartrownum).equals(testCaseName)){
+teststartrownum++;
+}
+int colstartrownum = teststartrownnum+1;
+int datastartrownum = teststartrownnum+2;
+
+//count total no.of rows
+int rows=0;
+
+while(xls.getcelldata(sheetname,0,datastartrownum).equals(""){
+rows++;
+}
+syso("total data rows"+rows)
+
+//count total columns
+int cols=1;
+while(xls.getcelldata(sheetname,col-1,colastartrownum).equals(""){
+colss++;
+}
+
+syso("total cols "+cols)
+
+Object[][] d = new Object[rows][cols];
+//now you have rows and cols, read the data
+int dataRow=0;
+
+for(int rNum=datastartrownum;rNum<datastartrownum+data;rNum++){
+for(int cNum=0;cNum<cols;cNum++){
+syso(xls.getcelldata(sheetName,cNum,rNum));
+
+data[dataRow][cNum] = xls.getcelldata(sheetName,cNum,rNum);
+}
+dataRow++
+}
+return data[][];
+}
+
+But above logic in testcase to read the data, we need to keep changing parameters. instead we use hashtable which acts as a bag
+
+Hashtable has key value pair and it will store each set of record in 1 column by creating a new hashtable
+
+
+hashtable1  = Runmode = Y
+	      col1 = A1
+	      col2 = A2
+	      col3  = A3
+
+hashtable1  = Runmode = Y
+	      col1 = A4
+	      col2 = A5
+	      col3  = A6
+
+hashtable1  = Runmode = N
+	      col1 = A1
+	      col2 = A2
+	      col3  = A3
+
+
+In data provoder
+
+Object[][] data=new Object[rows][1];
+
+Hashtable()<String,String> table = null;
+
+
+for(int rNum=datastartrownum;rNum<datastartrownum+data;rNum++){
+table = new Hashtable()<>; //hash table table is created newly for each row
+for(int cNum=0;cNum<cols;cNum++){
+String key = xls.getcelldata(sheetName,col,colstartrownum));
+String valie = xls.getcelldata(sheetName,cNum,rNum));
+
+table.put(key,value)
+}
+data[datarow][0]=table;
+dataRow++
+}
+return data;
+}
+
+
+@Test(DataProvider="getData")
+public void testing(Hashtable<> data){
+syso(data.get("runmod") +data.get("col1")+data.get("col2")+data.get("col2")) ;   //column names are the keys
+}
+
+
+---------------------------------------------------------
+
+Now, coming back to gmail test
+
+
+GmailTest:
+----------
+
+public gmailTest{
+String testname = "gmailtest"
+Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
+
+@Test(Dataprovider="getdata")
+public void doLogin(Hashtable<> data){
+
+if(data.get("runmod").equals("N"))}
+test.log(logstatus.skip,"Skipping the tets");
+
+throw new skip exception("Skipping test");
+}
+
+ExtentTest test = rep.startTest(testname);
+test.log(logstaus.info,"Starting gmail login test");
+
+Xls_Reader xls  = new Xls_Reader("Contants.SUITEA_XLS")
+Keywords app = new Keywords();
+test.log(logstaus.info,"execute keywords");
+app.executekeywords(testname, xls);
+test.log(logstaus.PASS,"Passed");
+}}
+
+
+
+
+Now, in realtime we dont create dataprovider like this for each test like gmailtest
+
+instead, 
+create a class DataUtil in src/main/java/hybrid1.util
+
+
+public class DataUtil{
+public static object[][] getdata(Xls_reader xls, String testname)
+write above code to read data from xls.........
+}
+
+
+
+---
+
+
+@DataProvideer
+public object[][] getdata{
+return DataUtil.getdata(xls,testname);
+}
+
+---------------------------
+
+
+Now data is in hashtable, how to read that data instead of data column in Keywordsheet
+
+
+tab = Keywordsheet
+TCID	Description	Keyword		object			data
+
+GmailTest		openBrowser				chrome(REPLACE WITH KEY BROWSER FROM BELOW)
+GmailTest		navigate	url	
+GmailTest		click		gmailLink_xpath	
+GmailTest		click		signIn_xpath	
+GmailTest		input		email_xpath		mubeen85(REPLACE WITH KEY USERNAME FROM BELOW)
+GmailTest		click		nextButton_xpath	
+GmailTest		closeBrowser		
+
+
+tab=data
+
+GmailTest			
+Runmode	Browser		Username	Password
+Y	Mozilla		mubeen85	Hightime
+N	Chrome		U2		P2
+N	Mozilla		U3		P3
+
+
+In gmailtest class,
+---------
+pass the hashtable data
+
+app.executekeywords(testname,xls,data);    //pass the hash table data
+
+
+In Keywords class,
+------------------
+
+public void executekeywords(String testunderexecution, xls_reader xls, Hashtable<> testdata)
+
+if (TCID=testunderexecution){
+String Keywords= xls.getcelldata(Contants.Keywords_Sheet,Contants.Keywords_COL,rNUm);
+String Objects= xls.getcelldata(Contants.Keywords_Sheet,Contants.Object_Col,rNUm);
+String key = xls.getcelldata(Contants.Keywords_Sheet,Contants.data_col,rNUm);  
+String data = testdata.get(key);    //browser and username will act as key and corresponding value is retrieved from data sheet
+syso(TCID+Keywords+Object+data)
+}
+
+
+
+14. How to optionally run the testcases
+============================================
+
+
+tab1 = TestCases
+tab2 = Keywords
+tab3 = Data
+
+
+tab1 = TestCases
+
+TCID   			Runmodes
+gmailTets		Y
+Facebooktest		N
+xyztest			N
+
+
+tab2 = Keywordsheet
+TCID	Description	Keyword		object			data
+
+GmailTest		openBrowser				chrome(REPLACE WITH KEY BROWSER FROM BELOW)
+GmailTest		navigate	url	
+GmailTest		click		gmailLink_xpath	
+GmailTest		click		signIn_xpath	
+GmailTest		input		email_xpath		mubeen85(REPLACE WITH KEY USERNAME FROM BELOW)
+GmailTest		click		nextButton_xpath	
+GmailTest		closeBrowser		
+
+
+tab3=data
+
+GmailTest			
+Runmode	Browser		Username	Password
+Y	Mozilla		mubeen85	Hightime
+N	Chrome		U2		P2
+N	Mozilla		U3		P3
+
+
+
+Based on tab1 runnability a test case will be executed and corresponding data set in tab3 is executable for runmode Y
+
+
+Implementing optional run
+-----------------------------
+
+in Datautil class other than the dataprovider, we create another function
+
+
+public static boolean isSkippable(xls_reader, String testname){
+
+int rows  =xls.getrowcount(CONSTANTS.TESTCASES_SHEET)
+
+for(int rNum=2;rNum<rows;rNum++)
+String tcid = xls.getcelldata(CONSTANTS.TESTCASE_SHEET,CONSTANTS.TCID_COL,rNum);
+if(TCID.equals(testname))
+String runmod = xls.getcelldata(CONSTANTS.TESTCASE_SHEET,CONSTANTS.RUNMOD_COL,rNum);
+if runmod.equals("Y")
+return false
+else
+return true;   //that mean you need to skip test cases
+
+//true - N	
+//false - Y
+}
+
+In Gmailtest
+------------------
+
+if(Datautil.isSkippable(xls, testName) || data.get("runmod").equals("N"))}    //skip if this line is true
+----
+
+@Test(Dataprovider="getdata")
+public void doLogin(Hashtable<> data){
+
+if(Datautil.isSkippable(xls, testName) || data.get("runmod").equals("N"))}  
+test.log(logstatus.skip,"Skipping the tets");
+
+throw new skip exception("Skipping test");
+}
+
+ExtentTest test = rep.startTest(testname);
+test.log(logstaus.info,"Starting gmail login test");
+
+--------------------------------
+
+15. Implementing Application specifc keywords
+=================================================
+
+1. Create Appkeywords in src/main/java baside keywords and geenrickeywords
+2. This will have functions specifc to test and cannot be used for other testing
+3. this class will extend generickeywords
+4. 
+
+public class Appkeywords extends generickeywords{
+
+public Appkeywords(ExtenTest test){
+super(test);    //reference to test in generickeywords
+}
+
+public void verifylogindetails(){
+}
+
+
+
+In keywords class
+replace 
+app = new genericKeywords(test)
+
+to 
+app = new AppKeywords(test)
+
+
+also replace
+
+public Appkeywords getgenericKeywords{
+return app
+}
+
+
+Also
+
+in Keywords class
+
+add below line to read the name of title from hastable of data sheet
+
+
+elseif(keywords.equals("verifylogindetail"))
+app.verifylogindetails(testdata)
+
+
+in Appkeywords
+
+public void verifylogindetails(Hashtable<>,testdata){
+
+//name
+String expectedName = testdata.get("name");
+String expID = testdata.get("username");
+
+//below write actualvalue and give results
+}
+
+GmailTest			
+Runmode	Browser		Username	Password      Name
+Y	Mozilla		mubeen85	Hightime      Mubeen
+N	Chrome		U2		P2		x
+N	Mozilla		U3		P3		x
+
+
+
+---------------------------------------------------------------
+
+
+Interesting thing
+
+16. Return value assigned to all functions
+============================================
+
+Till now all functions implemented in Generic keywords and Appkeywords are returning void. Instead of that we return Pass of Fail
+with associated error message. Then this error message is captured in keywords.class
+
+In Constants class
+add
+public static String PASS = "PASS"
+pubcli static String FAIL = "FAIL"
+
+
+In GenericKeywords and Appkeywords, replace void with String and add return type
+
+
+public string navigate(String urlkey){
+syso("navigating to url"+prop.getproperty(urlkey))
+//driver.get(url)
+return Constants.PASS
+}
+
+public string click(String locatorkey){
+syso("clicking on"+prop.getproperty(locatorkey))
+return Constants.PASS
+}
+
+public string input(String locatorkey, String datakey){
+syso
+return Constants.PASS
+}
+
+
+
+In Keywords class
+
+if(keywords.equals("openBrowser"))
+result = app.openBrowser(data)
+elseif(keywords.equals("navigate"))
+result = app.openBrowser(object)
+elseif(keywords.equals("click"))
+result = app.navigate(object)
+else if(keywords.equals("input"))
+result = app.input(object,data)
+
+if (!result.equals(Constants.PASS))
+app.reportfailure(result);  //this will take screenshot
+assert.fail(result);  //will fail tcs
+
+
+
+17. Implement ANT
+===================
+refer ANT topics
+
+
+18. Emailing Reports:
+=======================
+
+Create a new package qtp.selenium.com.hybrid.mail
+
+in the package keep below 3 files
+1. FileFilterDateIntervalUtils.Java
+2. SendMail.Java
+3. Zip.java
+
+in pom.xml -- dependency mail.jar has to be added
+
+
+in Constants file add the Extent Reports path
+
+
+In SendMail.java
+--------------------
+
+1. provide the path of Extent Reports.
+2. using FileFilterDateIntervalUtils class find the latest extent report in the path provided
+3. Using File class, get the latest file based on the filefilter class above
+4. use sendmail function to send email
+5. need following details like username,passwords, host, port, auth and also provide attachment path etc
+
+For xslt report, it is avaialable in test-output folder. whcih needs to be zipped and send
+hence we use zip.java class
+
+To send XSL reports from ANT, add target report_email with package path sendmail.java
+
+1. ANT report_email will send the email
+
+
+
+
+---------------------------------------------------------------------END of CORE HYBRID FRAMEWORK-----------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------STARTING WEBSITE test using HYBRID--------------------------------------------------------------------------------------------------------
 
 
 ==============================================================XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==============================================================
