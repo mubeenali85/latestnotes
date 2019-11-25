@@ -22,7 +22,7 @@ Iphone App	<--JSON/XML-->	Rest API(Process Businees Logic)  <---https://->   App
 
 6. What is the endpoint?
 
-Endpoint consisit of : baseURL/resource?parameters			//resource and paramters can be separatd by ?
+Endpoint consist of : baseURL/resource?parameters			//resource and paramters can be separatd by ?
 
 Ex: qaclickacademy.com/courses-detail/id=wev
 
@@ -132,11 +132,228 @@ key = key=YOUR_API_KEY
 Key is important to be passed as header to authenticate yourself to google server and use their features
 
 
+10. How to generate API key for Google place search
+----------------------------------------------------------
+1. Go to google, search = google place search api and click on first link
+2. Click on Google Cloud Platform Console link
+3. Click on Create
+4. Create project with any name
+5. Click Create
+6. Select Rest Assured API from drop down
+7. Select Places API icon
+8. Click Enable
+9. Click Credentials tab
+10. Click credential create link
+11. Click create key
+12. Select API key from drop down
+13. API Key is generated: AIzaSyA4iiTyJ_Vw1bMNAw5NQkU-jOmabWglmu0
 
 
 
+11. Famous tools to test API
+Postman, Rest Client, Soap UI and Jmeter
+
+12. How to download Postman
+Go to https://www.getpostman.com/ and download .exe to install
+
+
+13. Postman Credentials
+mubeen85@gmail.com
+Hightime...0
+
+14. How to use Postman using a URI with GET operation
+
+From this link for google API https://developers.google.com/places/web-service/search
+
+Copy the URI for nearby places =https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=YOUR_API_KEY
+
+Go to POSTMAN and select GET operation
+
+In Authorization, first copy the baseURL + resource +output = https://maps.googleapis.com/maps/api/place/nearbysearch/json
+Click on params, enter key value for location, radius and API_KEY and hit enter
+
+it should give the results
 
 
 
+15. How to do a POST operation add a place to Google API with JSON file
+
+Go to Postman,
+1. Select POST
+2. baseURL = http://216.10.245.166
+3. Resource = maps/api/place/add/
+4. Header or Output= JSON
+5. key =qaclick123
+
+URI =http://216.10.245.166/maps/api/place/add/json?key=qaclick123
+
+Body:
+-----
+Copy and pase below Body in postman, remember to select raw and text = JSON in Postman
+{
+    "location":{
+        "lat" : -38.383494,
+        "lng" : 33.427362
+    },
+    "accuracy":50,
+    "name":"Frontline house",
+    "phone_number":"(+91) 983 893 3937",
+    "address" : "29, side layout, cohen 09",
+    "types": ["shoe park","shop"],
+    "website" : "http://google.com",
+    "language" : "French-IN"
+}
+
+
+O/P =
+Note: place is added, not the place id
+
+{
+    "status": "OK",
+    "place_id": "e2961d0f10cf0996cbe9751a10353bc1",
+    "scope": "APP",
+    "reference": "176a1df635a2df65b02f4ba46ecd4701176a1df635a2df65b02f4ba46ecd4701",
+    "id": "176a1df635a2df65b02f4ba46ecd4701"
+}
+
+Remember in POST, there is no parameters like location and radius passed like in GET, instead we pass the body like above with all the details to be added.
+	
+
+
+16. How to do a POST operation add a place to Google API with XML file
+
+remember to change output in URI as XML
+in body, select raw radio button and text =XML
+
+Body:
+-----
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <location>
+        <lat>-38.383494</lat>
+        <lng>33.427362</lng>
+    </location>
+    <accuracy>50</accuracy>
+    <name>The Mens store</name>
+    <phone_number>(+91) 983 893 3937</phone_number>
+    <address>Anna Salai, Chennai</address>
+    <types>shoe park</types>
+    <types>kadai</types>
+    <website>http://google.com</website>
+    <language>tamil-IN</language>
+</root>
+
+
+O/p -
+
+<?xml version="1.0"?>
+<response>
+    <status>OK</status>
+    <place_id>b52ea56e4731acee293b278401d7ac0f</place_id>
+    <scope>APP</scope>
+    <reference>afb8726bf3ef00693845c6b8e83a019dafb8726bf3ef00693845c6b8e83a019d</reference>
+    <id>afb8726bf3ef00693845c6b8e83a019d</id>
+</response>
+
+
+
+17. What is the signifance of POST operation?
+POST is the superset of PUT and DELETE. We can do the same thing with POST, that can be done with PUT and DELETE like update an existing data and deleting a record
+
+
+18. How to do DELETE operation of google place which we created?
+
+Note: have the place id handy from the previous where we create a place
+
+
+Complete URL : http://216.10.245.166/maps/api/place/delete/json?key=qaclick123
+
+Base URL : http://216.10.245.166
+Resource : /maps/api/place/delete/json
+Parameters: key
+Http request : POST			//We can use POST for DELETE operation as well
+
+Body :
+{
+    "place_id":"e2961d0f10cf0996cbe9751a10353bc1"          //(This value comes from Add place response)
+}
+
+
+O/p Response:
+{
+    "status": "OK"
+}
+
+
+19. What is REST assured?
+REST Assured is JAVA API used to test REST Services built on HTTP. It supports requests like GET, POST, PUT, DELETE, OPTIONS, PATCH and HEAD.
+Rest Assured can be used to validate the response of these request
+
+
+
+20. Setup Automation Environment
+
+1. Download Java JDK = https://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html
+2. Setup envornment variables
+JAVA_HOME = C:\Program Files\Java\jdk-13.0.1
+Path = C:\Program Files\Java\jdk-13.0.1\bin 		//add jdk path
+3. Download Eclipse: https://www.eclipse.org/downloads/
+4 Download Rest Assured Libraries = https://github.com/rest-assured/rest-assured/wiki/Downloads
+
+Unzip all the jar files and add to the project
+Right click on project > Build Path > Add External JARS from librabries tab
+
+
+21. Download essential 9 jars from here - https://drive.google.com/drive/folders/1YregyxfVPmH75box77q7ZXVcbxV8BFA_
+
+
+22. Format for Automation
+
+baseURL:
+given()
+Request Headers
+Parameters
+Request Cookies
+Body
+
+when()
+get(resource)
+post(resource)
+put(resource)
+delete(resource)
+
+then()
+assertions to make sure we are getting correct response
+ extract()
+
+
+23. Sample working code for Get Request:
+For Google Place Search API
+
+Code:
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.given;
+
+public class basics {
+
+	public static void main(String[] args) {	
+		RestAssured.baseURI = "https://maps.googleapis.com";
+		given().
+			   param("location","-33.8670522,151.1957362").
+			   param("radius","500").
+			   param("key","AIzaSyA4iiTyJ_Vw1bMNAw5NQkU-jOmabWglmu0").
+			   when().
+			   get("maps/api/place/nearbysearch/json").
+			   then().assertThat().statusCode(200);
+		
+	}
+}
+
+
+O/P
+Blank in console means success
+
+
+24. 
 
 
