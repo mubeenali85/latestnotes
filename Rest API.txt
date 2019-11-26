@@ -354,6 +354,73 @@ O/P
 Blank in console means success
 
 
-24. 
+24. To check if Header Response contentType is JSON
+
+then().assertThat().statusCode(200).and().contentType(ContentType.JSON);
+
+
+25. Response from an operation is stored in Objects
+We can use jsoneditoronline.org for better view of the response
+
+26. How to traverse in jsononlineeditor tool
+
+//When you close any object, if you are not able view the desired result. go till there 
+
+27. How to validate the response for Get request from Place search of Google Search API
+
+Need to add package if using equalTo() function
+import static org.hamcrest.Matchers.equalTo;
+
+
+
+Code:
+------
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+
+public class basics2 {
+
+	public static void main(String[] args) {
+
+		
+		
+		RestAssured.baseURI = "https://maps.googleapis.com";
+		
+		given().
+		param("location","-33.8670522,151.1957362").
+		param("radius","500").
+		param("key","AIzaSyA4iiTyJ_Vw1bMNAw5NQkU-jOmabWglmu0").
+		when().
+		get("/maps/api/place/nearbysearch/json").
+		then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().
+		body("results[0].geometry.location.lat",equalTo("-33.8688197")).and().
+		body("results[0].name",equalTo("Sydney")).and().
+ 		body("results[0].place_id",equalTo("ChIJP3Sa8ziYEmsRUKgyFmh9AQM")).and().
+		header("Server", "pablo");
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
