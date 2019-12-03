@@ -1,3 +1,18 @@
+Resolve Errors:
+
+1. How to avoid below error in TestNG
+Error: A JNI error has occured, please check your installation and try again
+
+Refer link https://www.softwaretestinghelp.com/testng-framework-selenium-tutorial-12/
+
+Need to add TestNG library
+
+
+2. 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 What is Rest API
 
@@ -366,7 +381,7 @@ We can use jsoneditoronline.org for better view of the response
 
 //When you close any object, if you are not able view the desired result. go till there 
 
-27. How to validate the response for Get request from Place search of Google Search API
+27. How to automate validate the response for Get request from Place search of Google Search API
 
 Need to add package if using equalTo() function
 import static org.hamcrest.Matchers.equalTo;
@@ -405,22 +420,716 @@ public class basics2 {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
+
+
+
+28. Different types of parameters
+
+Query params - Ex: https://maps.googleapis.com/add?q=kdkdkd;  This has query params using ?
+Path params  - Ex: https://maps.googleapis.com/{bookid};   This is path params
+Header params - Params passed in header is Header params
+
+
+29. How different is post from get while sending parameter
+
+For get, we can send the parameters along with URI
+FOr Post, we can send only API Key as parameter. Rest all should be in the Body
+
+30. How to automate validate the response for POST request to add Place of Google Search API
+
+Note, in POST we use queryParam to pass the API key only. Rest all key/values will go in the body
+It is mandatory to have the body for any POST oeprations
+
+
+Working Code:
+----------------
+
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.given;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import static org.hamcrest.Matchers.equalTo;
+
+public class basicPOST {
+
+	
+@Test
+public void post1() {
+	
+	RestAssured.baseURI="http://216.10.245.166";
+	
+	given().
+	queryParam("key","qaclick123").
+	body("{"+
+		    "\"location\":{"+
+	        "\"lat\" : -33.8669710,"+
+	        "\"lng\" : 151.1958750"+
+	    "},"+
+	    "\"accuracy\":50,"+
+	    "\"name\":\"Google Shoes!\","+
+	    "\"phone_number\":\"(02) 9374 4000\","+
+	    "\"address\" : \"48 Pirrama Road, Pyrmont, NSW 2009, Australia\","+
+	    "\"types\": [\"shoe park\"],"+
+	    "\"website\" : \"http://google.com\","+
+	    "\"language\" : \"en-AU\""+
+	"}").
+	
+	when().
+	post("/maps/api/place/add/json").
+	then().assertThat().statusCode(200).and().
+	contentType(ContentType.JSON).and().
+	body("status",equalTo("OK"));
+}
+}
+
+
+
+31. Points to remember while copy body
+
+1. in the body, if there is " double code. Have a forward slash \ infront of it
+2. open and close every line with " and "+ 
+3. See above format
+
+
+32. How to Copy the body
+
+1. body("")
+2. Copy the body inside the double codes
+
+
+
+33. How to POST to add a place and Delete(Which is also a POST operation) JSON Format 
+
+Note:
+Here we are creating a place with place id and then fetch the place_id and delete it. Remember in Body of Delete task. Need to add the JSON of place_id
+
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.given;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+
+import static org.hamcrest.Matchers.equalTo;
+
+public class basicPOST {
+
+	
+@Test
+public void post1() {
+	String b = "{"+
+		    "\"location\":{"+
+	        "\"lat\" : -33.8669710,"+
+	        "\"lng\" : 151.1958750"+
+	    "},"+
+	    "\"accuracy\":50,"+
+	    "\"name\":\"Google Shoes!\","+
+	    "\"phone_number\":\"(02) 9374 4000\","+
+	    "\"address\" : \"48 Pirrama Road, Pyrmont, NSW 2009, Australia\","+
+	    "\"types\": [\"shoe park\"],"+
+	    "\"website\" : \"http://google.com\","+
+	    "\"language\" : \"en-AU\""+
+	"}";
+	
+	RestAssured.baseURI="http://216.10.245.166";
+	
+	Response res = given().
+	queryParam("key","qaclick123").
+	body(b).
+	
+	when().
+	post("/maps/api/place/add/json").
+	then().assertThat().statusCode(200).and().
+	contentType(ContentType.JSON).and().
+	body("status",equalTo("OK")).
+	extract().response();
+	
+	//Task 2 - Grab the placeid from response
+	
+	String responseString = res.asString();
+	JsonPath js = new JsonPath(responseString);
+	System.out.println(responseString);
+	String placeid = js.get("place_id");
+	System.out.println(placeid);
+
+	//Task 3- Delete the grabbed placeid
+	
+	
+	given().
+	queryParam("key","qaclick123").
+	body("{"+
+	    "\"place_id\": \""+placeid+"\""+
+	"}").
+	when().
+	post("/maps/api/place/delete/json").
+	then().assertThat().statusCode(200).and().
+	contentType(ContentType.JSON).and().
+	body("status",equalTo("OK"));
+	
+}
+}
+
+
+O/p-
+
+{"status":"OK","place_id":"e8a2f07d19e500d1268b4eea05d2d184","scope":"APP","reference":"297be7d09d1a7e045cd682c7b86f53ea297be7d09d1a7e045cd682c7b86f53ea","id":"297be7d09d1a7e045cd682c7b86f53ea"}
+e8a2f07d19e500d1268b4eea05d2d184
+PASSED: post1
+
+
+
+
+
+
+
+35. JSON Framework Basics:
+
+Framework, create properties file and have the host url and key in this file
+Have the resources like post in resources.java. Create a static method to call the resource
+Have the payLoads like String in payLoad.java. Create a static method that can return and get the full payload in a string
+
+
+1. Create file > env.properties
+
+HOST = http://216.10.245.166
+KEY = qaclick123
+
+
+2. Create file > resources.java
+
+package file;
+
+public class resources {
+	
+	public static String placePostData() {
+		
+		String placePostData = "/maps/api/place/add/json";
+		
+		return placePostData;
+		
+	}
+
+}
+
+
+3. Create file > payLoad.java
+
+package file;
+
+public class payLoad {
+
+	public static String getPostData() {
+		
+		String b = "{"+
+			    "\"location\":{"+
+		        "\"lat\" : -33.8669710,"+
+		        "\"lng\" : 151.1958750"+
+		    "},"+
+		    "\"accuracy\":50,"+
+		    "\"name\":\"Google Shoes!\","+
+		    "\"phone_number\":\"(02) 9374 4000\","+
+		    "\"address\" : \"48 Pirrama Road, Pyrmont, NSW 2009, Australia\","+
+		    "\"types\": [\"shoe park\"],"+
+		    "\"website\" : \"http://google.com\","+
+		    "\"language\" : \"en-AU\""+
+		"}";
+		return b;
+	}
+	
+}
+
+
+4. Updates default > basics3.java
+
+Code:
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.given;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import file.payLoad;
+import file.resources;
+import static org.hamcrest.Matchers.equalTo;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class basics3 {
+	Properties prop = new Properties();
+@BeforeTest
+public void getData() throws IOException {
+	
+	FileInputStream fis = new FileInputStream("C:\\Users\\mubali\\eclipse-workspace\\DemoProject1\\src\\file\\env.properties");
+	prop.load(fis);
+}
+	
+@Test
+public void post1() {
+	RestAssured.baseURI= prop.getProperty("HOST");
+	
+	Response res = given().
+	queryParam("key",prop.getProperty("KEY")).
+	body(payLoad.getPostData()).
+	
+	when().
+	post(resources.placePostData()).
+	then().assertThat().statusCode(200).and().
+	contentType(ContentType.JSON).and().
+	body("status",equalTo("OK")).
+	extract().response();
+	
+	//Task 2 - Grab the placeid from response
+	
+	String responseString = res.asString();
+	JsonPath js = new JsonPath(responseString);
+	System.out.println(responseString);
+	String placeid = js.get("place_id");
+	System.out.println(placeid);
+
+	//Task 3- Delete the grabbed placeid
+	
+	
+	given().
+	queryParam("key","qaclick123").
+	body("{"+
+	    "\"place_id\": \""+placeid+"\""+
+	"}").
+	when().
+	post("/maps/api/place/delete/json").
+	then().assertThat().statusCode(200).and().
+	contentType(ContentType.JSON).and().
+	body("status",equalTo("OK"));
+	
+}
+}
+
+------------------------------------------------------------
+37.How to POST to add a place and Delete(Which is also a POST operation) XML Format 
+It is same as how we do in JSON. Step 34
+
+Only thing is we need to change the resource from JSON to XML and COntent Type from JSON to XML
+Then we need to create a file with body of xml using notepad++ and save in local
+Use the method which can read the path and read xml in Bytes and then return as string. Pass it in the main method
+Rest all is same as how it is done in JSON
+
+
+Working Code:
+-----------------
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.given;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.path.xml.XmlPath;
+import io.restassured.response.Response;
+import file.payLoad;
+import file.resources;
+import static org.hamcrest.Matchers.equalTo;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Properties;
+
+public class basicsxml {
+
+	
+	@Test
+	public void postDataXML() throws IOException {
+		
+		RestAssured.baseURI = "http://216.10.245.166";
+		String postData = GenerateStringFromResource("C:\\Users\\mubali\\Desktop\\xmlplaceadd.xml") ;
+		Response res = given().
+		queryParam("key","qaclick123").
+		body(postData).
+	
+		when().
+		post("/maps/api/place/add/xml").
+		
+		then().assertThat().statusCode(200).and().
+		contentType(ContentType.XML).and().
+		extract().response();	
+		
+		String response = res.asString();
+		System.out.println(response);
+		XmlPath x = new XmlPath(response);
+
+		System.out.println(x.get("response.place_id").toString());			//REMEMBER THIS LINE IS SLIGHTLY DIFFERENT BETWEEN json AND xml
+												// In XML = x.get("response.place_id")
+												// In JSON = x.get("place_id")
+		
+		
+	}
+	
+
+	public static String GenerateStringFromResource(String path) throws IOException {
+		return new String(Files.readAllBytes(Paths.get(path)));
+	}
+	
+}
+
+
+
+>>o/p
+[RemoteTestNG] detected TestNG version 6.7.0
+[TestNG] Running:
+  C:\Users\mubali\AppData\Local\Temp\testng-eclipse--1077530170\testng-customsuite.xml
+
+<?xml version="1.0"?>
+<response><status>OK</status><place_id>d6ee14309862eddc447404da40f5650a</place_id><scope>APP</scope><reference>800d4f0ed010e05aa5b4f84ac4a8ccc5800d4f0ed010e05aa5b4f84ac4a8ccc5</reference><id>800d4f0ed010e05aa5b4f84ac4a8ccc5</id></response>
+
+d6ee14309862eddc447404da40f5650a
+PASSED: postDataXML
+
+
+>>
+
+Remember:
+To save the xml body in local system and pass the path. Rename the file to .xml format
+
+XML in File:
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <location>
+        <lat>-38.383494</lat>
+        <lng>33.427362</lng>
+    </location>
+    <accuracy>50</accuracy>
+    <name>The Mens store</name>
+    <phone_number>(+91) 983 893 3937</phone_number>
+    <address>Anna Salai, Chennai</address>
+    <types>shoe park</types>
+    <types>kadai</types>
+    <website>http://google.com</website>
+    <language>tamil-IN</language>
+</root> 
+
+
+
+38. In above Post Operation for XML and JSON, we can create a reusable method for JSON and XML
+
+Below Code can be converted to a method that can be resused like rawtoxml() and rawtojson()
+
+In XML,
+		String response = res.asString();
+		System.out.println(response);
+		XmlPath x = new XmlPath(response);
+		System.out.println(x.get("response.place_id").toString());
+
+In JSON, 
+	String responseString = res.asString();
+	JsonPath js = new JsonPath(responseString);
+	System.out.println(responseString);
+	String placeid = js.get("place_id");
+
+
+
+Create class under file> ReusableMethods.java
+
+Code:
+-----------
+package file;
+
+import io.restassured.path.json.JsonPath;
+import io.restassured.path.xml.XmlPath;
+import io.restassured.response.Response;
+
+public class ReusableMethods {
+
+	
+	public static XmlPath rawtoxml(Response r) {
+		
+		String response = r.asString();
+		System.out.println(response);
+		XmlPath x = new XmlPath(response);
+		return x;
+	}
+	
+
+	public JsonPath rawtojsonl(Response r) {
+		
+		String response = r.asString();
+		System.out.println(response);
+		JsonPath x = new JsonPath(response);
+		return x;
+	}
+}
+
+
+
+
+Update default > basicsxml.java
+-------------------------------------
+
+Working Code:
+------------
+
+import org.testng.annotations.BeforeTest;
+import file.ReusableMethods;						//remember to import ReusableMethods
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.given;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.path.xml.XmlPath;
+import io.restassured.response.Response;
+import file.payLoad;
+import file.resources;
+import static org.hamcrest.Matchers.equalTo;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Properties;
+
+public class basicsxml {
+
+	
+	@Test
+	public void postDataXML() throws IOException {
+		
+		RestAssured.baseURI = "http://216.10.245.166";
+		String postData = GenerateStringFromResource("C:\\Users\\mubali\\Desktop\\xmlplaceadd.xml") ;
+		Response res = given().
+		queryParam("key","qaclick123").
+		body(postData).
+	
+		when().
+		post("/maps/api/place/add/xml").
+		
+		then().assertThat().statusCode(200).and().
+		contentType(ContentType.XML).and().
+		extract().response();	
+		
+		XmlPath x = ReusableMethods.rawtoxml(res);
+		System.out.println(x.get("response.place_id").toString());
+		
+		
+	}
+	
+
+	public static String GenerateStringFromResource(String path) throws IOException {
+		return new String(Files.readAllBytes(Paths.get(path)));
+	}
+	
+}
+
+
+>>
+
+[RemoteTestNG] detected TestNG version 6.7.0
+[TestNG] Running:
+  C:\Users\mubali\AppData\Local\Temp\testng-eclipse-757242624\testng-customsuite.xml
+
+<?xml version="1.0"?>
+<response><status>OK</status><place_id>7e99d99cce22d019fd3491a8a400a166</place_id><scope>APP</scope><reference>36595407d405f05daff81cd273539c4b36595407d405f05daff81cd273539c4b</reference><id>36595407d405f05daff81cd273539c4b</id></response>
+
+7e99d99cce22d019fd3491a8a400a166
+PASSED: postDataXML
+
+
+39.HOw to traverse through xml
+
+reference link
+https://static.javadoc.io/com.jayway.restassured/rest-assured/1.4/com/jayway/restassured/path/xml/XmlPath.html
+
+
+40. How to extract all values from the response.
+For ex, using get request in google place search api where we are searching for places with in 500 radius
+
+We need to get the response. Use it in for loop and iterate through each index in the results/
+
+
+While using jsoneditor.org, for better display of the response in JSON. Remember is anything in square bracket[] then it is index of array
+anything in {} bracket is objects
+
+
+Not woorking Code:
+-------------------
+default> basicsget.java
+-------------------------------
+RestAssured.baseURI = "https://maps.googleapis.com";
+Response res = given().relaxedHTTPSValidation().
+  param("location","-33.8670522,151.1957362").
+  param("radius","500").
+  param("key","AIzaSyA4iiTyJ_Vw1bMNAw5NQkU-jOmabWglmu0").
+  when().
+  get("/maps/api/place/nearbysearch/json").
+  then().log().all().assertThat().statusCode(200).and().
+  contentType(ContentType.JSON).and().
+  body("results[0].geometry.location.lat",equalTo("-33.86882")).and().
+  body("results[0].name",equalTo("Sydney")).and().
+  body("results[0].place_id",equalTo("ChIJP3Sa8ziYEmsRUKgyFmh9AQM")).and().
+  header("Server", "pablo").extract().response();
+
+JsonPath js = ReusableMethods.rawtojsonl(res);
+
+
+int count = js.get("results.size");
+
+for(int i=0;i<count;i++) {
+	System.out.println(js.get("results["+i+"].name").toString());
+	
+}
+
+
+file>ReusableMethods.java
+------------------------
+package file;
+
+import io.restassured.path.json.JsonPath;
+import io.restassured.path.xml.XmlPath;
+import io.restassured.response.Response;
+
+public class ReusableMethods {
+
+	
+	public static XmlPath rawtoxml(Response r) {
+		
+		String response = r.asString();
+		System.out.println(response);
+		XmlPath x = new XmlPath(response);
+		return x;
+	}
+	
+
+	public static JsonPath rawtojsonl(Response r) {
+		
+		String response = r.asString();
+		System.out.println(response);
+		JsonPath x = new JsonPath(response);
+		return x;
+	}
+}
+
+
+>>
+Output will be extracting all the places names from the response.
+Inthis case it is 20 places, but code not working for me
+
+
+
+
+41. Logging feature
+--------------------------
+
+Reference link for logging - https://github.com/rest-assured/rest-assured/wiki/Usage#logging
+
+1. In given(), we can pass log().all() to display all the logs we have passed
+
+if log().all() is used along with given(). it will display in console all the inputs we have passed including header, request, resource and params
+
+given().log().all()
+given().log().params()
+given().log().body()
+given().log().headers()
+given().log().cookies()
+given().log().method()
+given().log().path()
+
+it is recommended to use given().log().all() for debugging. So we can see what all inputs we have passed
+
+given().ifValidationFails() - used to display logs oonly if there is a failure
+
+2. To get logs of response. Then use log().all() with then()
+
+like this, then().log().all()
+then().log().body()
+
+
+-----------------------------------------------------------------------------------------Section 8 - Handling Dynamic Json Payloads with Params----------------------------------------------------
+
+42. In this new section, we will discuss on dynamic payload. Where the values passed in body of payload is dynamic and not hard coded. What if the payload gets the value of address or name from different
+method
+
+
+For this we have new library API like
+
+
+Library API details:-
+-----------------------
+
+Library API :
+BaseURI : http://216.10.245.166
+ 
+1.	Resource : Library/Addbook.php       Method : POST
+ 
+Input Payload : Json:
+{
+
+"name":"Learn Appium Automation with Java",
+"isbn":"bcd",
+"aisle":"227",
+"author":"John foe"
+}
+ 
+Output Json 
+{
+   "Msg": "successfully added",
+   "ID": "bcd227"
+} 
+ 
+ 
+1.	Resource : /Library/GetBook.php?AuthorName=somename         Method : GET 
+ 
+Output Json :
+Output the array of Json object books with all below  details 
+ 
+{
+ 
+Name : “bookname”   ( String)
+Isbn :  “A2fdsf”   (String)
+Aisle : 32 (Integer)
+ 
+}
+ 
+ 
+1.	Resource : Library/GetBook.php?ID=3389      - Method : GET 
+ 
+Output Json :
+{
+      "book_name": "Selenium automation using Java",
+      "isbn": "a23hd738",
+      "aisle": "1223"
+   } 
+ 
+1.	Resource :/Library/DeleteBook.php      Method : POST
+ 
+Input Payload : Json:
+{
+ 
+"ID" : "a23h345122332"
+ 
+} 
+Output Response :
+{
+
+msg : book is successfully deleted”
+ 
+}
+
+
+Refer Post Man App for the POST and GET operations added for above requests
+
+---------------------------------------------------------------------------
+
+43. Data Driven Framework for LIbrary API
+
+
+
+
+
+
+
 
 
