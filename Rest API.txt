@@ -1080,7 +1080,7 @@ Output Json
 } 
  
  
-1.	Resource : /Library/GetBook.php?AuthorName=somename         Method : GET 
+2.	Resource : /Library/GetBook.php?AuthorName=somename         Method : GET 
  
 Output Json :
 Output the array of Json object books with all below  details 
@@ -1094,7 +1094,7 @@ Aisle : 32 (Integer)
 }
  
  
-1.	Resource : Library/GetBook.php?ID=3389      - Method : GET 
+3.	Resource : Library/GetBook.php?ID=3389      - Method : GET 
  
 Output Json :
 {
@@ -1103,7 +1103,7 @@ Output Json :
       "aisle": "1223"
    } 
  
-1.	Resource :/Library/DeleteBook.php      Method : POST
+4.	Resource :/Library/DeleteBook.php      Method : POST
  
 Input Payload : Json:
 {
@@ -1123,7 +1123,115 @@ Refer Post Man App for the POST and GET operations added for above requests
 
 ---------------------------------------------------------------------------
 
-43. Data Driven Framework for LIbrary API
+43. Dynamic JSON Payload for LIbrary API
+
+43.1 Create automation for addBook for library API using POST operation
+
+create class default>excelDriver.java
+
+Working Code:
+------------
+
+default>dynamicJSON.java
+-------------------------
+import file.ReusableMethods;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import file.ReusableMethods;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+
+import org.testng.annotations.Test;
+
+import file.ReusableMethods;
+public class dynamicJSON{
+
+	@Test
+	public void addBook() {
+		
+		RestAssured.baseURI = "http://216.10.245.166";
+		Response resp = given().
+				header("Content-Type","application/json").
+				body("{\r\n" + 
+						"\r\n" + 
+						"\"name\":\"Learn Appium Automation with Java\",\r\n" + 
+						"\"isbn\":\"bcdmu99b\",\r\n" + 
+						"\"aisle\":\"222\",\r\n" + 
+						"\"author\":\"John foe\"\r\n" + 
+						"}").
+				when().
+				post("/Library/Addbook.php").
+				then().assertThat().statusCode(200).
+				extract().response();
+		
+		
+		JsonPath js = ReusableMethods.rawtojsonl(resp);
+		String id = js.get("ID");
+		System.out.println(id);
+				
+				
+	}
+	
+}
+
+
+file>ReusableMethods.java
+-----------------------------------
+
+package file;
+
+import io.restassured.path.json.JsonPath;
+import io.restassured.path.xml.XmlPath;
+import io.restassured.response.Response;
+
+public class ReusableMethods {
+
+	
+	public static XmlPath rawtoxml(Response r) {
+		
+		String response = r.asString();
+		System.out.println(response);
+		XmlPath x = new XmlPath(response);
+		return x;
+	}
+	
+
+	public static JsonPath rawtojsonl(Response r) {
+		
+		String response = r.asString();
+		System.out.println(response);
+		JsonPath x = new JsonPath(response);
+		return x;
+	}
+}
+
+
+
+Output
+----------
+>>
+[RemoteTestNG] detected TestNG version 6.7.0
+[TestNG] Running:
+  C:\Users\mubali\AppData\Local\Temp\testng-eclipse--1893355964\testng-customsuite.xml
+
+{"Msg":"successfully added","ID":"bcdmu99b222"}
+bcdmu99b222
+PASSED: addBook
+
+
+Note:
+------
+need to change book name each time you run the code. Else it will throw error stating book already exist
+
+We can send payload either in JSON format or convert to string using below link that converts JSON to String
+https://www.freeformatter.com/json-escape.html#ad-output
+
+43.2 - Advanced Dynamic Payload in Automation
+-----------------------------------------------
+
+
 
 
 
